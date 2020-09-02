@@ -2,7 +2,10 @@ import React from 'react'
 class Home extends React.Component{
     render(){
         return (
-            <div>Home page</div>
+            <div>
+                <p>this is the home page</p>
+                <a href = "./signup">sign up</a>
+            </div>
         )
     }
 }
