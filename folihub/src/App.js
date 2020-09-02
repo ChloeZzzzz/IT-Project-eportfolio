@@ -1,16 +1,41 @@
-import React from 'react';
-import './App.css';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          HELLO FOLIHUB!!
-        </p>
-      </header>
-    </div>
-  );
+import Home from './components/Home';
+import Nav from "./components/Nav";
+import Signup from "./components/Signup";
+import Footer from "./components/Footer";
+
+
+import "./App.css";
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state={
+      loggIn : false,
+    }
+  }
+
+  // there should have an api to check whether this visitor is logged in hence change the loggedIn state
+
+  render()  {
+    return (
+      <div>
+      <Router>
+        
+        <Nav />
+        <Switch>
+          <Route exact path="/" render={props => <Home {...props} />} />
+          <Route exact path="/signup" render={props => <Signup {...props} />} />
+        </Switch>
+{/*
+        <Footer />
+*/}
+      </Router>
+      </div>
+    )
+  }
 }
 
 export default App;
