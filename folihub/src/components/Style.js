@@ -51,7 +51,6 @@ export const NavLogo = styled.div`
 export const NavName = FontFormat.extend`
     font-weight: bold;
     margin-top: 7px;
-    margin-left: 5px;
     font-size: 30px;
     font-family: "Geogia";
     color: ${colorPlan.Light};
@@ -68,6 +67,7 @@ export const AuthenCanvas = CanvasFormat.extend`
     'SignupForm'
     'AuthenButton'
     'AuthenRedirectText';
+    z-index: -1;
 `;
 
 export const Logo = styled.img`
