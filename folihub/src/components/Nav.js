@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Welcome from "react-welcome-page";
 import {colorPlan, NavContainer, NavLogo, NavName} from "./Style";
-import { shadows } from '@material-ui/system';
 
 class Nav extends Component {
   constructor(props) {
@@ -31,7 +30,7 @@ class Nav extends Component {
       );
     } else {
       return (
-        <NavContainer boxShadow={3}>
+        <NavContainer>
           <NavLogo />
           <NavName>Folihub</NavName>
         </NavContainer>
