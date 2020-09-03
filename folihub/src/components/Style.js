@@ -29,7 +29,7 @@ const FormFormat = styled.form`
 export const NavContainer = styled.div`
     position: relative;
     display: grid;
-    grid-template-columns: 10% 50% 10% 10% 10% 10%;
+    grid-template-columns: 6% 10% 54% 10% 10% 10%;
     justify-items: center | start | center | center | center | center;
     grid-template-areas: 'NavLogo NavName Save Export Preview User';
     height: 50px;
@@ -39,6 +39,10 @@ export const NavContainer = styled.div`
 
 export const NavLogo = styled.div`
     position: relative;
+    width: 80px;
+    height: 80px;
+    margin-top: 10px;
+    margin-left: 10px;
     background-size: 80%;
     background-repeat: no-repeat;
     background-image: url(${Logo_Light});
@@ -46,9 +50,10 @@ export const NavLogo = styled.div`
 
 export const NavName = FontFormat.extend`
     font-weight: bold;
-    margin-top: auto;
-    margin-bottom: auto;
+    margin-top: 7px;
+    margin-left: 5px;
     font-size: 30px;
+    font-family: "Geogia";
     color: ${colorPlan.Light};
 `;
 
@@ -66,9 +71,11 @@ export const AuthenCanvas = CanvasFormat.extend`
 `;
 
 export const Logo = styled.img`
-    background-color: white;
-    margin-top: auto;
+    
+    margin-top: 100px;
     margin-bottom: auto;
+    height:60px;
+    width: 140px;
 `;
 
 export const Title = FontFormat.extend`
@@ -80,5 +87,9 @@ export const Title = FontFormat.extend`
     color: ${colorPlan.Dark};
 `
 export const SignupForm = FormFormat.extend`
+
+`;
+
+export const LoginForm = FormFormat.extend`
 
 `;

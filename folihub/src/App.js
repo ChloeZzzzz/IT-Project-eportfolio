@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from './components/Home';
 import Nav from "./components/Nav";
 import Signup from "./components/Signup";
+import Login from "./components/Login";
 import Footer from "./components/Footer";
 
 
@@ -26,9 +27,9 @@ class App extends Component {
         <Nav />
         <Switch>
           <Route exact path="/" render={props => <Home {...props} />} />
+          <Route exact path="/Login" render={props => <Login {...props} />} />
           <Route exact path="/signup" render={props => <Signup {...props} />} />
         </Switch>
-
         <Footer />
 
       </Router>
