@@ -8,8 +8,19 @@ class Login extends React.Component {
         super(props);
         this.state={
             loading: false,
-            loggedIn: false,
-        }
+            loggIn: false,
+            value: ''
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({value: event.target.value});
+    }
+    handleSubmit(event) {
+        alert("an email is submitted: " + this.state.value);
+        event.preventDefault();
     }
 
     render() {
@@ -31,9 +42,15 @@ class Login extends React.Component {
         else {
             return (
                 <AuthenCanvas>
-                    <Logo src={Logo_Dark}/>
                     <Title>Login</Title>
-                    <LoginForm/>
+                    <form onSubmit={this.handleSubmit}>
+                        <input type="text"
+                        class="Email"
+                        value={this.state.value} 
+                        onChange={this.handleChange}
+                        placeholder="Email"
+                        />
+                    </form>
                 </AuthenCanvas>
             )
         }

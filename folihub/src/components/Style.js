@@ -56,7 +56,6 @@ export const NavName = FontFormat.extend
     font-weight: bold;
     margin-top: 7px;
     font-size: 30px;
-    font-family: "Geogia";
     color: ${colorPlan.Light};
 `;
 
