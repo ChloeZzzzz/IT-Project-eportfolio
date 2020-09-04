@@ -1,5 +1,5 @@
 import React from 'react'
-import {CollectionCanvas, ItemContainer, Item, ItemDescription, ItemTextContainer, ItemTitle, ItemDate} from './Style.js';
+import {CollectionCanvas, ItemContainer, Item, ItemDescription, ItemTitle, ItemDate} from './Style.js';
 
 class UserHomepage extends React.Component{
     constructor(props) {
@@ -7,36 +7,36 @@ class UserHomepage extends React.Component{
         this.state={
             loading: false, // the loading animation
             loggedIn : false,
-            eportfolio: {
-                name: "happy",
+            eportfolio: [
+            {
+                name: "Happy",
                 date: "24/8/2020",
             },
+            {
+                name: "Sunday",
+                date: "25/8/2020",
+            }
+            ],
         }
+
     }
 
     render(){
+        const items = this.state.eportfolio.map((e) => 
+            <Item>
+                <ItemDescription>
+                    <ItemTitle>
+                        {e.name}
+                    </ItemTitle>
+                    <ItemDate>
+                        {e.date}
+                    </ItemDate>
+                </ItemDescription>
+            </Item>)
         return (
             <CollectionCanvas>
                 <ItemContainer>
-                    <Item>
-                        <ItemDescription>
-                            <ItemTitle>
-                                {this.state.eportfolio.name}
-                            </ItemTitle>
-                            <ItemDate>
-                                {this.state.eportfolio.date}
-                            </ItemDate>
-                        </ItemDescription>
-                    </Item>
-                    <Item />
-                    <Item />
-                    <Item />
-                    <Item />
-                    <Item />
-                    <Item />
-                    <Item />
-                    <Item />
-                    <Item />
+                    {items}
                 </ItemContainer>
             </CollectionCanvas>
         )
