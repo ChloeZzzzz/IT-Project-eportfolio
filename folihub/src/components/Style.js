@@ -88,7 +88,7 @@ export const Title = FontFormat.extend
     color: ${colorPlan.Dark};
 `
 export const SignupForm = FormFormat.extend`
-
+    width: 30%;
 `;
 
 export const LoginForm = FormFormat.extend`
@@ -97,8 +97,9 @@ export const LoginForm = FormFormat.extend`
 
 export const InputContainer = styled.div
 `
-    margin-top: 10%;
-    margin-bottom: 10%;
+    display: grid;
+    margin-top: 10px;
+    margin-bottom: 10px;
 `;
 
 export const Button = styled.button
