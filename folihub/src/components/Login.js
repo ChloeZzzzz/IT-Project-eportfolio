@@ -53,7 +53,7 @@ class Login extends React.Component {
                         <InputContainer>
                             <TextField
                                 size="small"
-                                variant="outlined"
+                                variant="filled"
                                 id="email"
                                 name="email"
                                 label="Email"
@@ -64,7 +64,7 @@ class Login extends React.Component {
                         <InputContainer>
                             <TextField
                                 size="small"
-                                variant="outlined"
+                                variant="filled"
                                 id="password"
                                 name="password"
                                 label="Password"

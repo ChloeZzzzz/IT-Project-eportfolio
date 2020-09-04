@@ -61,7 +61,7 @@ class Signup extends React.Component{
                         <InputContainer>
                             <TextField
                                 size = "small"
-                                variant = "outlined"
+                                variant = "filled"
                                 id = "email"
                                 name = "email"
                                 placeholder = "email@address.com"
@@ -73,7 +73,7 @@ class Signup extends React.Component{
                         <InputContainer>
                             <TextField
                                 size = "small"
-                                variant = "outlined"
+                                variant = "filled"
                                 id = "password"
                                 name = "password"
                                 placeholder = "your password"
@@ -85,7 +85,7 @@ class Signup extends React.Component{
                         <InputContainer>
                             <TextField
                                 size = "small"
-                                variant = "outlined"
+                                variant = "filled"
                                 id = "confirmpw"
                                 name = "confirmpw"
                                 placeholder = "re-enter your password"

@@ -106,6 +106,7 @@ export const Button = styled.button
     font-weight: bold;
     border:  2px solid;
     border-radius: 5px;
+    margin-top: 20px;
     height: 50px;
     width: 300px;
     &:hover {background-color: ${colorPlan.Medium}};
