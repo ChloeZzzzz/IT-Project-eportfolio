@@ -56,8 +56,7 @@ class Login extends React.Component {
                                 variant="outlined"
                                 id="email"
                                 name="email"
-                                placeholder="Email"
-                                label="email"
+                                label="Email"
                                 onchange={this.handleChange}
                                 required
                             />
@@ -68,8 +67,7 @@ class Login extends React.Component {
                                 variant="outlined"
                                 id="password"
                                 name="password"
-                                placeholder="Password"
-                                label="password"
+                                label="Password"
                                 onchange={this.handleChange}
                                 required
                             />
