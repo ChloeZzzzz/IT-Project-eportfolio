@@ -56,7 +56,7 @@ class Signup extends React.Component{
           } else {
             return (
                 <AuthenCanvasSignup>
-                    <Title>Sign up</Title>
+                    <Title>Sign Up</Title>
                     <SignupForm class="Form" onSubmit = {this.handleSubmit} onChange={this.handleChange}>
                         <InputContainer>
                             <TextField
@@ -95,7 +95,7 @@ class Signup extends React.Component{
                             />
                         </InputContainer>
                         <Button type="submit">
-                            Sign up
+                            Sign Up
                         </Button>
                         <AuthenRedirectText>
                             <text>Already signed up?&nbsp;</text>
