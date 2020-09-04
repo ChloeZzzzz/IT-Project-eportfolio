@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Logo_Dark from "../img/folihub_dark.png";
 import Logo_Light from "../img/folihub_light.png";
+import Login_Img from "../img/login-bgimg.jpg";
 
 const colorPlan1 = {
     Dark: "#292F36",
@@ -20,8 +21,10 @@ const FontFormat = styled.div
 
 const CanvasFormat = styled.div
 `
-    height: 1000px;
+    height: 750px;
     background-color: ${colorPlan.Light};
+    background: url(${Login_Img});
+    background-size: 1400px;
     z-index: -1;
 `;
 
@@ -67,7 +70,7 @@ export const AuthenCanvas = CanvasFormat.extend
     justify-items: center;
     grid-template-areas: 
     'Title'
-    'Form'
+    'Form';
 `;
 
 export const Logo = styled.img
