@@ -116,5 +116,11 @@ export const Button = styled.button
     &:active {
         background-color: ${colorPlan.Light};
         color: ${colorPlan.Dark_Medium};
-    }
+    }b
+`;
+
+export const TextLink = styled.a
+`
+    color: ${colorPlan.Dark_Medium};
+    font-family: Geogia;
 `;

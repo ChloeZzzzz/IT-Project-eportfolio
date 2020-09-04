@@ -1,6 +1,6 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
-import {colorPlan, AuthenCanvas, InputContainer, Title, SignupForm, Button} from "./Style";
+import {colorPlan, AuthenCanvas, InputContainer, Title, SignupForm, Button, TextLink} from "./Style";
 import {TextField} from '@material-ui/core';
 
 class Signup extends React.Component{
@@ -94,11 +94,12 @@ class Signup extends React.Component{
                                 required
                             />
                         </InputContainer>
-                        <Button
-                            type="submit"
-                        >
-                        Sign up
+                        <Button type="submit">
+                            Sign up
                         </Button>
+                        <TextLink href="/login">
+                            Already signed up? Log in
+                        </TextLink>
                     </SignupForm>
                 </AuthenCanvas>
             )
