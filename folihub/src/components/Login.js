@@ -1,7 +1,8 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
 import Logo_Dark from "../img/folihub_dark.png";
-import {colorPlan, AuthenCanvas, Logo, Title, LoginForm} from "./Style";
+import {colorPlan, AuthenCanvas, Button, InputContainer, Title, TextLink} from "./Style";
+import {TextField} from '@material-ui/core';
 
 class Login extends React.Component {
     constructor(props) {
@@ -9,18 +10,23 @@ class Login extends React.Component {
         this.state={
             loading: false,
             loggIn: false,
-            value: ''
+            msg: '',
+            email: '',
+            password: '',
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(event) {
-        this.setState({value: event.target.value});
+        this.setState({msd: ''});
+        this.setState({
+            [event.target.name] : event.target.value
+        })
     }
+
     handleSubmit(event) {
-        alert("an email is submitted: " + this.state.value);
-        event.preventDefault();
+        //login api
     }
 
     render() {
@@ -43,13 +49,36 @@ class Login extends React.Component {
             return (
                 <AuthenCanvas>
                     <Title>Login</Title>
-                    <form onSubmit={this.handleSubmit}>
-                        <input type="text"
-                        class="Email"
-                        value={this.state.value} 
-                        onChange={this.handleChange}
-                        placeholder="Email"
-                        />
+                    <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
+                        <InputContainer>
+                            <TextField
+                                size="small"
+                                variant="outlined"
+                                id="email"
+                                name="email"
+                                placeholder="Email"
+                                label="email"
+                                onchange={this.handleChange}
+                                required
+                            />
+                        </InputContainer>
+                        <InputContainer>
+                            <TextField
+                                size="small"
+                                variant="outlined"
+                                id="password"
+                                name="password"
+                                placeholder="Password"
+                                label="password"
+                                onchange={this.handleChange}
+                                required
+                            />
+                        </InputContainer>
+                        <Button type="submit">
+                            Login
+                        </Button>
+                        <text>Doesn't have account?&nbsp;</text>
+                        <TextLink href="/Signup">Sign up</TextLink> 
                     </form>
                 </AuthenCanvas>
             )

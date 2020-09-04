@@ -97,9 +97,8 @@ class Signup extends React.Component{
                         <Button type="submit">
                             Sign up
                         </Button>
-                        <TextLink href="/login">
-                            Already signed up? Log in
-                        </TextLink>
+                        <text>Already signed up?&nbsp;</text>
+                        <TextLink href="/login">Login</TextLink>
                     </SignupForm>
                 </AuthenCanvas>
             )
