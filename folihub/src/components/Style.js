@@ -24,13 +24,6 @@ const CanvasFormat = styled.div
 `
     height: 750px;
     z-index: -1;
-    display: grid;
-    grid-template-rows: 15em 20em;
-    align-items: end | center | start;
-    justify-items: center;
-    grid-template-areas: 
-    'Title'
-    'Form';
 `;
 
 const FormFormat = styled.form`
@@ -72,14 +65,25 @@ export const NavName = FontFormat.extend
     color: ${colorPlan.Light};
 `;
 
-export const AuthenCanvasLogin = CanvasFormat.extend
+export const AuthenCanvas = CanvasFormat.extend
+`
+    display: grid;
+    grid-template-rows: 15em 20em;
+    align-items: end | center | start;
+    justify-items: center;
+    grid-template-areas: 
+    'Title'
+    'Form';
+`;
+
+export const AuthenCanvasLogin = AuthenCanvas.extend
 `
     background-color: ${colorPlan.Light};
     background: url(${Login_Img});
     background-size: 1500px;   
 `;
 
-export const AuthenCanvasSignup = CanvasFormat.extend
+export const AuthenCanvasSignup = AuthenCanvas.extend
 `
     background-color: ${colorPlan.Light};
     background: url(${Signup_Img});
@@ -154,4 +158,56 @@ export const AuthenRedirectText = styled.div
     margin-top: 10px;
     font-size: 10px;
     font-family: Georgia;
+`;
+
+export const CollectionCanvas = CanvasFormat.extend
+`
+    display: flex;
+    background-color: ${colorPlan.Light};
+`;
+
+export const ItemContainer = styled.div
+`
+    width: 80%;
+    height: 70%;
+    min-width: 600px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 120px);
+    grid-template-rows: repeat(auto-fill, 170px);
+    justify-items: repeat(center);
+    align-items: repeat(center);
+    grid-row-gap: 100px;
+    grid-column-gap: 50px;
+`;
+
+export const Item = styled.div
+`
+    background-color: rgba(242,242,242,0.8);
+    border-radius: 5px;
+    box-shadow: 5px 5px 8px ${colorPlan.Medium};
+`;
+
+export const ItemDescription = styled.div
+`
+    width: 100%;
+    height: 25%;
+    margin-top: 105%;
+    background-color: white;
+    border-radius: 5px;
+`
+
+export const ItemTitle = FontFormat.extend
+`
+    text-align: center;
+`;
+
+export const ItemDate = FontFormat.extend
+`
+    text-align: center;
+    font-size: 10px;
+    opacity: 0.8;
 `;
