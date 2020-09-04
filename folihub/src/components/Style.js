@@ -62,14 +62,12 @@ export const NavName = FontFormat.extend
 export const AuthenCanvas = CanvasFormat.extend
 `
     display: grid;
-    grid-template-rows: 20% 10% 30% 10% 30%;
-    align-items: end | start | center | end | start;
+    grid-template-rows: 20% 50% 30%;
+    align-items: end | center | start;
     justify-items: center;
     grid-template-areas: 
-    'Logo'
     'Title'
     'SignupForm'
-    'AuthenButton'
     'AuthenRedirectText';
 `;
 
@@ -83,7 +81,6 @@ export const Logo = styled.img
 
 export const Title = FontFormat.extend
 `
-    background-color: white;
     font-weight: bold;
     margin-top: auto;
     margin-bottom: auto;
@@ -98,13 +95,26 @@ export const LoginForm = FormFormat.extend`
 
 `;
 
+export const InputContainer = styled.div
+`
+    margin-top: 10%;
+    margin-bottom: 10%;
+`;
+
 export const Button = styled.button
 `
-    background: transparent,
-    border:  2px solid,
-    border-color: ${colorPlan.Dark},
-    border-radius: 3,
-    color: ${colorPlan.Dark},
-    height: 30px,
-    padding: 0 30px,
+    background-color: ${colorPlan.Dark_Medium};
+    border-color: ${colorPlan.Dark_Medium};
+    color: ${colorPlan.Light};
+    font-family: Geogia;
+    font-weight: bold;
+    border:  2px solid;
+    border-radius: 5px;
+    height: 10%;
+    width: 100%;
+    &:hover {background-color: ${colorPlan.Medium}};
+    &:active {
+        background-color: ${colorPlan.Light};
+        color: ${colorPlan.Dark_Medium};
+    }
 `;

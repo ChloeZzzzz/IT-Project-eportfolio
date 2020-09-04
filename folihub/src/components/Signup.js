@@ -1,7 +1,6 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
-import Logo_Dark from "../img/folihub_dark.png";
-import {colorPlan, AuthenCanvas, Logo, Title, SignupForm, Button} from "./Style";
+import {colorPlan, AuthenCanvas, InputContainer, Title, SignupForm, Button} from "./Style";
 import {TextField} from '@material-ui/core';
 
 class Signup extends React.Component{
@@ -57,40 +56,46 @@ class Signup extends React.Component{
           } else {
             return (
                 <AuthenCanvas>
-                    <Logo src = {Logo_Dark}/>
                     <Title>Sign up</Title>
                     <SignupForm onSubmit = {this.handleSubmit} onChange={this.handleChange}>
-                        <TextField
-                            variant = "outlined"
-                            id = "email"
-                            name = "email"
-                            placeholder = "Enter your email address here"
-                            label = "email"
-                            onChange = {this.handleChange}
-                            required
-                        />
-                        <TextField
-                            variant = "outlined"
-                            id = "password"
-                            name = "password"
-                            placeholder = "Enter your password here"
-                            label = "password"
-                            onChange = {this.handleChange}
-                            value = {this.state.password}
-                            required
-                        />
-                        <TextField
-                            variant = "outlined"
-                            id = "confirmpw"
-                            name = "confirmpw"
-                            placeholder = "Confirm your password here"
-                            label = "confirmpw"
-                            onChange = {this.handleChange}
-                            required
-                        />
+                        <InputContainer>
+                            <TextField
+                                size = "small"
+                                variant = "outlined"
+                                id = "email"
+                                name = "email"
+                                placeholder = "email@address.com"
+                                label = "email"
+                                onChange = {this.handleChange}
+                                required
+                            />
+                        </InputContainer>
+                        <InputContainer>
+                            <TextField
+                                size = "small"
+                                variant = "outlined"
+                                id = "password"
+                                name = "password"
+                                placeholder = "your password"
+                                label = "password"
+                                onChange = {this.handleChange}
+                                required
+                            />
+                        </InputContainer>
+                        <InputContainer>
+                            <TextField
+                                size = "small"
+                                variant = "outlined"
+                                id = "confirmpw"
+                                name = "confirmpw"
+                                placeholder = "re-enter your password"
+                                label = "confirmpw"
+                                onChange = {this.handleChange}
+                                required
+                            />
+                        </InputContainer>
                         <Button
                             type="submit"
-                            variant="contained"
                         >
                         Sign up
                         </Button>
