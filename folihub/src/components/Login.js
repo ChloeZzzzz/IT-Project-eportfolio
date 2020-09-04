@@ -1,7 +1,7 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
 import Logo_Dark from "../img/folihub_dark.png";
-import {colorPlan, AuthenCanvas, Button, InputContainer, Title, AuthenRedirectText, TextLink} from "./Style";
+import {colorPlan, AuthenCanvasLogin, Button, InputContainer, Title, AuthenRedirectText, TextLink} from "./Style";
 import {TextField} from '@material-ui/core';
 
 class Login extends React.Component {
@@ -47,7 +47,7 @@ class Login extends React.Component {
         }
         else {
             return (
-                <AuthenCanvas>
+                <AuthenCanvasLogin>
                     <Title>Login</Title>
                     <form class="Form" onSubmit={this.handleSubmit} onChange={this.handleChange}>
                         <InputContainer>
@@ -80,7 +80,7 @@ class Login extends React.Component {
                             <TextLink href="/Signup">Sign up</TextLink> 
                         </AuthenRedirectText>
                     </form>
-                </AuthenCanvas>
+                </AuthenCanvasLogin>
             )
         }
     }

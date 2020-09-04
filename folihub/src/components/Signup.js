@@ -1,6 +1,6 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
-import {colorPlan, AuthenCanvas, AuthenRedirectText, InputContainer, Title, SignupForm, Button, TextLink} from "./Style";
+import {colorPlan, AuthenCanvasSignup, AuthenRedirectText, InputContainer, Title, SignupForm, Button, TextLink} from "./Style";
 import {TextField} from '@material-ui/core';
 
 class Signup extends React.Component{
@@ -55,7 +55,7 @@ class Signup extends React.Component{
             );
           } else {
             return (
-                <AuthenCanvas>
+                <AuthenCanvasSignup>
                     <Title>Sign up</Title>
                     <SignupForm class="Form" onSubmit = {this.handleSubmit} onChange={this.handleChange}>
                         <InputContainer>
@@ -102,7 +102,7 @@ class Signup extends React.Component{
                             <TextLink href="/login">Login</TextLink>
                         </AuthenRedirectText>
                     </SignupForm>
-                </AuthenCanvas>
+                </AuthenCanvasSignup>
             )
           }
     }

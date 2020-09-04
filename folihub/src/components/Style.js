@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Logo_Dark from "../img/folihub_dark.png";
 import Logo_Light from "../img/folihub_light.png";
 import Login_Img from "../img/login-bgimg.jpg";
+import Signup_Img from "../img/signup-bgimg.jpg";
 
 const colorPlan1 = {
     Dark: "#292F36",
@@ -22,10 +23,14 @@ const FontFormat = styled.div
 const CanvasFormat = styled.div
 `
     height: 750px;
-    background-color: ${colorPlan.Light};
-    background: url(${Login_Img});
-    background-size: 1400px;
     z-index: -1;
+    display: grid;
+    grid-template-rows: 15em 20em;
+    align-items: end | center | start;
+    justify-items: center;
+    grid-template-areas: 
+    'Title'
+    'Form';
 `;
 
 const FormFormat = styled.form`
@@ -62,15 +67,18 @@ export const NavName = FontFormat.extend
     color: ${colorPlan.Light};
 `;
 
-export const AuthenCanvas = CanvasFormat.extend
+export const AuthenCanvasLogin = CanvasFormat.extend
 `
-    display: grid;
-    grid-template-rows: 15em 20em;
-    align-items: end | center | start;
-    justify-items: center;
-    grid-template-areas: 
-    'Title'
-    'Form';
+    background-color: ${colorPlan.Light};
+    background: url(${Login_Img});
+    background-size: 1500px;   
+`;
+
+export const AuthenCanvasSignup = CanvasFormat.extend
+`
+    background-color: ${colorPlan.Light};
+    background: url(${Signup_Img});
+    background-size: 1500px;   
 `;
 
 export const Logo = styled.img
