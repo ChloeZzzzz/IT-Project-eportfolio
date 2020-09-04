@@ -13,20 +13,23 @@ const colorPlan1 = {
 
 export const colorPlan = colorPlan1;
 
-const FontFormat = styled.div`
+const FontFormat = styled.div
+`
     font-family: Georgia;
 `;
 
-const CanvasFormat = styled.div`
-    position: relative;
+const CanvasFormat = styled.div
+`
     height: 1000px;
     background-color: ${colorPlan.Light};
+    z-index: -1;
 `;
 
 const FormFormat = styled.form`
 `;
 
-export const NavContainer = styled.div`
+export const NavContainer = styled.div
+`
     position: relative;
     display: grid;
     grid-template-columns: 6% 10% 54% 10% 10% 10%;
@@ -48,7 +51,8 @@ export const NavLogo = styled.div`
     background-image: url(${Logo_Light});
 `;
 
-export const NavName = FontFormat.extend`
+export const NavName = FontFormat.extend
+`
     font-weight: bold;
     margin-top: 7px;
     font-size: 30px;
@@ -56,7 +60,8 @@ export const NavName = FontFormat.extend`
     color: ${colorPlan.Light};
 `;
 
-export const AuthenCanvas = CanvasFormat.extend`
+export const AuthenCanvas = CanvasFormat.extend
+`
     display: grid;
     grid-template-rows: 20% 10% 30% 10% 30%;
     align-items: end | start | center | end | start;
@@ -67,18 +72,19 @@ export const AuthenCanvas = CanvasFormat.extend`
     'SignupForm'
     'AuthenButton'
     'AuthenRedirectText';
-    z-index: -1;
+
 `;
 
-export const Logo = styled.img`
-    
+export const Logo = styled.img
+`
     margin-top: 100px;
     margin-bottom: auto;
     height:60px;
     width: 140px;
 `;
 
-export const Title = FontFormat.extend`
+export const Title = FontFormat.extend
+`
     background-color: white;
     font-weight: bold;
     margin-top: auto;
@@ -92,4 +98,15 @@ export const SignupForm = FormFormat.extend`
 
 export const LoginForm = FormFormat.extend`
 
+`;
+
+export const Button = styled.button
+`
+    background: transparent,
+    border:  2px solid,
+    border-color: ${colorPlan.Dark},
+    border-radius: 3,
+    color: ${colorPlan.Dark},
+    height: 30px,
+    padding: 0 30px,
 `;

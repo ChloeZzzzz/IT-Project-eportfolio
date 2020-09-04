@@ -5,7 +5,8 @@ class Home extends React.Component{
             <div>
                 <p>this is the home page</p>
                 <a href = "./signup">sign up</a>
-                <a href = "./login">login</a>
+                <br />
+                <a href = "./login">log in</a>
             </div>
         )
     }

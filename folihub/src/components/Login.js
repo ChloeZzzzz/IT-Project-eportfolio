@@ -8,7 +8,7 @@ class Login extends React.Component {
         super(props);
         this.state={
             loading: false,
-            loggIn: false,
+            loggedIn: false,
         }
     }
 
