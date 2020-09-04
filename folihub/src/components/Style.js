@@ -72,7 +72,6 @@ export const AuthenCanvas = CanvasFormat.extend
     'SignupForm'
     'AuthenButton'
     'AuthenRedirectText';
-
 `;
 
 export const Logo = styled.img

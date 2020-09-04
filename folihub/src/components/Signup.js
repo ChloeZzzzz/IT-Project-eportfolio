@@ -2,7 +2,7 @@ import React from 'react';
 import Welcome from "react-welcome-page";
 import Logo_Dark from "../img/folihub_dark.png";
 import {colorPlan, AuthenCanvas, Logo, Title, SignupForm, Button} from "./Style";
-import {Container, TextField} from '@material-ui/core';
+import {TextField} from '@material-ui/core';
 
 class Signup extends React.Component{
     constructor(props) {
@@ -11,7 +11,7 @@ class Signup extends React.Component{
             loading: false, // the loading animation
             loggedIn : false,
             msg:  '',
-            email: '???',
+            email: '',
             password: '',
             confirmpw: '',
         }
@@ -62,9 +62,12 @@ class Signup extends React.Component{
                     <SignupForm onSubmit = {this.handleSubmit} onChange={this.handleChange}>
                         <TextField
                             variant = "outlined"
+                            id = "email"
                             name = "email"
+                            placeholder = "Enter your email address here"
+                            label = "email"
                             onChange = {this.handleChange}
-                            value = {this.state.email}
+                            required
                         />
                         <TextField
                             variant = "outlined"
