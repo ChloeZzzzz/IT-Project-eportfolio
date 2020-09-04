@@ -40,7 +40,7 @@ export const NavContainer = styled.div
 `
     position: relative;
     display: grid;
-    grid-template-columns: 6% 10% 54% 10% 10% 10%;
+    grid-template-columns: 6% 54% 10% 10% 10% 10%;
     justify-items: center | start | center | center | center | center;
     grid-template-areas: 'NavLogo NavName Save Export Preview User';
     height: 50px;
