@@ -65,7 +65,7 @@ class Signup extends React.Component{
                                 id = "email"
                                 name = "email"
                                 placeholder = "email@address.com"
-                                label = "email"
+                                label = "Email"
                                 onChange = {this.handleChange}
                                 required
                             />
@@ -77,7 +77,7 @@ class Signup extends React.Component{
                                 id = "password"
                                 name = "password"
                                 placeholder = "your password"
-                                label = "password"
+                                label = "Password"
                                 onChange = {this.handleChange}
                                 required
                             />
@@ -89,7 +89,7 @@ class Signup extends React.Component{
                                 id = "confirmpw"
                                 name = "confirmpw"
                                 placeholder = "re-enter your password"
-                                label = "confirmpw"
+                                label = "Confirm Password"
                                 onChange = {this.handleChange}
                                 required
                             />
@@ -97,9 +97,8 @@ class Signup extends React.Component{
                         <Button type="submit">
                             Sign up
                         </Button>
-                        <TextLink href="/login">
-                            Already signed up? Log in
-                        </TextLink>
+                        <text>Already signed up?&nbsp;</text>
+                        <TextLink href="/login">Login</TextLink>
                     </SignupForm>
                 </AuthenCanvas>
             )
