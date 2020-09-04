@@ -62,13 +62,12 @@ export const NavName = FontFormat.extend
 export const AuthenCanvas = CanvasFormat.extend
 `
     display: grid;
-    grid-template-rows: 20% 50% 30%;
+    grid-template-rows: 15em 20em;
     align-items: end | center | start;
     justify-items: center;
     grid-template-areas: 
     'Title'
-    'SignupForm'
-    'AuthenRedirectText';
+    'Form'
 `;
 
 export const Logo = styled.img
@@ -82,16 +81,12 @@ export const Logo = styled.img
 export const Title = FontFormat.extend
 `
     font-weight: bold;
-    margin-top: auto;
+    margin-top: 150px;
     margin-bottom: auto;
     font-size: 40px;
     color: ${colorPlan.Dark};
 `
 export const SignupForm = FormFormat.extend`
-
-`;
-
-export const LoginForm = FormFormat.extend`
 
 `;
 
@@ -106,12 +101,12 @@ export const Button = styled.button
     background-color: ${colorPlan.Dark_Medium};
     border-color: ${colorPlan.Dark_Medium};
     color: ${colorPlan.Light};
-    font-family: Geogia;
+    font-family: Georgia;
     font-weight: bold;
     border:  2px solid;
     border-radius: 5px;
-    height: 10%;
-    width: 100%;
+    height: 50px;
+    width: 300px;
     &:hover {background-color: ${colorPlan.Medium}};
     &:active {
         background-color: ${colorPlan.Light};
@@ -122,5 +117,13 @@ export const Button = styled.button
 export const TextLink = styled.a
 `
     color: ${colorPlan.Dark_Medium};
-    font-family: Geogia;
+    font-family: Georgia;
+`;
+
+export const AuthenRedirectText = styled.div
+`
+    text-align: center;
+    margin-top: 10px;
+    font-size: 10px;
+    font-family: Georgia;
 `;

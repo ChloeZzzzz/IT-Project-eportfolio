@@ -1,6 +1,6 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
-import {colorPlan, AuthenCanvas, InputContainer, Title, SignupForm, Button, TextLink} from "./Style";
+import {colorPlan, AuthenCanvas, AuthenRedirectText, InputContainer, Title, SignupForm, Button, TextLink} from "./Style";
 import {TextField} from '@material-ui/core';
 
 class Signup extends React.Component{
@@ -57,7 +57,7 @@ class Signup extends React.Component{
             return (
                 <AuthenCanvas>
                     <Title>Sign up</Title>
-                    <SignupForm onSubmit = {this.handleSubmit} onChange={this.handleChange}>
+                    <SignupForm class="Form" onSubmit = {this.handleSubmit} onChange={this.handleChange}>
                         <InputContainer>
                             <TextField
                                 size = "small"
@@ -97,8 +97,10 @@ class Signup extends React.Component{
                         <Button type="submit">
                             Sign up
                         </Button>
-                        <text>Already signed up?&nbsp;</text>
-                        <TextLink href="/login">Login</TextLink>
+                        <AuthenRedirectText>
+                            <text>Already signed up?&nbsp;</text>
+                            <TextLink href="/login">Login</TextLink>
+                        </AuthenRedirectText>
                     </SignupForm>
                 </AuthenCanvas>
             )

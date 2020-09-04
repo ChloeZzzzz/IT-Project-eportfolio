@@ -1,7 +1,7 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
 import Logo_Dark from "../img/folihub_dark.png";
-import {colorPlan, AuthenCanvas, Button, InputContainer, Title, TextLink} from "./Style";
+import {colorPlan, AuthenCanvas, Button, InputContainer, Title, AuthenRedirectText, TextLink} from "./Style";
 import {TextField} from '@material-ui/core';
 
 class Login extends React.Component {
@@ -49,7 +49,7 @@ class Login extends React.Component {
             return (
                 <AuthenCanvas>
                     <Title>Login</Title>
-                    <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
+                    <form class="Form" onSubmit={this.handleSubmit} onChange={this.handleChange}>
                         <InputContainer>
                             <TextField
                                 size="small"
@@ -75,8 +75,10 @@ class Login extends React.Component {
                         <Button type="submit">
                             Login
                         </Button>
-                        <text>Doesn't have account?&nbsp;</text>
-                        <TextLink href="/Signup">Sign up</TextLink> 
+                        <AuthenRedirectText>
+                            <text>Doesn't have an account?&nbsp;</text>
+                            <TextLink href="/Signup">Sign up</TextLink> 
+                        </AuthenRedirectText>
                     </form>
                 </AuthenCanvas>
             )
