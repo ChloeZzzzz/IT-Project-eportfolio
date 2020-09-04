@@ -1,7 +1,7 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
 import Logo_Dark from "../img/folihub_dark.png";
-import {colorPlan, AuthenCanvasLogin, Button, InputContainer, Title, AuthenRedirectText, TextLink} from "./Style";
+import {colorPlan, AuthenCanvasLogin, Button, InputContainer, Title, AuthenForm, AuthenRedirectText, TextLink} from "./Style";
 import {TextField} from '@material-ui/core';
 
 class Login extends React.Component {
@@ -49,7 +49,7 @@ class Login extends React.Component {
             return (
                 <AuthenCanvasLogin>
                     <Title>Login</Title>
-                    <form class="Form" onSubmit={this.handleSubmit} onChange={this.handleChange}>
+                    <AuthenForm onSubmit={this.handleSubmit} onChange={this.handleChange}>
                         <InputContainer>
                             <TextField
                                 size="small"
@@ -57,6 +57,7 @@ class Login extends React.Component {
                                 id="email"
                                 name="email"
                                 label="Email"
+                                type = "email"
                                 onchange={this.handleChange}
                                 required
                             />
@@ -68,18 +69,21 @@ class Login extends React.Component {
                                 id="password"
                                 name="password"
                                 label="Password"
+                                type = "password"
                                 onchange={this.handleChange}
                                 required
                             />
                         </InputContainer>
-                        <Button type="submit">
-                            Login
-                        </Button>
+                        <InputContainer>
+                            <Button type="submit">
+                                Login
+                            </Button>
+                        </InputContainer>
                         <AuthenRedirectText>
                             <text>Doesn't have an account?&nbsp;</text>
                             <TextLink href="/Signup">Sign up</TextLink> 
                         </AuthenRedirectText>
-                    </form>
+                    </AuthenForm>
                 </AuthenCanvasLogin>
             )
         }

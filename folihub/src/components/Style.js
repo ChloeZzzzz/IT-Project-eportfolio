@@ -97,13 +97,22 @@ export const Title = FontFormat.extend
     font-size: 40px;
     color: ${colorPlan.Dark};
 `
-export const SignupForm = FormFormat.extend`
-    width: 30%;
+
+export const AuthenForm = FormFormat.extend`
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 50%;
+    min-width: 200px;
+    max-width: 625px;
 `;
 
 export const InputContainer = styled.div
 `
     display: grid;
+    width: 80%;
+    min-width: 160px;
+    max-width: 500px;
+    margin-left: 10%;
+    margin-right: 10%;
     margin-top: 10px;
     margin-bottom: 10px;
 `;
@@ -117,14 +126,15 @@ export const Button = styled.button
     font-weight: bold;
     border:  2px solid;
     border-radius: 5px;
-    margin-top: 20px;
     height: 50px;
-    width: 300px;
+    &:disabled {
+        background-color: ${colorPlan.Medium};
+    }
     &:hover {background-color: ${colorPlan.Medium}};
     &:active {
         background-color: ${colorPlan.Light};
         color: ${colorPlan.Dark_Medium};
-    }b
+    };
 `;
 
 export const TextLink = styled.a

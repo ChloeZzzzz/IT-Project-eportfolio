@@ -1,6 +1,6 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
-import {colorPlan, AuthenCanvasSignup, AuthenRedirectText, InputContainer, Title, SignupForm, Button, TextLink} from "./Style";
+import {colorPlan, AuthenCanvasSignup, AuthenRedirectText, InputContainer, Title, AuthenForm, Button, TextLink} from "./Style";
 import {TextField} from '@material-ui/core';
 
 class Signup extends React.Component{
@@ -9,7 +9,7 @@ class Signup extends React.Component{
         this.state={
             loading: false, // the loading animation
             loggedIn : false,
-            msg:  '',
+            errorConfiromMsg:  '',
             email: '',
             password: '',
             confirmpw: '',
@@ -21,7 +21,7 @@ class Signup extends React.Component{
     // again, the fetching api to check the authentication states
 
     handleChange(e) {
-        this.setState({msg : ''});
+        this.setState({errorMsg : ''});
         this.setState({
             [e.target.name] : e.target.value
         });
@@ -30,7 +30,7 @@ class Signup extends React.Component{
     handleSubmit(e) {
         if (this.state.confirmpw !== this.state.password) {
             this.setState({
-                msg:  'Ooops, the confirm password and password are different!',
+                errorConfiromMsg:  'Ooops, the confirm password and password are different!',
             })
         } else {
             // the signup api here
@@ -57,7 +57,7 @@ class Signup extends React.Component{
             return (
                 <AuthenCanvasSignup>
                     <Title>Sign Up</Title>
-                    <SignupForm class="Form" onSubmit = {this.handleSubmit} onChange={this.handleChange}>
+                    <AuthenForm onSubmit = {this.handleSubmit} onChange={this.handleChange}>
                         <InputContainer>
                             <TextField
                                 size = "small"
@@ -66,7 +66,9 @@ class Signup extends React.Component{
                                 name = "email"
                                 placeholder = "email@address.com"
                                 label = "Email"
+                                type = "email"
                                 onChange = {this.handleChange}
+                                value = {this.state.email}
                                 required
                             />
                         </InputContainer>
@@ -78,30 +80,43 @@ class Signup extends React.Component{
                                 name = "password"
                                 placeholder = "your password"
                                 label = "Password"
+                                type = "password"
                                 onChange = {this.handleChange}
+                                value = {this.state.password}
                                 required
                             />
                         </InputContainer>
                         <InputContainer>
                             <TextField
+                                error = {this.state.errorConfiromMsg}
+                                helperText = {this.state.errorConfiromMsg}
                                 size = "small"
                                 variant = "filled"
                                 id = "confirmpw"
                                 name = "confirmpw"
                                 placeholder = "re-enter your password"
                                 label = "Confirm Password"
+                                type = "password"
                                 onChange = {this.handleChange}
+                                value = {this.state.confirmpw}
                                 required
                             />
                         </InputContainer>
-                        <Button type="submit">
-                            Sign Up
-                        </Button>
+                        <InputContainer>
+                            <Button type="submit">
+                                Sign Up
+                            </Button>
+                        </InputContainer>
+                        <InputContainer>
+                            <Button disabled>
+                                Use Gmail
+                            </Button>
+                        </InputContainer>
                         <AuthenRedirectText>
                             <text>Already signed up?&nbsp;</text>
                             <TextLink href="/login">Login</TextLink>
                         </AuthenRedirectText>
-                    </SignupForm>
+                    </AuthenForm>
                 </AuthenCanvasSignup>
             )
           }
