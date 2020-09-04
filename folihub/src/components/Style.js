@@ -40,16 +40,21 @@ export const NavContainer = styled.div
 `
     position: relative;
     display: grid;
-    grid-template-columns: 6% 54% 10% 10% 10% 10%;
+    grid-template-columns: 60% 10% 10% 10% 10%;
     justify-items: center | start | center | center | center | center;
-    grid-template-areas: 'NavLogo NavName Save Export Preview User';
+    grid-template-areas: 'NavIcon Save Export Preview User';
     height: 50px;
     background-color: ${colorPlan.Dark_Medium};
     box-shadow: 0px 5px 10px ${colorPlan.Medium};
 `;
 
-export const NavLogo = styled.div`
-    position: relative;
+export const NavIcon = styled.div
+`
+    display: flex;
+`;
+
+export const NavLogo = styled.div
+`
     width: 80px;
     height: 80px;
     margin-top: 10px;

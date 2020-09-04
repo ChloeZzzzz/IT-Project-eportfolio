@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Welcome from "react-welcome-page";
-import {colorPlan, NavContainer, NavLogo, NavName} from "./Style";
+import {colorPlan, NavContainer, NavIcon, NavLogo, NavName} from "./Style";
 
 class Nav extends Component {
   constructor(props) {
@@ -31,8 +31,10 @@ class Nav extends Component {
     } else {
       return (
         <NavContainer>
-          <a href="/"><NavLogo /></a>
-          <NavName>Folihub</NavName>
+          <NavIcon>
+            <a href="/"><NavLogo /></a>
+            <NavName>Folihub</NavName>
+          </NavIcon>
         </NavContainer>
       );
     }
