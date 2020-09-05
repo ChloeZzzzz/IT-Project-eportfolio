@@ -83,7 +83,7 @@ export const Copyright = FooterContainer.extend
 `   
     height: 50px;
     margin-top: 10px;
-    margin-left: 35%;
+    margin-left: 37%;
     margin-right: 30%;
 `;
 
@@ -121,10 +121,10 @@ export const AuthenCanvasSignup = AuthenCanvas.extend
     background-size: 1500px;   
 `;
 
-export const Logo = styled.img
+export const HomepageLogo = styled.img
 `
     margin-top: 100px;
-    margin-bottom: auto;
+    margin-left: 15px;
     height:60px;
     width: 140px;
 `;
@@ -252,7 +252,7 @@ export const HomePage = styled.div
 `
     display: grid;
     background-color: ${colorPlan.Light};
-    grid-template-rows: 50em auto auto;
+    grid-template-rows: 47em auto auto;
     grid-template-areas:
         'IntroImg',
         'AboutProduct',
@@ -278,7 +278,7 @@ export const FirstIntro = styled.div
     grid-template-columns: 50% 50%;
     grid-template-areas:
         'IconComponent' 'Poster';
-    background-color: blue;
+    margin-left: 30px;
 `;
 
 export const SecondIntro = styled.div
@@ -292,13 +292,20 @@ export const SecondIntro = styled.div
 
 export const IconComponent = styled.div
 `
-    background-color: grey;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 50% 10% 40%;
+    grid-template-areas: 
+        "HomepageLogo" "HomeTitle",
+        "Slogan" "Slogan",
+        "HomeRedirect" "HomeRedirect";
     height: 100%
 `;
 
 export const Poster = styled.div
 `
     background-color: red;
+    height: 420px;
 `;
 
 export const Poster1 = styled.div
@@ -319,6 +326,7 @@ export const Poster3 = styled.div
 export const HomeRedirect = FontFormat.extend
 `
     color: ${colorPlan.Light};
+    
 `;
 
 export const AboutProduct = styled.div
@@ -329,4 +337,17 @@ export const AboutProduct = styled.div
 export const AboutUs = styled.div
 `
 
+`;
+
+export const HomeTitle = FontFormat.extend
+`   
+    margin-top: 90px;
+    font-size: 67px;
+    font-weight: bold;
+    color: ${colorPlan.Light};
+`;
+
+export const Slogan = FontFormat.extend
+`
+background-color: blue;
 `;

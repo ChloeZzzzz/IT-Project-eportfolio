@@ -1,6 +1,7 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
-import { colorPlan, HomePage, IntroImg, HomeRedirect, FirstIntro, IconComponent, Poster, Poster1, Poster2, Poster3, SecondIntro, AboutProduct, AboutUs } from "./Style";
+import Logo_Light from "../img/folihub_light.png";
+import { colorPlan, HomePage, IntroImg, HomeRedirect, FirstIntro, IconComponent, Poster, Poster1, Poster2, Poster3, SecondIntro, AboutProduct, AboutUs, HomepageLogo, HomeTitle, Slogan  } from "./Style";
 
 class Home extends React.Component {
     constructor(props) {
@@ -32,8 +33,10 @@ class Home extends React.Component {
                     <IntroImg>
                         <FirstIntro>
                             <IconComponent>
+                                <HomepageLogo src={Logo_Light} />
+                                <HomeTitle>Folihub</HomeTitle>
+                                <Slogan>this is the home page</Slogan>
                                 <HomeRedirect>
-                                    <p>this is the home page</p>
                                     <a href = "./signup">sign up</a>
                                     <br />
                                     <a href = "./login">log in</a>
