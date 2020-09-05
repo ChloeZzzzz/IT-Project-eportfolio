@@ -42,7 +42,9 @@ class Home extends React.Component {
                                     <HomeSignUp> 
                                         <a href = "./signup">sign up</a>
                                     </HomeSignUp>
-                                    <HomeLogin href = "./login">log in</HomeLogin>
+                                    <HomeLogin>
+                                        <a href = "./login">log in</a>
+                                    </HomeLogin>
                                 </HomeRedirect>
                             </IconComponent>
                             <Poster>
