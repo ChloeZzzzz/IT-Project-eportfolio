@@ -110,15 +110,15 @@ export const AuthenCanvas = CanvasFormat.extend
 export const AuthenCanvasLogin = AuthenCanvas.extend
 `
     background-color: ${colorPlan.Light};
-    background: url(${Login_Img});
+    background: url(${Login_Img}) center 0 no-repeat;
     background-size: 1500px;   
 `;
 
 export const AuthenCanvasSignup = AuthenCanvas.extend
 `
     background-color: ${colorPlan.Light};
-    background: url(${Signup_Img});
-    background-size: 1500px;   
+    background: url(${Signup_Img}) center 0 no-repeat;
+    background-size: 1500px;
 `;
 
 export const HomepageLogo = styled.img
