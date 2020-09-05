@@ -287,7 +287,7 @@ export const SecondIntro = styled.div
     grid-template-columns: 33.3% 33.3% 33.3%;
     grid-template-areas:
         "Poster1" "Poster2" "Poster3"
-        
+    height: 80px;
 `;
 
 export const IconComponent = styled.div
@@ -309,33 +309,35 @@ export const Poster = styled.div
 
 export const Poster1 = styled.div
 `
-    background-color: red;  
+    background-color: white;  
 `;
 
 export const Poster2 = styled.div
 `
-    background-color: yellow;  
+    background-color: grey;  
 `;
 
 export const Poster3 = styled.div
 `
-    background-color: green;  
+    background-color: black;  
 `;
 
-export const HomeRedirect = FontFormat.extend
+export const HomeRedirect = styled.div
 `
-    color: ${colorPlan.Light};
+    margin-left: 20px;
     
 `;
 
 export const AboutProduct = styled.div
 `
-
+    margin-left: 30px;
+    margin-right: 30px;
 `;
 
 export const AboutUs = styled.div
 `
-
+    margin-left: 30px;
+    margin-right: 30px;
 `;
 
 export const HomeTitle = FontFormat.extend
@@ -359,4 +361,14 @@ export const Slogan = FontFormat.extend
 export const HomeComponents = styled.div
 `
     display: flex;
+`;
+
+export const HomeSignUp = styled.a
+`
+    width: 20px;
+`;
+
+export const HomeLogin = styled.a
+`
+    width: 20px;
 `;
