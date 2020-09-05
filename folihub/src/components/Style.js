@@ -224,17 +224,6 @@ export const ItemContainer = styled.div
     grid-column-gap: 50px;
 `;
 
-export const Item = styled.div
-`
-    background-color: rgba(242,242,242,0.8);
-    border-radius: 5px;
-    box-shadow: 5px 5px 8px ${colorPlan.Medium};
-    &:hover {
-        background-color: ${colorPlan.Medium_Light}; 
-        cursor: pointer
-    };
-`;
-
 export const ItemDescription = styled.div
 `
     width: 100%;
@@ -255,6 +244,27 @@ export const ItemDate = FontFormat.extend
     font-size: 10px;
     opacity: 0.8;
 `;
+
+export const Item = styled.div
+`
+    background-color: rgba(242,242,242,0.8);
+    border-radius: 5px;
+    box-shadow: 5px 5px 8px ${colorPlan.Medium};
+    &:hover {
+        background-color: ${colorPlan.Light}; 
+        cursor: pointer;
+    };
+    &:hover > ${ItemDescription} {
+        background-color: rgba(242,242,242,0.8); 
+    };
+    &:active {
+        background-color: ${colorPlan.Medium_Light}; 
+        cursor: pointer;
+    }
+    &:active > ${ItemDescription} {
+        background-color: ${colorPlan.Light}
+    }
+`
 
 export const HomePage = styled.div
 `
