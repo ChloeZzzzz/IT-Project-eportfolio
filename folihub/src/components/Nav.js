@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Welcome from "react-welcome-page";
-import {colorPlan, NavContainer, NavIcon, NavLogo, NavName} from "./Style";
+import {colorPlan, NavContainer, NavIcon, NavLogo, NavName, UserIcon} from "./Style";
+import Avatar from '@material-ui/core/Avatar';
 
 class Nav extends Component {
   constructor(props) {
@@ -35,6 +36,12 @@ class Nav extends Component {
             <a href="/"><NavLogo /></a>
             <NavName>Folihub</NavName>
           </NavIcon>
+          <div></div>
+          <div></div>
+          <div></div>
+          <UserIcon>
+            <Avatar>D</Avatar>
+          </UserIcon>
         </NavContainer>
       );
     }

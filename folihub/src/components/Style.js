@@ -37,8 +37,8 @@ export const NavContainer = styled.div
     top: 0px;
     display: grid;
     grid-template-columns: 60% 10% 10% 10% 10%;
-    justify-items: center | start | center | center | center | center;
-    grid-template-areas: 'NavIcon Save Export Preview User';
+    justify-items: center | center | center | center | center;
+    grid-template-areas: 'NavIcon Save Export Preview UserIcon';
     height: 50px;
     background-color: ${colorPlan.Dark_Medium};
     box-shadow: 0px 5px 10px ${colorPlan.Dark};
@@ -66,6 +66,12 @@ export const NavName = FontFormat.extend
     margin-top: 9.5px;
     font-size: 25px;
     color: ${colorPlan.Light};
+`;
+
+export const UserIcon = styled.div
+`
+    display: flex;
+    margin: 5px;
 `;
 
 export const FooterContainer = styled.div

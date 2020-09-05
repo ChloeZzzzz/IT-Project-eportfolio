@@ -40,7 +40,6 @@ class UserHomepage extends React.Component{
             </Item>)
         return (
             <CollectionCanvas>
-                <FolioMenu />
                 <ItemContainer>
                     {items}
                     <Item>
