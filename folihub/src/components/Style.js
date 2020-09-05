@@ -68,6 +68,25 @@ export const NavName = FontFormat.extend
     color: ${colorPlan.Light};
 `;
 
+export const FooterContainer = styled.div
+`
+    height: 80px;
+    background-color: ${colorPlan.Dark};
+`;
+
+export const Copyright = FontFormat.extend
+`   
+    color: ${colorPlan.Light};
+    font-size: 10px;
+    text-align: center;
+`;
+
+export const Link = styled.a
+`
+    color: ${colorPlan.Light};
+    font-size: 10px;
+`;
+
 export const AuthenCanvas = CanvasFormat.extend
 `
     display: grid;
@@ -223,6 +242,7 @@ export const ItemDate = FontFormat.extend
 export const HomePage = styled.div
 `
     display: grid;
+    background-color: ${colorPlan.Light};
     grid-template-rows: 50em auto auto;
     grid-template-areas:
         'IntroImg',
