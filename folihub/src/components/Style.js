@@ -70,19 +70,31 @@ export const NavName = FontFormat.extend
 
 export const FooterContainer = styled.div
 `
+    display: grid;
+    grid-template-rows: 30% 30% 30%;
+    grid-template-areas:
+        "Copyright",
+        "Link",
+        "Link";
     height: 80px;
     background-color: ${colorPlan.Dark};
+
 `;
 
 export const Copyright = FontFormat.extend
 `   
+    margin-top: 5px;
     color: ${colorPlan.Light};
     font-size: 10px;
     text-align: center;
 `;
 
 export const Link = styled.a
-`
+`   
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    font-family: "Georgia";
     color: ${colorPlan.Light};
     font-size: 10px;
 `;
