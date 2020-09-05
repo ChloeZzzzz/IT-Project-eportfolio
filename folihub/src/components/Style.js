@@ -3,6 +3,7 @@ import Logo_Dark from "../img/folihub_dark.png";
 import Logo_Light from "../img/folihub_light.png";
 import Login_Img from "../img/login-bgimg.jpg";
 import Signup_Img from "../img/signup-bgimg.jpg";
+import Home_Img from "../img/home-bgimg.jpg";
 
 const colorPlan1 = {
     Dark: "#292F36",
@@ -29,16 +30,18 @@ const CanvasFormat = styled.div
 const FormFormat = styled.form`
 `;
 
+//delete the position and top line to disable sicky nav bar
 export const NavContainer = styled.div
 `
-    position: relative;
+    position: sticky;
+    top: 0px;
     display: grid;
     grid-template-columns: 60% 10% 10% 10% 10%;
     justify-items: center | start | center | center | center | center;
     grid-template-areas: 'NavIcon Save Export Preview User';
     height: 50px;
     background-color: ${colorPlan.Dark_Medium};
-    box-shadow: 0px 5px 10px ${colorPlan.Medium};
+    box-shadow: 0px 5px 10px ${colorPlan.Dark};
 `;
 
 export const NavIcon = styled.div
@@ -48,9 +51,9 @@ export const NavIcon = styled.div
 
 export const NavLogo = styled.div
 `
-    width: 80px;
-    height: 80px;
-    margin-top: 10px;
+    width: 70px;
+    height: 70px;
+    margin-top: 12px;
     margin-left: 10px;
     background-size: 80%;
     background-repeat: no-repeat;
@@ -60,8 +63,8 @@ export const NavLogo = styled.div
 export const NavName = FontFormat.extend
 `
     font-weight: bold;
-    margin-top: 7px;
-    font-size: 30px;
+    margin-top: 9.5px;
+    font-size: 25px;
     color: ${colorPlan.Light};
 `;
 
@@ -220,7 +223,7 @@ export const ItemDate = FontFormat.extend
 export const HomePage = styled.div
 `
     display: grid;
-    grid-template-rows: 40em auto auto;
+    grid-template-rows: 50em auto auto;
     grid-template-areas:
         'IntroImg',
         'AboutProduct',
@@ -235,8 +238,9 @@ export const IntroImg = styled.div
     grid-template-areas: 
         'FirstIntro',
         'SecondIntro';
-    background-color: black;
-    height: 600px;
+    background: url(${Home_Img});
+    background-size: 1600px;
+    height: 700px;
 `;
 
 export const FirstIntro = styled.div
@@ -251,7 +255,7 @@ export const FirstIntro = styled.div
 export const SecondIntro = styled.div
 `
     display: grid;
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: 33.3% 33.3% 33.3%;
     grid-template-areas:
         "Poster1" "Poster2" "Poster3"
         
