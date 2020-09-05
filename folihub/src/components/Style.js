@@ -33,6 +33,7 @@ const FormFormat = styled.form`
 //delete the position and top line to disable sicky nav bar
 export const NavContainer = styled.div
 `
+    z-index: 1;
     position: sticky;
     top: 0px;
     display: grid;
