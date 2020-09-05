@@ -7,9 +7,9 @@ class Footer extends React.Component{
             <FooterContainer>
                 <Copyright>
                     Copyright &#169; Folihub 2020 &nbsp;&nbsp;&nbsp;&nbsp;
+                    <Link href=''>Terms and Conditions</Link>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <Link href=''>Contact Us</Link>
                 </Copyright>
-                <Link href=''>Terms and Conditions</Link>
-                <Link href=''>Privacy Considerations</Link>
             </FooterContainer>
         )
     }
