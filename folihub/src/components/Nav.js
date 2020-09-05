@@ -8,7 +8,7 @@ class Nav extends Component {
     super(props);
     this.state = {
       loading: false, // the loading animation
-      loggedIn: false
+      loggedIn: true,
     };
   }
   // there should have an api to check whether this visitor is logged in hence change the loggedIn state
@@ -39,7 +39,7 @@ class Nav extends Component {
           <div></div>
           <div></div>
           <div></div>
-          <UserIcon>
+          <UserIcon style = {{visibility : this.state.loggedIn ? "visible" : "hidden"}}>
             <Avatar>D</Avatar>
           </UserIcon>
         </NavContainer>
