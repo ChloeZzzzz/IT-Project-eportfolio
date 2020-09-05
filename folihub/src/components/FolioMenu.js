@@ -11,9 +11,13 @@ import CollectionsIcon from '@material-ui/icons/Collections';
 import ReplyIcon from '@material-ui/icons/Reply';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
+import {colorPlan} from './Style';
+
 const StyledMenu = withStyles({
   paper: {
-    border: '1px solid #d3d4d5',
+    width: '180px',
+    boxShadow: `2px 2px 5px ${colorPlan.Dark_Medium}`,
+    borderRadius: '5px',
   },
 })((props) => (
   <Menu
@@ -21,11 +25,11 @@ const StyledMenu = withStyles({
     getContentAnchorEl={null}
     anchorOrigin={{
       vertical: 'bottom',
-      horizontal: 'center',
+      horizontal: 'right',
     }}
     transformOrigin={{
       vertical: 'top',
-      horizontal: 'center',
+      horizontal: 'left',
     }}
     {...props}
   />
@@ -33,8 +37,9 @@ const StyledMenu = withStyles({
 
 const StyledMenuItem = withStyles((theme) => ({
   root: {
-    '&:focus': {
-      backgroundColor: theme.palette.primary.main,
+    height: '30px',
+    '&:active': {
+      backgroundColor: colorPlan.Medium_Light,
       '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
         color: theme.palette.common.white,
       },
@@ -57,9 +62,7 @@ export default function CustomizedMenus() {
     <div>
       <MoreVertIcon
         fontSize="small"
-        aria-controls="customized-menu"
         aria-haspopup="true"
-        color="black"
         onClick={handleClick}
       />
       <StyledMenu
@@ -69,25 +72,25 @@ export default function CustomizedMenus() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <StyledMenuItem>
+        <StyledMenuItem dense="true">
           <ListItemIcon>
             <EditIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText primary="Rename" />
         </StyledMenuItem>
-        <StyledMenuItem>
+        <StyledMenuItem dense="true">
           <ListItemIcon>
             <CollectionsIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText primary="Preview" />
         </StyledMenuItem>
-        <StyledMenuItem>
+        <StyledMenuItem dense="true">
           <ListItemIcon>
             <ReplyIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText primary="Export" />
         </StyledMenuItem>
-        <StyledMenuItem>
+        <StyledMenuItem dense="true">
           <ListItemIcon>
             <DeleteForeverIcon fontSize="small" />
           </ListItemIcon>
