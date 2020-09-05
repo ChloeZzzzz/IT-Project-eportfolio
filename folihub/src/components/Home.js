@@ -1,7 +1,7 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
 import Logo_Light from "../img/folihub_light.png";
-import { colorPlan, HomePage, IntroImg, HomeRedirect, FirstIntro, IconComponent, Poster, Poster1, Poster2, Poster3, SecondIntro, AboutProduct, AboutUs, HomepageLogo, HomeTitle, Slogan  } from "./Style";
+import { colorPlan, HomePage, IntroImg, HomeRedirect, FirstIntro, IconComponent, Poster, Poster1, Poster2, Poster3, SecondIntro, AboutProduct, AboutUs, HomepageLogo, HomeTitle, Slogan, HomeComponents  } from "./Style";
 
 class Home extends React.Component {
     constructor(props) {
@@ -33,17 +33,18 @@ class Home extends React.Component {
                     <IntroImg>
                         <FirstIntro>
                             <IconComponent>
-                                <HomepageLogo src={Logo_Light} />
-                                <HomeTitle>Folihub</HomeTitle>
-                                <Slogan>this is the home page</Slogan>
+                                <HomeComponents>
+                                    <HomepageLogo src={Logo_Light} />
+                                    <HomeTitle>Folihub</HomeTitle>
+                                </HomeComponents>
+                                <Slogan>— Create your e-portfolio at any time, share with everyone</Slogan>
                                 <HomeRedirect>
                                     <a href = "./signup">sign up</a>
-                                    <br />
                                     <a href = "./login">log in</a>
                                 </HomeRedirect>
                             </IconComponent>
                             <Poster>
-                                    abcde
+                                    this is poster
                             </Poster>
                         </FirstIntro>
                         <SecondIntro>

@@ -293,18 +293,17 @@ export const SecondIntro = styled.div
 export const IconComponent = styled.div
 `
     display: grid;
-    grid-template-columns: 30% 70%;
-    grid-template-rows: 50% 10% 40%;
+    grid-template-rows: 45% 20% 35%;
     grid-template-areas: 
-        "HomepageLogo" "HomeTitle",
-        "Slogan" "Slogan",
-        "HomeRedirect" "HomeRedirect";
+        "HomeComponents",
+        "Slogan",
+        "HomeRedirect";
     height: 100%
 `;
 
 export const Poster = styled.div
 `
-    background-color: red;
+    background-color: white;
     height: 420px;
 `;
 
@@ -344,10 +343,20 @@ export const HomeTitle = FontFormat.extend
     margin-top: 90px;
     font-size: 67px;
     font-weight: bold;
+    margin-left: 20px;
     color: ${colorPlan.Light};
 `;
 
 export const Slogan = FontFormat.extend
 `
-background-color: blue;
+    width: 500px;
+    color: ${colorPlan.Light};
+    font-size: 30px;
+    font-style: Italic;
+    margin-left: 20px;
+`;
+
+export const HomeComponents = styled.div
+`
+    display: flex;
 `;
