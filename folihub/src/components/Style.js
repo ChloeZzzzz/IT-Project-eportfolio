@@ -81,6 +81,7 @@ export const FooterContainer = styled.div
 
 export const Copyright = FooterContainer.extend
 `   
+    display: relative;
     height: 50px;
     margin-top: 10px;
     margin-left: 37%;
@@ -363,12 +364,12 @@ export const HomeComponents = styled.div
     display: flex;
 `;
 
-export const HomeSignUp = styled.a
+export const HomeSignUp = styled.div
 `
     width: 20px;
 `;
 
-export const HomeLogin = styled.a
+export const HomeLogin = styled.div
 `
     width: 20px;
 `;
