@@ -70,8 +70,16 @@ export const NavName = FontFormat.extend
 
 export const UserIcon = styled.div
 `
-    display: flex;
     margin: 5px;
+`;
+
+export const UserContainer = styled.div
+`
+    display: grid;
+    align-items: center;
+    justify-items: end;
+    grid-template-areas: 'Avatar UserMenu';
+    grid-template-columns: 80% 20%;
 `;
 
 export const FooterContainer = styled.div

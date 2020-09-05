@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Welcome from "react-welcome-page";
-import {colorPlan, NavContainer, NavIcon, NavLogo, NavName, UserIcon} from "./Style";
+import {colorPlan, NavContainer, NavIcon, NavLogo, NavName, UserIcon, UserContainer} from "./Style";
 import Avatar from '@material-ui/core/Avatar';
+import UserMenu from './UserMenu';
 
 class Nav extends Component {
   constructor(props) {
@@ -40,7 +41,12 @@ class Nav extends Component {
           <div></div>
           <div></div>
           <UserIcon style = {{visibility : this.state.loggedIn ? "visible" : "hidden"}}>
-            <Avatar>D</Avatar>
+            <UserContainer>
+              <Avatar>
+                D
+              </Avatar>
+              <UserMenu />
+            </UserContainer>
           </UserIcon>
         </NavContainer>
       );
