@@ -1,14 +1,66 @@
-import React from 'react'
-class Home extends React.Component{
-    render(){
-        return (
-            <div>
-                <p>this is the home page</p>
-                <a href = "./signup">sign up</a>
-                <br />
-                <a href = "./login">log in</a>
-            </div>
-        )
+import React from 'react';
+import Welcome from "react-welcome-page";
+import { colorPlan, HomePage, IntroImg, HomeRedirect, FirstIntro, IconComponent, Poster, Poster1, Poster2, Poster3, SecondIntro, AboutProduct, AboutUs } from "./Style";
+
+class Home extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            loading: false,
+            loggedIn : false,
+        }
+    }
+
+    render() {
+        if (this.state.loading) {
+            return (
+                <Welcome
+                    loopDuration={1000}
+                    data={[
+                        {
+                            backgroundColor: colorPlan.Light,
+                            textColor: colorPlan.Dark,
+                            text: "Loading...",
+                            image: require("../img/folihub_dark.png")
+                        }
+                    ]}
+                />
+            );
+        } else {
+            return (
+                <HomePage>
+                    <IntroImg>
+                        <FirstIntro>
+                            <IconComponent>
+                                <HomeRedirect>
+                                    <p>this is the home page</p>
+                                    <a href = "./signup">sign up</a>
+                                    <br />
+                                    <a href = "./login">log in</a>
+                                </HomeRedirect>
+                            </IconComponent>
+                            <Poster>
+                                    abcde
+                            </Poster>
+                        </FirstIntro>
+                        <SecondIntro>
+                            <Poster1>
+                            </Poster1>
+                            <Poster2>
+                            </Poster2>
+                            <Poster3>
+                            </Poster3>
+                        </SecondIntro>
+                    </IntroImg>
+                    <AboutProduct>
+                        This is about product
+                    </AboutProduct>
+                    <AboutUs>
+                        This is about us
+                    </AboutUs>
+                </HomePage>
+            )
+        }
     }
 }
 export default Home;

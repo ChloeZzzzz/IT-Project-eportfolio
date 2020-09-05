@@ -102,9 +102,14 @@ export const Title = FontFormat.extend
 `
     font-weight: bold;
     margin-top: 150px;
-    margin-bottom: auto;
     font-size: 40px;
     color: ${colorPlan.Dark};
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 50%;
+    min-width: 200px;
+    max-width: 625px;
+    height: 90px;
 `
 
 export const AuthenForm = FormFormat.extend`
@@ -210,4 +215,85 @@ export const ItemDate = FontFormat.extend
     text-align: center;
     font-size: 10px;
     opacity: 0.8;
+`;
+
+export const HomePage = styled.div
+`
+    display: grid;
+    grid-template-rows: 40em auto auto;
+    grid-template-areas:
+        'IntroImg',
+        'AboutProduct',
+        'AboutUs';
+    z-index: -1;
+`;
+
+export const IntroImg = styled.div
+`   
+    display: grid;
+    grid-template-rows: 60% 40%;
+    grid-template-areas: 
+        'FirstIntro',
+        'SecondIntro';
+    background-color: black;
+    height: 600px;
+`;
+
+export const FirstIntro = styled.div
+`
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas:
+        'IconComponent' 'Poster';
+    background-color: blue;
+`;
+
+export const SecondIntro = styled.div
+`
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-areas:
+        "Poster1" "Poster2" "Poster3"
+        
+`;
+
+export const IconComponent = styled.div
+`
+    background-color: grey;
+    height: 100%
+`;
+
+export const Poster = styled.div
+`
+    background-color: red;
+`;
+
+export const Poster1 = styled.div
+`
+    background-color: red;  
+`;
+
+export const Poster2 = styled.div
+`
+    background-color: yellow;  
+`;
+
+export const Poster3 = styled.div
+`
+    background-color: green;  
+`;
+
+export const HomeRedirect = FontFormat.extend
+`
+    color: ${colorPlan.Light};
+`;
+
+export const AboutProduct = styled.div
+`
+
+`;
+
+export const AboutUs = styled.div
+`
+
 `;
