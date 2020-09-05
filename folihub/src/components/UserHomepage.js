@@ -1,5 +1,6 @@
 import React from 'react'
-import {CollectionCanvas, ItemContainer, Item, ItemDescription, ItemTitle, ItemDate} from './Style.js';
+import {CollectionCanvas, ItemContainer, Item, ItemDescription, ItemTitle, ItemDate, PlusIcon} from './Style.js';
+import AddIcon from "@material-ui/icons/Add";
 
 class UserHomepage extends React.Component{
     constructor(props) {
@@ -37,6 +38,9 @@ class UserHomepage extends React.Component{
             <CollectionCanvas>
                 <ItemContainer>
                     {items}
+                    <Item>
+                        <AddIcon style={{ fontSize: 80, opacity: 0.7}} />
+                    </Item>
                 </ItemContainer>
             </CollectionCanvas>
         )

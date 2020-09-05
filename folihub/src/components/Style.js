@@ -372,3 +372,8 @@ export const HomeLogin = styled.a
 `
     width: 20px;
 `;
+
+export const PlusIcon = styled.img
+`
+
+`;
