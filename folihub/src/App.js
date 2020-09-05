@@ -24,7 +24,6 @@ class App extends Component {
   render()  {
     return (
       <Router>
-        
         <Nav />
         <Switch>
           <Route exact path="/" render={props => <Home {...props} />} />
