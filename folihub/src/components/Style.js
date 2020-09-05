@@ -231,18 +231,29 @@ export const ItemDescription = styled.div
     margin-top: 105%;
     background-color: white;
     border-radius: 5px;
+    display: grid;
+    grid-template-rows: 60% 40%;
+    grid-template-areas:
+    'ItemTitle'
+    'ItemDate';
+    align-items: center;
+    justify-items: center;
 `
 
 export const ItemTitle = FontFormat.extend
 `
-    text-align: center;
+    font-size: 18px;
 `;
 
 export const ItemDate = FontFormat.extend
 `
-    text-align: center;
     font-size: 10px;
     opacity: 0.8;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    align-items: center;
+    justify-items: center;
 `;
 
 export const Item = styled.div
@@ -251,7 +262,7 @@ export const Item = styled.div
     border-radius: 5px;
     box-shadow: 5px 5px 8px ${colorPlan.Medium};
     &:hover {
-        background-color: ${colorPlan.Light}; 
+        background-color: ${colorPlan.Light};
         cursor: pointer;
     };
     &:hover > ${ItemDescription} {
