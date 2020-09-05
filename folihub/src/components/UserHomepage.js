@@ -1,5 +1,5 @@
 import React from 'react'
-import {CollectionCanvas, ItemContainer, Item, ItemDescription, ItemTitle, ItemDate, PlusIcon} from './Style.js';
+import {CollectionCanvas, ItemContainer, Item, ItemDescription, ItemTitle, ItemDate} from './Style.js';
 import AddIcon from "@material-ui/icons/Add";
 
 class UserHomepage extends React.Component{

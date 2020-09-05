@@ -176,7 +176,10 @@ export const Button = styled.button
     &:disabled {
         background-color: ${colorPlan.Medium};
     }
-    &:hover {background-color: ${colorPlan.Medium}};
+    &:hover {
+        background-color: ${colorPlan.Medium};
+        cursor: pointer;
+    };
     &:active {
         background-color: ${colorPlan.Light};
         color: ${colorPlan.Dark_Medium};
@@ -226,6 +229,10 @@ export const Item = styled.div
     background-color: rgba(242,242,242,0.8);
     border-radius: 5px;
     box-shadow: 5px 5px 8px ${colorPlan.Medium};
+    &:hover {
+        background-color: ${colorPlan.Medium_Light}; 
+        cursor: pointer
+    };
 `;
 
 export const ItemDescription = styled.div
@@ -372,9 +379,4 @@ export const HomeSignUp = styled.div
 export const HomeLogin = styled.div
 `
     width: 20px;
-`;
-
-export const PlusIcon = styled.img
-`
-
 `;
