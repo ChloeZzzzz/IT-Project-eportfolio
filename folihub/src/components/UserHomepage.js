@@ -39,7 +39,7 @@ class UserHomepage extends React.Component{
                 <ItemContainer>
                     {items}
                     <Item>
-                        <AddIcon style={{ fontSize: 80, opacity: 0.7}} />
+                        <AddIcon style={{ fontSize: 82, opacity: 0.7, marginLeft: 19, marginTop: 45}} />
                     </Item>
                 </ItemContainer>
             </CollectionCanvas>
