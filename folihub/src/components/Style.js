@@ -23,7 +23,7 @@ const FontFormat = styled.div
 
 const CanvasFormat = styled.div
 `
-    height: 750px;
+    height: 90vh;
     z-index: -1;
 `;
 
@@ -174,14 +174,16 @@ export const AuthenCanvasLogin = AuthenCanvas.extend
 `
     background-color: ${colorPlan.Light};
     background: url(${Login_Img}) center 0 no-repeat;
-    background-size: 1500px;   
+    background-size: cover;
+    background-attachment: fixed;
 `;
 
 export const AuthenCanvasSignup = AuthenCanvas.extend
 `
     background-color: ${colorPlan.Light};
     background: url(${Signup_Img}) center 0 no-repeat;
-    background-size: 1500px;
+    background-size: cover;
+    background-attachment: fixed;
 `;
 
 export const HomepageLogo = styled.img
@@ -341,6 +343,7 @@ export const Item = styled.div
 
 export const HomePage = styled.div
 `
+    height: 100vh;
     display: grid;
     background-color: ${colorPlan.Light};
     grid-template-rows: 47em auto auto;

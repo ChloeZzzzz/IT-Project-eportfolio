@@ -81,7 +81,7 @@ export default function UserMenu(e) {
               <ListItemIcon>
                   <PermMediaIcon fontSize="small" />
               </ListItemIcon>
-              <ListItemText primary="Portfolio" />
+              <ListItemText primary="My Hub" />
             </StyledMenuItem>
             <StyledMenuItem dense="true">
               <ListItemIcon>
