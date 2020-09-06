@@ -3,6 +3,7 @@ import {CollectionCanvas, ItemContainer, Item, ItemDescription, ItemTitle, ItemD
 import AddIcon from "@material-ui/icons/Add";
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import FolioMenu from './FolioMenu';
+import Tooltip from '@material-ui/core/Tooltip';
 
 class UserHomepage extends React.Component{
     constructor(props) {
@@ -32,7 +33,9 @@ class UserHomepage extends React.Component{
                         {e.name}
                     </ItemTitle>
                     <ItemDate>
-                        <VisibilityIcon fontSize = "small"/>
+                        <Tooltip title="public">
+                            <VisibilityIcon fontSize = "small"/>
+                        </Tooltip>
                         {e.date}
                         <FolioMenu/>
                     </ItemDate>
