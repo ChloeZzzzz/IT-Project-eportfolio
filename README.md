@@ -44,7 +44,9 @@ URL Link:
 * Architecture Model
 * Motivation Model
 * Front-end Page-Page Logic
-* Sequence Diagram
+* Sequence Diagram  
+### Axure Prototype  
+https://6lugp1.axshare.com/  
 ### Product Backlog / User Stories and acceptance criteria
 https://docs.google.com/spreadsheets/d/1bjDjQpugDNJr6GAIekOqHeGGtIGbxu04kVXI_TewePs/edit#gid=0  
 ### Trello board
