@@ -31,7 +31,8 @@ class Footer extends React.Component{
                         </div>
                         <div style = {{gridArea:"mid"}}>
                             <p style = {{fontWeight: "bold"}}>Product</p>
-                            <FooterLink href = "">Our Product</FooterLink>
+                            <FooterLink href = "">Our Product</FooterLink><br/>
+                            <FooterLink href = "">Privacy and Security</FooterLink>
                         </div>
                         <div style = {{gridArea:"right"}}>
                             <p style = {{fontWeight: "bold"}}>Resources</p>

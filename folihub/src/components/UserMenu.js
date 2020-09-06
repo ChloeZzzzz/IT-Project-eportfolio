@@ -7,6 +7,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import PermMediaIcon from '@material-ui/icons/PermMedia';
 
 import {colorPlan} from './Style';
 
@@ -61,19 +63,32 @@ export default function UserMenu() {
         fontSize="medium"
         style={{color: colorPlan.Light}}
         aria-haspopup="true"
-        onClick={handleClick} />
+        onMouseOver={handleClick} />
         <StyledMenu
             id="customized-menu"
             anchorEl={anchorEl}
             keepMounted
             open={Boolean(anchorEl)}
-            onClose={handleClose}
+            onClick={handleClose}
+            MenuListProps={{onMouseLeave: handleClose}}
         >
             <StyledMenuItem dense="true">
-            <ListItemIcon>
-                <ExitToAppIcon fontSize="small" />
-            </ListItemIcon>
-            <ListItemText primary="Logout" />
+              <ListItemIcon>
+                  <AccountCircleIcon fontSize="small" />
+              </ListItemIcon>
+              <ListItemText primary="Profile" />
+            </StyledMenuItem>
+            <StyledMenuItem dense="true" component = "a" href = "./userHomepage">
+              <ListItemIcon>
+                  <PermMediaIcon fontSize="small" />
+              </ListItemIcon>
+              <ListItemText primary="Portfolio" />
+            </StyledMenuItem>
+            <StyledMenuItem dense="true">
+              <ListItemIcon>
+                  <ExitToAppIcon fontSize="small" />
+              </ListItemIcon>
+              <ListItemText primary="Logout" />
             </StyledMenuItem>
         </StyledMenu>
     </div>
