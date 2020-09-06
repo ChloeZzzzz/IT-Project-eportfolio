@@ -1,6 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import ReorderIcon from '@material-ui/icons/Reorder';
+import Avatar from '@material-ui/core/Avatar';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
@@ -46,7 +46,7 @@ const StyledMenuItem = withStyles((theme) => ({
   },
 }))(MenuItem);
 
-export default function UserMenu() {
+export default function UserMenu(e) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -59,11 +59,10 @@ export default function UserMenu() {
 
   return (
     <div>
-        <ReorderIcon
+        <Avatar
         fontSize="medium"
-        style={{color: colorPlan.Light}}
         aria-haspopup="true"
-        onMouseOver={handleClick} />
+        onMouseOver={handleClick}>{e.data}</Avatar>
         <StyledMenu
             id="customized-menu"
             anchorEl={anchorEl}

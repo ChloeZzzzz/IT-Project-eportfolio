@@ -42,10 +42,7 @@ class Nav extends Component {
           <div></div>
           <UserIcon style = {{visibility : this.state.loggedIn ? "visible" : "hidden"}}>
             <UserContainer>
-              <Avatar>
-                D
-              </Avatar>
-              <UserMenu />
+              <UserMenu data = "D"/>
             </UserContainer>
           </UserIcon>
         </NavContainer>

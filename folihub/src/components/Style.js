@@ -82,6 +82,7 @@ export const UserContainer = styled.div
     display: flex;
     justify-items: center;
     align-items: center;
+    margin-right: 5%;
 `;
 
 export const FooterContainer = styled.div
