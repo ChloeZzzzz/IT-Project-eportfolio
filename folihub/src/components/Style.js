@@ -86,9 +86,7 @@ export const UserContainer = styled.div
 
 export const FooterContainer = styled.div
 `
-    display: flex;
-    height: 60px;
-    background-color: ${colorPlan.Dark};
+    background-color: ${colorPlan.Dark_Medium};
     color: ${colorPlan.Light};
     font-size: 10px;
     text-align: center;
@@ -97,11 +95,44 @@ export const FooterContainer = styled.div
 
 export const Copyright = FooterContainer.extend
 `   
-    display: relative;
-    height: 50px;
-    margin-top: 10px;
-    margin-left: 37%;
-    margin-right: 30%;
+    display: grid;
+    grid-template-areas: 
+    'CopyrightTop'
+    'horizon'
+    'CopyrightMid'
+    'CopyrightBtm';
+    width: 50%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+`;
+
+export const CopyrightTop = styled.div
+`
+    display: grid;
+    grid-template-areas: 'languages socialMedias';
+`;
+
+export const CopyrightMid = styled.div
+`
+    display: grid;
+    grid-template-areas: 'left mid right';
+`;
+
+export const CopyrightBtm = styled.div
+`
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+`;
+
+export const FooterLink = styled.a
+`
+    text-decoration: none;
+    font-family: "Georgia";
+    opacity: 0.8;
+    color: ${colorPlan.Light};
 `;
 
 export const Link = styled.a
@@ -109,6 +140,7 @@ export const Link = styled.a
     display: flex;
     justify-content: center;
     font-family: "Georgia";
+    opacity: 0.8;
     color: ${colorPlan.Light};
     font-size: 10px;
 `;
