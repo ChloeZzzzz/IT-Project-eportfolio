@@ -1,6 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import ReorderIcon from '@material-ui/icons/Reorder';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
@@ -57,7 +57,7 @@ export default function UserMenu() {
 
   return (
     <div>
-        <ArrowDropDownIcon
+        <ReorderIcon
         fontSize="medium"
         style={{color: colorPlan.Light}}
         aria-haspopup="true"

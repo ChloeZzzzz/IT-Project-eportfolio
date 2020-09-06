@@ -80,6 +80,8 @@ export const UserIcon = styled.div
 export const UserContainer = styled.div
 `
     display: flex;
+    justify-items: center;
+    align-items: center;
 `;
 
 export const FooterContainer = styled.div
