@@ -102,7 +102,8 @@ export const Copyright = FooterContainer.extend
     'CopyrightMid'
     'CopyrightBtm';
     width: 50%;
-    max-width: 800px;
+    min-width: 300px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
 `;
