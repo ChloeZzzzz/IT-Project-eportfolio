@@ -128,6 +128,18 @@ export const CopyrightBtm = styled.div
     margin-right: auto;
 `;
 
+export const MediaContainer = styled.div
+`
+    opacity: 0.8;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-areas: 'a b c';
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+`;
+
 export const FooterLink = styled.a
 `
     text-decoration: none;
