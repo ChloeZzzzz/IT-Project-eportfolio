@@ -1,6 +1,13 @@
 # Folihub
 A online e-portfolio storing and sharing tool. Folihub provides template for users to choose, receive user's input text and uploaded images, and makes it an elegant e-portfolio. Sharing as URL or download as a PDF options are avaliable. Let's do some e-portfolio today! :-)
 
+## How To Deploy
+**Sprint 1**
+In sprint 1, frontend homepgae, sign up, login and user homepage is finished with skeleton code, and database is setted up in backend. However, the web app has not been deployed online, and could only be viewd locally. Hence, if you would like to access what we have done, you could:
+* Clone or download the frontend code from branch "dev-frontend",
+* navigate to the folder and run "npm install" in terminal,
+* "npm start" and view it on localhost: 3000.
+
 ## APIs - Routers and Controllers
 **User Authentication**  
 blablablabla
