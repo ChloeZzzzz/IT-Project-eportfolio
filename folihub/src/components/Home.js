@@ -35,26 +35,26 @@ class Home extends React.Component {
                     <IntroImg>
                         <FirstIntro>
                             <FadeDiv>
-                            <IconComponent>
-                                <HomeComponents>
-                                    <HomepageLogo src={Logo_Light} />
-                                    <HomeTitle>Folihub</HomeTitle>
-                                </HomeComponents>
-                                <Slogan>— Create your e-portfolio at any time, share with everyone</Slogan>
-                                <HomeRedirect>
-                                    <SignUpRedirect href='signup'>
-                                        <SignupText>Sign Up</SignupText>
-                                    </SignUpRedirect>
-                                    <LoginRedirect href="/login">
-                                        <LoginText>Login</LoginText>
-                                    </LoginRedirect>
-                                </HomeRedirect>
-                                <SignUpGoogleRedirect>
-                                    or sign up with&nbsp; 
-                                    <GoogleIcon src={Google_Icon} /> &nbsp;
-                                    <GoogleLink href="/signup">Google</GoogleLink>
-                                </SignUpGoogleRedirect>
-                            </IconComponent>
+                                <IconComponent>
+                                    <HomeComponents>
+                                        <HomepageLogo src={Logo_Light} />
+                                        <HomeTitle>Folihub</HomeTitle>
+                                    </HomeComponents>
+                                    <Slogan>— Create your e-portfolio at any time, share with everyone</Slogan>
+                                    <HomeRedirect>
+                                        <SignUpRedirect href='signup'>
+                                            <SignupText>Sign Up</SignupText>
+                                        </SignUpRedirect>
+                                        <LoginRedirect href="/login">
+                                            <LoginText>Login</LoginText>
+                                        </LoginRedirect>
+                                    </HomeRedirect>
+                                    <SignUpGoogleRedirect>
+                                        or sign up with&nbsp; 
+                                        <GoogleIcon src={Google_Icon} /> &nbsp;
+                                        <GoogleLink href="/signup">Google</GoogleLink>
+                                    </SignUpGoogleRedirect>
+                                </IconComponent>
                             </FadeDiv>
                             <Poster>
                             </Poster>
