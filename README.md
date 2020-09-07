@@ -2,15 +2,15 @@
 A online e-portfolio storing and sharing tool. Folihub provides template for users to choose, receive user's input text and uploaded images, and makes it an elegant e-portfolio. Sharing as URL or download as a PDF options are avaliable. Let's do some e-portfolio today! :-)
 
 ## How To Deploy
-**Sprint 1**
-In sprint 1, frontend homepgae, sign up, login and user homepage is finished with skeleton code, and database is setted up in backend. However, the web app has not been deployed online, and could only be viewd locally. Hence, if you would like to access what we have done, you could:
+**Sprint 1**  
+In sprint 1, frontend homepage, sign up, login and user homepage skeleton code is finished, and database is setted up in backend. However, the web app has not been deployed online, and could only be viewd locally. Hence, if you would like to access what we have done, you could:
 * Clone or download the frontend code from branch "dev-frontend",
 * navigate to the folder and run "npm install" in terminal,
 * "npm start" and view it on localhost: 3000.
 
 ## APIs - Routers and Controllers
 **User Authentication**  
-blablablabla
+
 
 ## Features and Functionalities
 **Homepage**  
@@ -45,26 +45,33 @@ To export an eportfolio, a url or a PDF could be generated. The url is a link to
 URL Link:  
 
 ## Documentations
-### Included in "Diagrams_and_models" folder
+**Included in "Diagrams_and_models" folder**  
 * Entity-relationship Model
 * Class Diagram
 * Architecture Model
 * Motivation Model
 * Front-end Page-Page Logic
 * Sequence Diagram  
-### Axure Prototype  
+
+**Axure Prototype**  
 https://6lugp1.axshare.com/  
-### Product Backlog / User Stories and acceptance criteria
+
+**Product Backlog / User Stories and acceptance criteria**  
 https://docs.google.com/spreadsheets/d/1bjDjQpugDNJr6GAIekOqHeGGtIGbxu04kVXI_TewePs/edit#gid=0  
-### Trello board
+
+**Trello board**  
 https://trello.com/b/YKcZYnsR/it-project-team-11  
-### Standup and group meeting minutes
+
+**Standup and group meeting minutes**  
 https://docs.google.com/document/d/1KYcm6KNkkvIUWW6FygjlFlpAOfyu37t4ZbY_1V5MPF8/edit  
-### Do/Be/Feel Model
+
+**Do/Be/Feel Model**  
 https://docs.google.com/document/d/1l7vg30b0TcarSv3EQraAlAUUpXj-eUKGJNsvOSImPqg/edit  
-### Sprint Backlog
+
+**Sprint Backlog**  
 https://docs.google.com/document/d/1l2BM9RbvJql_VURHC5601hOG7uQmiNzPX_e6Puyk4DA/edit  
-### Client Interview
+
+**Client Interview**  
 https://docs.google.com/document/d/1zP8mR0p7RRjsPh7hQDx-7xroHhUtMuvunBGLGwJU5S4/edit  
 
 ## Team Members  
