@@ -1,9 +1,10 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Logo_Dark from "../img/folihub_dark.png";
 import Logo_Light from "../img/folihub_light.png";
 import Login_Img from "../img/login-bgimg.jpg";
 import Signup_Img from "../img/signup-bgimg.jpg";
 import Home_Img from "../img/home-bgimg.jpg";
+import { fadeIn } from 'react-animations';
 
 const colorPlan1 = {
     Dark: "#292F36",
@@ -496,6 +497,7 @@ export const SignUpGoogleRedirect = styled.div
 
 export const AboutProduct = styled.div
 `
+    margin-top: 40px;
     margin-left: 30px;
     margin-right: 30px;
     font-family: Georgia;
@@ -578,4 +580,10 @@ export const AboutProductText = styled.div
     margin-top: 1%;
     margin-right: 20px;
     margin-left:20px;
+`;
+
+export const fadeAnimation = keyframes `${fadeIn}`;
+export const FadeDiv = styled.div
+`
+    animation: 3s ${fadeAnimation};
 `;
