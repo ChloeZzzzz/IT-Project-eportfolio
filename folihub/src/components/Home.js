@@ -1,7 +1,7 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
 import Logo_Light from "../img/folihub_light.png";
-import { colorPlan, HomePage, IntroImg, HomeRedirect, FirstIntro, IconComponent, Poster, Poster1, Poster2, Poster3, SecondIntro, AboutProduct, AboutUs, HomepageLogo, HomeTitle, Slogan, HomeComponents, HomeSignUp, HomeLogin  } from "./Style";
+import { colorPlan, HomePage, IntroImg, HomeRedirect, FirstIntro, IconComponent, Poster, Poster1, Poster2, Poster3, SecondIntro, AboutProduct, HomepageLogo, HomeTitle, Slogan, HomeComponents, LoginRedirect, SignUpRedirect, SignupText, LoginText  } from "./Style";
 
 class Home extends React.Component {
     constructor(props) {
@@ -39,12 +39,12 @@ class Home extends React.Component {
                                 </HomeComponents>
                                 <Slogan>— Create your e-portfolio at any time, share with everyone</Slogan>
                                 <HomeRedirect>
-                                    <HomeSignUp> 
-                                        <a href = "./signup">sign up</a>
-                                    </HomeSignUp>
-                                    <HomeLogin>
-                                        <a href = "./login">log in</a>
-                                    </HomeLogin>
+                                    <SignUpRedirect href='signup'>
+                                        <SignupText>Sign Up</SignupText>
+                                    </SignUpRedirect>
+                                    <LoginRedirect href="/login">
+                                        <LoginText>Login</LoginText>
+                                    </LoginRedirect>
                                 </HomeRedirect>
                             </IconComponent>
                             <Poster>
@@ -63,9 +63,6 @@ class Home extends React.Component {
                     <AboutProduct>
                         <h1>About Our Product</h1>
                     </AboutProduct>
-                    <AboutUs>
-                        <h1>About Us</h1>
-                    </AboutUs>
                 </HomePage>
             )
         }

@@ -189,7 +189,7 @@ export const AuthenCanvasSignup = AuthenCanvas.extend
 export const HomepageLogo = styled.img
 `
     margin-top: 100px;
-    margin-left: 15px;
+    margin-left: 1.5%;
     height:60px;
     width: 140px;
 `;
@@ -343,14 +343,13 @@ export const Item = styled.div
 
 export const HomePage = styled.div
 `
-    height: 100vh;
+    height: 200vh;
     display: grid;
     background-color: ${colorPlan.Light};
-    grid-template-rows: 47em auto auto;
+    grid-template-rows: 47em auto;
     grid-template-areas:
         'IntroImg',
         'AboutProduct',
-        'AboutUs';
     z-index: -1;
 `;
 
@@ -363,7 +362,7 @@ export const IntroImg = styled.div
         'SecondIntro';
     background: url(${Home_Img});
     background-size: 1600px;
-    height: 700px;
+    height: 100vh;
 `;
 
 export const FirstIntro = styled.div
@@ -372,7 +371,7 @@ export const FirstIntro = styled.div
     grid-template-columns: 50% 50%;
     grid-template-areas:
         'IconComponent' 'Poster';
-    margin-left: 30px;
+    margin-left: 3%;
 `;
 
 export const SecondIntro = styled.div
@@ -392,7 +391,7 @@ export const IconComponent = styled.div
         "HomeComponents",
         "Slogan",
         "HomeRedirect";
-    height: 100%
+    height: 100%;
 `;
 
 export const Poster = styled.div
@@ -419,16 +418,78 @@ export const Poster3 = styled.div
 export const HomeRedirect = styled.div
 `
     margin-left: 20px;
-    
+    margin-top: 10px;
+    display: grid;
+    width: 50%;
+    grid-template-columns: 50% 50%;
+    column-gap: 5%;
+    grid-template-areas: 
+        "SignUpRedirect" "LoginRedirect";
+`;
+
+export const SignUpRedirect = styled.a
+`
+    background-color: ${colorPlan.Warn};
+    border-color: ${colorPlan.Dark};
+    color: ${colorPlan.Light};
+    font-family: Georgia;
+    font-weight: bold;
+    border:  2px solid;
+    border-radius: 5px;
+    height: 50px;
+    width: 90%
+    &:disabled {
+        background-color: ${colorPlan.Warn};
+    }
+    &:hover {
+        background-color: #d9b6b6;
+        cursor: pointer;
+    };
+    &:active {
+        background-color: ${colorPlan.Warn};
+        color: ${colorPlan.Dark_Medium};
+    };
+`;
+
+export const SignupText = FontFormat.extend
+`
+    position: relative;
+    margin-top: 15px;
+    text-align: center;
+`;
+
+export const LoginText = FontFormat.extend
+`
+    position: relative;
+    margin-top: 15px;
+    text-align: center;
+`;
+
+export const LoginRedirect = styled.a
+`
+    background-color: ${colorPlan.Dark_Medium};
+    border-color: ${colorPlan.Dark};
+    color: ${colorPlan.Light};
+    font-family: Georgia;
+    font-weight: bold;
+    border:  2px solid;
+    border-radius: 5px;
+    height: 50px;
+    width: 90%;
+    &:disabled {
+        background-color: ${colorPlan.Medium};
+    }
+    &:hover {
+        background-color: ${colorPlan.Medium};
+        cursor: pointer;
+    };
+    &:active {
+        background-color: ${colorPlan.Light};
+        color: ${colorPlan.Dark_Medium};
+    };
 `;
 
 export const AboutProduct = styled.div
-`
-    margin-left: 30px;
-    margin-right: 30px;
-`;
-
-export const AboutUs = styled.div
 `
     margin-left: 30px;
     margin-right: 30px;
@@ -445,7 +506,8 @@ export const HomeTitle = FontFormat.extend
 
 export const Slogan = FontFormat.extend
 `
-    width: 500px;
+    position: relative;
+    width: 90%;
     color: ${colorPlan.Light};
     font-size: 30px;
     font-style: Italic;
@@ -455,14 +517,4 @@ export const Slogan = FontFormat.extend
 export const HomeComponents = styled.div
 `
     display: flex;
-`;
-
-export const HomeSignUp = styled.div
-`
-    width: 20px;
-`;
-
-export const HomeLogin = styled.div
-`
-    width: 20px;
 `;
