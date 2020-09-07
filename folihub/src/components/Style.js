@@ -386,11 +386,12 @@ export const SecondIntro = styled.div
 export const IconComponent = styled.div
 `
     display: grid;
-    grid-template-rows: 45% 20% 35%;
+    grid-template-rows: 45% 20% 17% 18%;
     grid-template-areas: 
         "HomeComponents",
         "Slogan",
-        "HomeRedirect";
+        "HomeRedirect"
+        "SignUpGoogleRedirect";
     height: 100%;
 `;
 
@@ -489,6 +490,14 @@ export const LoginRedirect = styled.a
     };
 `;
 
+export const SignUpGoogleRedirect = styled.div
+`
+    display: flex;
+    margin-left: 20px;
+    color: ${colorPlan.Light};
+    font-family: Georgia;
+`;
+
 export const AboutProduct = styled.div
 `
     margin-left: 30px;
@@ -517,4 +526,19 @@ export const Slogan = FontFormat.extend
 export const HomeComponents = styled.div
 `
     display: flex;
+`;
+
+export const GoogleIcon = styled.img
+`
+    position: relative;
+    margin-top: 2px;
+    margin-bottom: 20px;
+    height: 15px;
+    width: 15px;
+`;
+
+export const GoogleLink = styled.a
+`
+    color: ${colorPlan.Light};
+    font-family: Georgia;
 `;
