@@ -343,7 +343,7 @@ export const Item = styled.div
 
 export const HomePage = styled.div
 `
-    height: 200vh;
+    height: 300vh;
     display: grid;
     background-color: ${colorPlan.Light};
     grid-template-rows: 47em auto;
@@ -397,23 +397,19 @@ export const IconComponent = styled.div
 
 export const Poster = styled.div
 `
-    background-color: white;
     height: 420px;
 `;
 
 export const Poster1 = styled.div
 `
-    background-color: white;  
 `;
 
 export const Poster2 = styled.div
 `
-    background-color: grey;  
 `;
 
 export const Poster3 = styled.div
-`
-    background-color: black;  
+` 
 `;
 
 export const HomeRedirect = styled.div
@@ -502,6 +498,8 @@ export const AboutProduct = styled.div
 `
     margin-left: 30px;
     margin-right: 30px;
+    font-family: Georgia;
+    font-size: 130%;
 `;
 
 export const HomeTitle = FontFormat.extend
@@ -541,4 +539,43 @@ export const GoogleLink = styled.a
 `
     color: ${colorPlan.Light};
     font-family: Georgia;
+`;
+
+export const AboutProductBlock1 = styled.div
+`
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 350px;
+    border-radius: 1%;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-areas: "left right";
+`;
+
+export const AboutProductBlock2 = styled.div
+`
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 350px;
+    border-radius: 1%;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-areas: "left right";
+`;
+
+export const AboutProductImg = styled.img
+`
+    height: 300px;
+    width: 90%;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+`;
+
+export const AboutProductText = styled.div
+`
+    position: relative;
+    margin-top: 1%;
+    margin-right: 20px;
+    margin-left:20px;
 `;
