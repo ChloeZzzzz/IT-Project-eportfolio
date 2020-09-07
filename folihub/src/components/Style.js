@@ -344,7 +344,7 @@ export const Item = styled.div
 
 export const HomePage = styled.div
 `
-    height: 280vh;
+    height: 300vh;
     display: grid;
     background-color: ${colorPlan.Light};
     grid-template-rows: 47em auto;
@@ -361,8 +361,9 @@ export const IntroImg = styled.div
     grid-template-areas: 
         'FirstIntro',
         'SecondIntro';
-    background: url(${Home_Img});
-    background-size: 1600px;
+    background: url(${Home_Img}) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     height: 100vh;
 `;
 
@@ -498,7 +499,7 @@ export const SignUpGoogleRedirect = styled.div
 export const AboutProduct = styled.div
 `
     position: relative;
-    margin-top: 100px;
+    margin-top: 60px;
     margin-left: 30px;
     margin-right: 30px;
     font-family: Georgia;
