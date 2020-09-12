@@ -2,6 +2,8 @@ import React from 'react';
 import Welcome from "react-welcome-page";
 import Logo_Dark from "../img/folihub_dark.png";
 import {colorPlan} from './Style';
+import 'react-quill/dist/quill.snow.css';
+import ReactQuill from 'react-quill';
 
 class EditFolio extends React.Component {
     constructor(props) {
@@ -9,10 +11,12 @@ class EditFolio extends React.Component {
         this.state={
             loading: false,
             loggIn: false,
-            msg: '',
-            email: '',
-            password: '',
+            text: '',
         };
+        this.handleChange = this.handleChange.bind(this);
+    }
+    handleChange(value) {
+        this.setState({ text: value })
     }
     render() {
         if (this.state.loading) {
@@ -31,7 +35,10 @@ class EditFolio extends React.Component {
             );
         }
         else {
-
+            return (
+                <ReactQuill value={this.state.text}
+                onChange={this.handleChange} />
+            )
         }
     }
 }
