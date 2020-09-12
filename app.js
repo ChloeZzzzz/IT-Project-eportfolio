@@ -16,7 +16,7 @@ app.use(session({secret:"folihub_ichiban",
 app.use(passport.initialize());
 app.use(passport.session());
 //cors
-app.use(cors({origin:["http://folihub.herokuapp\.com$/","http://localhost:3000", "http://sheltero.herokuapp.com"],
+app.use(cors({origin:["http://folihub.herokuapp\.com$/","http://localhost:3000", "http://folihub.herokuapp.com"],
             credentials:true,
             allowedHeaders:['Origin','X-Requested-With','Content-Type','Accept'],
             methods:['GET','PUT','POST','DELETE','OPTIONS'],
