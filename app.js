@@ -4,6 +4,7 @@ const express = require('express');
 const session = require("express-session");
 const app = express();
 const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 const connection = require('./config/database');
 const flash = require('connect-flash-plus');
 const passport = require('passport');
