@@ -344,10 +344,9 @@ export const Item = styled.div
 
 export const HomePage = styled.div
 `
-    height: 300vh;
     display: grid;
     background-color: ${colorPlan.Light};
-    grid-template-rows: 47em auto;
+    grid-template-rows: auto auto;
     grid-template-areas:
         'IntroImg',
         'AboutProduct',
