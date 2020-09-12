@@ -1,11 +1,20 @@
 require('dotenv').config();
 
 const express = require('express');
+const session = require("express-session");
 const app = express();
 const bodyParser = require('body-parser');
 const connection = require('./config/database');
+const flash = require('connect-flash-plus');
 const passport = require('passport');
 require('./config/passport')(passport);
+app.use(flash());
+//sessions
+app.use(session({secret:"folihub_ichiban",
+                resave:true,
+                saveUninitialized: true}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 const PORT = process.env.PORT || 3000;
 
