@@ -17,15 +17,19 @@ app.use(session({secret:"folihub_ichiban",
 app.use(passport.initialize());
 app.use(passport.session());
 //cors
+/*
 app.use(cors({origin:["http://folihub.herokuapp\.com$/","http://localhost:3000", "http://folihub.herokuapp.com"],
             credentials:true,
             allowedHeaders:['Origin','X-Requested-With','Content-Type','Accept'],
             methods:['GET','PUT','POST','DELETE','OPTIONS'],
             preflightContinue:true}));
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
+*/
+app.head("/", cors(), (req, res)  => {
+    console.info("HEAD /");
+    res.sendStatus(204);
+})
 const PORT = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs'); // uncomment this line after product done
@@ -33,9 +37,9 @@ app.set('view engine', 'ejs'); // uncomment this line after product done
 
 // ---ROUTER---
 const userRouter = require('./routes/userRouter');
-app.use('/user', userRouter);
+app.use('/user', cors(), userRouter);
 
-app.get('/', (req, res) => {
+app.get('/', cors(), (req, res) => {
     res.send('Hello FoliHub!');
 });
 
