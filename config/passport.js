@@ -27,7 +27,6 @@ module.exports = (passport)=>{
                         }
                         console.log(result[0].Email);
                         console.log(result[0].userPassword);
-    
                         var correctpw = await bcrypt.compare(password, result[0].userPassword);
                         if (!result) {
                             return done(null, false, req.flash("loginMessage", "No user found"));
