@@ -3,7 +3,7 @@ import Welcome from "react-welcome-page";
 import Logo_Dark from "../img/folihub_dark.png";
 import {colorPlan, AuthenCanvasLogin, Button, InputContainer, Title, AuthenForm, AuthenRedirectText, TextLink} from "./Style";
 import {TextField} from '@material-ui/core';
-
+import {postUserLogin} from '../api/userAPI';
 class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -27,6 +27,10 @@ class Login extends React.Component {
 
     handleSubmit(event) {
         //login api
+        postUserLogin({email: this.state.email, password: this.state.password}).then(response => {
+            console.log(response);
+        });
+        event.preventDefault();
     }
 
     render() {
