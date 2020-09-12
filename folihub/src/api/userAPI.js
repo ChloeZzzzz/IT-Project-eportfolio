@@ -30,13 +30,13 @@ export async function postUserSignup(data) {
 
 export async function postUserLogin(data) {
     const endpoint = BASE_URL + '/login';
-    /*
-    console.log("post user sign up");
-    await axios.post(endpoint, data, {withCredentials:true, crossdomain:true}).then(response => {
+    
+    console.log("post user log in");
+    await axios.post(endpoint, data, {withCredentials:true, crossdomain:true}).then((response) => {
         console.log("API: "+response);
-        return response.json();
+        return response.data;
     });
-    */
+    /*
    console.log("post user log in:")
    const response = await fetch(endpoint, {
         method: 'POST',
@@ -52,4 +52,5 @@ export async function postUserLogin(data) {
     });
     console.log(response);
     return response.json();
+    */
 }
