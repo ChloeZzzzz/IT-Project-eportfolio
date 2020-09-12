@@ -2,10 +2,12 @@ const db = require('../config/database.js');
 
 const getUserLogin = (req, res) => {
     res.render("login.ejs");
+    return res.end();
 }
 
 const getUserSignup = (req, res) => {
     res.render("signup.ejs");
+    return res.end();
 }
 
 const successSignup = (req, res) => {
@@ -32,6 +34,7 @@ const getAllUser = (req, res) => {
     db.query("SELECT * FROM Users", (err, result) => {
         console.log(result);
         res.send(result);
+        return res.end();
     })
 }
 
