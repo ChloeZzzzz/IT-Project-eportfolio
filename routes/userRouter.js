@@ -12,6 +12,9 @@ userRouter.post('/login',
                                             failureRedirect: './failurelogin',
                                             failureFlash:true}
 ));
+userRouter.get('/successlogin', userController.successLogin);
+userRouter.get('/failurelogin', userController.failureLogin);
+
 
 // user sign up
 userRouter.get('/signup', userController.getUserSignup);
@@ -20,6 +23,8 @@ userRouter.post('/signup',
                                             failureRedirect: './failuresignup',
                                             failureFlash:true}
 ));
+userRouter.get('/successsignup', userController.successSignup);
+userRouter.get('/failuresignup', userController.failureSignup);
 
 
 // my secret router for getting all the user db, uncomment it before publish
