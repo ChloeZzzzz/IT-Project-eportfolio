@@ -1,27 +1,29 @@
 require('dotenv').config();
 
 const express = require('express');
-const session = require("express-session");
 const app = express();
-const bodyParser = require('body-parser');
 const connection = require('./config/database');
-const flash = require('connect-flash-plus');
+
+// ==== sessions & passport config ====
 const passport = require('passport');
-const cors = require('cors');
 require('./config/passport')(passport);
+const flash = require('connect-flash-plus');
 app.use(flash());
-//sessions
+const session = require("express-session");
 app.use(session({secret:"folihub_ichiban",
                 resave:true,
                 saveUninitialized: true}));
 app.use(passport.initialize());
 app.use(passport.session());
-//cors
+
+// ==== cors ====
+const cors = require('cors');
 app.use(cors({origin:["http://folihub.herokuapp\.com$/","http://localhost:3000", "http://folihub.herokuapp.com"],
             credentials:true,
             allowedHeaders:['Origin','X-Requested-With','Content-Type','Accept'],
             methods:['GET','PUT','POST','DELETE','OPTIONS'],
             preflightContinue:true}));
+const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
