@@ -28,7 +28,7 @@ const StyledMenu = withStyles({
     }}
     transformOrigin={{
       vertical: 'top',
-      horizontal: 'left',
+      horizontal: 'right',
     }}
     {...props}
   />

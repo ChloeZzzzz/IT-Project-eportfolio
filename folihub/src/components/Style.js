@@ -76,6 +76,7 @@ export const UserIcon = styled.div
     display: grid;
     align-items: center;
     justify-items: end;
+    margin-right: 5%;
 `;
 
 export const UserContainer = styled.div

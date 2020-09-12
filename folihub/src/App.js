@@ -7,6 +7,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import UserHomepage from './components/UserHomepage';
 import Footer from "./components/Footer";
+import EditFolio from "./components/EditFolio";
 
 
 import "./App.css";
@@ -30,6 +31,7 @@ class App extends Component {
           <Route exact path="/Login" render={props => <Login {...props} />} />
           <Route exact path="/signup" render={props => <Signup {...props} />} />
           <Route exact path="/userHomepage" render={props => <UserHomepage {...props} />} />
+          <Route exact path="/EditFolio" render={props => <EditFolio {...props} />} />
         </Switch>
         <Footer />
 
