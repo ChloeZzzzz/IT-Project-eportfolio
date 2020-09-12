@@ -75,9 +75,9 @@ module.exports = (passport)=>{
                             console.log(result);
                             console.log("insert err --");
                             console.log(err);
+                            return done(null, {Email: email, userPassword: password}, req.flash("signupMessage", "Signup Success"));
                         }})
 
-                        return done(null, result[0], req.flash("signupMessage", "Signup Success"));
                     }
                 });
             }
