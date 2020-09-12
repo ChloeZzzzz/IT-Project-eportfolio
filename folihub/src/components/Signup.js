@@ -2,6 +2,7 @@ import React from 'react';
 import Welcome from "react-welcome-page";
 import {colorPlan, AuthenCanvasSignup, AuthenRedirectText, InputContainer, Title, AuthenForm, Button, TextLink} from "./Style";
 import {TextField} from '@material-ui/core';
+import {postUserSignup} from '../api/userAPI';
 
 class Signup extends React.Component{
     constructor(props) {
@@ -34,7 +35,11 @@ class Signup extends React.Component{
             })
         } else {
             // the signup api here
+            postUserSignup({email: this.state.email, password: this.state.password}).then(response => {
+                console.log(response);
+            });
         }
+        e.preventDefault();
     }
 
     render(){
