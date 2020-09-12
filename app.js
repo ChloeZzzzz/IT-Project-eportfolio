@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const connection = require('./config/database');
 const flash = require('connect-flash-plus');
 const passport = require('passport');
+const cors = require('cors');
 require('./config/passport')(passport);
 app.use(flash());
 //sessions
