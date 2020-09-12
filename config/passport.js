@@ -18,7 +18,7 @@ module.exports = (passport)=>{
                 try{
                     console.log(email);
                     console.log(password);
-    
+
                     await db.query(`SELECT Email, userPassword FROM Users WHERE Email = "${email}"`, async function(err, result) {
                         if (err) {
                             console.log("---LOG IN ERROR---");

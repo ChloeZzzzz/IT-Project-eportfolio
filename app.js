@@ -19,12 +19,12 @@ app.use(passport.session());
 
 const PORT = process.env.PORT || 3000;
 
-app.set('view engine', 'ejs');
+app.set('view engine', 'ejs'); // uncomment this line after product done
 
 
+// ---ROUTER---
 const userRouter = require('./routes/userRouter');
 app.use('/user', userRouter);
-
 
 app.get('/', (req, res) => {
     res.send('Hello FoliHub!');
