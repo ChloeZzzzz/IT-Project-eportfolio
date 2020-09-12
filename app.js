@@ -4,7 +4,6 @@ const express = require('express');
 const session = require("express-session");
 const app = express();
 const bodyParser = require('body-parser');
-app.use(bodyParser.json());
 const connection = require('./config/database');
 const flash = require('connect-flash-plus');
 const passport = require('passport');
@@ -16,6 +15,15 @@ app.use(session({secret:"folihub_ichiban",
                 saveUninitialized: true}));
 app.use(passport.initialize());
 app.use(passport.session());
+//cors
+app.use(cors({origin:["http://folihub.herokuapp\.com$/","http://localhost:3000", "http://sheltero.herokuapp.com"],
+            credentials:true,
+            allowedHeaders:['Origin','X-Requested-With','Content-Type','Accept'],
+            methods:['GET','PUT','POST','DELETE','OPTIONS'],
+            preflightContinue:true}));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 const PORT = process.env.PORT || 3000;
 
