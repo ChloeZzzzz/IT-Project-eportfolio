@@ -1,5 +1,5 @@
 const LocalStrategy = require('passport-local').Strategy;
-const mysql = require('mysql');
+const bcrypt = require('bcrypt')
 const db = require('./database.js');
 
 module.exports = (passport)=>{
@@ -8,45 +8,43 @@ module.exports = (passport)=>{
         passwordField: "password",
         passReqToCallback: true},
         async (req, email, password, done)=>{
-            try{
-                console.log(req);
-                console.log(email);
-                console.log(password);
-                /*
-                db.query('SELECT * FROM Users', function(err, result) {
-                    if (err) {
-                        console.log("DB ERROR");
-                        console.log(err);
-                        return;
-                    }
-                    console.log("---select---");
-                    console.log(result);
+            let session = req.session;
+            if (session.passport) {
+                console.log("user already logged in");
+                await db.query(`SELECT Email, userPassword FROM Users WHERE Email = "${email}"`, (err, result) => {
+                    return done(null, result[0], req.flash("signupMessage", "User already logged in"));
                 });
-                */
-                await db.query(`SELECT Email, userPassword FROM Users WHERE Email = "${email}"`, function(err, result) {
-                    if (err) {
-                        console.log("---LOG IN ERROR---");
-                        console.log(err);;
-                        return;
-                    }
-                    console.log(result);
-                    console.log(result[0].Email);
-                    console.log(result[0].userPassword);
-                    
-                    if (!result) {
-                        return done(null, false, req.flash("loginMessage", "No user found"));
-                    }
-                    else if (result[0].userPassword !== password) {
-                        return done(null, false, req.flash("loginMessage", "Wrong password"));
-                    }
-                    else {
-                        return done(null, result[0], req.flash("loginMessage", "Successful login"));
-                    }
-                    
-                });
-            }
-            catch(err){
-                return done(err);
+            } else {
+                try{
+                    console.log(email);
+                    console.log(password);
+    
+                    await db.query(`SELECT Email, userPassword FROM Users WHERE Email = "${email}"`, async function(err, result) {
+                        if (err) {
+                            console.log("---LOG IN ERROR---");
+                            console.log(err);;
+                            return;
+                        }
+                        console.log(result[0].Email);
+                        console.log(result[0].userPassword);
+    
+                        var correctpw = await bcrypt.compare(password, result[0].userPassword);
+                        if (!result) {
+                            return done(null, false, req.flash("loginMessage", "No user found"));
+                        }
+                        else if (!correctpw) {
+                            console.log("wrong password");
+                            return done(null, false, req.flash("loginMessage", "Wrong password"));
+                        }
+                        else {
+                            req.session.email = email;
+                            return done(null, result[0], req.flash("loginMessage", "Successful login"));
+                        }
+                    });
+                }
+                catch(err){
+                    return done(err);
+                }
             }
         }
     ));
@@ -55,36 +53,38 @@ module.exports = (passport)=>{
         usernameField: "email",
         passwordField: "password",
         passReqToCallback: true},
-       async  (req, email, password, done)=>{
-            try{
+        async  (req, email, password, done)=>{
+            let session = req.session;
+            if (session.passport) {
+                console.log("user already logged in");
                 await db.query(`SELECT Email, userPassword FROM Users WHERE Email = "${email}"`, (err, result) => {
-                    console.log("result:");
-                    console.log(result[0]);
-                    if (err) {
-                        console.log("---SIGN UP ERROR---");
-                        console.log(err);
-                        return;
-                    }
-                    if(result[0]){
-                        console.log("has result")
-                        return done(null, false, req.flash("signupMessage", "Email already taken"));
-                    }
-                    else{
-                        db.query(`INSERT INTO Users VALUES("${email}", "${password}")`, (err, result) => { {
-                            console.log("insert result ---");
-                            console.log(result);
-                            console.log("insert err --");
-                            console.log(err);
-                            return done(null, {Email: email, userPassword: password}, req.flash("signupMessage", "Signup Success"));
-                        }})
-
-                    }
+                    return done(null, result[0], req.flash("signupMessage", "User already logged in"));
                 });
-            }
-            catch(err){
-                console.log("ERROR");
-                console.log(err);
-                return done(err);
+            } else {
+                try{
+                    await db.query(`SELECT Email, userPassword FROM Users WHERE Email = "${email}"`, async (err, result) => {
+                        if (err) {
+                            console.log("---SIGN UP ERROR---");
+                            console.log(err);
+                            return;
+                        }
+                        if(result[0]){
+                            return done(null, false, req.flash("signupMessage", "Email already taken"));
+                        }
+                        else{
+                            var hashed = await bcrypt.hash(password, 10); // encrypt the password
+                            db.query(`INSERT INTO Users VALUES("${email}", "${hashed}")`, (err, result) => { {
+                                return done(null, {Email: email, userPassword: hashed}, req.flash("signupMessage", "Signup Success"));
+                            }})
+                            req.session.email = email;
+                        }
+                    });
+                }
+                catch(err){
+                    console.log("ERROR");
+                    console.log(err);
+                    return done(err);
+                }
             }
         })
     );

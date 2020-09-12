@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/ChloeZzzzz/IT-Project-eportfolio#readme",
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "connect-flash-plus": "^0.2.1",
     "dotenv": "^8.2.0",
