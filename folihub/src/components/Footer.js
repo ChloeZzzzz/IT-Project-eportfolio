@@ -45,7 +45,7 @@ class Footer extends React.Component{
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <Link style = {{gridArea : "tnc"}} href=''>Terms and Conditions</Link>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <Link style = {{gridArea : "contact"}} href=''>Contact Us</Link>
+                        <Link style = {{gridArea : "contact"}} href='/ContactUs'>Contact Us</Link>
                     </CopyrightBtm>
                 </Copyright>
             </FooterContainer>

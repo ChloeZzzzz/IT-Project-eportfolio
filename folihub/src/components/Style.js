@@ -583,6 +583,13 @@ export const AboutProductText = styled.div
     margin-right: 20px;
     margin-left:20px;
 `;
+export const ContactUsText = styled.div
+`
+    position: relative;
+    margin-top: 1%;
+    margin-right: 20px;
+    margin-left:20px;
+`;
 
 export const fadeAnimation = keyframes `${fadeIn}`;
 export const FadeDiv = styled.div
