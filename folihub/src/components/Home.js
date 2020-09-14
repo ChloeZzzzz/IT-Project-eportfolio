@@ -75,13 +75,13 @@ class Home extends React.Component {
                             <AboutProductImg src={Lock} />
                             <AboutProductText>
                                 <h3>Secure</h3>
-                                Your E-portfolios will be stored on cloud with encipherment protection,only users that authorized by you can access to your data. Folihub has a strong backup system that prevent you from data missing caused by any misconduct. Every letter on your e-portfolio will be encrypted, your data security is always our top concern.
+                                Your E-portfolios will be encrypted and stored on the cloud, only authorized users can access your data. Folihub acts as a reliable backup tool that digitalizes traditional portfolios, so you do not need to worry about any physical damage and careless misconduct. All e-portfolios will be access controlled, your data security is always our prioritized concern. 
                             </AboutProductText>
                         </AboutProductBlock1>
                         <AboutProductBlock2>
                             <AboutProductText>
-                                <h3>Fast</h3>
-                                You can access your work at anytime,anywhere.Instead of spending several minutes downloading your e-portfolio, Folihub provides a web link that turns your work into a book style e-portfolio web page, you only need to click the link to view your e-portfolio.
+                                <h3>Flexible</h3>
+                                By using Folihub, your work can be accessed at any time, anywhere. We provide several options for you to present your e-portfolio. You can either download them and share the local files, or generate a web page with real-book flipping page style and share the link. Feel free to choose any method you preferred to share and access!
                             </AboutProductText>
                             <AboutProductImg src={Lock} />
                         </AboutProductBlock2>
@@ -89,7 +89,7 @@ class Home extends React.Component {
                             <AboutProductImg src={Lock} />
                             <AboutProductText>
                                 <h3>Inspiring</h3>
-                                Couldn’t think of any idea to write your e-portfolio? Folihub provides several fantastic portfolio templates for you to start. Both portrait and landscape are available. Instead of starting from nowhere, you can just fill in with texts and photos on Folihub to create a nice and cool e-portfolio.
+                                Couldn’t think of any idea to write your e-portfolio? Folihub provides several fantastic portfolio templates for you to start. Both portrait and landscape are available. Just fill in with texts and photos you like to create a nice and customized e-portfolio.
                             </AboutProductText>
                         </AboutProductBlock1>
                     </AboutProduct>
