@@ -1,6 +1,6 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
-import { colorPlan, ContactUsText } from "./Style";
+import { colorPlan, ContactUsContainer, ContactUsText } from "./Style";
 
 class ContactUs extends React.Component {
     constructor(props) {
@@ -28,13 +28,13 @@ class ContactUs extends React.Component {
             );
         } else {
             return (
-                <div>
+                <ContactUsContainer>
                     <h1>Contact Us</h1>
                     <hr/>
                     <ContactUsText>
                     We are undergraduate students of University of Melbourne, Folihub is our graduation project. This Website is developed by TEAM 11 of IT porject(COMP 30023).If you have any questions or concerns about our website,please e-mail to yunweiw@student.unimelb.edu.au. Thank you for your support! 
                     </ContactUsText>    
-                </div>
+                </ContactUsContainer>
             )
         }
     }
