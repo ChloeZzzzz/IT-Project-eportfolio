@@ -7,7 +7,7 @@ import ReactQuill from 'react-quill';
 
 class EditFolio extends React.Component {
     constructor(props) {
-        super(props);
+        super();
         this.state={
             loading: false,
             loggIn: false,
@@ -37,7 +37,12 @@ class EditFolio extends React.Component {
         else {
             return (
                 <ReactQuill value={this.state.text}
-                onChange={this.handleChange} />
+                onChange={this.handleChange}
+                value={this.state.text}
+                modules={EditFolio.modules}
+                formats={EditFolio.formats}
+                bounds={'.app'}
+                placeholder={this.props.placeholder} />
             )
         }
     }
