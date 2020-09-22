@@ -11,24 +11,30 @@ const getUserSignup = (req, res) => {
 }
 
 const successSignup = (req, res) => {
+    console.log("===req session===");
     console.log(req.session);
-    res.send(req.session);
-    console.log(res.data);
+    res.status(200).send({"message": req.session.flash, "email": req.session.email});
     return res.end();
 }
 
 const failureSignup = (req, res) => {
-    res.json(req.session)
+    console.log("===req session===");
+    console.log(req.session);
+    res.status(200).send({"message": req.session.flash});
     return res.end();
 }
 
 const successLogin = (req, res) => {
-    res.status(200).send({"hp": "grl"});
+    console.log("===req session===");
+    console.log(req.session);
+    res.status(200).send({"message": req.session.flash, "email": req.session.email});
     return res.end();
 }
 
 const failureLogin = (req, res) => {
-    res.json(req.session);
+    console.log("===req session===");
+    console.log(req.session);
+    res.status(200).send({"message": req.session.flash});
     return res.end();
 }
 
