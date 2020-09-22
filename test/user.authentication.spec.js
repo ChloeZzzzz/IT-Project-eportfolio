@@ -12,15 +12,15 @@ var app = 'https://folihub-api.herokuapp.com/user';
 
 chai.use(chaiHttp);
 
-describe("GET /login", function (done) {
+describe("POST /login", function (done) {
     it ("should login with correct email as password", function (done) {
-        this.timeout(3000);
+        this.timeout(5000);
         let userInfo = {};
         userInfo.email = "test@test.test";
         userInfo.password = "test";
 
         chai.request(app)
-            .get('/login')
+            .post('/login')
             .send(userInfo)
             .end(function(err, response) {
                 console.log(response);
