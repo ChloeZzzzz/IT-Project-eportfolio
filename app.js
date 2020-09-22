@@ -2,7 +2,6 @@ require('dotenv').config();
 
 const express = require('express');
 const app = express();
-const connection = require('./config/database');
 
 // ==== sessions & passport config ====
 const passport = require('passport');
@@ -12,7 +11,7 @@ app.use(flash());
 const session = require("express-session");
 app.use(session({secret:"folihub_ichiban",
                 resave:true,
-                cookie: {sameSite: 'None'},
+                cookie: {sameSite: 'None', secure: true},
                 saveUninitialized: true}));
 app.use(passport.initialize());
 app.use(passport.session());
