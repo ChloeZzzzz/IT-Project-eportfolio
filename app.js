@@ -11,7 +11,7 @@ app.use(flash());
 const session = require("express-session");
 app.use(session({secret:"folihub_ichiban",
                 resave:true,
-                cookie: {sameSite: 'None', secure: true},
+                cookie: {sameSite: 'None', secure: true, httpOnly: false},
                 saveUninitialized: true}));
 app.use(passport.initialize());
 app.use(passport.session());
