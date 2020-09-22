@@ -596,6 +596,15 @@ export const ContactUsContainer = CanvasFormat.extend
 `
 
 `;
+export const ReportContainer = styled.div
+`
+    
+    position:relative;
+    margin-left:27%;
+    
+`;
+
+
 
 export const fadeAnimation = keyframes `${fadeIn}`;
 export const FadeDiv = styled.div
