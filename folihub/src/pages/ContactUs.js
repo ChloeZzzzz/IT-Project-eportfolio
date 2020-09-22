@@ -1,13 +1,13 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
-import { colorPlan, ContactUsContainer, ContactUsText,ReportContainer,Reports,Button, InputContainer} from "../components/Style";
+import { colorPlan, ContactUsContainer, ContactUsText,ReportContainer,Reports,Button, InputContainer, AboutUsContainer } from "../components/Style";
 import { TextField } from '@material-ui/core';
 
 
 
 class ContactUs extends React.Component {
     constructor(props) {
-        super(props);
+        super();
         this.state = {
             loading: false,
             loggedIn : false,
@@ -37,80 +37,77 @@ class ContactUs extends React.Component {
 
             return (
                 <ContactUsContainer>
-                    <h1>Contact Us</h1>
-                    <hr/>
-                    <ContactUsText>
-                      We are undergraduate students of University of Melbourne, Folihub is our graduation project. This Website is developed by TEAM 11 of IT porject(COMP 30023).If you have any questions or concerns about our website,please e-mail to yunweiw@student.unimelb.edu.au. Thank you for your support! 
-                    </ContactUsText> 
-                    <h2 align="center">Report</h2> 
-                    <ReportContainer>   
-                    
-                    
-                    <InputContainer>
-                    <TextField 
-                    size = "small"
-                    variant = "filled"
-                    id = "Name"
-                    name = "Name"
-                    placeholder = "Name"
-                    label = "Name"
-                    onChange = {this.handleChange}
-                    required/>
-                    </InputContainer>
-                    
+                    <AboutUsContainer>
+                        <h1> About Us </h1>
+                        <ContactUsText>
+                            <hr/>
+                            We are undergraduate students of University of Melbourne, Folihub is our graduation project. This Website is developed by TEAM 11 of IT porject(COMP 30023).If you have any questions or concerns about our website,please e-mail to yunweiw@student.unimelb.edu.au. 
+                            Thank you for your support! 
+                        </ContactUsText> 
+                    </AboutUsContainer>
+                    <ReportContainer> 
+                        <Reports> 
+                            <h1>Contact Us</h1> 
+                            <hr/> 
+                            <InputContainer>
+                                <TextField 
+                                    size = "small"
+                                    variant = "filled"
+                                    id = "Name"
+                                    name = "Name"
+                                    placeholder = "Name"
+                                    label = "Name"
+                                    onChange = {this.handleChange}
+                                    required
+                                />
+                            </InputContainer>
+                        
+                            <InputContainer>
+                                <TextField 
+                                    size = "small"
+                                    variant = "filled"
+                                    id = "Phone NO."
+                                    name = "Phone NO."
+                                    placeholder = "Phone NO."
+                                    label = "Phone NO."
+                                    onChange = {this.handleChange}
+                                    required
+                                />
+                            </InputContainer>
+                
+                            <InputContainer>
+                                <TextField 
+                                    size = "small"
+                                    variant = "filled"
+                                    id = "Email Address"
+                                    name = "Email Address"
+                                    placeholder = "Email Address"
+                                    label = "Email Address"
+                                    onChange = {this.handleChange}
+                                    required
+                                />
+                            </InputContainer>               
+                        
+                            <InputContainer>
+                                <TextField 
+                                    position = "right"
+                                    variant = "filled"
+                                    id = "Please enter your problem"
+                                    name = "Please enter your problem"
+                                    placeholder = "Please enter your problem"
+                                    label = "Please enter your problem"
+                                    multiline rows={6}
+                                    onChange = {this.handleChange}
+                                    required
+                                />
+                            </InputContainer>
 
-                    
-                    
-                    
-                   
-                    <p>
-                        <InputContainer>
-                        <TextField 
-                        size = "small"
-                        variant = "filled"
-                        id = "Phone NO."
-                        name = "Phone NO."
-                        placeholder = "Phone NO."
-                        label = "Phone NO."
-                        onChange = {this.handleChange}
-                        required/>
-                        </InputContainer>
-                   
-                    </p>
-                   
-                    <p>
-                    <InputContainer>
-                    <TextField 
-                    size = "small"
-                    variant = "filled"
-                    id = "Email Address"
-                    name = "Email Address"
-                    placeholder = "Email Address"
-                    label = "Email Address"
-                    onChange = {this.handleChange}
-                    required/>
-                    </InputContainer>
-                    </p>                   
-                   
-                    <InputContainer>
-                    <TextField 
-                    position = "right"
-                    variant = "filled"
-                    id = "Please enter your problem"
-                    name = "Please enter your problem"
-                    placeholder = "Please enter your problem"
-                    label = "Please enter your problem"
-                    multiline rows={6}
-                    onChange = {this.handleChange}
-                    required/>
-                    <p></p>
-                    </InputContainer>
-                    <InputContainer>
-                    <Button type="submit" onClick = {()=>{this.submit()}}>
-                        submit
-                    </Button>
-                    </InputContainer>
-                    
+                            <InputContainer>
+                                <Button type="submit" onClick = {()=>{this.submit()}}>
+                                    submit
+                                </Button>
+                            </InputContainer>
+                        </Reports>
                     </ReportContainer>      
                     
                       

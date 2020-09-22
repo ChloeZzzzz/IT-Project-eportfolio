@@ -584,27 +584,56 @@ export const AboutProductText = styled.div
     margin-left:20px;
 `;
 
-export const ContactUsText = FontFormat.extend
-`
-    position: relative;
-    margin-top: 1%;
-    margin-right: 20px;
-    margin-left:20px;
-`;
-
 export const ContactUsContainer = CanvasFormat.extend
 `
-
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "ContactUsText ReportContainer"
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    height: 100%;
 `;
+
+export const ContactUsText = FontFormat.extend
+`
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: left;
+`;
+
+export const AboutUsContainer = styled.div
+`
+    margin-left: 10%;
+    margin-right: 5%;
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 3%;
+    font-size: 20px;
+    text-align: center;
+    font-family: "Georgia";
+`;
+
+export const Reports = styled.div
+`
+    font-size: 20px;
+    font-family: "Georgia";
+    text-align: center;
+    margin-left: 5%;
+    margin-right 5%;
+    margin-bottom: 10%;
+`;
+
 export const ReportContainer = styled.div
 `
-    
     position:relative;
-    margin-left:27%;
-    
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 90%;
+    margin-left: 10%;
+    border-radius: 3%;
 `;
-
-
 
 export const fadeAnimation = keyframes `${fadeIn}`;
 export const FadeDiv = styled.div
