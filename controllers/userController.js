@@ -24,6 +24,7 @@ const failureSignup = (req, res) => {
 
 const successLogin = (req, res) => {
     console.log(req);
+    res.cookie('message', req.session);
     res.json(req.session);
     return res.end();
 }
