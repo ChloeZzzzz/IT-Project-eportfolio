@@ -57,7 +57,7 @@ URL Link:
 * Sequence Diagram  
 
 **Axure Prototype**  
-https://6lugp1.axshare.com/  
+https://zele5k.axshare.com/  
 
 **Trello board**  
 https://trello.com/b/YKcZYnsR/it-project-team-11   
