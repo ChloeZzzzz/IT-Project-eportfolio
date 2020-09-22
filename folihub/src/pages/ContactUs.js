@@ -1,7 +1,6 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
-import {Radio} from 'antd';
-import { colorPlan, ContactUsContainer, ContactUsText,ReportContainer,Reports,Button, InputContainer} from "./Style";
+import { colorPlan, ContactUsContainer, ContactUsText,ReportContainer,Reports,Button, InputContainer} from "../components/Style";
 import { TextField } from '@material-ui/core';
 
 
