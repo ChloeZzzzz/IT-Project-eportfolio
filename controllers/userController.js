@@ -23,9 +23,7 @@ const failureSignup = (req, res) => {
 }
 
 const successLogin = (req, res) => {
-    console.log(req);
-    res.cookie('message', req.session);
-    res.json(req.session);
+    res.status(200).send({"hp": "grl"});
     return res.end();
 }
 
