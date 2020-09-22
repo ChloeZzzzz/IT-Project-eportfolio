@@ -25,6 +25,7 @@ let connection = mysql.createConnection({
   database: process.env.DB_DATABASE,
   password: process.env.DB_PASS,
   useConnectionPooling: true,
+  port: "3306",
 });
 
   connection.connect(function(err) {
