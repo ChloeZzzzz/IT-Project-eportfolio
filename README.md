@@ -8,6 +8,9 @@ In sprint 1, frontend homepage, sign up, login and user homepage skeleton code a
 * Navigate to the folder and run "npm install" in terminal,
 * "npm start" and view it on localhost: 3000.
 
+**Sprint 2**
+Both the front-end and back-end codes are deployed to Heroku server at the start of Sprint 2, now it is accessable from the link provided below in the "features and functionalities" section.  
+
 ## APIs - Routers and Controllers
 **User Authentication**  
 
@@ -16,27 +19,27 @@ In sprint 1, frontend homepage, sign up, login and user homepage skeleton code a
 **Homepage**  
 Homepage is avaliable for all users (those who have accounts) and visitors (those who do not have accounts). This page includes product introduction, which is mainly on "Secure", "Fast" and "Inspiring", and also gives users and visitors a taste of the style of our product.     
   
-URL Link: /  
+URL Link: https://folihub.herokuapp.com/  
   
 **User Sign Up**  
 This page is for visitors to sign up and use more advanced functionalities. Users are identified by an unique email address, and are required to set up a password, which is hashed and stored in the database. Sign up with Gmail is also planned to be implemented in future versions.  
 
-URL Link: /signup  
+URL Link: https://folihub.herokuapp.com/signup  
 
 **User Login**  
 This page is for users to log in and access stored e-portfolios, or create new ones. User email and password are required.
 
-URL Link: /login  
+URL Link: https://folihub.herokuapp.com/login  
 
 **User Homepage**  
 User homepage displays all the e-portfolios the user owns. It can be accessed only after logged in. User can create new e-portfolios, or select past e-portfolios to edit from this page.  
 
-URL Link: /userHomepage  
+URL Link: https://folihub.herokuapp.com/userHomepage  
 
 **Edit Folio**  
 Edit folio page is when user click existed e-portfolios or create new e-portfolios from user homepage. Previous work (or empty page) along with editing tools in tool bar are displayed to allow the user to design and update that page (the term "page" here refers to a "page" in the e-portfolio). User could add new pages to e-portfolio as well. To do this, a pop up window will appear and user cam choose a template to continue.  
 
-URL Link:  
+URL Link:    
 
 
 **Export Folio**  
@@ -68,7 +71,7 @@ including:
 * Do/Be/Feel Model
 * Sprint Backlog
 * Client Interview Notes
-
+* API Documentation
 
 ## Team Members  
 | Role | Name |
