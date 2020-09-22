@@ -36,6 +36,9 @@ app.set('view engine', 'ejs'); // uncomment this line after product done
 const userRouter = require('./routes/userRouter');
 app.use('/user', userRouter);
 
+const ePortfolioRouter = require('./routes/ePortfolioRouter');
+app.use('/ePortfolio', ePortfolioRouter);
+
 app.get('/', (req, res) => {
     res.send('Hello FoliHub!');
 });
