@@ -1,8 +1,8 @@
 import React from 'react'
-import {CollectionCanvas, ItemContainer, Item, ItemDescription, ItemTitle, ItemDate} from './Style.js';
+import {CollectionCanvas, ItemContainer, Item, ItemDescription, ItemTitle, ItemDate} from '../components/Style.js';
 import AddIcon from "@material-ui/icons/Add";
 import VisibilityIcon from '@material-ui/icons/Visibility';
-import FolioMenu from './FolioMenu';
+import FolioMenu from '../components/FolioMenu';
 import Tooltip from '@material-ui/core/Tooltip';
 
 class UserHomepage extends React.Component{
