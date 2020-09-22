@@ -28,17 +28,20 @@ module.exports = (passport)=>{
                         }
                         console.log(result[0].Email);
                         console.log(result[0].userPassword);
-                        var correctpw = await bcrypt.compare(password, result[0].userPassword);
+                        //var correctpw = await bcrypt.compare(password, result[0].userPassword);
                         if (!result) {
                             return done(null, false, {message: "No user found"});
-                        }
-                        else if (!correctpw) {
-                            console.log("wrong password");
-                            return done(null, false, {message: "Wrong password"});
-                        }
-                        else {
-                            req.session.email = email;
-                            return done(null, result[0], {message: "Successful login"});
+                        } else {
+                            var correctpw = await bcrypt.compare(password, result[0].userPassword);
+
+                            if (!correctpw) {
+                                console.log("wrong password");
+                                return done(null, false, {message: "Wrong password"});
+                            }
+                            else {
+                                req.session.email = email;
+                                return done(null, result[0], {message: "Successful login"});
+                            }
                         }
                     });
                 }
