@@ -2,8 +2,9 @@ const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt')
 const db = require('./database.js');
 
+
 module.exports = (passport)=>{
-    passport.use("cookie-login", new LocalStrategy({
+    passport.use("local-login", new LocalStrategy({
         usernameField: "email",
         passwordField: "password",
         passReqToCallback: true},
@@ -12,7 +13,7 @@ module.exports = (passport)=>{
             if (session.passport) {
                 console.log("user already logged in");
                 await db.query(`SELECT Email, userPassword FROM Users WHERE Email = "${email}"`, (err, result) => {
-                    return done(null, result[0], req.flash("signupMessage", "User already logged in"));
+                    return done(null, result[0], {message: "User already logged in"});
                 });
             } else {
                 try{
@@ -29,15 +30,15 @@ module.exports = (passport)=>{
                         console.log(result[0].userPassword);
                         var correctpw = await bcrypt.compare(password, result[0].userPassword);
                         if (!result) {
-                            return done(null, false, req.flash("loginMessage", "No user found"));
+                            return done(null, false, {message: "No user found"});
                         }
                         else if (!correctpw) {
                             console.log("wrong password");
-                            return done(null, false, req.flash("loginMessage", "Wrong password"));
+                            return done(null, false, {message: "Wrong password"});
                         }
                         else {
                             req.session.email = email;
-                            return done(null, result[0], req.flash("loginMessage", "Successful login"));
+                            return done(null, result[0], {message: "Successful login"});
                         }
                     });
                 }

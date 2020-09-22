@@ -11,7 +11,9 @@ const getUserSignup = (req, res) => {
 }
 
 const successSignup = (req, res) => {
-    res.json(req.session);
+    console.log(req.session);
+    res.send(req.session);
+    console.log(res.data);
     return res.end();
 }
 
@@ -21,6 +23,7 @@ const failureSignup = (req, res) => {
 }
 
 const successLogin = (req, res) => {
+    console.log(req);
     res.json(req.session);
     return res.end();
 }
