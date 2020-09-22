@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Home from './components/Home';
+import Home from './pages/Home';
 import Nav from "./components/Nav";
-import Signup from "./components/Signup";
-import Login from "./components/Login";
-import UserHomepage from './components/UserHomepage';
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import UserHomepage from './pages/UserHomepage';
 import Footer from "./components/Footer";
-import EditFolio from "./components/EditFolio";
-import ContactUs from "./components/ContactUs";
+import EditFolio from "./pages/EditFolio";
+import ContactUs from "./pages/ContactUs";
 
 import "./App.css";
 

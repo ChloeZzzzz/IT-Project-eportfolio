@@ -1,7 +1,7 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
 import Logo_Light from "../img/folihub_light.png";
-import { FadeDiv, colorPlan, HomePage, IntroImg, HomeRedirect, FirstIntro, IconComponent, Poster, Poster1, Poster2, Poster3, SecondIntro, AboutProduct, HomepageLogo, HomeTitle, Slogan, HomeComponents, LoginRedirect, SignUpRedirect, SignupText, LoginText, SignUpGoogleRedirect, GoogleIcon, GoogleLink, AboutProductBlock1, AboutProductBlock2, AboutProductImg, AboutProductText  } from "./Style";
+import { FadeDiv, colorPlan, HomePage, IntroImg, HomeRedirect, FirstIntro, IconComponent, Poster, Poster1, Poster2, Poster3, SecondIntro, AboutProduct, HomepageLogo, HomeTitle, Slogan, HomeComponents, LoginRedirect, SignUpRedirect, SignupText, LoginText, SignUpGoogleRedirect, GoogleIcon, GoogleLink, AboutProductBlock1, AboutProductBlock2, AboutProductImg, AboutProductText  } from "../components/Style";
 import Google_Icon from "../img/google-icon.png";
 import Lock from "../img/lock.jpg";
 

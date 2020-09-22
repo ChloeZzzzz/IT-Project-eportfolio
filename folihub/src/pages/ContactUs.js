@@ -1,6 +1,6 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
-import { colorPlan, ContactUsContainer, ContactUsText } from "./Style";
+import { colorPlan, ContactUsContainer, ContactUsText } from "../components/Style";
 
 class ContactUs extends React.Component {
     constructor(props) {

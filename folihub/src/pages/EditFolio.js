@@ -1,7 +1,7 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
 import Logo_Dark from "../img/folihub_dark.png";
-import {colorPlan} from './Style';
+import {colorPlan} from '../components/Style';
 import 'react-quill/dist/quill.snow.css';
 import ReactQuill from 'react-quill';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
-import {colorPlan, AuthenCanvasSignup, AuthenRedirectText, InputContainer, Title, AuthenForm, Button, TextLink} from "./Style";
+import {colorPlan, AuthenCanvasSignup, AuthenRedirectText, InputContainer, Title, AuthenForm, Button, TextLink} from "../components/Style";
 import {TextField} from '@material-ui/core';
 import {postUserSignup} from '../api/userAPI';
 
