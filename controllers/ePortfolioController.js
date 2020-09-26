@@ -26,6 +26,8 @@ const createEPortfolio = async (req, res) => {
             console.log(result[0].Email);
 
         });
+
+
     }
     catch(err){
         console.log("---creat EP ERROR---");
@@ -66,6 +68,10 @@ const getEPortfolio = async (req, res) => {
     }
 
 
+    return;
+}
+
+const renameEportfolio = async (req,res) => {
     return;
 }
 

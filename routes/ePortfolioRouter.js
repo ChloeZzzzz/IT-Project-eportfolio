@@ -12,4 +12,8 @@ ePortfolioRouter.post('/createEPortfolio', (req, res) => {
 ePortfolioRouter.post('/getEPortfolio', (req, res) => {
     ePortfolioController.getEPortfolio()
 });
+
+ePortfolioRouter.post('/renameEportfolio', (req, res) => {
+    ePortfolioController.renameEportfolio()
+});
 module.exports = ePortfolioRouter;
