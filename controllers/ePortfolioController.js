@@ -47,8 +47,8 @@ const getEPortfolio = async (req, res) => {
 
         await db.query(`SELECT *
             FROM Contents
-            LEFT JOIN SourceText ON Contents.ContentID=SourceText.TextID
-            LEFT JOIN SourceImage ON Contents.ContentID=SourceImage.ImageID
+            LEFT JOIN SourceText ON Contents.SourceID=SourceText.TextID
+            LEFT JOIN SourceImage ON Contents.SourceID=SourceImage.ImageID
             WHERE FolioID="${folioId}";`, async function(err, result) {
             if (err) {
                 console.log("---get EP ERROR---");
