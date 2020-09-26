@@ -21,11 +21,49 @@ describe("POST /login", function (done) {
 
         chai.request(app)
             .post('/login')
+            .set('content-type', 'application/x-www-form-urlencoded')
             .send(userInfo)
             .end(function(err, response) {
-                console.log(response);
                 expect(response).to.has.status(200);
+                expect(response["redirects"][0]).to.equal(app+'/successlogin');
                 done();
             });
     });
+    //a negative unit test case
+  it("User should not login with wrong password", function(done) {
+    this.timeout(5000);
+    //send login data
+    let userInfo = {};
+    userInfo.email = 'test@test.test';
+    userInfo.password = 'wrongpsw';
+    chai.request(app)
+        .post('/login')
+        .set('content-type', 'application/x-www-form-urlencoded')
+        .send(userInfo)
+        .end(function(err, response) {
+          //console.log(response["redirects"]);
+          expect(response).to.has.status(200);
+          expect(response["redirects"][0]).to.equal(app+'/failurelogin');
+          done();
+        });
+  });
+
+  //a negative unit test
+  it("User should not login if not sign up", function(done) {
+    this.timeout(5000);
+    //send login data
+    let userInfo = {};
+    userInfo.email = 'wrongusername@test.test';
+    userInfo.password = 'test';
+    chai.request(app)
+        .post('/login')
+        .set('content-type', 'application/x-www-form-urlencoded')
+        .send(userInfo)
+        .end(function(err, response) {
+          expect(response).to.has.status(200);
+          expect(response["redirects"][0]).to.equal(app+'/failurelogin');
+          done();
+        });
+  });
+
 });

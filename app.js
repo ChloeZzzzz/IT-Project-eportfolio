@@ -2,7 +2,6 @@ require('dotenv').config();
 
 const express = require('express');
 const app = express();
-const connection = require('./config/database');
 
 // ==== sessions & passport config ====
 const passport = require('passport');
@@ -21,6 +20,7 @@ const cors = require('cors');
 app.use(cors({origin:["http://folihub.herokuapp\.com$/","http://localhost:3000", "http://folihub.herokuapp.com"],
             credentials:true,
             allowedHeaders:['Origin','X-Requested-With','Content-Type','Accept'],
+            exposedHeaders:['Access-Control-Allow-Origin', 'Vary', 'Content-Length'],
             methods:['GET','PUT','POST','DELETE','OPTIONS'],
             preflightContinue:true}));
 const bodyParser = require('body-parser');

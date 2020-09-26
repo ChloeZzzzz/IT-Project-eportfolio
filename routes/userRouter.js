@@ -8,7 +8,7 @@ userRouter.use(express.urlencoded({extended: false}));
 // user log in
 userRouter.get('/login', userController.getUserLogin);
 userRouter.post('/login',
-    passport.authenticate("cookie-login", { successRedirect: './successlogin',
+    passport.authenticate("local-login", { successRedirect: './successlogin',
                                             failureRedirect: './failurelogin',
                                             failureFlash:true}
 ));

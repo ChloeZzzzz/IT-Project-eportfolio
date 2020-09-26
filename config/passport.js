@@ -2,8 +2,9 @@ const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt')
 const db = require('./database.js');
 
+
 module.exports = (passport)=>{
-    passport.use("cookie-login", new LocalStrategy({
+    passport.use("local-login", new LocalStrategy({
         usernameField: "email",
         passwordField: "password",
         passReqToCallback: true},
@@ -27,17 +28,20 @@ module.exports = (passport)=>{
                         }
                         console.log(result[0].Email);
                         console.log(result[0].userPassword);
-                        var correctpw = await bcrypt.compare(password, result[0].userPassword);
+                        //var correctpw = await bcrypt.compare(password, result[0].userPassword);
                         if (!result) {
                             return done(null, false, req.flash("loginMessage", "No user found"));
-                        }
-                        else if (!correctpw) {
-                            console.log("wrong password");
-                            return done(null, false, req.flash("loginMessage", "Wrong password"));
-                        }
-                        else {
-                            req.session.email = email;
-                            return done(null, result[0], req.flash("loginMessage", "Successful login"));
+                        } else {
+                            var correctpw = await bcrypt.compare(password, result[0].userPassword);
+
+                            if (!correctpw) {
+                                console.log("wrong password");
+                                return done(null, false, req.flash("loginMessage", "Wrong password"));
+                            }
+                            else {
+                                req.session.email = email;
+                                return done(null, result[0], req.flash("loginMessage", "Successful login"));
+                            }
                         }
                     });
                 }
