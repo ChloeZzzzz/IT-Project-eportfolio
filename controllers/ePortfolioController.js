@@ -78,7 +78,7 @@ const renameEportfolio = async (req,res) => {
     try{
         console.log(email);
         console.log(folioId);
-        await db.query(`UPDATE Name
+        await db.query(`UPDATE E-portfolios
             SET Name = "${newName}"
             WHERE FolioID="${folioId}" ;`,async function(err, result){
             if (err) {
@@ -111,19 +111,6 @@ const renameEportfolio = async (req,res) => {
 
     return;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
