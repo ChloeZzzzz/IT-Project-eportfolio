@@ -57,7 +57,7 @@ const getEPortfolio = async (req, res) => {
                 console.log(err);
                 return;
             }
-            console.log(result);
+
         });
 
     }
@@ -70,8 +70,42 @@ const getEPortfolio = async (req, res) => {
 
     return;
 }
-
+//26/09/2020 Column Name need to add to database and new req variable need to add
 const renameEportfolio = async (req,res) => {
+    console.log(req.body)
+    let{email, folioId, newName} = req.body
+    try{
+        console.log(email);
+        console.log(folioId);
+        await db.query(`UPDATE Name
+            SET Name = "${newName}"
+            WHERE FolioID="${folioId}" ;`,async function(err, result){
+            if (err) {
+                console.log("---get EP ERROR---");
+                console.log(err);
+                return;
+            }
+        });
+
+        await dp.query(`SELECT FolioID FROM E-portfolios WHERE Name = "${newName}" ;`,async function(err,result){
+            if (err) {
+                console.log("---verify EP creation ERROR---");
+                console.log(err);
+                return;
+            }
+            console.log(result[0].FolioID);
+            //need add respond
+        });
+
+
+
+    }
+    catch(err){
+        console.log("---get EP ERROR---");
+        console.log(err);
+        return;
+    }
+
     return;
 }
 
