@@ -13,16 +13,10 @@ ePortfolioRouter.post('/getEPortfolio', (req, res) => {
     ePortfolioController.getEPortfolio()
 });
 
-<<<<<<< Updated upstream
-ePortfolioRouter.post('/renameEportfolio', (req, res) => {
-    ePortfolioController.renameEportfolio()
-});
-module.exports = ePortfolioRouter;
-=======
 //rename a ePortfolio
 ePortfolioRouter.post('/renameEportfolio', (req, res) => {
     ePortfolioController.renameEportfolio()
 });
 
 module.exports = ePortfolioRouter;
->>>>>>> Stashed changes
+
