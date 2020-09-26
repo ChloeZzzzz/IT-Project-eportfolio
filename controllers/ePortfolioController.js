@@ -127,11 +127,9 @@ const renameEportfolio = async (req, res) => {
 
 module.exports = {
     createEPortfolio,
-<<<<<<< Updated upstream
-    getEPortfolio
-}
-=======
+
     getEPortfolio,
+    
     renameEportfolio
 }
->>>>>>> Stashed changes
+
