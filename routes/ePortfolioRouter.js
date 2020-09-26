@@ -4,9 +4,12 @@ const ePortfolioController=require('../controllers/ePortfolioController');
 
 
 //create a ePortfolio
-ePortfolioRouter.post('/create', (req, res) => {
-    ePortfolioController.create()
+ePortfolioRouter.post('/createEPortfolio', (req, res) => {
+    ePortfolioController.createEPortfolio()
 });
 
-
+//get a ePortfolio
+ePortfolioRouter.post('/getEPortfolio', (req, res) => {
+    ePortfolioController.getEPortfolio()
+});
 module.exports = ePortfolioRouter;

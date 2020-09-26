@@ -1,6 +1,6 @@
 const db = require('../config/database.js');
 
-const create = async (req, res) => {
+const createEPortfolio = async (req, res) => {
     console.log(req.body)
     let {email, layout} = req.body
     try{
@@ -38,7 +38,36 @@ const create = async (req, res) => {
 }
 
 
+const getEPortfolio = async (req, res) => {
+    console.log(req.body)
+    let {email, folioId} = req.body
+    try{
+        console.log(email);
+        console.log(folioId);
 
+        await db.query(`SELECT *
+            FROM Contents
+            LEFT JOIN SourceText ON Contents.ContentID=SourceText.TextID
+            LEFT JOIN SourceImage ON Contents.ContentID=SourceImage.ImageID
+            WHERE FolioID="${folioId}";`, async function(err, result) {
+            if (err) {
+                console.log("---get EP ERROR---");
+                console.log(err);
+                return;
+            }
+            console.log(result);
+        });
+
+    }
+    catch(err){
+        console.log("---get EP ERROR---");
+        console.log(err);
+        return;
+    }
+
+
+    return;
+}
 
 
 
@@ -56,5 +85,6 @@ const create = async (req, res) => {
 
 
 module.exports = {
-    create
+    createEPortfolio,
+    getEPortfolio
 }
