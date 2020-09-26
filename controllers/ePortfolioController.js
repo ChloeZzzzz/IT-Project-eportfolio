@@ -88,14 +88,16 @@ const renameEportfolio = async (req,res) => {
             }
         });
 
-        await dp.query(`SELECT FolioID FROM E-portfolios WHERE Name = "${newName}" ;`,async function(err,result){
+        await dp.query(`SELECT FolioID, Name FROM E-portfolios WHERE Name = "${newName}" ;`,async function(err,result){
             if (err) {
                 console.log("---verify EP creation ERROR---");
                 console.log(err);
                 return;
             }
             console.log(result[0].FolioID);
-            //need add respond
+
+            res.message('rename success');
+            res.message("name:",result[0].Name);
         });
 
 
@@ -113,41 +115,7 @@ const renameEportfolio = async (req,res) => {
 
 
 
-const renameEportfolio = async (req, res) => {
-    console.log(req.body)
-    let {email, folioId,newName} = req.body
-    try{
-        console.log(email);
-        console.log(folioId);
-        console.log(newName);
-        await db.query(`UPDATE Eportfolios SET Name ="${newName}" where FolioID ="${folioId}";`, async function(err, result) {
-            if (err) {
-                console.log("---EP name change ERROR---");
-                console.log(err);
-                return;
-            }
 
-        });
-        await db.query(`SELECT FolioID, Name FROM E-portfolios WHERE FolioID="${folioId}"`, async function(err, result) {
-            if (err) {
-                console.log("---EP name change ERROR---");
-                console.log(err);
-                return;
-            }
-            console.log(result[0].FolioID);
-            console.log(result[0].Name);
-            res.message('rename success');
-            res.message("name:",result[0].Name);
-
-        });
-    }
-    catch(err){
-        console.log("---EP name change ERROR---");
-        console.log(err);
-        return;
-    }
-    return;
-}
 
 
 
@@ -163,7 +131,6 @@ module.exports = {
     createEPortfolio,
 
     getEPortfolio,
-    
+
     renameEportfolio
 }
-
