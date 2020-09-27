@@ -3,8 +3,6 @@ const userRouter = express.Router();
 const passport = require('passport');
 const userController = require('../controllers/userController');
 
-userRouter.use(express.urlencoded({extended: true}));
-
 // user log in
 userRouter.get('/login', userController.getUserLogin);
 userRouter.post('/login',
