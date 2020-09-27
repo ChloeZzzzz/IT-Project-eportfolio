@@ -8,14 +8,6 @@ class Template_1 extends React.Component {
                 </IMG_1>
                 <TXT_1>
                 </TXT_1>
-                <IMG_2>
-                </IMG_2>
-                <TXT_2>
-                </TXT_2>
-                <IMG_3>
-                </IMG_3>
-                <TXT_3>
-                </TXT_3>
             </Container_1>
         );
     }
