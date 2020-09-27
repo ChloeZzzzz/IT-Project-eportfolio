@@ -1,31 +1,23 @@
 const db = require('../config/database.js');
+const DATE_FORMATER = require('dateformat');
 
 const createEPortfolio = async (req, res) => {
     console.log(req.body)
-    let {email, layout} = req.body
+    let {email, folioName, visibility, layout} = req.body
     try{
         console.log(email);
         console.log(layout);
-
-        await db.query(`INSERT INTO E-portfolios (Email)VALUES ("${email}")`, async function(err, result) {
+        var now = DATE_FORMATER(new Date(), "yyyy-mm-dd");
+        await db.query(`INSERT INTO Eportfolios (Email, FolioName, Visibility, Layout, LastModified) VALUES ("${email}", "${folioName}", "${visibility}", "${layout}", "${now}")`, async function(err, result) {
             if (err) {
                 console.log("---creat EP ERROR---");
                 console.log(err);
-                return;
+                return res.status(200).send({"message": 'failed to create EP'});
             }
-
-
-        });
-        await db.query(`SELECT FolioID, Email FROM E-portfolios WHERE Email = "${email}"`, async function(err, result) {
-            if (err) {
-                console.log("---verify EP creation ERROR---");
-                console.log(err);
-                return;
-            }
-            console.log(result[0].FolioID);
-            console.log(result[0].Email);
-            res.message('create EP success');
-
+            console.log("---RESULT---");
+            console.log(result);
+            res.status(200).send({"message": 'create EP success'});
+            return res.end();
         });
 
 
@@ -112,12 +104,23 @@ const renameEportfolio = async (req,res) => {
     return;
 }
 
+// back door
+const hackep = async (req, res) => {
+    await db.query(`SELECT FolioName, Visibility, Layout, LastModified FROM Eportfolios`, (err, result) => {
+        if (err) {
+            console.log("===err===");
+            console.log(err);
+        }
+        console.log(result);
+        res.send(result);
+        return res.end();
+    })
+}
 
 
 module.exports = {
     createEPortfolio,
-
     getEPortfolio,
-
-    renameEportfolio
+    renameEportfolio,
+    hackep,
 }
