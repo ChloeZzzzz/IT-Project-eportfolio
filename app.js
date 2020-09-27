@@ -24,7 +24,7 @@ app.use(cors({origin:["http://folihub.herokuapp\.com$/","http://localhost:3000",
             preflightContinue:true}));
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const PORT = process.env.PORT || 3000;
 
