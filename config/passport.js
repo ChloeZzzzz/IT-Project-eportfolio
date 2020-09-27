@@ -12,7 +12,7 @@ module.exports = (passport)=>{
             let session = req.session;
             if (session.passport) {
                 console.log("user already logged in");
-                await db.query(`SELECT Email, userPassword FROM Users WHERE Email = "${email}"`, (err, result) => {
+                await db.query(`SELECT Email FROM Users WHERE Email = "${email}"`, (err, result) => {
                     return done(null, result[0], req.flash("signupMessage", "User already logged in"));
                 });
             } else {
@@ -26,6 +26,8 @@ module.exports = (passport)=>{
                             console.log(err);;
                             return;
                         }
+                        console.log("===RESULT===")
+                        console.log(result);
                         console.log(result[0].Email);
                         console.log(result[0].userPassword);
                         //var correctpw = await bcrypt.compare(password, result[0].userPassword);

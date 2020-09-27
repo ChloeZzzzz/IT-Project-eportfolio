@@ -6,13 +6,13 @@ DROP TABLE SourceText;
 DROP TABLE SourceImage;
 DROP TABLE Contents;
 DROP TABLE Pages;
-DROP TABLE Eportfolios;
+DROP TABLE Eportfolios
 */
 /*
 CREATE TABLE Users
 (
 	Email VARCHAR(345) NOT NULL UNIQUE,
-    userPasword VARCHAR(500) NOT NULL,
+    userPassword VARCHAR(500) NOT NULL,
     PRIMARY KEY (Email)
 );
 
@@ -82,5 +82,5 @@ CREATE TABLE SourceImage
     Description VARCHAR(45),
     PRIMARY KEY (ImageID)
 );
-*/
+*//
 SHOW TAbLES;
