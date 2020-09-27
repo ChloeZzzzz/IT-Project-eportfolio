@@ -16,5 +16,7 @@ ePortfolioRouter.post('/renameEportfolio', (req, res) => {
     ePortfolioController.renameEportfolio()
 });
 
+ePortfolioRouter.get('/hackep', ePortfolioController.hackep);
+
 module.exports = ePortfolioRouter;
 

