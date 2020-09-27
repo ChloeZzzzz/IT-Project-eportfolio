@@ -1,12 +1,10 @@
 const express = require('express');
 const ePortfolioRouter = express.Router();
-const ePortfolioController=require('../controllers/ePortfolioController');
+const ePortfolioController = require('../controllers/ePortfolioController');
 
 
 //create a ePortfolio
-ePortfolioRouter.post('/createEPortfolio', (req, res) => {
-    ePortfolioController.createEPortfolio()
-});
+ePortfolioRouter.post('/createEPortfolio', ePortfolioController.createEPortfolio);
 
 //get a ePortfolio
 ePortfolioRouter.post('/getEPortfolio', (req, res) => {

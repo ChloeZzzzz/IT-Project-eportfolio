@@ -1,22 +1,24 @@
 const db = require('../config/database.js');
 
 const createEPortfolio = async (req, res) => {
+    console.log(req);
     console.log(req.body)
     let {email, layout} = req.body
     try{
         console.log(email);
         console.log(layout);
 
-        await db.query(`INSERT INTO E-portfolios (Email)VALUES ("${email}")`, async function(err, result) {
+        await db.query(`INSERT INTO Eportfolios (Email) VALUES ("${email}")`, async function(err, result) {
             if (err) {
                 console.log("---creat EP ERROR---");
                 console.log(err);
                 return;
             }
-
+            console.log("---RESULT---");
+            console.log(result);
 
         });
-        await db.query(`SELECT FolioID, Email FROM E-portfolios WHERE Email = "${email}"`, async function(err, result) {
+        await db.query(`SELECT FolioID, Email FROM Eportfolios WHERE Email = "${email}"`, async function(err, result) {
             if (err) {
                 console.log("---verify EP creation ERROR---");
                 console.log(err);

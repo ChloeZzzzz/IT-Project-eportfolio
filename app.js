@@ -27,7 +27,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 2888;
 
 app.set('view engine', 'ejs'); // uncomment this line after product done
 
@@ -45,6 +45,6 @@ app.get('/', (req, res) => {
 
 
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(process.env.PORT || 2888, () => {
     console.log('Folihub is listening on port ' + PORT)
 });
