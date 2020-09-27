@@ -58,6 +58,8 @@ module.exports = (passport)=>{
         passReqToCallback: true},
         async  (req, email, password, done)=>{
             let session = req.session;
+            console.log("=====session=======");
+            console.log(session);
             if (session.passport) {
                 console.log("user already logged in");
                 await db.query(`SELECT Email, userPassword FROM Users WHERE Email = "${email}"`, (err, result) => {
@@ -65,18 +67,27 @@ module.exports = (passport)=>{
                 });
             } else {
                 try{
-                    await db.query(`SELECT Email, userPassword FROM Users WHERE Email = "${email}"`, async (err, result) => {
+                    await db.query(`SELECT Email FROM Users WHERE Email = "${email}"`, async (err, result) => {
                         if (err) {
                             console.log("---SIGN UP ERROR---");
                             console.log(err);
                             return;
                         }
+                        console.log(result);
                         if(result[0]){
+                            console.log(".....");
                             return done(null, false, req.flash("signupMessage", "Email already taken"));
                         }
                         else{
+                            console.log("????");
                             var hashed = await bcrypt.hash(password, 10); // encrypt the password
                             db.query(`INSERT INTO Users VALUES("${email}", "${hashed}")`, (err, result) => { {
+                                if (err) {
+                                    console.log("---ERR---");
+                                    console.log(err);
+                                }
+                                console.log("---INSERT RESULT---");
+                                console.log(result);
                                 return done(null, {Email: email, userPassword: hashed}, req.flash("signupMessage", "Signup Success"));
                             }})
                             req.session.email = email;
@@ -96,7 +107,7 @@ module.exports = (passport)=>{
         done(null, user.Email);
     });
     passport.deserializeUser(async (Email, done) => {
-        await db.query(`SELECT Email, userPassword FROM Users WHERE Email = "${Email}"`, (err, result) => {
+        await db.query(`SELECT Email FROM Users WHERE Email = "${Email}"`, (err, result) => {
             done(null, result);
         })
     });

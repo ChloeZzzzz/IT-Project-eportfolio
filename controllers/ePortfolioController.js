@@ -1,13 +1,14 @@
 const db = require('../config/database.js');
+const DATE_FORMATER = require('dateformat');
 
 const createEPortfolio = async (req, res) => {
     console.log(req.body)
-    let {email, layout} = req.body
+    let {email, folioName, visibility, layout} = req.body
     try{
         console.log(email);
         console.log(layout);
-
-        await db.query(`INSERT INTO Eportfolios (Email) VALUES ("${email}")`, async function(err, result) {
+        var now = DATE_FORMATER(new Date(), "yyyy-mm-dd");
+        await db.query(`INSERT INTO Eportfolios (Email, FolioName, Visibility, Layout, LastModified) VALUES ("${email}", "${folioName}", "${visibility}", "${layout}", "${now}")`, async function(err, result) {
             if (err) {
                 console.log("---creat EP ERROR---");
                 console.log(err);
