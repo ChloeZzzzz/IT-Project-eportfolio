@@ -4,6 +4,7 @@ import AddIcon from "@material-ui/icons/Add";
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import FolioMenu from '../components/FolioMenu';
 import Tooltip from '@material-ui/core/Tooltip';
+import {getEportfolios} from '../components/folioAPI';
 
 class UserHomepage extends React.Component{
     constructor(props) {
@@ -23,6 +24,11 @@ class UserHomepage extends React.Component{
             ],
         }
 
+    }
+
+    async componentDidMount() {
+        var data = await getEportfolios();
+        this.setState({eportfolio: data});
     }
 
     render(){

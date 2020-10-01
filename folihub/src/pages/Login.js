@@ -28,44 +28,7 @@ class Login extends React.Component {
     }
 
     handleSubmit(event) {
-/*
-        event.preventDefault();
-        //login api
-        console.log("???")
-        const promise = new Promise((resolve, reject) => {
-            try {
-                wwww().then((res) => {
-                    console.log(res);
-                    resolve(res);
-                })
-            } catch (e) {
-                reject(e);
-            }
-        });
-        promise.then((err, result) => {
-            if (err) { {
-                console.log(err)
-            }}
-            console.log("promsie then");
-            console.log(result);
-        })
-       
 
-        
-        axios
-        .post(
-            "https://folihub-api.herokuapp.com/user/login", 
-            {"email": this.state.email, "password": this.state.password},
-            {withCredentials: true, crossdomain: true})
-        .then((response) => {
-            console.log(response);
-            console.log(response.data);
-            console.log(response.data.passport);
-        })
-        .catch((error)=> {
-            console.log(error);
-        })
-        */
         postUserLogin({email: this.state.email, password: this.state.password}).then(response => {
             console.log(response);
         });
