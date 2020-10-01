@@ -3,8 +3,9 @@ import Welcome from "react-welcome-page";
 import Logo_Dark from "../img/folihub_dark.png";
 import {colorPlan, AuthenCanvasLogin, Button, InputContainer, Title, AuthenForm, AuthenRedirectText, TextLink} from "../components/Style";
 import {TextField} from '@material-ui/core';
-import {postUserLogin} from '../api/userAPI';
+import {postUserLogin, wwww} from '../api/userAPI';
 import axios from 'axios';
+import { resolve } from 'path';
 class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -27,8 +28,30 @@ class Login extends React.Component {
     }
 
     handleSubmit(event) {
+/*
+        event.preventDefault();
         //login api
+        console.log("???")
+        const promise = new Promise((resolve, reject) => {
+            try {
+                wwww().then((res) => {
+                    console.log(res);
+                    resolve(res);
+                })
+            } catch (e) {
+                reject(e);
+            }
+        });
+        promise.then((err, result) => {
+            if (err) { {
+                console.log(err)
+            }}
+            console.log("promsie then");
+            console.log(result);
+        })
+       
 
+        
         axios
         .post(
             "https://folihub-api.herokuapp.com/user/login", 
@@ -42,12 +65,13 @@ class Login extends React.Component {
         .catch((error)=> {
             console.log(error);
         })
-        /*
+        */
         postUserLogin({email: this.state.email, password: this.state.password}).then(response => {
             console.log(response);
         });
-        */
+
         event.preventDefault();
+        
     }
 
     render() {
