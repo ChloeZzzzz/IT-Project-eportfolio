@@ -4,7 +4,8 @@ import AddIcon from "@material-ui/icons/Add";
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import FolioMenu from '../components/FolioMenu';
 import Tooltip from '@material-ui/core/Tooltip';
-import {getEportfolios} from '../components/folioAPI';
+import {getEportfolios} from '../api/folioAPI';
+import NewFolioMenu from '../components/NewFolioMenu';
 
 class UserHomepage extends React.Component{
     constructor(props) {
@@ -52,7 +53,7 @@ class UserHomepage extends React.Component{
                 <ItemContainer>
                     {items}
                     <Item>
-                        <AddIcon style={{ fontSize: 82, opacity: 0.7, marginLeft: 19, marginTop: 45}} />
+                        <NewFolioMenu />
                     </Item>
                 </ItemContainer>
             </CollectionCanvas>
