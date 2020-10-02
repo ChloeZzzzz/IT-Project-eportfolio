@@ -604,9 +604,21 @@ export const ContactUsText = FontFormat.extend
     text-align: left;
 `;
 
+
 export const AboutUsContainer = styled.div
 `
     margin-left: 10%;
+    margin-right: 5%;
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 3%;
+    font-size: 20px;
+    text-align: center;
+    font-family: "Georgia";
+`;
+export const FqaContainer = styled.div
+`
+    margin-left: 60%;
     margin-right: 5%;
     width: 90%;
     background-color: rgba(255, 255, 255, 0.4);

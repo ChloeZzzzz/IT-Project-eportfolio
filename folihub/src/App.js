@@ -9,6 +9,7 @@ import UserHomepage from './pages/UserHomepage';
 import Footer from "./components/Footer";
 import EditFolio from "./pages/EditFolio";
 import ContactUs from "./pages/ContactUs";
+import Fqa from "./pages/Fqa";
 
 import "./App.css";
 
@@ -33,6 +34,7 @@ class App extends Component {
           <Route exact path="/userHomepage" render={props => <UserHomepage {...props} />} />
           <Route exact path="/EditFolio" render={props => <EditFolio {...props} />} />
           <Route exact path="/ContactUs" render={props => <ContactUs {...props} />} />
+          <Route exact path="/Fqa" render={props => <Fqa {...props} />} />
         </Switch>
         <Footer />
 

@@ -36,7 +36,7 @@ class Footer extends React.Component{
                         </div>
                         <div style = {{gridArea:"right"}}>
                             <p style = {{fontWeight: "bold"}}>Resources</p>
-                            <FooterLink href = "">Frequently Asked Questions</FooterLink><br/>
+                            <FooterLink href = '/Fqa'>Frequently Asked Questions</FooterLink><br/>
                             <FooterLink href = "">Help Center</FooterLink>
                         </div>
                     </CopyrightMid>
