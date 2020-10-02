@@ -14,7 +14,6 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormLabel from '@material-ui/core/FormLabel';
 
 import {createEportfolio} from '../api/folioAPI';
-import  { Redirect } from 'react-router-dom'
 
 export default function NewFolioMenu() {
     const [open, setOpen] = React.useState(false);
