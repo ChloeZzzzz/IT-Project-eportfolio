@@ -3,14 +3,38 @@ import styled from "styled-components";
 export const Container_1 = styled.div
 `
     display: grid;
-    grid-template-rows: 50% 50%;
+    grid-template-columns: 50% 50%;
     grid-template-areas:
     "IMG_1 TXT_1";
+    height: 100vh;
+    margin-top: 80px;
 `;
 
-export const IMG_1 = styled.div
+export const IMG_1_Container = styled.div
 `
+    display: grid;
+    grid-template-rows: 80% 20%;
+    grid-template-areas: 
+    "IMG_1",
+    "Input";
+    margin-left: auto;
+    margin-right: auto;
 
+`;
+
+export const IMG_1 = styled.img
+`
+    height: 80%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+`;
+
+export const Input = styled.input
+`
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
 `;
 
 export const TXT_1 = styled.div
