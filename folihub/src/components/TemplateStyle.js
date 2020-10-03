@@ -7,7 +7,7 @@ export const Container_1 = styled.div
     grid-template-areas:
     "IMG_1 TXT_1";
     height: 100vh;
-    width: 100%;
+    width: 98%;
     margin-top: 50px;
     margin-bottom: 50px;
 `;

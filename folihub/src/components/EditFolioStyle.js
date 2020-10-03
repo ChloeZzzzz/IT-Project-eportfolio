@@ -19,7 +19,6 @@ export const colorPlan = colorPlan1;
 export const EditFolioContainer = styled.div
 `
     width:  100%;
-    height: 100vh;
     display: grid;
     grid-template-areas: "EditFolioTitle EditFolioManage"
     "EditFolioIndex EditFolioEditor";

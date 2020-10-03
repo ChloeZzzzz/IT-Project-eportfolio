@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Container_1, IMG_1, TXT_1} from '../components/TemplateStyle';
+import {Container_1, IMG_1, IMG_1_Container, Input, TXT_1} from '../components/TemplateStyle';
 import 'react-quill/dist/quill.snow.css';
 import ReactQuill from 'react-quill';
 
@@ -31,9 +31,8 @@ class Template_1 extends React.Component {
         return (
             <Container_1>
                 <IMG_1_Container>
-                    <img src={this.state.img} />
-                    <h1>select image</h1>
-                    <input type="file" name="image" onChange={this.onImageChange} />
+                    <IMG_1 src={this.state.img} />
+                    <Input type="file" name="image" onChange={this.onImageChange} />
                 </IMG_1_Container>
                 <ReactQuill
                     onChange={this.handleChange}
