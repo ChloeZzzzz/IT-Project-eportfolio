@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-03 19:53:37
- * @LastEditTime: 2020-10-03 20:07:46
+ * @LastEditTime: 2020-10-03 20:08:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \IT-Project-eportfolio\controllers\pageController.js
@@ -38,16 +38,6 @@ const addPage = async (req,res) => {
 }
 
 
-const deletePage = async(req,res) => {
-    console.log(req.body)
-    let {pageId, folioId} = req.body
-    try{
-        console.log(pageId);
-        console.log(folioId);
-
-    }
-
-}
 
 
 
