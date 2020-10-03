@@ -16,7 +16,6 @@ class Template_1 extends React.Component {
                 img: URL.createObjectURL(img)
             })
         }
-        console.log(this.state.img);
     }
 
     render() {

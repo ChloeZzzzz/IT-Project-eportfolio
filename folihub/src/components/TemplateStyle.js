@@ -7,27 +7,33 @@ export const Container_1 = styled.div
     grid-template-areas:
     "IMG_1 TXT_1";
     height: 100vh;
-    margin-top: 80px;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
 `;
 
 export const IMG_1_Container = styled.div
 `
     display: grid;
     grid-template-rows: 80% 20%;
-    grid-template-areas: 
+    grid-template-areas:
     "IMG_1",
     "Input";
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
+    background-color: grey;
 
 `;
 
 export const IMG_1 = styled.img
 `
-    height: 80%;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+    max-height: 100%;
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    margin-left: 10px;
+    margin-right: 10px;
 `;
 
 export const Input = styled.input

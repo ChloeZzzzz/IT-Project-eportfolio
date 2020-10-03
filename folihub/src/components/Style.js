@@ -97,9 +97,9 @@ export const FooterContainer = styled.div
 `;
 
 export const Copyright = FooterContainer.extend
-`   
+`
     display: grid;
-    grid-template-areas: 
+    grid-template-areas:
     'CopyrightTop'
     'horizon'
     'CopyrightMid'
@@ -152,7 +152,7 @@ export const FooterLink = styled.a
 `;
 
 export const Link = styled.a
-`   
+`
     display: flex;
     justify-content: center;
     font-family: "Georgia";
@@ -167,7 +167,7 @@ export const AuthenCanvas = CanvasFormat.extend
     grid-template-rows: 15em 20em;
     align-items: end | center | start;
     justify-items: center;
-    grid-template-areas: 
+    grid-template-areas:
     'Title'
     'Form';
 `;
@@ -332,10 +332,10 @@ export const Item = styled.div
         cursor: pointer;
     };
     &:hover > ${ItemDescription} {
-        background-color: rgba(242,242,242,0.8); 
+        background-color: rgba(242,242,242,0.8);
     };
     &:active {
-        background-color: ${colorPlan.Medium_Light}; 
+        background-color: ${colorPlan.Medium_Light};
         cursor: pointer;
     }
     &:active > ${ItemDescription} {
@@ -355,10 +355,10 @@ export const HomePage = styled.div
 `;
 
 export const IntroImg = styled.div
-`   
+`
     display: grid;
     grid-template-rows: 60% 40%;
-    grid-template-areas: 
+    grid-template-areas:
         'FirstIntro',
         'SecondIntro';
     background: url(${Home_Img}) no-repeat;
@@ -389,7 +389,7 @@ export const IconComponent = styled.div
 `
     display: grid;
     grid-template-rows: 45% 20% 17% 18%;
-    grid-template-areas: 
+    grid-template-areas:
         "HomeComponents",
         "Slogan",
         "HomeRedirect"
@@ -411,7 +411,7 @@ export const Poster2 = styled.div
 `;
 
 export const Poster3 = styled.div
-` 
+`
 `;
 
 export const HomeRedirect = styled.div
@@ -422,7 +422,7 @@ export const HomeRedirect = styled.div
     width: 50%;
     grid-template-columns: 50% 50%;
     column-gap: 5%;
-    grid-template-areas: 
+    grid-template-areas:
         "SignUpRedirect" "LoginRedirect";
 `;
 
@@ -507,7 +507,7 @@ export const AboutProduct = styled.div
 `;
 
 export const HomeTitle = FontFormat.extend
-`   
+`
     margin-top: 90px;
     font-size: 67px;
     font-weight: bold;
@@ -633,6 +633,14 @@ export const ReportContainer = styled.div
     width: 90%;
     margin-left: 10%;
     border-radius: 3%;
+`;
+
+export const Edit_Container = styled.div
+`
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-areas:
+    "index container";
 `;
 
 export const fadeAnimation = keyframes `${fadeIn}`;
