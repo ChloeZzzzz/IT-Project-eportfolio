@@ -4,6 +4,7 @@ import Logo_Dark from "../img/folihub_dark.png";
 import {colorPlan} from '../components/Style';
 import 'react-quill/dist/quill.snow.css';
 import ReactQuill from 'react-quill';
+import Template_1 from '../components/template_1';
 
 class EditFolio extends React.Component {
     constructor(props) {
@@ -36,13 +37,7 @@ class EditFolio extends React.Component {
         }
         else {
             return (
-                <ReactQuill value={this.state.text}
-                onChange={this.handleChange}
-                value={this.state.text}
-                modules={EditFolio.modules}
-                formats={EditFolio.formats}
-                bounds={'.app'}
-                placeholder={this.props.placeholder} />
+                <Template_1 />
             )
         }
     }
