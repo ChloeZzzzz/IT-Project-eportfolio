@@ -1,0 +1,41 @@
+{
+  "name": "folihub",
+  "version": "1.0.0",
+  "description": "the backend for an eportfolio system website folihub",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "goFolihub": "nodemon app.js",
+    "test": "mocha test/**/*.js --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChloeZzzzz/IT-Project-eportfolio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChloeZzzzz/IT-Project-eportfolio/issues"
+  },
+  "homepage": "https://github.com/ChloeZzzzz/IT-Project-eportfolio#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "connect-flash-plus": "^0.2.1",
+    "cors": "^2.8.5",
+    "dateformat": "^3.0.3",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mocha": "^8.1.3",
+    "mssql": "^6.2.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.4",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "session": "^0.1.0"
+  }
+}
