@@ -64,7 +64,7 @@ const deletePage = async (req,res) => {
             });
     }
     catch(err){
-        console.log("---add Page ERROR---");
+        console.log("---Delete Page ERROR---");
         console.log(err);
         return;
     }
