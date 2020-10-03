@@ -14,10 +14,6 @@ class EditFolio extends React.Component {
             loggIn: false,
             content: '',
         };
-        this.handleChange = this.handleChange.bind(this);
-    }
-    handleChange(value) {
-        this.setState({ content: value })
     }
     render() {
         if (this.state.loading) {
@@ -42,14 +38,7 @@ class EditFolio extends React.Component {
                     <EditFolioManage>Export Save etc.</EditFolioManage>
                     <EditFolioIndex>A Scroll down grid...?</EditFolioIndex>
                     <EditFolioEditor>
-                    <ReactQuill 
-                        onChange={this.handleChange}
-                        value={this.state.content}
-                        modules={EditFolio.modules}
-                        formats={EditFolio.formats}
-                        bounds={'.app'}
-                        placeholder={this.props.placeholder}
-                        />
+                      <Template_1 />
                     </EditFolioEditor>
                 </EditFolioContainer>
             )
@@ -57,7 +46,7 @@ class EditFolio extends React.Component {
     }
 }
 
-/* 
+/*
  * Quill modules to attach to editor
  * See https://quilljs.com/docs/modules/ for complete options
  */
@@ -66,7 +55,7 @@ EditFolio.modules = {
       [{ 'header': '1'}, {'header': '2'}, { 'font': [] }],
       [{size: []}],
       ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-      [{'list': 'ordered'}, {'list': 'bullet'}, 
+      [{'list': 'ordered'}, {'list': 'bullet'},
        {'indent': '-1'}, {'indent': '+1'}],
       ['link', 'image', 'video'],
       ['clean']
@@ -76,7 +65,7 @@ EditFolio.modules = {
       matchVisual: false,
     }
   }
-  /* 
+  /*
    * Quill editor formats
    * See https://quilljs.com/docs/formats/
    */
