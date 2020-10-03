@@ -46,3 +46,11 @@ export const EditFolioEditor = styled.div
 `
     background-color: white;
 `;
+
+export const MyPageTite = styled.div
+`
+    font-family: "Georgia";
+    font-size: 20px;
+    text-align: center;
+    margin-top: 5px;
+`;
