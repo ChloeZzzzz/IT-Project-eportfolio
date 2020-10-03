@@ -1,7 +1,7 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
 import Logo_Dark from "../img/folihub_dark.png";
-import {colorPlan} from '../components/Style';
+import {colorPlan, EditFolioContainer, EditFolioTitle, EditFolioManage, EditFolioIndex, EditFolioEditor} from '../components/EditFolioStyle';
 import 'react-quill/dist/quill.snow.css';
 import ReactQuill from 'react-quill';
 import Template_1 from '../components/template_1';
@@ -12,12 +12,12 @@ class EditFolio extends React.Component {
         this.state={
             loading: false,
             loggIn: false,
-            text: '',
+            content: '',
         };
         this.handleChange = this.handleChange.bind(this);
     }
     handleChange(value) {
-        this.setState({ text: value })
+        this.setState({ content: value })
     }
     render() {
         if (this.state.loading) {
@@ -37,9 +37,54 @@ class EditFolio extends React.Component {
         }
         else {
             return (
-                <Template_1 />
+                <EditFolioContainer>
+                    <EditFolioTitle>{this.props.match.params.id}Should be the Name of this eportfolio</EditFolioTitle>
+                    <EditFolioManage>Export Save etc.</EditFolioManage>
+                    <EditFolioIndex>A Scroll down grid...?</EditFolioIndex>
+                    <EditFolioEditor>
+                    <ReactQuill 
+                        onChange={this.handleChange}
+                        value={this.state.content}
+                        modules={EditFolio.modules}
+                        formats={EditFolio.formats}
+                        bounds={'.app'}
+                        placeholder={this.props.placeholder}
+                        />
+                    </EditFolioEditor>
+                </EditFolioContainer>
             )
         }
     }
 }
+
+/* 
+ * Quill modules to attach to editor
+ * See https://quilljs.com/docs/modules/ for complete options
+ */
+EditFolio.modules = {
+    toolbar: [
+      [{ 'header': '1'}, {'header': '2'}, { 'font': [] }],
+      [{size: []}],
+      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+      [{'list': 'ordered'}, {'list': 'bullet'}, 
+       {'indent': '-1'}, {'indent': '+1'}],
+      ['link', 'image', 'video'],
+      ['clean']
+    ],
+    clipboard: {
+      // toggle to add extra line breaks when pasting HTML:
+      matchVisual: false,
+    }
+  }
+  /* 
+   * Quill editor formats
+   * See https://quilljs.com/docs/formats/
+   */
+  EditFolio.formats = [
+    'header', 'font', 'size',
+    'bold', 'italic', 'underline', 'strike', 'blockquote',
+    'list', 'bullet', 'indent',
+    'link', 'image', 'video'
+  ]
+
 export default EditFolio;

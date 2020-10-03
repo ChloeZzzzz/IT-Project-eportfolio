@@ -50,8 +50,9 @@ export default function NewFolioMenu() {
         console.log(layout);
         var response = await createEportfolio({"visiblity": visibility, "name": name, "layout": layout});
         console.log(response)
+        var id = "00001";
         if (true) {
-            window.location.href = "/EditFolio";
+            window.location.href = `/EditFolio/${id}`;
         }
     }
 
