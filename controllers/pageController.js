@@ -34,11 +34,7 @@ const addPage = async (req,res) => {
         console.log(err);
         return;
     }
-    catch(err){
-        console.log("---add Page ERROR---");
-        console.log(err);
-        return;
-    }
+
 
     return;
 }
@@ -65,8 +61,16 @@ const deletePage = async (req,res) => {
 
             res.message('Delete Page success');
 
-        });
+            });
     }
+    catch(err){
+        console.log("---add Page ERROR---");
+        console.log(err);
+        return;
+    }
+
+    return;
+}
 
 
 
