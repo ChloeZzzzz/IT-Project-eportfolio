@@ -27,6 +27,12 @@ const addPage = async (req,res) => {
         });
 
 
+
+    }
+    catch(err){
+        console.log("---add Page ERROR---");
+        console.log(err);
+        return;
     }
     catch(err){
         console.log("---add Page ERROR---");
