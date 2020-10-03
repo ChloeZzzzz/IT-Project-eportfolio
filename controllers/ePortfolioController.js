@@ -117,10 +117,41 @@ const hackep = async (req, res) => {
     })
 }
 
+const deleteEPortfolio = async (req,res) => {
+    console.log(req.body)
+    let {email,folioId} = req.body
+    try{
+        console.log(email);
+        console.log(folioId);
+        await db.query(`DELETE Eportfolios,pages,SourceText, SourceImage, Contents
+                        FROM Eportfolios
+                        LEFT JOIN Pages on Eportfolios.FolioID = Pages.FolioID
+                        LEFT JOIN Contents on Pages.FolioID = Contents.FolioID AND Pages.PageID = Contents.PageID
+                        LEFT JOIN SourceText ON Contents.SourceID = SourceText.TextID
+                        LEFT JOIN SourceImage ON Contents.SourceID = SourceImage.ImageID
+                        WHERE FolioID = "${folioId}"`,async function(err, result){
+                        if (err) {
+                            console.log("---Delete EP ERROR---");
+                            console.log(err);
+                            return;
+                        }
+
+        });
+
+
+    }
+    catch(err){
+        console.log("---Delete EP ERROR---");
+        console.log(err);
+        return;
+    }
+    return;
+}
 
 module.exports = {
     createEPortfolio,
     getEPortfolio,
     renameEportfolio,
     hackep,
+    deleteEPortfolio,
 }
