@@ -10,8 +10,8 @@ const db = require('../config/database.js');
 
 
 const addPage = async (req,res) => {
-    console.log(req.body)
-    let{email, folioId,templateId} = req.body
+    console.log(req.body);
+    let{email, folioId,templateId} = req.body;
     try{
         console.log(email);
         console.log(folioId);
@@ -45,8 +45,28 @@ const addPage = async (req,res) => {
 
 
 
+const deletePage = async (req,res) => {
+    console.log(req.body)
+    let {email, folioId,pageId} = req.body
+    try{
+        console.log(email);
+        console.log(folioId);
+        console.log(templateId);
+        await db.query(`DELETE SourceText, SourceImage, Contents
+                        FROM Contents
+                        LEFT JOIN SourceText ON Contents.SourceID=SourceText.TextID
+                        LEFT JOIN SourceImage ON Contents.SourceID=SourceImage.ImageID
+                        WHERE FolioID = "${folioId}" AND PageID = "${pageId}"`,async function(err, result){
+            if (err) {
+                console.log("---add Page ERROR---");
+                console.log(err);
+                return;
+            }
 
+            res.message('Delete Page success');
 
+        });
+    }
 
 
 
