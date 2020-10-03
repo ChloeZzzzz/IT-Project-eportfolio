@@ -30,11 +30,11 @@ class Template_1 extends React.Component {
     render() {
         return (
             <Container_1>
-                <IMG_1>
+                <IMG_1_Container>
                     <img src={this.state.img} />
                     <h1>select image</h1>
                     <input type="file" name="image" onChange={this.onImageChange} />
-                </IMG_1>
+                </IMG_1_Container>
                 <ReactQuill
                     onChange={this.handleChange}
                     value={this.state.content}
