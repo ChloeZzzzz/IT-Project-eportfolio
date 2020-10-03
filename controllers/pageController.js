@@ -51,7 +51,7 @@ const deletePage = async (req,res) => {
     try{
         console.log(email);
         console.log(folioId);
-        console.log(templateId);
+        console.log(pageId);
         await db.query(`DELETE SourceText, SourceImage, Contents
                         FROM Contents
                         LEFT JOIN SourceText ON Contents.SourceID=SourceText.TextID
