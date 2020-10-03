@@ -54,7 +54,7 @@ const deletePage = async (req,res) => {
                         LEFT JOIN SourceImage ON Contents.SourceID=SourceImage.ImageID
                         WHERE FolioID = "${folioId}" AND PageID = "${pageId}"`,async function(err, result){
             if (err) {
-                console.log("---add Page ERROR---");
+                console.log("---Delete Page ERROR---");
                 console.log(err);
                 return;
             }
