@@ -59,9 +59,23 @@ const deletePage = async (req,res) => {
                 return;
             }
 
+            res.message('Delete Content success');
+
+        });
+
+        
+        await db.query(`DELETE Pages
+                        FROM Pages
+                        WHERE FolioID = "${folioId}" AND PageID = "${pageId}"`,async function(err, result){
+            if (err) {
+                console.log("---Delete Page ERROR---");
+                console.log(err);
+                return;
+            }
+
             res.message('Delete Page success');
 
-            });
+        });
     }
     catch(err){
         console.log("---Delete Page ERROR---");
