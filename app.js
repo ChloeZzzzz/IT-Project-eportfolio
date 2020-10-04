@@ -11,7 +11,7 @@ app.use(flash());
 const session = require("express-session");
 app.use(session({
     cookie:{
-        secure: true,
+        secure: false,
         maxAge: 60000
     },
     secret:"folihub_ichiban",
