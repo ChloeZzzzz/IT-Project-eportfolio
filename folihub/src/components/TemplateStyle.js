@@ -6,10 +6,13 @@ export const Container_1 = styled.div
     grid-template-rows: 50% 50%;
     grid-template-areas:
     "IMG_1 TXT_1";
-    height: 100vh;
-    width: 98%;
+    height: 70vh;
+    width: 90%;
     margin-top: 50px;
+    margin-left: 3%;
     margin-bottom: 50px;
+    border: 1px solid black;
+    background-color: white;
 `;
 
 export const IMG_1_Container = styled.div
@@ -20,10 +23,10 @@ export const IMG_1_Container = styled.div
     "IMG_1",
     "Input";
     width: 90%;
+    height: 70vh;
+    margin-top: 5%;
     margin-left: auto;
     margin-right: auto;
-    background-color: grey;
-
 `;
 
 export const IMG_1 = styled.img
@@ -45,5 +48,7 @@ export const Input = styled.input
 
 export const TXT_1 = styled.div
 `
-
+    height: 70vh;
+    margin-top: 5%;
+    width: 90%;
 `;

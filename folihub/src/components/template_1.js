@@ -34,16 +34,44 @@ class Template_1 extends React.Component {
                     <IMG_1 src={this.state.img} />
                     <Input type="file" name="image" onChange={this.onImageChange} />
                 </IMG_1_Container>
-                <ReactQuill
-                    onChange={this.handleChange}
-                    value={this.state.content}
-                    modules={Template_1.modules}
-                    formats={Template_1.formats}
-                    bounds={'.app'}
-                    placeholder={this.props.placeholder}
-                />
+                <TXT_1>
+                  <ReactQuill
+                      onChange={this.handleChange}
+                      value={this.state.content}
+                      modules={Template_1.modules}
+                      formats={Template_1.formats}
+                      bounds={'.app'}
+                      placeholder={this.props.placeholder}
+                  />
+                </TXT_1>
             </Container_1>
         );
     }
+  }
+
+/*
+ * Quill modules to attach to editor
+ * See https://quilljs.com/docs/modules/ for complete options
+ */
+ Template_1.modules = {
+    toolbar: [
+      [{ 'header': '1'}, {'header': '2'}, { 'font': [] }],
+      [{size: []}],
+      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+      [{'list': 'ordered'}, {'list': 'bullet'}]],
+    clipboard: {
+      // toggle to add extra line breaks when pasting HTML:
+      matchVisual: false,
+    }
 }
+  /*
+   * Quill editor formats
+   * See https://quilljs.com/docs/formats/
+   */
+Template_1.formats = [
+    'header', 'font', 'size',
+    'bold', 'italic', 'underline', 'strike', 'blockquote',
+    'list', 'bullet', 'indent'
+]
+
 export default Template_1;

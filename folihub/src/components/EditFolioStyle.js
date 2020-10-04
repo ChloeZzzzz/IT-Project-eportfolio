@@ -40,11 +40,12 @@ export const EditFolioTitle = styled.div
 export const EditFolioIndex = styled.div
 `
     background-color: red;
+    border-right: 1px solid black;
 `;
 
 export const EditFolioEditor = styled.div
 `
-    background-color: white;
+    background-color: {colorPlan1.Light};
 `;
 
 export const MyPageTite = styled.div
@@ -53,4 +54,7 @@ export const MyPageTite = styled.div
     font-size: 20px;
     text-align: center;
     margin-top: 5px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 `;

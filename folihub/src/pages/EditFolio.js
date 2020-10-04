@@ -37,8 +37,7 @@ class EditFolio extends React.Component {
                     <EditFolioTitle>{this.props.match.params.id}Should be the Name of this eportfolio</EditFolioTitle>
                     <EditFolioManage>Export Save etc.</EditFolioManage>
                     <EditFolioIndex>
-                        <MyPageTite>My Pages</MyPageTite>
-                        <hr/>
+                        <MyPageTite>My Pages<hr/></MyPageTite>
                     </EditFolioIndex>
                     <EditFolioEditor>
                       <Template_1 />
@@ -48,35 +47,5 @@ class EditFolio extends React.Component {
         }
     }
 }
-
-/*
- * Quill modules to attach to editor
- * See https://quilljs.com/docs/modules/ for complete options
- */
-EditFolio.modules = {
-    toolbar: [
-      [{ 'header': '1'}, {'header': '2'}, { 'font': [] }],
-      [{size: []}],
-      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-      [{'list': 'ordered'}, {'list': 'bullet'},
-       {'indent': '-1'}, {'indent': '+1'}],
-      ['link', 'image', 'video'],
-      ['clean']
-    ],
-    clipboard: {
-      // toggle to add extra line breaks when pasting HTML:
-      matchVisual: false,
-    }
-  }
-  /*
-   * Quill editor formats
-   * See https://quilljs.com/docs/formats/
-   */
-  EditFolio.formats = [
-    'header', 'font', 'size',
-    'bold', 'italic', 'underline', 'strike', 'blockquote',
-    'list', 'bullet', 'indent',
-    'link', 'image', 'video'
-  ]
 
 export default EditFolio;
