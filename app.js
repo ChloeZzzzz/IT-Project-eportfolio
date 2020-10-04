@@ -9,9 +9,15 @@ require('./config/passport')(passport);
 const flash = require('connect-flash-plus');
 app.use(flash());
 const session = require("express-session");
-app.use(session({secret:"folihub_ichiban",
-                resave:true,
-                saveUninitialized: true}));
+app.use(session({
+    cookie:{
+        secure: true,
+        maxAge: 60000
+    },
+    secret:"folihub_ichiban",
+                resave:false,
+                saveUninitialized: true
+    }));
 app.use(passport.initialize());
 app.use(passport.session());
 
