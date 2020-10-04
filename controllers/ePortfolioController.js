@@ -19,15 +19,38 @@ const createEPortfolio = async (req, res) => {
             res.status(200).send({"message": 'create EP success'});
             return res.end();
         });
-
-
     }
     catch(err){
         console.log("---creat EP ERROR---");
         console.log(err);
         return;
     }
+    return;
+}
 
+const getEortfolios = async (req, res) => {
+    console.log(req.session);
+    var email = req.session.email;
+    console.log(email);
+
+    try{
+        await db.query(`SELECT FolioName, Visibility, Layout, LastModified FROM Eportfolios WHERE Email = "${email}"`, async function(err, result) {
+            if (err) {
+                console.log("---db ERROR---");
+                console.log(err);
+                return res.status(200).send({"message": 'failed to fetch eportfolios of current user'});
+            }
+            console.log("---RESULT---");
+            console.log(result);
+            res.status(200).send(result);
+            return res.end();
+        });
+    }
+    catch(err){
+        console.log("---select query ERROR---");
+        console.log(err);
+        return;
+    }
 
     return;
 }
@@ -121,6 +144,7 @@ const hackep = async (req, res) => {
 module.exports = {
     createEPortfolio,
     getEPortfolio,
+    getEortfolios,
     renameEportfolio,
     hackep,
 }
