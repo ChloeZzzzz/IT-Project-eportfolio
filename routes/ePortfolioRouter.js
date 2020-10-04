@@ -11,6 +11,9 @@ ePortfolioRouter.post('/getEPortfolio', (req, res) => {
     ePortfolioController.getEPortfolio()
 });
 
+// get all eportfolios of current user
+ePortfolioRouter.get('/getEportfolios', ePortfolioController.getEortfolios);
+
 //rename a ePortfolio
 ePortfolioRouter.post('/renameEportfolio', (req, res) => {
     ePortfolioController.renameEportfolio()
