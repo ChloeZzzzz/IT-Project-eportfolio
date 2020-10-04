@@ -66,4 +66,23 @@ describe("POST /login", function (done) {
         });
   });
 
+  //a negative unit test
+  it("User should not be able to present SQL injection", function(done) {
+    this.timeout(5000);
+    //send login data
+    let userInfo = {};
+    userInfo.email = '""or""=""';
+    userInfo.password = '""or""==""';
+    chai.request(app)
+        .post('/login')
+        .set('content-type', 'application/x-www-form-urlencoded')
+        .send(userInfo)
+        .end(function(err, response) {
+          console.log(response);
+          expect(response).to.has.status(200);
+          expect(response["redirects"][0]).to.equal(app+'/failurelogin');
+          done();
+        });
+  });
+
 });
