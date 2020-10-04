@@ -29,6 +29,7 @@ class UserHomepage extends React.Component{
 
     async componentDidMount() {
         var data = await getEportfolios();
+        console.log(data);
         this.setState({eportfolio: data});
     }
 

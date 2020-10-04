@@ -1,6 +1,4 @@
 const BASE_USER = "https://folihub-api.herokuapp.com/user";
-const aaaa = "https://folihub-api.herokuapp.com/eportfolio";
-
 
 const axios = require('axios');
 
@@ -36,16 +34,4 @@ export async function postUserLogin(data) {
         }
     });
     return res;
-}
-
-export async function wwww() {
-    const endpoint = aaaa + '/hackep';
-    
-    console.log("get user log in");
-    await axios.get(endpoint, {crossdomain:true}).then((response) => {
-        console.log(response);
-        console.log(response.data[0])
-        return response.data[0];
-    });
-
 }
