@@ -33,14 +33,18 @@ const failureSignup = (req, res) => {
 const successLogin = (req, res) => {
     console.log("===req session===");
     console.log(req.session);
-    res.status(200).json({"message": req.session.flash, "email": req.session.email});
+    const token = jwt.sign({"message": req.session.flash, "email": req.session.email}, 'folihub_ichiban');
+    res.status(200);
+    res.cookie('jwt', token, {httpOnly: false, sameSite: false});
     return res.end();
 }
 
 const failureLogin = (req, res) => {
     console.log("===req session===");
     console.log(req.session);
-    res.status(200).json({"message": req.session.flash});
+    const token = jwt.sign({"message": req.session.flash}, 'folihub_ichban');
+    res.status(200);
+    res.cookie('jwt', token, {httpOnly: false, sameSite: false});
     return res.end();
 }
 
