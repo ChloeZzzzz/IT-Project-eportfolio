@@ -37,6 +37,7 @@ class Signup extends React.Component{
         } else {
             // the signup api here
             postUserSignup({email: this.state.email, password: this.state.password}).then(response => {
+                /*
                 if (response) {
                     window.location.href = `/userHomepage/${this.state.email}`;
                 } else {
@@ -44,6 +45,7 @@ class Signup extends React.Component{
                         errorEmailMsg:  'This email address is already taken',
                     })
                 }
+                */
             });
         }
         e.preventDefault();

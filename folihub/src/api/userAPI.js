@@ -10,6 +10,9 @@ export async function postUserSignup(data) {
         console.log(response);
         console.log(response.request.responseURL);
         console.log(response.config.data);
+        console.log(response.data);
+        localStorage.setItem("email", data.email);
+        localStorage.setItem("token", response.data);
         if (response.request.responseURL === "https://folihub-api.herokuapp.com/user/failuresignup") {
             return false;
         } else {
@@ -28,6 +31,8 @@ export async function postUserLogin(data) {
         console.log("API: ");
         console.log(response);
         console.log(response.request.responseURL);
+        localStorage.setItem("email", data.email);
+        localStorage.setItem("token", response.data);
         if (response.request.responseURL === "https://folihub-api.herokuapp.com/user/failurelogin") {
             return false;
         } else {
