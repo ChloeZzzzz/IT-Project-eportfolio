@@ -48,7 +48,8 @@ export const Input = styled.input
 
 export const TXT_1 = styled.div
 `
-    height: 70vh;
+    height: 500px;
     margin-top: 5%;
-    width: 90%;
+    width: 500px;
+    margin-left: 15%;
 `;

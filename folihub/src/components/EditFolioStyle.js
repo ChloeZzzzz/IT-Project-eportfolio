@@ -58,3 +58,15 @@ export const MyPageTite = styled.div
     margin-left: auto;
     margin-right: auto;
 `;
+
+export const IndexCard = styled.div
+`
+    background-color: grey;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 15%;
+    width: 90%;
+`;

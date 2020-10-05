@@ -55,7 +55,7 @@ class Template_1 extends React.Component {
  */
  Template_1.modules = {
     toolbar: [
-      [{ 'header': '1'}, {'header': '2'}, { 'font': [] }],
+      [{ 'font': [] }],
       [{size: []}],
       ['bold', 'italic', 'underline', 'strike', 'blockquote'],
       [{'list': 'ordered'}, {'list': 'bullet'}]],
@@ -69,7 +69,7 @@ class Template_1 extends React.Component {
    * See https://quilljs.com/docs/formats/
    */
 Template_1.formats = [
-    'header', 'font', 'size',
+    'font', 'size',
     'bold', 'italic', 'underline', 'strike', 'blockquote',
     'list', 'bullet', 'indent'
 ]
