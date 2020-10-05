@@ -39,13 +39,13 @@ export const EditFolioTitle = styled.div
 
 export const EditFolioIndex = styled.div
 `
-    background-color: red;
+    background-color: {colorPlan1.Light};
     border-right: 1px solid black;
 `;
 
 export const EditFolioEditor = styled.div
 `
-    background-color: {colorPlan1.Light};
+    background-color: {colorPlan1.Medium };
 `;
 
 export const MyPageTite = styled.div
@@ -61,12 +61,27 @@ export const MyPageTite = styled.div
 
 export const IndexCard = styled.div
 `
-    background-color: grey;
+    background-color: white;
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid black;
+    border: 1px solid #95A3A4;
     border-radius: 10px;
     height: 15%;
-    width: 90%;
+    width: 85%;
+    &:hover {
+        border: 1px solid #292F36;
+    };
+`;
+
+export const SelectedIndexCard = styled.div
+`
+    background-color: white;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #292F36;
+    border-radius: 10px;
+    height: 15%;
+    width: 85%;
 `;

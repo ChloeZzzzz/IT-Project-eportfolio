@@ -1,7 +1,7 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
 import Logo_Dark from "../img/folihub_dark.png";
-import {colorPlan, EditFolioContainer, EditFolioTitle, EditFolioManage, EditFolioIndex, EditFolioEditor, MyPageTite, IndexCard} from '../components/EditFolioStyle';
+import {colorPlan, EditFolioContainer, EditFolioTitle, EditFolioManage, EditFolioIndex, EditFolioEditor, MyPageTite, IndexCard, SelectedIndexCard} from '../components/EditFolioStyle';
 import 'react-quill/dist/quill.snow.css';
 import ReactQuill from 'react-quill';
 import Template_1 from '../components/template_1';
@@ -14,8 +14,15 @@ class EditFolio extends React.Component {
             loggIn: false,
             content: '',
             nPage: 2,
+            currPage: 0,
         };
+        this.changeIndexCard = this.changeIndexCard.bind(this);
     };
+
+    changeIndexCard(event) {
+      this.setState({currPage: 1});
+      console.log(this.state.currPage);
+    }
 
     render() {
         if (this.state.loading) {
@@ -36,11 +43,18 @@ class EditFolio extends React.Component {
         else {
             var cards = [];
             if (this.state.nPage === 0) {
-
+              this.setState({nPage: 1});
             }
             else {
               for (let i = 0; i < this.state.nPage; i++) {
-                cards.push(<IndexCard />);
+                if (i === this.state.currPage) {
+                  //change when having multiple templates
+                  //change to a window for selecting templates
+                  cards.push(<SelectedIndexCard />)
+                }
+                else {
+                  cards.push(<IndexCard onClick={this.changeIndexCard}/>);
+                }
               }
             }
             return (
