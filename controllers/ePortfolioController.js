@@ -31,7 +31,8 @@ const createEPortfolio = async (req, res) => {
 };
 
 const getEortfolios = async (req, res) => {
-
+  console.log(req);
+  console.log(res);
   console.log(req.session);
   var email = req.session.email;
   console.log(email);
