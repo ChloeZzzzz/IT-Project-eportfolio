@@ -9,6 +9,7 @@ export async function postUserSignup(data) {
         console.log("API: ");
         console.log(response);
         console.log(response.request.responseURL);
+        console.log(response.config.data);
         if (response.request.responseURL === "https://folihub-api.herokuapp.com/user/failuresignup") {
             return false;
         } else {
