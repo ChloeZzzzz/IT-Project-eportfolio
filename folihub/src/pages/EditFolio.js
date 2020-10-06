@@ -20,7 +20,8 @@ class EditFolio extends React.Component {
     };
 
     changeIndexCard(event) {
-      this.setState({currPage: 1});
+      let val = event.i;
+      this.setState({currPage: val});
       console.log(this.state.currPage);
     }
 
@@ -53,7 +54,7 @@ class EditFolio extends React.Component {
                   cards.push(<SelectedIndexCard />)
                 }
                 else {
-                  cards.push(<IndexCard onClick={this.changeIndexCard}/>);
+                  cards.push(<IndexCard onClick={() => this.changeIndexCard({i})} />);
                 }
               }
             }
