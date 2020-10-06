@@ -14,7 +14,7 @@ class EditFolio extends React.Component {
             loading: false,
             loggIn: false,
             content: '',
-            nPage: 2,
+            nPage: 0,
             currPage: 0,
         };
         this.changeTitle = this.changeTitle.bind(this);

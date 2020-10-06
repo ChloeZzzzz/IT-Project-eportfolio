@@ -22,11 +22,11 @@ export const IMG_1_Container = styled.div
     grid-template-areas:
     "IMG_1",
     "Input";
-    width: 20vw;
-    height: 60vh;
+    width: 30vw;
+    height: 75vh;
     margin-top: 5%;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 7%;
+    margin-right: 7%;
     background-color:blue;
 `;
 
@@ -36,8 +36,6 @@ export const IMG_1 = styled.img
     max-width: 100%;
     height: auto;
     width: auto;
-    margin-left: 2%;
-    margin-right: 2%;
 `;
 
 export const Input = styled.input
@@ -50,5 +48,4 @@ export const Input = styled.input
 export const TXT_1 = styled.div
 `
     margin-top: 5%;
-    margin-left: 15%;
 `;

@@ -59,7 +59,7 @@ class Template_1 extends React.Component {
                     </IMG_1_Container>
                     <TXT_1>
                     <ReactQuill
-                        style = {{"height": "50vh", "width": "40vw"}}
+                        style = {{"height": "68vh", "width": "40vw"}}
                         onChange={this.handleChange}
                         value={this.state.content}
                         modules={Template_1.modules}
