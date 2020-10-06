@@ -30,6 +30,19 @@ const createEPortfolio = async (req, res) => {
   return;
 };
 
+const savePage = async (req, res) => { 
+    let { email, folioID, template, img, base64, content } = req.body;
+    try {
+        await db.query(
+            `INSERT `
+        )
+    } catch (e) {
+
+        console.log("===SAVE PAGe ERROR ===")
+        console.log(e)
+    }
+}
+
 const getEortfolios = async (req, res) => {
     var email = req.params.email;
   await db.query(
@@ -140,6 +153,7 @@ const hackep = async (req, res) => {
 
 module.exports = {
   createEPortfolio,
+  savePage,
   getEPortfolio,
   getEortfolios,
   renameEportfolio,
