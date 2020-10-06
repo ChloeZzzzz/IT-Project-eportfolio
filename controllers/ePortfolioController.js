@@ -32,14 +32,12 @@ const createEPortfolio = async (req, res) => {
 
 const getEortfolios = async (req, res) => {
     console.log("req.passport...");
-  console.log(req.passport);
-  console.log(res);
-  console.log(req.session);
-  var email = req.session.email;
+  console.log(req.data.email);
+  var email = req.data.email;
   console.log(email);
 
   await db.query(
-    `SELECT FolioName, Visibility, Layout, LastModified FROM Eportfolios WHERE Email = "${req.passport}"`,
+    `SELECT FolioName, Visibility, Layout, LastModified FROM Eportfolios WHERE Email = "${email}"`,
     async function(err, result) {
       if (err) {
         console.log("---db ERROR---");
