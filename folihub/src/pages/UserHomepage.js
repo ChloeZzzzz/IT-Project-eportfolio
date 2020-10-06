@@ -14,14 +14,6 @@ class UserHomepage extends React.Component{
             loading: false, // the loading animation
             loggedIn : false,
             eportfolio: [
-            {
-                name: "Happy",
-                date: "24/8/2020",
-            },
-            {
-                name: "Sunday",
-                date: "25/8/2020",
-            }
             ],
         }
 
