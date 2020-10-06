@@ -8,7 +8,7 @@ export const Container_1 = styled.div
     "IMG_1 TXT_1";
     height: 85vh;
     width: 80vw;
-    margin-top: 3%;
+    margin-top: 1%;
     margin-left: 3%;
     margin-bottom: 50px;
     border: 1px solid black;
@@ -27,20 +27,19 @@ export const IMG_1_Container = styled.div
     margin-top: 5%;
     margin-left: 7%;
     margin-right: 7%;
-    background-color:blue;
 `;
 
 export const IMG_1 = styled.img
 `
-    max-height: 100%;
-    max-width: 100%;
+    max-height: 66vh;
+    max-width: 30vw;
     height: auto;
     width: auto;
 `;
 
 export const Input = styled.input
 `
-    margin-top: 10px;
+    margin-top: 10%;
     margin-left: auto;
     margin-right: auto;
 `;

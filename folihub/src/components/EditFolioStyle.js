@@ -23,12 +23,26 @@ export const EditFolioContainer = styled.div
     grid-template-areas: "EditFolioTitle EditFolioManage"
     "EditFolioIndex EditFolioEditor";
     grid-template-columns: 200px auto;
-    grid-template-rows: 80px auto;
+    grid-template-rows: 10vh auto;
 `;
 
 export const EditFolioManage = styled.div
 `
-    background-color: blue;
+    background-color: ${colorPlan.Medium_Light};
+`;
+
+export const EditFolioToolbar = styled.div
+`
+    border-left: 1px solid ${colorPlan.Dark_Medium};
+    border-right: 1px solid ${colorPlan.Dark_Medium};
+    border-bottom: 1px solid ${colorPlan.Dark_Medium};
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: ${colorPlan.Light};
+    height: 8vh;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
 `;
 
 export const EditFolioTitle = styled.div
@@ -36,13 +50,13 @@ export const EditFolioTitle = styled.div
     text-align: center;
     font-family: "Georgia";
     background-color: ${colorPlan.Light};
-    border-right: 1px solid ${colorPlan.Dark};
+    border-right: 1px solid ${colorPlan.Dark_Medium};
 `;
 
 export const EditFolioIndex = styled.div
 `
     background-color: ${colorPlan1.Light};
-    border-right: 1px solid ${colorPlan.Dark};
+    border-right: 1px solid ${colorPlan.Dark_Medium};
 `;
 
 export const EditFolioEditor = styled.div
@@ -96,7 +110,7 @@ export const NewPage = styled.div
     margin-right: auto;
     text-align: center;
     font-family: "Georgia";
-    height: 3%;
+    height: 3.5%;
     width: 85%;
     border-radius: 10px;
     border: 1px solid #95A3A4;

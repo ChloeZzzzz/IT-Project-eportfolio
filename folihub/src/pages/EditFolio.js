@@ -1,7 +1,7 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
 import Logo_Dark from "../img/folihub_dark.png";
-import {colorPlan, EditFolioContainer, EditFolioTitle, EditFolioManage, EditFolioIndex, EditFolioEditor, MyPageTitle, IndexCard, SelectedIndexCard, NewPage} from '../components/EditFolioStyle';
+import {colorPlan, EditFolioContainer, EditFolioTitle, EditFolioManage, EditFolioIndex, EditFolioEditor, MyPageTitle, IndexCard, SelectedIndexCard, NewPage, EditFolioToolbar} from '../components/EditFolioStyle';
 import 'react-quill/dist/quill.snow.css';
 import ReactQuill from 'react-quill';
 import Template_1 from '../components/template_1';
@@ -79,7 +79,10 @@ class EditFolio extends React.Component {
                         <hr />
                       </MyPageTitle>
                     </EditFolioTitle>
-                    <EditFolioManage>Export Save etc.</EditFolioManage>
+                    <EditFolioManage>
+                      <EditFolioToolbar>
+                      </EditFolioToolbar>
+                    </EditFolioManage>
                     <EditFolioIndex>
                         {cards}
                         <NewPage onClick={this.addPage}>
