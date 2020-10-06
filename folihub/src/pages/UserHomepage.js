@@ -30,13 +30,13 @@ class UserHomepage extends React.Component{
             <Item>
                 <ItemDescription>
                     <ItemTitle>
-                        {e.name}
+                        {e.FolioName}
                     </ItemTitle>
                     <ItemDate>
                         <Tooltip title="public">
                             <VisibilityIcon fontSize = "small"/>
                         </Tooltip>
-                        {e.date}
+                        {e.LastModified.slice(0,10)}
                         <FolioMenu/>
                     </ItemDate>
                 </ItemDescription>
