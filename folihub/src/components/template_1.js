@@ -10,6 +10,7 @@ class Template_1 extends React.Component {
         super();
         this.state={
             img: null,
+            base64: '',
             content: '',
         }
         this.submitPage = this.submitPage.bind(this);
@@ -20,17 +21,27 @@ class Template_1 extends React.Component {
     submitPage = event => {
         console.log(this.state.img);
         console.log(this.state.content);
+        console.log(this.state.base64);
         console.log(this.props.data);
-        var res = savePage({email: localStorage.getItem("email"), folioID: this.props.data, img: this.state.img, content: this.state.content});
+        var res = savePage({email: localStorage.getItem("email"), folioID: this.props.data, img: this.state.img, base64: this.state.base64, content: this.state.content});
         console.log(res);
     }
 
     onImageChange = event => {
         if (event.target.files && event.target.files[0]) {
             let img = event.target.files[0];
-            this.setState({
-                img: URL.createObjectURL(img)
-            })
+            let img2 = img;
+            // save it as base64 for db, url for preview
+            var reader = new FileReader();
+            var that = this;
+            reader.onloadend = function() {
+                console.log("RESULT", reader.result);
+                that.setState({
+                    img: URL.createObjectURL(img),
+                    base64: reader.result
+                })
+            }
+            reader.readAsDataURL(img2);
         }
     }
 
