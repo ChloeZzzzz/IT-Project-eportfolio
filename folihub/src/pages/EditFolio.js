@@ -1,10 +1,11 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
 import Logo_Dark from "../img/folihub_dark.png";
-import {colorPlan, EditFolioContainer, EditFolioTitle, EditFolioManage, EditFolioIndex, EditFolioEditor, MyPageTite, IndexCard, SelectedIndexCard} from '../components/EditFolioStyle';
+import {colorPlan, EditFolioContainer, EditFolioTitle, EditFolioManage, EditFolioIndex, EditFolioEditor, MyPageTitle, IndexCard, SelectedIndexCard, NewPage} from '../components/EditFolioStyle';
 import 'react-quill/dist/quill.snow.css';
 import ReactQuill from 'react-quill';
 import Template_1 from '../components/template_1';
+import AddIcon from '@material-ui/icons/Add';
 
 class EditFolio extends React.Component {
     constructor(props) {
@@ -16,13 +17,25 @@ class EditFolio extends React.Component {
             nPage: 2,
             currPage: 0,
         };
+        this.changeTitle = this.changeTitle.bind(this);
         this.changeIndexCard = this.changeIndexCard.bind(this);
+        this.addPage = this.addPage.bind(this);
     };
 
     changeIndexCard(event) {
       let val = event.i;
       this.setState({currPage: val});
-      console.log(this.state.currPage);
+    }
+
+    changeTitle(event) {
+
+      console.log(event);
+    }
+
+    addPage(event) {
+      let n = this.state.nPage;
+      n += 1;
+      this.setState({nPage: n});
     }
 
     render() {
@@ -60,11 +73,18 @@ class EditFolio extends React.Component {
             }
             return (
                 <EditFolioContainer>
-                    <EditFolioTitle>{this.props.match.params.id}Should be the Name of this eportfolio</EditFolioTitle>
+                    <EditFolioTitle>
+                      <MyPageTitle onClick={this.changeTitle}>
+                        {this.props.match.params.id}
+                        <hr />
+                      </MyPageTitle>
+                    </EditFolioTitle>
                     <EditFolioManage>Export Save etc.</EditFolioManage>
                     <EditFolioIndex>
-                        <MyPageTite>My Pages<hr/></MyPageTite>
                         {cards}
+                        <NewPage onClick={this.addPage}>
+                          <AddIcon />
+                        </NewPage>
                     </EditFolioIndex>
                     <EditFolioEditor>
                       <Template_1 data = {{"folioID": this.props.match.params.id, "pageID": this.state.currPage}}/>

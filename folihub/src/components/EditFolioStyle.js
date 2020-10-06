@@ -33,27 +33,30 @@ export const EditFolioManage = styled.div
 
 export const EditFolioTitle = styled.div
 `
-    background-color: grey;
-    opacity: 0.5;
+    text-align: center;
+    font-family: "Georgia";
+    background-color: ${colorPlan.Light};
+    border-right: 1px solid ${colorPlan.Dark};
 `;
 
 export const EditFolioIndex = styled.div
 `
-    background-color: {colorPlan1.Light};
-    border-right: 1px solid black;
+    background-color: ${colorPlan1.Light};
+    border-right: 1px solid ${colorPlan.Dark};
 `;
 
 export const EditFolioEditor = styled.div
 `
-    background-color: {colorPlan1.Medium };
+    background-color: ${colorPlan1.Medium_Light};
 `;
 
-export const MyPageTite = styled.div
+export const MyPageTitle = styled.div
 `
     font-family: "Georgia";
-    font-size: 20px;
+    font-size: 30px;
+    margin-top: 10%;
     text-align: center;
-    margin-top: 5px;
+    color: #292F36;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -70,7 +73,7 @@ export const IndexCard = styled.div
     height: 15%;
     width: 85%;
     &:hover {
-        border: 1px solid #292F36;
+        border: 1px solid #5F696D;
     };
 `;
 
@@ -80,8 +83,25 @@ export const SelectedIndexCard = styled.div
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid #292F36;
+    border: 2px solid #5F696D;
     border-radius: 10px;
     height: 15%;
     width: 85%;
+`;
+
+export const NewPage = styled.div
+`
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: "Georgia";
+    height: 3%;
+    width: 85%;
+    border-radius: 10px;
+    border: 1px solid #95A3A4;
+    background-color: white;
+    &:hover {
+        border: 1px solid #5F696D;
+    };
 `;
