@@ -22,8 +22,8 @@ export const EditFolioContainer = styled.div
     display: grid;
     grid-template-areas: "EditFolioTitle EditFolioManage"
     "EditFolioIndex EditFolioEditor";
-    grid-template-columns: 200px auto;
-    grid-template-rows: 10vh auto;
+    grid-template-columns: 15vw auto;
+    grid-template-rows: 12vh auto;
 `;
 
 export const EditFolioManage = styled.div
@@ -33,6 +33,9 @@ export const EditFolioManage = styled.div
 
 export const EditFolioToolbar = styled.div
 `
+    display: grid;
+    grid-template-rows: 70% 10% 10% 10%;
+    grid-template-areas: "others SaveDiv BookDiv PDFDiv";
     border-left: 1px solid ${colorPlan.Dark_Medium};
     border-right: 1px solid ${colorPlan.Dark_Medium};
     border-bottom: 1px solid ${colorPlan.Dark_Medium};
@@ -118,4 +121,25 @@ export const NewPage = styled.div
     &:hover {
         border: 1px solid #5F696D;
     };
+`;
+
+export const SaveDiv = styled.div
+`
+    position: relative;
+    margin-top: 5%;
+    margin-left: 220%;
+`;
+
+export const BookDiv = styled.div
+`
+    position: relative;
+    margin-top: 5%;
+    margin-left: 150%;
+`;
+
+export const PDFDiv = styled.div
+`
+    position: relative;
+    margin-top: 5%;
+    margin-left: 80%;
 `;

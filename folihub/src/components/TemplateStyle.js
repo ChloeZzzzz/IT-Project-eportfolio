@@ -18,7 +18,7 @@ export const Container_1 = styled.div
 export const IMG_1_Container = styled.div
 `
     display: grid;
-    grid-template-rows: 80% 20%;
+    grid-template-rows: 85% 15%;
     grid-template-areas:
     "IMG_1",
     "Input";
@@ -31,7 +31,7 @@ export const IMG_1_Container = styled.div
 
 export const IMG_1 = styled.img
 `
-    max-height: 66vh;
+    max-height: 64vh;
     max-width: 30vw;
     height: auto;
     width: auto;

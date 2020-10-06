@@ -1,11 +1,14 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
 import Logo_Dark from "../img/folihub_dark.png";
-import {colorPlan, EditFolioContainer, EditFolioTitle, EditFolioManage, EditFolioIndex, EditFolioEditor, MyPageTitle, IndexCard, SelectedIndexCard, NewPage, EditFolioToolbar} from '../components/EditFolioStyle';
+import {colorPlan, EditFolioContainer, EditFolioTitle, EditFolioManage, EditFolioIndex, EditFolioEditor, MyPageTitle, IndexCard, SelectedIndexCard, NewPage, EditFolioToolbar, SaveDiv, BookDiv, PDFDiv} from '../components/EditFolioStyle';
 import 'react-quill/dist/quill.snow.css';
 import ReactQuill from 'react-quill';
 import Template_1 from '../components/template_1';
 import AddIcon from '@material-ui/icons/Add';
+import SaveIcon from '@material-ui/icons/Save';
+import ImportContactsIcon from '@material-ui/icons/ImportContacts';
+import GetAppIcon from '@material-ui/icons/GetApp';
 
 class EditFolio extends React.Component {
     constructor(props) {
@@ -81,6 +84,16 @@ class EditFolio extends React.Component {
                     </EditFolioTitle>
                     <EditFolioManage>
                       <EditFolioToolbar>
+                        <div></div>
+                        <SaveDiv>
+                          <SaveIcon />
+                        </SaveDiv>
+                        <BookDiv>
+                          <ImportContactsIcon />
+                        </BookDiv>
+                        <PDFDiv>
+                          <GetAppIcon />
+                        </PDFDiv>
                       </EditFolioToolbar>
                     </EditFolioManage>
                     <EditFolioIndex>
