@@ -23,3 +23,19 @@ export async function savePage(data) {
     })
     return res;
 }
+
+export async function getFolio(data) {
+    const endpoint = BASE_FOLIO + '/getEportfolio';
+    var res = await axios.post(endpoint, data, {crossdomain: true}).then((response) => {
+        console.log(response);
+        return response.data
+    })
+}
+
+export async function renameFolio(data) {
+    const endpoint = BASE_FOLIO + '/renameFolio';
+    await axios.post(endpoint, data, {crossdomain: true}).then((response) => {
+        console.log(response);
+        return response.data;
+    })
+}

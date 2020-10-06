@@ -10,6 +10,10 @@ import SaveIcon from '@material-ui/icons/Save';
 import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 import GetAppIcon from '@material-ui/icons/GetApp';
 
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+
+import {renameFolio, getFolio} from '../api/folioAPI';
+
 class EditFolio extends React.Component {
     constructor(props) {
         super();
@@ -23,9 +27,10 @@ class EditFolio extends React.Component {
             currPage: 0,
         };
         this.changeEdit = this.changeEdit.bind(this);
-        this.changeTitle = this.changeTitle.bind(this);
         this.changeIndexCard = this.changeIndexCard.bind(this);
         this.addPage = this.addPage.bind(this);
+        this.handleClickAway = this.handleClickAway.bind(this);
+        this.onNameChange = this.onNameChange.bind(this);
     };
 
     changeIndexCard(event) {
@@ -37,15 +42,26 @@ class EditFolio extends React.Component {
       this.setState({isEdit: true});
     }
 
-    changeTitle(event) {
-      this.setState({name: event.target.value});
-      console.log(this.state.name);
+    handleClickAway() {
+      this.setState({isEdit: false});
+
+      renameFolio({email: localStorage.getItem("email"), folioID: this.props.match.params.id, name: this.state.name});
     }
 
     addPage(event) {
       let n = this.state.nPage;
       n += 1;
       this.setState({nPage: n});
+    }
+
+    componentDidMount() {
+      var folioInfo = getFolio({email: localStorage.getItem("email"), folioID: this.props.match.params.id});
+      // name is folioInfo.name
+      this.setState({name: this.props.match.params.id});
+    }
+
+    onNameChange(e) {
+      this.setState({name: e.target.value})
     }
 
     render() {
@@ -83,12 +99,16 @@ class EditFolio extends React.Component {
             }
             return (
                 <EditFolioContainer>
+                  <ClickAwayListener onClickAway={this.handleClickAway}>
                     <EditFolioTitle>
                       <MyPageTitle onClick={this.changeEdit}>
-                        {(!this.state.isEdit) ?  this.props.match.params.id : <EditForm type="text" placeholder={this.props.match.params.id}/>}
+                        {(!this.state.isEdit) ?  this.state.name : <EditForm type="text" value = {this.state.name} onChange = {this.onNameChange}/>}
                         <hr />
                       </MyPageTitle>
                     </EditFolioTitle>
+                  </ClickAwayListener>
+
+
                     <EditFolioManage>
                       <EditFolioToolbar>
                         <div></div>
