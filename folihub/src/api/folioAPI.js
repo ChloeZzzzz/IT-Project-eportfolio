@@ -3,7 +3,7 @@ const axios = require('axios');
 
 export async function getEportfolios() {
     const endpoint = BASE_FOLIO + '/getEportfolios';
-    var res = await axios.get(endpoint, {crossdomain: true}).then((response) => {
+    var res = await axios.get(endpoint, localStorage.getItem("email"), {crossdomain: true}).then((response) => {
 
         console.log(response);
         console.log(response.data);
