@@ -16,7 +16,8 @@ export async function getEportfolios() {
 
 export async function createEportfolio(data) {
     const endpoint = BASE_FOLIO + '/createEportfolio';
-    await axios.post(endpoint, data, {crossdomain: true}).then((response) => {
+    var res = await axios.post(endpoint, data, {crossdomain: true}).then((response) => {
         return response.data;
     })
+    return res;
 }
