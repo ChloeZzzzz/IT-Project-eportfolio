@@ -143,3 +143,9 @@ export const PDFDiv = styled.div
     margin-top: 5%;
     margin-left: 80%;
 `;
+
+export const EditForm = styled.input
+`
+    font-size: 20px;
+    width: 80%;
+`;

@@ -1,7 +1,7 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
 import Logo_Dark from "../img/folihub_dark.png";
-import {colorPlan, EditFolioContainer, EditFolioTitle, EditFolioManage, EditFolioIndex, EditFolioEditor, MyPageTitle, IndexCard, SelectedIndexCard, NewPage, EditFolioToolbar, SaveDiv, BookDiv, PDFDiv} from '../components/EditFolioStyle';
+import {colorPlan, EditFolioContainer, EditFolioTitle, EditFolioManage, EditFolioIndex, EditFolioEditor, MyPageTitle, IndexCard, SelectedIndexCard, NewPage, EditFolioToolbar, SaveDiv, BookDiv, PDFDiv, EditForm} from '../components/EditFolioStyle';
 import 'react-quill/dist/quill.snow.css';
 import ReactQuill from 'react-quill';
 import Template_1 from '../components/template_1';
@@ -16,10 +16,13 @@ class EditFolio extends React.Component {
         this.state={
             loading: false,
             loggIn: false,
+            isEdit: false,
+            name: '',
             content: '',
             nPage: 0,
             currPage: 0,
         };
+        this.changeEdit = this.changeEdit.bind(this);
         this.changeTitle = this.changeTitle.bind(this);
         this.changeIndexCard = this.changeIndexCard.bind(this);
         this.addPage = this.addPage.bind(this);
@@ -30,9 +33,13 @@ class EditFolio extends React.Component {
       this.setState({currPage: val});
     }
 
-    changeTitle(event) {
+    changeEdit(event) {
+      this.setState({isEdit: true});
+    }
 
-      console.log(event);
+    changeTitle(event) {
+      this.setState({name: event.target.value});
+      console.log(this.state.name);
     }
 
     addPage(event) {
@@ -77,8 +84,8 @@ class EditFolio extends React.Component {
             return (
                 <EditFolioContainer>
                     <EditFolioTitle>
-                      <MyPageTitle onClick={this.changeTitle}>
-                        {this.props.match.params.id}
+                      <MyPageTitle onClick={this.changeEdit}>
+                        {(!this.state.isEdit) ?  this.props.match.params.id : <EditForm type="text" placeholder={this.props.match.params.id}/>}
                         <hr />
                       </MyPageTitle>
                     </EditFolioTitle>
