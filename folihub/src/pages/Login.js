@@ -30,7 +30,7 @@ class Login extends React.Component {
     handleSubmit(event) {
 
         postUserLogin({email: this.state.email, password: this.state.password}).then(response => {
-            /*
+            
             if (response) {
                 window.location.href = `/userHomepage/${this.state.email}`;
             } else {
@@ -38,7 +38,7 @@ class Login extends React.Component {
                     msg: 'Wrong Email or Password'
                 })         
             }
-            */
+            
         });
 
         event.preventDefault();

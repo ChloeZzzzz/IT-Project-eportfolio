@@ -48,10 +48,10 @@ export default function NewFolioMenu() {
         console.log(visibility);
         console.log(name);
         console.log(layout);
-        var response = await createEportfolio({"email": localStorage.getItem("email"),  "folioName": name, "visiblity": visibility, "layout": layout});
+        var response = await createEportfolio({"email": localStorage.getItem("email"),  "folioName": name, "visibility": visibility, "layout": layout});
         console.log(response)
         if (true) {
-            window.location.href = "/EditFolio";
+            window.location.href = `/userhomepage/${localStorage.getItem("email")}`;
         }
     }
 
