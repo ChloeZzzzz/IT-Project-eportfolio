@@ -14,3 +14,12 @@ export async function createEportfolio(data) {
         return response.data;
     })
 }
+
+export async function savePage(data) {
+    const endpoint = BASE_FOLIO + '/savePage';
+    var res = await axios.post(endpoint, data, {crossdomain: true}).then((response) => {
+        console.log(response);
+        return response;
+    })
+    return res;
+}

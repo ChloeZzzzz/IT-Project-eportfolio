@@ -66,7 +66,7 @@ class EditFolio extends React.Component {
                         {cards}
                     </EditFolioIndex>
                     <EditFolioEditor>
-                      <Template_1 />
+                      <Template_1 data = {this.props.match.params.id}/>
                     </EditFolioEditor>
                 </EditFolioContainer>
             )

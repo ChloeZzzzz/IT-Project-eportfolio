@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {Container_1, IMG_1, IMG_1_Container, Input, TXT_1} from '../components/TemplateStyle';
+import {Button}  from '../components/Style';
 import 'react-quill/dist/quill.snow.css';
 import ReactQuill from 'react-quill';
+import {savePage} from '../api/folioAPI';
 
 class Template_1 extends React.Component {
     constructor(props) {
@@ -10,8 +12,17 @@ class Template_1 extends React.Component {
             img: null,
             content: '',
         }
+        this.submitPage = this.submitPage.bind(this);
         this.onImageChange = this.onImageChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
+    }
+
+    submitPage = event => {
+        console.log(this.state.img);
+        console.log(this.state.content);
+        console.log(this.props.data);
+        var res = savePage({email: localStorage.getItem("email"), folioID: this.props.data, img: this.state.img, content: this.state.content});
+        console.log(res);
     }
 
     onImageChange = event => {
@@ -29,22 +40,28 @@ class Template_1 extends React.Component {
 
     render() {
         return (
-            <Container_1>
-                <IMG_1_Container>
-                    <IMG_1 src={this.state.img} />
-                    <Input type="file" name="image" onChange={this.onImageChange} />
-                </IMG_1_Container>
-                <TXT_1>
-                  <ReactQuill
-                      onChange={this.handleChange}
-                      value={this.state.content}
-                      modules={Template_1.modules}
-                      formats={Template_1.formats}
-                      bounds={'.app'}
-                      placeholder={this.props.placeholder}
-                  />
-                </TXT_1>
-            </Container_1>
+            <div>
+                <Container_1>
+                    <IMG_1_Container>
+                        <IMG_1 src={this.state.img} />
+                        <Input type="file" name="image" onChange={this.onImageChange} />
+                    </IMG_1_Container>
+                    <TXT_1>
+                    <ReactQuill
+                            style = {{"height": "50vh"}}
+                        onChange={this.handleChange}
+                        value={this.state.content}
+                        modules={Template_1.modules}
+                        formats={Template_1.formats}
+                        bounds={'.app'}
+                        placeholder={this.props.placeholder}
+                    />
+                    </TXT_1>
+                </Container_1>
+                <Button onClick={this.submitPage}>
+                        next page
+                </Button>
+            </div>
         );
     }
   }
