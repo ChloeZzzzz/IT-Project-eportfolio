@@ -23,7 +23,7 @@ class Template_1 extends React.Component {
         console.log(this.state.content);
         console.log(this.state.base64);
         console.log(this.props.data);
-        var res = savePage({email: localStorage.getItem("email"), folioID: this.props.data, img: this.state.img, base64: this.state.base64, content: this.state.content});
+        var res = savePage({email: localStorage.getItem("email"), folioID: this.props.data.folioID, templateID: "1", pageID: this.props.data.pageID, img: this.state.base64, text: this.state.content});
         console.log(res);
     }
 
