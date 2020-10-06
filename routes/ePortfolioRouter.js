@@ -12,7 +12,7 @@ ePortfolioRouter.post('/getEPortfolio', (req, res) => {
 });
 
 // get all eportfolios of current user
-ePortfolioRouter.get('/getEportfolios', ePortfolioController.getEortfolios);
+ePortfolioRouter.get('/getEportfolios/:email', ePortfolioController.getEortfolios);
 
 //rename a ePortfolio
 ePortfolioRouter.post('/renameEportfolio', (req, res) => {

@@ -31,11 +31,7 @@ const createEPortfolio = async (req, res) => {
 };
 
 const getEortfolios = async (req, res) => {
-    console.log("req.passport...");
-  console.log(req.data.email);
-  var email = req.data.email;
-  console.log(email);
-
+    var email = req.params.email;
   await db.query(
     `SELECT FolioName, Visibility, Layout, LastModified FROM Eportfolios WHERE Email = "${email}"`,
     async function(err, result) {
