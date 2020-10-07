@@ -25,7 +25,35 @@ const createEPortfolio = async (req, res) => {
   } catch (err) {
     console.log("---creat EP ERROR---");
     console.log(err);
-    return;
+    return res.end();
+  }
+  return;
+};
+
+const createPage = async (req, res) => {
+  console.log(req.body);
+  let { email, folioId, templateId } = req.body;
+  try {
+    console.log(email);
+    await db.query(
+      `INSERT INTO Pages (FolioID, TemplateID) VALUES ("${folioId}", "${templateId}")`,
+      async function(err, result) {
+        if (err) {
+          console.log("---creat EP page ERROR---");
+          console.log(err);
+          return res.status(200).send({ message: "failed to create EP page" });
+        } else {
+          console.log("---RESULT---");
+          console.log(result);
+          res.status(200).send({ message: "create EP page success" }); // should return this page id
+          return res.end();
+        }
+      }
+    );
+  } catch (err) {
+    console.log("---creat EP page ERROR---");
+    console.log(err);
+    return res.end();
   }
   return;
 };
@@ -73,8 +101,8 @@ const getEportfolio = async (req, res) => {
     await db.query(
       `SELECT FolioName, PageID
             FROM Eportfolios
-            LEFT JOIN Pages ON Eportfolios.FolioID=Pages.FolioID
-            AND Eportfolios.FolioID="${folioId}" ORDER BY PageID ASC`,
+            JOIN Pages ON Eportfolios.FolioID=Pages.FolioID
+            AND Pages.FolioID="${folioId}" ORDER BY PageID ASC`,
       async function(err, result) {
         if (err) {
           console.log("---get EP ERROR---");
@@ -93,7 +121,7 @@ const getEportfolio = async (req, res) => {
     return res.end();
   }
 
-  return res.end();
+  return;
 };
 //26/09/2020 Column Name need to add to database and new req variable need to add
 const renameFolio = async (req, res) => {
@@ -143,6 +171,7 @@ const hackep = async (req, res) => {
 
 module.exports = {
   createEPortfolio,
+  createPage,
   savePage,
   getEportfolio,
   getEportfolios,

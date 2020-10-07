@@ -6,6 +6,9 @@ const ePortfolioController = require('../controllers/ePortfolioController');
 //create a ePortfolio
 ePortfolioRouter.post('/createEPortfolio', ePortfolioController.createEPortfolio);
 
+// create a new page given an eportfolio id
+ePortfolioRouter.post('/createPage', ePortfolioController.createPage);
+
 // save an eportfolio page (img and content)
 ePortfolioRouter.post('/savePage', ePortfolioController.savePage);
 
