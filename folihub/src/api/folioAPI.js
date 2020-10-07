@@ -26,10 +26,14 @@ export async function savePage(data) {
 
 export async function getFolio(data) {
     const endpoint = BASE_FOLIO + '/getEportfolio';
+    console.log(data);
     var res = await axios.post(endpoint, data, {crossdomain: true}).then((response) => {
         console.log(response);
-        return response.data
+        console.log(response.data);
+        console.log(response.data[0].FolioName);
+        return response.data;
     })
+    return res;
 }
 
 export async function renameFolio(data) {

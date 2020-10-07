@@ -44,8 +44,8 @@ class EditFolio extends React.Component {
 
     handleClickAway() {
       this.setState({isEdit: false});
-
-      renameFolio({email: localStorage.getItem("email"), folioID: this.props.match.params.id, name: this.state.name});
+      console.log(this.state.name);
+      renameFolio({email: localStorage.getItem("email"), folioId: this.props.match.params.id, newName: this.state.name});
     }
 
     addPage(event) {
@@ -54,10 +54,11 @@ class EditFolio extends React.Component {
       this.setState({nPage: n});
     }
 
-    componentDidMount() {
-      var folioInfo = getFolio({email: localStorage.getItem("email"), folioID: this.props.match.params.id});
-      // name is folioInfo.name
-      this.setState({name: this.props.match.params.id});
+    componentDidMount = async () => {
+      console.log(this.props.match.params.id);
+      var folioInfo = await getFolio({email: localStorage.getItem("email"), folioId: this.props.match.params.id});
+      console.log(folioInfo);
+      this.setState({name: folioInfo[0].FolioName});
     }
 
     onNameChange(e) {
