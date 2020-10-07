@@ -43,3 +43,11 @@ export async function renameFolio(data) {
         return response.data;
     })
 }
+
+export async function createPage(data) {
+    const endpoint = BASE_FOLIO + '/createPage';
+    await axios.post(endpoint, data, {crossdomain: true}).then((response) => {
+        console.log(response);
+        return response.data;
+    })
+}

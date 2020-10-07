@@ -12,7 +12,7 @@ import GetAppIcon from '@material-ui/icons/GetApp';
 
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 
-import {renameFolio, getFolio} from '../api/folioAPI';
+import {renameFolio, getFolio, createPage} from '../api/folioAPI';
 
 class EditFolio extends React.Component {
     constructor(props) {
@@ -23,8 +23,7 @@ class EditFolio extends React.Component {
             isEdit: false,
             name: '',
             content: '',
-            nPage: 0,
-            pageIds: [{FolioName: '', pageID: 0}],
+            pageIds: [{FolioName: '', PageID: 0}],
             currPage: 0,
         };
         this.changeEdit = this.changeEdit.bind(this);
@@ -45,15 +44,11 @@ class EditFolio extends React.Component {
 
     handleClickAway() {
       this.setState({isEdit: false});
-      console.log(this.state.name);
       renameFolio({email: localStorage.getItem("email"), folioId: this.props.match.params.id, newName: this.state.name});
     }
 
     addPage(event) {
-      console.log(this.state.pageIds[this.state.currPage].PageID);
-      let n = this.state.nPage;
-      n += 1;
-      this.setState({nPage: n});
+      createPage({email: localStorage.getItem("email"), folioId: this.props.match.params.id, templateId: "1"});
     }
 
     componentDidMount = async () => {
