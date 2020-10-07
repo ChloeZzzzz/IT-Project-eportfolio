@@ -108,7 +108,7 @@ describe("POST /signup", function (done) {
     //a negative unit test case
     it("User should not signup with already exist username", function(done) {
       this.timeout(5000);
-      //send login data
+      //send signup data
       let userInfo = {};
       userInfo.email = 'test@test.test';
       userInfo.password = 'test';
@@ -126,7 +126,7 @@ describe("POST /signup", function (done) {
     //a negative unit test
     it("User should not be able to present SQL injection", function(done) {
       this.timeout(5000);
-      //send login data
+      //send signup data
       let userInfo = {};
       userInfo.email = '""or""=""';
       userInfo.password = '""or""==""';
