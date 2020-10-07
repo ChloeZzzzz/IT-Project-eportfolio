@@ -24,6 +24,7 @@ class EditFolio extends React.Component {
             name: '',
             content: '',
             nPage: 0,
+            pageIds: [{FolioName: '', pageID: 0}],
             currPage: 0,
         };
         this.changeEdit = this.changeEdit.bind(this);
@@ -49,6 +50,7 @@ class EditFolio extends React.Component {
     }
 
     addPage(event) {
+      console.log(this.state.pageIds[this.state.currPage].PageID);
       let n = this.state.nPage;
       n += 1;
       this.setState({nPage: n});
@@ -58,7 +60,11 @@ class EditFolio extends React.Component {
       console.log(this.props.match.params.id);
       var folioInfo = await getFolio({email: localStorage.getItem("email"), folioId: this.props.match.params.id});
       console.log(folioInfo);
-      this.setState({name: folioInfo[0].FolioName});
+      this.setState({
+        name: folioInfo[0].FolioName,
+        pageIds: folioInfo,
+        currPage: 0
+      });
     }
 
     onNameChange(e) {
@@ -83,19 +89,14 @@ class EditFolio extends React.Component {
         }
         else {
             var cards = [];
-            if (this.state.nPage === 0) {
-              this.setState({nPage: 1});
-            }
-            else {
-              for (let i = 0; i < this.state.nPage; i++) {
-                if (i === this.state.currPage) {
-                  //change when having multiple templates
-                  //change to a window for selecting templates
-                  cards.push(<SelectedIndexCard />)
-                }
-                else {
-                  cards.push(<IndexCard onClick={() => this.changeIndexCard({i})} />);
-                }
+            for (let i = 0; i < this.state.pageIds.length; i++) {
+              if (i === this.state.currPage) {
+                //change when having multiple templates
+                //change to a window for selecting templates
+                cards.push(<SelectedIndexCard />)
+              }
+              else {
+                cards.push(<IndexCard onClick={() => this.changeIndexCard({i})} />);
               }
             }
             return (
@@ -130,7 +131,7 @@ class EditFolio extends React.Component {
                         </NewPage>
                     </EditFolioIndex>
                     <EditFolioEditor>
-                      <Template_1 data = {{"folioID": this.props.match.params.id, "pageID": 5}}/>
+                      <Template_1 data = {{"folioID": this.props.match.params.id, "pageID": this.state.pageIds[this.state.currPage].PageID}}/>
                     </EditFolioEditor>
                 </EditFolioContainer>
             )
