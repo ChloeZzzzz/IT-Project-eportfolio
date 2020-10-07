@@ -34,7 +34,7 @@ export const EditFolioManage = styled.div
 export const EditFolioToolbar = styled.div
 `
     display: grid;
-    grid-template-rows: 70% 10% 10% 10%;
+    grid-template-columns: 79% 7% 7% 7%;
     grid-template-areas: "others SaveDiv BookDiv PDFDiv";
     border-left: 1px solid ${colorPlan.Dark_Medium};
     border-right: 1px solid ${colorPlan.Dark_Medium};
@@ -123,25 +123,20 @@ export const NewPage = styled.div
     };
 `;
 
-export const SaveDiv = styled.div
+export const BookDiv = styled.button
 `
     position: relative;
-    margin-top: 5%;
-    margin-left: 220%;
+    margin-top: 21%;
+    width: 50%;
+    height: 58%;
 `;
 
-export const BookDiv = styled.div
+export const PDFDiv = styled.button
 `
     position: relative;
-    margin-top: 5%;
-    margin-left: 150%;
-`;
-
-export const PDFDiv = styled.div
-`
-    position: relative;
-    margin-top: 5%;
-    margin-left: 80%;
+    margin-top: 21%;
+    width: 50%;
+    height: 58%;
 `;
 
 export const EditForm = styled.input

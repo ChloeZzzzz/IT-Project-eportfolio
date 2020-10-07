@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import {Container_1, IMG_1, IMG_1_Container, Input, TXT_1} from '../components/TemplateStyle';
-import {Button}  from '../components/Style';
+import {Container_1, IMG_1, IMG_1_Container, Input, TXT_1, SaveDiv} from '../components/TemplateStyle';
 import 'react-quill/dist/quill.snow.css';
 import ReactQuill from 'react-quill';
 import {savePage, getPage} from '../api/folioAPI';
+import SaveIcon from '@material-ui/icons/Save';
+
 
 class Template_1 extends React.Component {
     constructor(props) {
@@ -63,6 +64,9 @@ class Template_1 extends React.Component {
     render() {
         return (
             <div>
+                <SaveDiv>
+                  <SaveIcon onClick={this.submitPage}/>
+                </SaveDiv>
                 <Container_1>
                     <IMG_1_Container>
                         <IMG_1 src={this.state.img} />
@@ -80,9 +84,6 @@ class Template_1 extends React.Component {
                     />
                     </TXT_1>
                 </Container_1>
-                <Button onClick={this.submitPage}>
-                        next page
-                </Button>
             </div>
         );
     }
