@@ -28,8 +28,14 @@ class Template_1 extends React.Component {
     }
 
     componentDidMount = async () => {
+        console.log("pageid");
+        console.log(this.props.data.pageID);
         var res = await getPage({email: localStorage.getItem("email"), folioId: this.props.data.folioID, pageId: this.props.data.pageID});
-        console.log(res[0]);
+        console.log(res);
+        this.setState({
+            base64: res[0],
+            img: res[1]
+        })
     }
 
     onImageChange = event => {
