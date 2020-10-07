@@ -30,7 +30,15 @@ class Login extends React.Component {
     handleSubmit(event) {
 
         postUserLogin({email: this.state.email, password: this.state.password}).then(response => {
-            console.log(response);
+            
+            if (response) {
+                window.location.href = `/userHomepage/${this.state.email}`;
+            } else {
+                this.setState({
+                    msg: 'Wrong Email or Password'
+                })         
+            }
+            
         });
 
         event.preventDefault();
@@ -60,6 +68,8 @@ class Login extends React.Component {
                     <AuthenForm onSubmit={this.handleSubmit} onChange={this.handleChange}>
                         <InputContainer>
                             <TextField
+                                error = {this.state.msg}
+                                helperText = {this.state.msg}
                                 size="small"
                                 variant="filled"
                                 id="email"

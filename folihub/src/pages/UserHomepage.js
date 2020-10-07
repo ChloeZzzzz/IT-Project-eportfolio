@@ -14,14 +14,6 @@ class UserHomepage extends React.Component{
             loading: false, // the loading animation
             loggedIn : false,
             eportfolio: [
-            {
-                name: "Happy",
-                date: "24/8/2020",
-            },
-            {
-                name: "Sunday",
-                date: "25/8/2020",
-            }
             ],
         }
 
@@ -29,6 +21,7 @@ class UserHomepage extends React.Component{
 
     async componentDidMount() {
         var data = await getEportfolios();
+        console.log(data);
         this.setState({eportfolio: data});
     }
 
@@ -37,13 +30,13 @@ class UserHomepage extends React.Component{
             <Item>
                 <ItemDescription>
                     <ItemTitle>
-                        {e.name}
+                        {e.FolioName}
                     </ItemTitle>
                     <ItemDate>
                         <Tooltip title="public">
                             <VisibilityIcon fontSize = "small"/>
                         </Tooltip>
-                        {e.date}
+                        {e.LastModified.slice(0,10)}
                         <FolioMenu/>
                     </ItemDate>
                 </ItemDescription>

@@ -1,17 +1,25 @@
 const BASE_USER = "https://folihub-api.herokuapp.com/user";
-const aaaa = "https://folihub-api.herokuapp.com/eportfolio";
-
 
 const axios = require('axios');
 
 export async function postUserSignup(data) {
     const endpoint = BASE_USER + '/signup';
     console.log("post user sign up");
-    await axios.post(endpoint, data, {withCredentials:true, crossdomain:true}).then(response => {
-        console.log("API: "+response);
-        return response.json();
+    var res = await axios.post(endpoint, data, {withCredentials:true, crossdomain:true}).then(response => {
+        console.log("API: ");
+        console.log(response);
+        console.log(response.request.responseURL);
+        console.log(response.config.data);
+        console.log(response.data);
+        localStorage.setItem("email", data.email);
+        localStorage.setItem("token", response.data);
+        if (response.request.responseURL === "https://folihub-api.herokuapp.com/user/failuresignup") {
+            return false;
+        } else {
+            return true;
+        }
     });
-    
+    return res;
 
 }
 
@@ -19,37 +27,17 @@ export async function postUserLogin(data) {
     const endpoint = BASE_USER + '/login';
     
     console.log("post user log in");
-    await axios.post(endpoint, data, {withCredentials:true, crossdomain:true}).then((response) => {
-        console.log("API: "+response);
-        return response.data;
-    });
-    /*
-   console.log("post user log in:")
-   const response = await fetch(endpoint, {
-        method: 'POST',
-        mode: 'cors',
-        cache: 'no-cache',
-        credentials: 'same-origin',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        redirect: 'follow',
-        referrerPolicy: 'no-referrer',
-        body: JSON.stringify(data)
-    });
-    console.log(response);
-    return response.json();
-    */
-}
-
-export async function wwww() {
-    const endpoint = aaaa + '/hackep';
-    
-    console.log("get user log in");
-    await axios.get(endpoint, {crossdomain:true}).then((response) => {
+    var res = await axios.post(endpoint, data, {withCredentials:true, crossdomain:true}).then((response) => {
+        console.log("API: ");
         console.log(response);
-        console.log(response.data[0])
-        return response.data[0];
+        console.log(response.request.responseURL);
+        localStorage.setItem("email", data.email);
+        localStorage.setItem("token", response.data);
+        if (response.request.responseURL === "https://folihub-api.herokuapp.com/user/failurelogin") {
+            return false;
+        } else {
+            return true;
+        }
     });
-
+    return res;
 }
