@@ -8,8 +8,9 @@ In sprint 1, frontend homepage, sign up, login and user homepage skeleton code a
 * Navigate to the folder and run "npm install" in terminal,
 * "npm start" and view it on localhost: 3000.
 
-**Sprint 2**
-Both the front-end and back-end codes are deployed to Heroku server at the start of Sprint 2, now it is accessable from the link provided below in the "features and functionalities" section.  
+**Sprint 2**  
+Both the front-end and back-end codes have been deployed to Heroku server at the start of Sprint 2, now it is accessible from the link provided below in the "features and functionalities" section. To see the history of deployment, you could visit https://docs.google.com/document/d/1M4zP-DF4FyNYlP_QAWfYQ7CGlk627KqAxRMRvr1pCNs/edit  
+The main feature that has been developed in sprint 2 is editing e-portfolio. For front-end, edit folio page has been implemented and Quill JS was decided to be used to assist rich text input. While for back-end, various APIs have been created for this functionality, such as creating new pages and new folios, renaming folios, saving folios and updating the contents. Testing has also been introduced and automated intergration tests using Mocha and Chai have executed over user authentication.
 
 ## APIs - Routers and Controllers
 **User Authentication**  
@@ -39,7 +40,7 @@ URL Link: https://folihub.herokuapp.com/userHomepage
 **Edit Folio**  
 Edit folio page is when user click existed e-portfolios or create new e-portfolios from user homepage. Previous work (or empty page) along with editing tools in tool bar are displayed to allow the user to design and update that page (the term "page" here refers to a "page" in the e-portfolio). User could add new pages to e-portfolio as well. To do this, a pop up window will appear and user cam choose a template to continue.  
 
-URL Link:    
+URL Link: https://folihub.herokuapp.com/editFolio/00001    
 
 
 **Export Folio**  
@@ -49,7 +50,7 @@ URL Link:
 
 ## Documentations
 **Included in "Diagrams_and_models" folder**  
-* Entity-relationship Model
+* Entity-relationship Model (v3)
 * Class Diagram
 * Architecture Model
 * Motivation Model
@@ -71,7 +72,9 @@ including:
 * Do/Be/Feel Model
 * Sprint Backlog
 * Client Interview Notes
-* API Documentation
+* API Documentation  
+* Testing Documentation  
+* Deployment Documentation  
 
 ## Team Members  
 | Role | Name |
