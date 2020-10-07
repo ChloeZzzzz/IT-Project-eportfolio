@@ -43,7 +43,7 @@ const savePage = async (req, res) => {
     }
 }
 
-const getEortfolios = async (req, res) => {
+const getEportfolios = async (req, res) => {
     var email = req.params.email;
   await db.query(
     `SELECT FolioName, Visibility, Layout, LastModified FROM Eportfolios WHERE Email = "${email}"`,
@@ -63,7 +63,7 @@ const getEortfolios = async (req, res) => {
   );
 };
 
-const getEPortfolio = async (req, res) => {
+const getEportfolio = async (req, res) => {
   console.log(req.body);
   let { email, folioId } = req.body;
   try {
@@ -71,74 +71,64 @@ const getEPortfolio = async (req, res) => {
     console.log(folioId);
 
     await db.query(
-      `SELECT *
-            FROM Contents
-            LEFT JOIN SourceText ON Contents.SourceID=SourceText.TextID
-            LEFT JOIN SourceImage ON Contents.SourceID=SourceImage.ImageID
-            WHERE FolioID="${folioId}" ORDER BY PageID ASC;`,
+      `SELECT FolioName, PageID
+            FROM Eportfolios
+            LEFT JOIN Pages ON Eportfolios.FolioID=Pages.FolioID
+            AND Eportfolios.FolioID="${folioId}" ORDER BY PageID ASC`,
       async function(err, result) {
         if (err) {
           console.log("---get EP ERROR---");
           console.log(err);
-          return;
+          return res.end();
         }
+        console.log("==get folio result==");
+        console.log(result);
+        res.status(200).send(result);
+        return res.end();
       }
     );
   } catch (err) {
     console.log("---get EP ERROR---");
     console.log(err);
-    return;
+    return res.end();
   }
 
-  return;
+  return res.end();
 };
 //26/09/2020 Column Name need to add to database and new req variable need to add
-const renameEportfolio = async (req, res) => {
-  console.log(req.body);
+const renameFolio = async (req, res) => {
   let { email, folioId, newName } = req.body;
   try {
     console.log(email);
     console.log(folioId);
     await db.query(
-      `UPDATE E-portfolios
-            SET Name = "${newName}"
-            WHERE FolioID="${folioId}" ;`,
+      `UPDATE Eportfolios
+            SET FolioName = "${newName}"
+            WHERE FolioID="${folioId}"`,
       async function(err, result) {
         if (err) {
           console.log("---get EP ERROR---");
           console.log(err);
-          return;
+          return res.end();
         }
+        console.log("==Rename Success==")
+        console.log(result);
+        return res.end();
       }
     );
-
-    await dp.query(
-      `SELECT FolioID, Name FROM E-portfolios WHERE Name = "${newName}" ;`,
-      async function(err, result) {
-        if (err) {
-          console.log("---verify EP creation ERROR---");
-          console.log(err);
-          return;
-        }
-        console.log(result[0].FolioID);
-
-        res.message("rename success");
-        res.message("name:", result[0].Name);
-      }
-    );
-  } catch (err) {
-    console.log("---get EP ERROR---");
-    console.log(err);
-    return;
   }
-
-  return;
+  catch (e) {
+    console.log("==Rename Error==");
+      console.log(e);
+      return res.end();
+  }
+  return res.end();
 };
 
 // back door
 const hackep = async (req, res) => {
   await db.query(
-    `SELECT FolioName, Visibility, Layout, LastModified FROM Eportfolios`,
+    `SELECT FolioId, FolioName, Visibility, Layout, LastModified FROM Eportfolios`,
     (err, result) => {
       if (err) {
         console.log("===err===");
@@ -154,8 +144,8 @@ const hackep = async (req, res) => {
 module.exports = {
   createEPortfolio,
   savePage,
-  getEPortfolio,
-  getEortfolios,
-  renameEportfolio,
+  getEportfolio,
+  getEportfolios,
+  renameFolio,
   hackep
 };
