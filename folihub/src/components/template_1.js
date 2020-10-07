@@ -3,7 +3,7 @@ import {Container_1, IMG_1, IMG_1_Container, Input, TXT_1} from '../components/T
 import {Button}  from '../components/Style';
 import 'react-quill/dist/quill.snow.css';
 import ReactQuill from 'react-quill';
-import {savePage} from '../api/folioAPI';
+import {savePage, getPage} from '../api/folioAPI';
 
 class Template_1 extends React.Component {
     constructor(props) {
@@ -25,6 +25,11 @@ class Template_1 extends React.Component {
         console.log(this.props.data);
         var res = savePage({email: localStorage.getItem("email"), folioId: this.props.data.folioID, pageId: this.props.data.pageID, templateId: "1", content: [this.state.base64, this.state.content]});
         console.log(res);
+    }
+
+    componentDidMount = async () => {
+        var res = await getPage({email: localStorage.getItem("email"), folioId: this.props.data.folioID, pageId: this.props.data.pageID});
+        console.log(res[0]);
     }
 
     onImageChange = event => {

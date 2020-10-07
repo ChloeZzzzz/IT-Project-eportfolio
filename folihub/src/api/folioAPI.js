@@ -51,3 +51,14 @@ export async function createPage(data) {
         return response.data;
     })
 }
+
+export async function getPage(data) {
+    const endpoint = BASE_FOLIO + '/getPage';
+    var res = await axios.get(endpoint, data, {crossdomain: true}).then((response) => {
+        console.log("..getpage..");
+        console.log(response);
+        return response.data;
+    })
+    console.log(res);
+    return res;
+}
