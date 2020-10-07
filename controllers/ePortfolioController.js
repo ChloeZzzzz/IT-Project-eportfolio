@@ -58,21 +58,80 @@ const createPage = async (req, res) => {
   return;
 };
 
+function emptyPage(pageId, callback) {
+  var sql = `SELECT Count(*) count FROM Contents WHERE PageID = "${pageId}"`;
+  db.query(sql, (err, result) => {
+    if (err) {
+      throw err;
+    }
+    console.log(result[0].count);
+    if (result[0].count == 0) {
+      return callback(true);
+    }else {
+      return callback(false);
+    }
+  })
+}
+
 const savePage = async (req, res) => { 
-    let { email, folioID, template, img, base64, content } = req.body;
+    let { email, folioId, pageId, templateId, content} = req.body;
+    console.log(email);
+    console.log(folioId);
+    console.log(pageId);
+    console.log(templateId);
+    console.log(content);
     try {
-        await db.query(
-            `INSERT `
-        )
+      if (templateId == "1") {
+        
+        emptyPage(pageId, async (isEmpty) => {
+          if (isEmpty) {
+            await db.query(
+              `INSERT INTO Contents (PageID, FolioID, Content) VALUES ("${pageId}", "${folioId}", "${content[0]}")`, (err, result) => {
+                if (err) {
+                  console.log("---save EP page ERROR---");
+                  console.log(err);
+                  return res.status(200).send({ message: "failed to save EP page" });
+                } else {
+                  console.log("---RESULT---");
+                  console.log(result);
+                }
+              }
+            );
+    
+            await db.query(
+              `INSERT INTO Contents (PageID, FolioID, Content) VALUES ("${pageId}", "${folioId}", "${content[1]}")`, (err, result) => {
+                if (err) {
+                  console.log("---save EP page ERROR---");
+                  console.log(err);
+                  return res.status(200).send({ message: "failed to save EP page" });
+                } else {
+                  console.log("---RESULT---");
+                  console.log(result);
+                }
+              }
+            )
+
+            res.status(200).send({ message: "save EP page success" });
+            return res.end(); // should using promise here, fix it next time
+          } else {
+            console.log("not empty, should using update");
+            return res.end();
+          }
+        })
+      } else {
+        console.log("-wrong template id");
+        return res.end();
+      }
     } catch (e) {
 
         console.log("===SAVE PAGe ERROR ===")
         console.log(e)
+        return res.end();
     }
 }
 
 const getEportfolios = async (req, res) => {
-    var email = req.params.email;
+  var email = req.params.email;
   await db.query(
     `SELECT FolioName, Visibility, Layout, LastModified FROM Eportfolios WHERE Email = "${email}"`,
     async function(err, result) {
@@ -89,6 +148,7 @@ const getEportfolios = async (req, res) => {
       return res.end();
     }
   );
+  return;
 };
 
 const getEportfolio = async (req, res) => {
@@ -123,6 +183,40 @@ const getEportfolio = async (req, res) => {
 
   return;
 };
+
+const getPage = async(req, res) => {
+  console.log(req.body);
+  let { email, folioId, pageId } = req.body;
+  try {
+    console.log(email);
+    console.log(folioId);
+    console.log(pageId);
+    await db.query(
+      `SELECT Content, TemplateID
+            FROM Pages
+            JOIN Contents ON Pages.PageID=Contents.PageID
+            AND Contents.PageID="${pageId}"`,
+      async function(err, result) {
+        if (err) {
+          console.log("---get page ERROR---");
+          console.log(err);
+          return res.end();
+        }
+        console.log("==get page result==");
+        console.log(result);
+        res.status(200).send(result);
+        return res.end();
+      }
+    );
+  } catch (err) {
+    console.log("---get page ERROR---");
+    console.log(err);
+    return res.end();
+  }
+
+  return;
+}
+
 //26/09/2020 Column Name need to add to database and new req variable need to add
 const renameFolio = async (req, res) => {
   let { email, folioId, newName } = req.body;
@@ -173,6 +267,7 @@ module.exports = {
   createEPortfolio,
   createPage,
   savePage,
+  getPage,
   getEportfolio,
   getEportfolios,
   renameFolio,

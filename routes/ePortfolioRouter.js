@@ -12,6 +12,9 @@ ePortfolioRouter.post('/createPage', ePortfolioController.createPage);
 // save an eportfolio page (img and content)
 ePortfolioRouter.post('/savePage', ePortfolioController.savePage);
 
+// get an eportfolio page given the page id
+ePortfolioRouter.get('/getPage', ePortfolioController.getPage);
+
 //get a ePortfolio
 ePortfolioRouter.post('/getEportfolio', ePortfolioController.getEportfolio);
 
