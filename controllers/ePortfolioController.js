@@ -18,7 +18,8 @@ const createEPortfolio = async (req, res) => {
         }
         console.log("---RESULT---");
         console.log(result);
-        res.status(200).send({ message: "create EP success" });
+        console.log(result.insertId);
+        res.status(200).send({ folioId: result.insertId });
         return res.end();
       }
     );
