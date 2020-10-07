@@ -10,11 +10,7 @@ In sprint 1, frontend homepage, sign up, login and user homepage skeleton code a
 
 **Sprint 2**  
 Both the front-end and back-end codes have been deployed to Heroku server at the start of Sprint 2, now it is accessible from the link provided below in the "features and functionalities" section. To see the history of deployment, you could visit https://docs.google.com/document/d/1M4zP-DF4FyNYlP_QAWfYQ7CGlk627KqAxRMRvr1pCNs/edit  
-The main feature that has been developed in sprint 2 is editing e-portfolio. For front-end, edit folio page has been implemented and Quill JS was decided to be used to assist rich text input. While for back-end, various APIs have been created for this functionality, such as creating new pages and new folios, renaming folios, saving folios and updating the contents. Testing has also been introduced and automated intergration tests using Mocha and Chai have executed over user authentication.
-
-## APIs - Routers and Controllers
-**User Authentication**  
-
+The main feature that has been developed in sprint 2 is editing e-portfolio. For front-end, edit folio page has been implemented and Quill JS was decided to be used to assist rich text input. While for back-end, various APIs have been created for this functionality, such as creating new pages and new folios, renaming folios, saving folios and updating the contents. Testing has also been introduced and automated intergration tests using Mocha and Chai have executed over user authentication.  
 
 ## Features and Functionalities
 **Homepage**  
