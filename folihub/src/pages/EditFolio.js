@@ -109,7 +109,6 @@ class EditFolio extends React.Component {
                     </EditFolioTitle>
                   </ClickAwayListener>
 
-
                     <EditFolioManage>
                       <EditFolioToolbar>
                         <div></div>
@@ -131,7 +130,7 @@ class EditFolio extends React.Component {
                         </NewPage>
                     </EditFolioIndex>
                     <EditFolioEditor>
-                      <Template_1 data = {{"folioID": this.props.match.params.id, "pageID": this.state.currPage}}/>
+                      <Template_1 data = {{"folioID": this.props.match.params.id, "pageID": 5}}/>
                     </EditFolioEditor>
                 </EditFolioContainer>
             )
