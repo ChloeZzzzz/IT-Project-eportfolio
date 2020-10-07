@@ -70,7 +70,7 @@ export const EditFolioEditor = styled.div
 export const MyPageTitle = styled.div
 `
     font-family: "Georgia";
-    font-size: 30px;
+    font-size: 25px;
     margin-top: 10%;
     text-align: center;
     color: #292F36;

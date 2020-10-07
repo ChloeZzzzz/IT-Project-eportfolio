@@ -20,7 +20,7 @@ class EditFolio extends React.Component {
             loading: false,
             loggIn: false,
             isEdit: false,
-            name: 'default',
+            name: 'loading...',
             content: '',
             pageIds: [{FolioName: '', PageID: 0}],
             currPage: 0,
