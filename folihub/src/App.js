@@ -9,6 +9,7 @@ import UserHomepage from './pages/UserHomepage';
 import Footer from "./components/Footer";
 import EditFolio from "./pages/EditFolio";
 import ContactUs from "./pages/ContactUs";
+import Faq from "./pages/Faq";
 
 import "./App.css";
 
@@ -34,6 +35,7 @@ class App extends Component {
 
           <Route exact path="/EditFolio/:id" render={props => <EditFolio {...props} />} />
           <Route exact path="/ContactUs" render={props => <ContactUs {...props} />} />
+          <Route exact path="/FAQ" render={props => <Faq {...props} />} />
         </Switch>
         <Footer />
 
