@@ -1,11 +1,11 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
-import { colorPlan, ContactUsContainer, ContactUsText,FqaContainer,Reports,Button, InputContainer, AboutUsContainer } from "../components/Style";
+import { colorPlan, ContactUsContainer, ContactUsText,FaqContainer,Reports,Button, InputContainer, AboutUsContainer } from "../components/Style";
 import { TextField } from '@material-ui/core';
 
 
 
-class Fqa extends React.Component {
+class Faq extends React.Component {
     constructor(props) {
         super();
         this.state = {
@@ -35,8 +35,8 @@ class Fqa extends React.Component {
 
             return (
                 <ContactUsContainer>
-                    <FqaContainer>
-                        <h1> FQA </h1>
+                    <FaqContainer>
+                        <h1> FAQ </h1>
                         <ContactUsText>
                             <hr/>
                             Q1.If i close my browser before i save my work, will Folihub save my previous work?
@@ -64,7 +64,7 @@ class Fqa extends React.Component {
                             we will contact you if your problem have been confirmed.
                             </p>
                         </ContactUsText> 
-                    </FqaContainer>
+                    </FaqContainer>
                         
                     
                       
@@ -78,4 +78,4 @@ class Fqa extends React.Component {
         }
     }
 }
-export default Fqa;
+export default Faq;

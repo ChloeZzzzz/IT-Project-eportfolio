@@ -617,7 +617,7 @@ export const AboutUsContainer = styled.div
     text-align: center;
     font-family: "Georgia";
 `;
-export const FqaContainer = styled.div
+export const FaqContainer = styled.div
 `
     margin-left: 60%;
     margin-right: 5%;
