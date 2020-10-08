@@ -5,9 +5,6 @@ if (!global.Promise) {
 var chai = require('chai');
 var chaiHttp = require('chai-http');
 const expect = chai.expect;
-const db = require('../config/database.js');
-
-var userController = require('../controllers/userController');
 
 var app = 'https://folihub-api.herokuapp.com/user';
 
