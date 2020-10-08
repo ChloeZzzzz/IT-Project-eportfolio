@@ -4,6 +4,8 @@ import AddIcon from "@material-ui/icons/Add";
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import FolioMenu from '../components/FolioMenu';
 import Tooltip from '@material-ui/core/Tooltip';
+import {getEportfolios} from '../api/folioAPI';
+import NewFolioMenu from '../components/NewFolioMenu';
 
 class UserHomepage extends React.Component{
     constructor(props) {
@@ -12,17 +14,15 @@ class UserHomepage extends React.Component{
             loading: false, // the loading animation
             loggedIn : false,
             eportfolio: [
-            {
-                name: "Happy",
-                date: "24/8/2020",
-            },
-            {
-                name: "Sunday",
-                date: "25/8/2020",
-            }
             ],
         }
 
+    }
+
+    async componentDidMount() {
+        var data = await getEportfolios();
+        console.log(data);
+        this.setState({eportfolio: data});
     }
 
     render(){
@@ -30,13 +30,13 @@ class UserHomepage extends React.Component{
             <Item>
                 <ItemDescription>
                     <ItemTitle>
-                        {e.name}
+                        {e.FolioName}
                     </ItemTitle>
                     <ItemDate>
                         <Tooltip title="public">
                             <VisibilityIcon fontSize = "small"/>
                         </Tooltip>
-                        {e.date}
+                        {e.LastModified.slice(0,10)}
                         <FolioMenu/>
                     </ItemDate>
                 </ItemDescription>
@@ -46,7 +46,7 @@ class UserHomepage extends React.Component{
                 <ItemContainer>
                     {items}
                     <Item>
-                        <AddIcon style={{ fontSize: 82, opacity: 0.7, marginLeft: 19, marginTop: 45}} />
+                        <NewFolioMenu />
                     </Item>
                 </ItemContainer>
             </CollectionCanvas>

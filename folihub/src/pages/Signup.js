@@ -11,6 +11,7 @@ class Signup extends React.Component{
             loading: false, // the loading animation
             loggedIn : false,
             errorConfiromMsg:  '',
+            errorEmailMsg: '',
             email: '',
             password: '',
             confirmpw: '',
@@ -36,7 +37,15 @@ class Signup extends React.Component{
         } else {
             // the signup api here
             postUserSignup({email: this.state.email, password: this.state.password}).then(response => {
-                console.log(response);
+                
+                if (response) {
+                    window.location.href = `/userHomepage/${this.state.email}`;
+                } else {
+                    this.setState({
+                        errorEmailMsg:  'This email address is already taken',
+                    })
+                }
+                
             });
         }
         e.preventDefault();
@@ -65,6 +74,8 @@ class Signup extends React.Component{
                     <AuthenForm onSubmit = {this.handleSubmit} onChange={this.handleChange}>
                         <InputContainer>
                             <TextField
+                                error = {this.state.errorEmailMsg}
+                                helperText = {this.state.errorEmailMsg}
                                 size = "small"
                                 variant = "filled"
                                 id = "email"

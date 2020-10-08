@@ -34,7 +34,7 @@ class Nav extends Component {
       return (
         <NavContainer>
           <NavIcon>
-            <a href="/"><NavLogo /></a>
+            <NavLogo href="/"/>
             <NavName>Folihub</NavName>
           </NavIcon>
           <div></div>

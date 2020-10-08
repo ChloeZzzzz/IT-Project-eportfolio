@@ -51,15 +51,16 @@ export const NavIcon = styled.div
     display: flex;
 `;
 
-export const NavLogo = styled.div
+export const NavLogo = styled.a
 `
-    width: 70px;
-    height: 70px;
-    margin-top: 12px;
-    margin-left: 10px;
+    width: 50px;
+    height: 50px;
+    padding-left: 10px;
+    padding-right: 10px; 
     background-size: 80%;
     background-repeat: no-repeat;
     background-image: url(${Logo_Light});
+    background-position: center;
 `;
 
 export const NavName = FontFormat.extend
