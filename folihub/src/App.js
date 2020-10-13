@@ -36,6 +36,7 @@ class App extends Component {
           <Route exact path="/EditFolio/:id" render={props => <EditFolio {...props} />} />
           <Route exact path="/ContactUs" render={props => <ContactUs {...props} />} />
           <Route exact path="/FAQ" render={props => <Faq {...props} />} />
+          <Route exact path="/ExportFolio/:id" render={props => <ExportFolio {...props} />} />
         </Switch>
         <Footer />
 
