@@ -11,8 +11,11 @@ class Template_1 extends React.Component {
         super();
         this.state={
             img: null,
-            base64: '',
-            content: '',
+            response: '',
+            load_base64: '',
+            load_text: '',
+            new_base64: '',
+            new_text: '',
         }
         this.submitPage = this.submitPage.bind(this);
         this.onImageChange = this.onImageChange.bind(this);
@@ -20,24 +23,40 @@ class Template_1 extends React.Component {
     }
 
     submitPage = event => {
-        console.log(this.state.img);
-        console.log(this.state.content);
-        console.log(this.state.base64);
-        console.log(this.props.data);
-        var res = savePage({email: localStorage.getItem("email"), folioId: this.props.data.folioID, pageId: this.props.data.pageID, templateId: "1", content: [this.state.base64, this.state.content]});
+        var res = savePage({email: localStorage.getItem("email"), folioId: this.props.data.folioID, pageId: this.props.data.pageID, templateId: "1", content: [this.state.base64, this.state.text]});
         console.log(res);
     }
 
-    componentDidMount = async () => {
-        console.log("pageid");
-        console.log(this.props.data.pageID);
+    componentWillReceiveProps = async () => {
         var res = await getPage({email: localStorage.getItem("email"), folioId: this.props.data.folioID, pageId: this.props.data.pageID});
-        if (res) {
-            this.setState({
-                base64: res[0],
-                img: res[1]
-            })
+        if (res !== "empty page") {
+            if (this.state.load_base64 != res[0].Content || this.state.load_text != res[1].Content) {
+                if (this.state.load_base64 === this.state.new_base64 && this.state.load_text === this.state.new_text) {
+                    this.setState({
+                        load_base64: res[0].Content,
+                        load_text: res[1].Content,
+                        new_base64: res[0].Content,
+                        new_text: res[1].Content,
+                    })
+                }
+            }
+        } else {
+            if (this.state.load_base64 != '' || this.state.load_text != '') {
+                if (this.state.load_base64 == this.state.new_base64 && this.state.load_text == this.state.new_text) {
+                    this.setState({
+                        load_base64: '',
+                        load_text: '',
+                        new_base64: '',
+                        new_text: ''
+                    })
+                }
+            }
         }
+    }
+
+    loadPage = async (e) => {
+        console.log(e.folioID);
+        console.log(e.pageID);
     }
 
     onImageChange = event => {
@@ -48,7 +67,6 @@ class Template_1 extends React.Component {
             var reader = new FileReader();
             var that = this;
             reader.onloadend = function() {
-                console.log("RESULT", reader.result);
                 that.setState({
                     img: URL.createObjectURL(img),
                     base64: reader.result
@@ -60,7 +78,7 @@ class Template_1 extends React.Component {
 
     handleChange(value) {
         this.setState({ content: value })
-    }
+    } 
 
     render() {
         return (
@@ -77,7 +95,7 @@ class Template_1 extends React.Component {
                     <ReactQuill
                         style = {{"height": "68vh", "width": "40vw"}}
                         onChange={this.handleChange}
-                        value={this.state.content}
+                        value={this.state.new_text}
                         modules={Template_1.modules}
                         formats={Template_1.formats}
                         bounds={'.app'}

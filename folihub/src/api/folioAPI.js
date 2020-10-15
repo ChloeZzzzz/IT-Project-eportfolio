@@ -32,11 +32,8 @@ export async function savePage(data) {
 
 export async function getFolio(data) {
     const endpoint = BASE_FOLIO + '/getEportfolio';
-    console.log(data);
     var res = await axios.post(endpoint, data, {crossdomain: true}).then((response) => {
-        console.log(response);
-        console.log(response.data);
-        console.log(response.data[0].FolioName);
+        console.log("get folio api: ", response.data);
         return response.data;
     })
     return res;
@@ -60,10 +57,13 @@ export async function createPage(data) {
 
 export async function getPage(data) {
     const endpoint = BASE_FOLIO + '/getPage';
+    console.log("get-page api:  ", data);
     var res = await axios.post(endpoint, data, {crossdomain: true}).then((response) => {
-        console.log("..getpage..");
-        console.log(response);
         return response.data;
     })
-    console.log(res);
+    if (res.length == 0) {
+        return "empty page";
+    } else {
+        return res;
+    }
 }
