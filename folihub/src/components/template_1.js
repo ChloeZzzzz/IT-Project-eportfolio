@@ -12,11 +12,9 @@ class Template_1 extends React.Component {
         this.state={
             img: null,
             response: '',
-            load_base64: '',
-            load_text: '',
-            new_base64: '',
-            new_text: '',
-            get_page: this.props.data.getPage,
+            base64: '',
+            text: '',
+            pageID: -1,
         }
         this.submitPage = this.submitPage.bind(this);
         this.onImageChange = this.onImageChange.bind(this);
@@ -28,54 +26,24 @@ class Template_1 extends React.Component {
         console.log(res);
     }
 
-    componentWillReceiveProps = async () => {
-        if (this.state.get_page) {
+    componentDidUpdate = async () => {
+        if (this.state.pageID != this.props.data.pageID) {
             var res = await getPage({email: localStorage.getItem("email"), folioId: this.props.data.folioID, pageId: this.props.data.pageID});
             console.log(res);
             if (res !== "empty page") {
                 this.setState({
-                    load_base64: res[0].Content,
-                    load_text: res[1].Content,
-                    new_base64: res[0].Content,
-                    new_text: res[1].Content,
-                    get_page: false,
+                    base64: res[0].Content,
+                    text: res[1].Content,
+                    pageID: this.props.data.pageID,
                 })
             } else {
                 this.setState({
-                    load_base64: '',
-                    load_text: '',
-                    new_base64: '',
-                    new_text: '',
-                    get_page: false,
+                    base64: '',
+                    text: '',
+                    pageID: this.props.data.pageID,
                 })
             }
         }
-        /*
-        var res = await getPage({email: localStorage.getItem("email"), folioId: this.props.data.folioID, pageId: this.props.data.pageID});
-        if (res !== "empty page") {
-            if (this.state.load_base64 != res[0].Content || this.state.load_text != res[1].Content) {
-                if (this.state.load_base64 === this.state.new_base64 && this.state.load_text === this.state.new_text) {
-                    this.setState({
-                        load_base64: res[0].Content,
-                        load_text: res[1].Content,
-                        new_base64: res[0].Content,
-                        new_text: res[1].Content,
-                    })
-                }
-            }
-        } else {
-            if (this.state.load_base64 != '' || this.state.load_text != '') {
-                if (this.state.load_base64 == this.state.new_base64 && this.state.load_text == this.state.new_text) {
-                    this.setState({
-                        load_base64: '',
-                        load_text: '',
-                        new_base64: '',
-                        new_text: ''
-                    })
-                }
-            }
-        }
-        */
     }
 
     loadPage = async (e) => {
@@ -101,7 +69,7 @@ class Template_1 extends React.Component {
     }
 
     handleChange(value) {
-        this.setState({ content: value })
+        this.setState({ text: value })
     } 
 
     render() {
@@ -119,7 +87,7 @@ class Template_1 extends React.Component {
                     <ReactQuill
                         style = {{"height": "68vh", "width": "40vw"}}
                         onChange={this.handleChange}
-                        value={this.state.new_text}
+                        value={this.state.text}
                         modules={Template_1.modules}
                         formats={Template_1.formats}
                         bounds={'.app'}
