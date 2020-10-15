@@ -61,6 +61,7 @@ export async function getPage(data) {
     var res = await axios.post(endpoint, data, {crossdomain: true}).then((response) => {
         return response.data;
     })
+    console.log("in api:", res);
     if (res.length == 0) {
         return "empty page";
     } else {

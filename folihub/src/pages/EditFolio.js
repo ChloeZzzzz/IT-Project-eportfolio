@@ -121,7 +121,7 @@ class EditFolio extends React.Component {
                         </NewPage>
                     </EditFolioIndex>
                     <EditFolioEditor>
-                      <Template_1 data = {{"folioID": this.props.match.params.id, "pageID": this.state.pageIds[this.state.currPage].PageID}}/>
+                      <Template_1 data = {{"getPage": true, "folioID": this.props.match.params.id, "pageID": this.state.pageIds[this.state.currPage].PageID}}/>
                     </EditFolioEditor>
                 </EditFolioContainer>
             )
