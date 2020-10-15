@@ -8,7 +8,7 @@ import SaveIcon from '@material-ui/icons/Save';
 
 class Template_1 extends React.Component {
     constructor(props) {
-        super(props);
+        super();
         this.state={
             img: null,
             response: '',
@@ -16,7 +16,6 @@ class Template_1 extends React.Component {
             load_text: '',
             new_base64: '',
             new_text: '',
-            get_page: this.props.data.getPage,
         }
         this.submitPage = this.submitPage.bind(this);
         this.onImageChange = this.onImageChange.bind(this);
@@ -29,28 +28,6 @@ class Template_1 extends React.Component {
     }
 
     componentWillReceiveProps = async () => {
-        if (this.state.get_page) {
-            var res = await getPage({email: localStorage.getItem("email"), folioId: this.props.data.folioID, pageId: this.props.data.pageID});
-            console.log(res);
-            if (res !== "empty page") {
-                this.setState({
-                    load_base64: res[0].Content,
-                    load_text: res[1].Content,
-                    new_base64: res[0].Content,
-                    new_text: res[1].Content,
-                    get_page: false,
-                })
-            } else {
-                this.setState({
-                    load_base64: '',
-                    load_text: '',
-                    new_base64: '',
-                    new_text: '',
-                    get_page: false,
-                })
-            }
-        }
-        /*
         var res = await getPage({email: localStorage.getItem("email"), folioId: this.props.data.folioID, pageId: this.props.data.pageID});
         if (res !== "empty page") {
             if (this.state.load_base64 != res[0].Content || this.state.load_text != res[1].Content) {
@@ -75,7 +52,6 @@ class Template_1 extends React.Component {
                 }
             }
         }
-        */
     }
 
     loadPage = async (e) => {
