@@ -87,7 +87,7 @@ const savePage = async (req, res) => {
         emptyPage(pageId, async (isEmpty) => {
           if (isEmpty) {
             await db.query(
-              `INSERT INTO Contents (PageID, FolioID, Content) VALUES ("${pageId}", "${folioId}", "${content[0]}")`, (err, result) => {
+              `INSERT INTO Contents (PageID, FolioID, Content) VALUES ("${pageId}", "${folioId}", "${content[0].Content}")`, (err, result) => {
                 if (err) {
                   console.log("---save EP page ERROR---");
                   console.log(err);
@@ -100,7 +100,7 @@ const savePage = async (req, res) => {
             );
     
             await db.query(
-              `INSERT INTO Contents (PageID, FolioID, Content) VALUES ("${pageId}", "${folioId}", "${content[1]}")`, (err, result) => {
+              `INSERT INTO Contents (PageID, FolioID, Content) VALUES ("${pageId}", "${folioId}", "${content[1].Content}")`, (err, result) => {
                 if (err) {
                   console.log("---save EP page ERROR---");
                   console.log(err);
