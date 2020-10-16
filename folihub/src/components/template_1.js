@@ -82,7 +82,7 @@ class Template_1 extends React.Component {
                 </SaveDiv>
                 <Container_1>
                     <IMG_1_Container>
-                        <IMG_1 src={this.state.img} />
+                        <IMG_1 src={this.state.base64} />
                         <Input type="file" name="image" onChange={this.onImageChange} />
                     </IMG_1_Container>
                     <TXT_1>
