@@ -1,8 +1,8 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
 import Logo_Dark from "../img/folihub_dark.png";
-import {colorPlan} from '../components/ExportFolioStyle';
-import {IMG_1} from '../components/TemplateStyle';
+import {colorPlan, FolioContainer, FolioHeader, FolioTitle, FolioOwner} from '../components/ExportFolioStyle';
+import {Container_1, IMG_1_Container, IMG_1, TXT_1} from '../components/TemplateStyle';
 
 import {getFolio, getPage} from '../api/folioAPI';
 
@@ -15,6 +15,7 @@ class ExportFolio extends React.Component {
             folioID: '',
             pageIDs: '',
             content: '',
+            folioName: '',
         };
     };
 
@@ -31,6 +32,7 @@ class ExportFolio extends React.Component {
             folioID: folioID,
             pageIDs: res_pageids,
             content: contents,
+            folioName: res_pageids[0].FolioName,
         })
     }
 
@@ -56,14 +58,27 @@ class ExportFolio extends React.Component {
             for (var i = 0; i < this.state.content.length; i++) {
                 // if this page is in template 1 display style
                 if (this.state.content[i][0].TemplateID == "1") {
-                    pages.push(<IMG_1 src={this.state.content[i][0].Content} />);
-                    pages.push(<div dangerouslySetInnerHTML = {{__html: this.state.content[i][1].Content}}></div>);
+                    pages.push(
+                    <Container_1>
+                        <IMG_1_Container>
+                            <IMG_1 src={this.state.content[i][0].Content} />
+                        </IMG_1_Container>
+                        <TXT_1 dangerouslySetInnerHTML = {{__html: this.state.content[i][1].Content}}/>
+                    </Container_1>);
                 }
             }
             return (
-                <div>
+                <FolioContainer>
+                    <FolioHeader>
+                        <FolioTitle>
+                            {this.state.folioName}
+                        </FolioTitle>
+                        <FolioOwner>
+                            {localStorage.getItem("email")}
+                        </FolioOwner>
+                    </FolioHeader>
                     {pages}
-                </div>
+                </FolioContainer>
             )
         }
     }
