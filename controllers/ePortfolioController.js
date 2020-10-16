@@ -116,6 +116,32 @@ const savePage = async (req, res) => {
             return res.end(); // should using promise here, fix it next time
           } else {
             console.log("not empty, should using update");
+
+            await db.query(
+              `UPDATE Contents SET Content = "${content[0]}" WHERE PageID  = "${pageId}" AND ContentID = "1"`, (err, result) => {
+                if (err) {
+                  console.log("---update EP page ERROR---");
+                  console.log(err);
+                  return res.status(200).send({ message: "failed to update EP page" });
+                } else {
+                  console.log("---RESULT---");
+                  console.log(result);
+                }
+              }
+            );
+    
+            await db.query(
+              `UPDATE Contents SET Content = "${content[1]}" WHERE PageID  = "${pageId}" AND ContentID = "2"`, (err, result) => {
+                if (err) {
+                  console.log("---update EP page ERROR---");
+                  console.log(err);
+                  return res.status(200).send({ message: "failed to update EP page" });
+                } else {
+                  console.log("---RESULT---");
+                  console.log(result);
+                }
+              }
+            )
             return res.end();
           }
         })
