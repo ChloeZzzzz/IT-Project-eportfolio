@@ -9,6 +9,7 @@ import UserHomepage from './pages/UserHomepage';
 import Footer from "./components/Footer";
 import EditFolio from "./pages/EditFolio";
 import ContactUs from "./pages/ContactUs";
+import ExportFolio from './pages/ExportFolio';
 import Faq from "./pages/Faq";
 
 import "./App.css";
