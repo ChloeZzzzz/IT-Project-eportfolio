@@ -118,7 +118,7 @@ const savePage = async (req, res) => {
             console.log("not empty, should using update");
 
             await db.query(
-              `UPDATE Contents SET Content = "${content[0]}" WHERE PageID  = "${pageId}" AND ContentID = "1"`, (err, result) => {
+              `UPDATE Contents SET Content = "${content[0].Content}" WHERE PageID  = "${pageId}" AND ContentID = "${content[0].ContentID}"`, (err, result) => {
                 if (err) {
                   console.log("---update EP page ERROR---");
                   console.log(err);
@@ -131,7 +131,7 @@ const savePage = async (req, res) => {
             );
     
             await db.query(
-              `UPDATE Contents SET Content = "${content[1]}" WHERE PageID  = "${pageId}" AND ContentID = "2"`, (err, result) => {
+              `UPDATE Contents SET Content = "${content[1].Content}" WHERE PageID  = "${pageId}" AND ContentID = "${content[1].ContentID}"`, (err, result) => {
                 if (err) {
                   console.log("---update EP page ERROR---");
                   console.log(err);
@@ -219,7 +219,7 @@ const getPage = async(req, res) => {
     console.log(folioId);
     console.log(pageId);
     await db.query(
-      `SELECT Content, TemplateID
+      `SELECT Content, ContentID, TemplateID
             FROM Pages
             JOIN Contents ON Pages.PageID=Contents.PageID
             AND Contents.PageID="${pageId}"`,
