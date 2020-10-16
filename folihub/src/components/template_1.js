@@ -13,9 +13,8 @@ class Template_1 extends React.Component {
         super(props);
         this.state={
             img: null,
-            response: '',
-            base64: '',
-            text: '',
+            base64: {"Content": "", "ContentID": -1},
+            text: {"Content": "", "ContentID": -1},
             pageID: -1,
         }
         this.submitPage = this.submitPage.bind(this);
@@ -34,8 +33,8 @@ class Template_1 extends React.Component {
             console.log(res);
             if (res !== "empty page") {
                 this.setState({
-                    base64: res[0].Content,
-                    text: res[1].Content,
+                    base64: res[0],
+                    text: res[1],
                     pageID: this.props.data.pageID,
                 })
             } else {
@@ -60,10 +59,11 @@ class Template_1 extends React.Component {
             // save it as base64 for db, url for preview
             var reader = new FileReader();
             var that = this;
+            var id = this.state.base64.ContentID;
             reader.onloadend = function() {
                 that.setState({
                     img: URL.createObjectURL(img),
-                    base64: reader.result
+                    base64: {"Content": reader.result, "ContentID": id}
                 })
             }
             reader.readAsDataURL(img2);
@@ -71,7 +71,8 @@ class Template_1 extends React.Component {
     }
 
     handleChange(value) {
-        this.setState({ text: value })
+        var id = this.state.text.ContentID;
+        this.setState({ text: {"Content": value, "ContentID": id}});
     } 
 
     render() {
@@ -82,14 +83,14 @@ class Template_1 extends React.Component {
                 </SaveDiv>
                 <Container_1>
                     <IMG_1_Container>
-                        <IMG_1 src={this.state.base64} />
+                        <IMG_1 src={this.state.base64.Content} />
                         <Input type="file" name="image" onChange={this.onImageChange} />
                     </IMG_1_Container>
                     <TXT_1>
                     <ReactQuill
                         style = {{"height": "68vh", "width": "40vw"}}
                         onChange={this.handleChange}
-                        value={this.state.text}
+                        value={this.state.text.Content}
                         modules={Template_1.modules}
                         formats={Template_1.formats}
                         bounds={'.app'}
