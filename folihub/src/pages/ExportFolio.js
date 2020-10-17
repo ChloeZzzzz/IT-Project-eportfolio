@@ -1,8 +1,8 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
 import Logo_Dark from "../img/folihub_dark.png";
-import {colorPlan, FolioContainer, FolioHeader, FolioTitle, FolioOwner} from '../components/ExportFolioStyle';
-import {Container_1, IMG_1_Container, IMG_1, TXT_1} from '../components/TemplateStyle';
+import {colorPlan, FolioContainer, FolioHeader, FolioTitle, FolioOwner, Container_1_Export, PageContainer} from '../components/ExportFolioStyle';
+import {IMG_1_Container, IMG_1, TXT_1} from '../components/TemplateStyle';
 
 import {getFolio, getPage} from '../api/folioAPI';
 
@@ -59,12 +59,12 @@ class ExportFolio extends React.Component {
                 // if this page is in template 1 display style
                 if (this.state.content[i][0].TemplateID == "1") {
                     pages.push(
-                    <Container_1>
+                    <Container_1_Export>
                         <IMG_1_Container>
                             <IMG_1 src={this.state.content[i][0].Content} />
                         </IMG_1_Container>
                         <TXT_1 dangerouslySetInnerHTML = {{__html: this.state.content[i][1].Content}}/>
-                    </Container_1>);
+                    </Container_1_Export>);
                 }
             }
             return (
@@ -77,7 +77,9 @@ class ExportFolio extends React.Component {
                             {localStorage.getItem("email")}
                         </FolioOwner>
                     </FolioHeader>
-                    {pages}
+                    <PageContainer>
+                        {pages}
+                    </PageContainer>
                 </FolioContainer>
             )
         }

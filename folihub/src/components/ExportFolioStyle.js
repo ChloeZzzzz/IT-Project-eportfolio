@@ -19,7 +19,7 @@ export const FolioContainer = styled.div
 
 export const FolioHeader = styled.div
 `
-    background-color: ${colorPlan.Medium};
+
 `;
 
 export const FolioTitle = styled.div
@@ -37,4 +37,25 @@ export const FolioOwner = styled.div
     text-align: end;
     font-family:  Georgia;
     font-size: 15px;
+`;
+
+export const Container_1_Export = styled.div
+`
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-areas:
+    "IMG_1 TXT_1";
+    height: 85vh;
+    width: 80vw;
+    margin-top: auto;
+    margin-left: auto;
+    margin-bottom: 50px;
+    border: 1px solid black;
+    background-color: white;
+`;
+
+export const PageContainer = styled.div
+`
+    margin-left: auto;
+    margin-right: auto;
 `;
