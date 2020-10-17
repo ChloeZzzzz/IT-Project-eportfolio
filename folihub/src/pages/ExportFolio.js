@@ -5,6 +5,12 @@ import {colorPlan, FolioContainer, FolioHeader, FolioTitle, FolioOwner, Containe
 import {IMG_1_Container, IMG_1, TXT_1} from '../components/TemplateStyle';
 
 import {getFolio, getPage} from '../api/folioAPI';
+import Promise from 'bluebird';
+import html2canvas from 'html2canvas';
+import pdfMake from 'pdfmake/build/pdfmake.js';
+import pdfFonts from "pdfmake/build/vfs_fonts.js";
+
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 class ExportFolio extends React.Component {
     constructor(props) {
@@ -17,6 +23,7 @@ class ExportFolio extends React.Component {
             content: '',
             folioName: '',
         };
+        this.printDocument = this.printDocument.bind(this);
     };
 
     componentDidMount = async() => {
@@ -34,6 +41,31 @@ class ExportFolio extends React.Component {
             content: contents,
             folioName: res_pageids[0].FolioName,
         })
+    }
+
+    printDocument() {
+        const divs = document.getElementsByClassName('print');
+        const newList = [].slice.call(divs);
+        var contentArray = [];
+        var docDefinition = {
+            pageSize: {width: 1173, height: 800},
+            content:  [{}]
+        }
+        Promise.map(newList, async (element, index) => {
+            let canvas = await html2canvas(element);
+            const imgData = await canvas.toDataURL('image/png');
+            return contentArray[`${index}`] = [{ image: imgData, width: canvas.width, height: canvas.height, margin: [-40, 0] }, {
+                text: ` ${index} `
+            }];
+
+        }).then(
+            () => ( docDefinition.content.push(contentArray))
+        ).then(
+            () => {
+                console.log("... starting download ...")
+                pdfMake.createPdf(docDefinition).download('examplePdf.pdf')
+            }
+        )
     }
 
 
@@ -59,7 +91,7 @@ class ExportFolio extends React.Component {
                 // if this page is in template 1 display style
                 if (this.state.content[i][0].TemplateID == "1") {
                     pages.push(
-                    <Container_1_Export>
+                    <Container_1_Export className="print">
                         <IMG_1_Container>
                             <IMG_1 src={this.state.content[i][0].Content} />
                         </IMG_1_Container>
@@ -80,6 +112,7 @@ class ExportFolio extends React.Component {
                     <PageContainer>
                         {pages}
                     </PageContainer>
+                    <button onClick={this.printDocument}> print using PDFMake  </button>
                 </FolioContainer>
             )
         }
