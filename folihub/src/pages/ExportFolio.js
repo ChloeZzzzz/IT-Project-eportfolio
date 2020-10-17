@@ -48,13 +48,14 @@ class ExportFolio extends React.Component {
         const newList = [].slice.call(divs);
         var contentArray = [];
         var docDefinition = {
-            pageSize: {width: 1173, height: 800},
+            pageSize: {width: 1600, height: 800},
             content:  [{}]
         }
         Promise.map(newList, async (element, index) => {
             let canvas = await html2canvas(element);
             const imgData = await canvas.toDataURL('image/png');
-            return contentArray[`${index}`] = [{ image: imgData, width: canvas.width, height: canvas.height, margin: [-40, 0] }, {
+            console.log("imgData URL => ", imgData)
+            return contentArray[`${index}`] = [{ image: imgData, width: canvas.width, height: canvas.height, margin: [0, 0] }, {
                 text: ` ${index} `
             }];
 
@@ -63,7 +64,7 @@ class ExportFolio extends React.Component {
         ).then(
             () => {
                 console.log("... starting download ...")
-                pdfMake.createPdf(docDefinition).download('examplePdf.pdf')
+                pdfMake.createPdf(docDefinition).download(this.state.folioName + '.pdf');
             }
         )
     }
