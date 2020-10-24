@@ -48,10 +48,8 @@ const deletePage = async (req,res) => {
         console.log(email);
         console.log(folioId);
         console.log(pageId);
-        await db.query(`DELETE SourceText, SourceImage, Contents
+        await db.query(`DELETE Contents
                         FROM Contents
-                        LEFT JOIN SourceText ON Contents.SourceID=SourceText.TextID
-                        LEFT JOIN SourceImage ON Contents.SourceID=SourceImage.ImageID
                         WHERE FolioID = "${folioId}" AND PageID = "${pageId}"`,async function(err, result){
             if (err) {
                 console.log("---Delete Page ERROR---");
@@ -63,7 +61,7 @@ const deletePage = async (req,res) => {
 
         });
 
-        
+
         await db.query(`DELETE Pages
                         FROM Pages
                         WHERE FolioID = "${folioId}" AND PageID = "${pageId}"`,async function(err, result){

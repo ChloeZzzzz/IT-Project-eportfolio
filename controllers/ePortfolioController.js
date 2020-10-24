@@ -39,7 +39,7 @@ const getEPortfolio = async (req, res) => {
     console.log(req.body)
     let {folioId} = req.body
     try{
-        
+
         console.log(folioId);
 
         await db.query(`SELECT *
@@ -50,10 +50,10 @@ const getEPortfolio = async (req, res) => {
                 console.log(err);
                 return;
             }
-            var string=JSON.stringify(result); 
+            var string=JSON.stringify(result);
             var data = JSON.parse(string)
             console.log(data);
-            
+
             res.send(data);
         });
 
@@ -127,12 +127,10 @@ const deleteEPortfolio = async (req,res) => {
     try{
         console.log(email);
         console.log(folioId);
-        await db.query(`DELETE Eportfolios,pages,SourceText, SourceImage, Contents
+        await db.query(`DELETE Eportfolios,pages,Contents
                         FROM Eportfolios
                         LEFT JOIN Pages on Eportfolios.FolioID = Pages.FolioID
                         LEFT JOIN Contents on Pages.FolioID = Contents.FolioID AND Pages.PageID = Contents.PageID
-                        LEFT JOIN SourceText ON Contents.SourceID = SourceText.TextID
-                        LEFT JOIN SourceImage ON Contents.SourceID = SourceImage.ImageID
                         WHERE FolioID = "${folioId}"`,async function(err, result){
                         if (err) {
                             console.log("---Delete EP ERROR---");
