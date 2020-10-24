@@ -1,8 +1,6 @@
 const db = require('../config/database.js');
 const DATE_FORMATER = require('dateformat');
 
-
-
 const createEPortfolio = async (req, res) => {
     console.log(req.body)
     let {email, folioName, visibility, layout} = req.body
@@ -37,24 +35,24 @@ const createEPortfolio = async (req, res) => {
 
 const getEPortfolio = async (req, res) => {
     console.log(req.body)
-    let {folioId} = req.body
+    let {email, folioId} = req.body
     try{
-        
+        console.log(email);
         console.log(folioId);
 
-        await db.query(`SELECT * FROM Contents
-        WHERE FolioID="${folioId}" ORDER BY PageID ASC ;`, async function(err, result) {
-        if (err) {
-            console.log("---get EP ERROR---");
-            console.log(err);
-            return;
-        }
-        var string=JSON.stringify(result); 
-        var data = JSON.parse(string)
-        console.log(data);
-        //res.send(result);
-        res.send(data);
-
+        await db.query(`SELECT *
+            FROM Contents
+            WHERE FolioID="${folioId}" ORDER BY PageID ASC ;`, async function(err, result) {
+            if (err) {
+                console.log("---get EP ERROR---");
+                console.log(err);
+                return;
+            }
+            var string=JSON.stringify(result); 
+            var data = JSON.parse(string)
+            console.log(string);
+            res.send(string);
+            res.send(data);
         });
 
     }
@@ -156,7 +154,6 @@ module.exports = {
     createEPortfolio,
     getEPortfolio,
     renameEportfolio,
-    deleteEPortfolio,
     hackep,
     deleteEPortfolio,
 }
