@@ -3,5 +3,5 @@ const pageRouter = express.Router();
 const pageController = require('../controllers/pageController');
 
 pageRouter.post('/deletePage', (req, res) => {
-    pageController.getEPortfolio()
+    pageController.getEPortfolio(req, res)
 });
