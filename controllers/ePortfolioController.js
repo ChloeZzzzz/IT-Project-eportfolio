@@ -42,15 +42,17 @@ const getEPortfolio = async (req, res) => {
 
         await db.query(`SELECT *
             FROM Contents
-            LEFT JOIN SourceText ON Contents.SourceID=SourceText.TextID
-            LEFT JOIN SourceImage ON Contents.SourceID=SourceImage.ImageID
-            WHERE FolioID="${folioId}" ORDER BY PageID ASC FOR JSON AUTO;`, async function(err, result) {
+            WHERE FolioID="${folioId}" ORDER BY PageID ASC ;`, async function(err, result) {
             if (err) {
                 console.log("---get EP ERROR---");
                 console.log(err);
                 return;
             }
-
+            var string=JSON.stringify(result); 
+            var data = JSON.parse(string)
+            console.log(string);
+            res.send(string);
+            res.send(data);
         });
 
     }
