@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import EditFolio from "./pages/EditFolio";
 import ContactUs from "./pages/ContactUs";
 import Faq from "./pages/Faq";
+import TandC from "./pages/TandC";
 
 import "./App.css";
 
@@ -36,6 +37,7 @@ class App extends Component {
           <Route exact path="/EditFolio/:id" render={props => <EditFolio {...props} />} />
           <Route exact path="/ContactUs" render={props => <ContactUs {...props} />} />
           <Route exact path="/FAQ" render={props => <Faq {...props} />} />
+          <Route exact path="/TandC" render={props => <TandC {...props} />} />
         </Switch>
         <Footer />
 
