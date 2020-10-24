@@ -1,6 +1,8 @@
 const db = require('../config/database.js');
 const DATE_FORMATER = require('dateformat');
 
+
+
 const createEPortfolio = async (req, res) => {
     console.log(req.body)
     let {email, folioName, visibility, layout} = req.body
@@ -35,9 +37,9 @@ const createEPortfolio = async (req, res) => {
 
 const getEPortfolio = async (req, res) => {
     console.log(req.body)
-    let {email, folioId} = req.body
+    let {folioId} = req.body
     try{
-        console.log(email);
+        
         console.log(folioId);
 
         await db.query(`SELECT *
@@ -50,8 +52,8 @@ const getEPortfolio = async (req, res) => {
             }
             var string=JSON.stringify(result); 
             var data = JSON.parse(string)
-            console.log(string);
-            res.send(string);
+            console.log(data);
+            
             res.send(data);
         });
 
@@ -154,6 +156,7 @@ module.exports = {
     createEPortfolio,
     getEPortfolio,
     renameEportfolio,
+    deleteEPortfolio,
     hackep,
     deleteEPortfolio,
 }
