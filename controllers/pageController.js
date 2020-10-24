@@ -10,8 +10,8 @@ const db = require('../config/database.js');
 
 
 const addPage = async (req,res) => {
-    console.log(req.body)
-    let{email, folioId,templateId} = req.body
+    console.log(req.body);
+    let{email, folioId,templateId} = req.body;
     try{
         console.log(email);
         console.log(folioId);
@@ -23,8 +23,9 @@ const addPage = async (req,res) => {
                 return;
             }
             res.message('add Page success');
-            
+
         });
+
 
 
     }
@@ -34,13 +35,56 @@ const addPage = async (req,res) => {
         return;
     }
 
+
     return;
 }
 
 
 
+const deletePage = async (req,res) => {
+    console.log(req.body)
+    let {email, folioId,pageId} = req.body
+    try{
+        console.log(email);
+        console.log(folioId);
+        console.log(pageId);
+        await db.query(`DELETE SourceText, SourceImage, Contents
+                        FROM Contents
+                        LEFT JOIN SourceText ON Contents.SourceID=SourceText.TextID
+                        LEFT JOIN SourceImage ON Contents.SourceID=SourceImage.ImageID
+                        WHERE FolioID = "${folioId}" AND PageID = "${pageId}"`,async function(err, result){
+            if (err) {
+                console.log("---Delete Page ERROR---");
+                console.log(err);
+                return;
+            }
 
+            res.message('Delete Content success');
 
+        });
+
+        
+        await db.query(`DELETE Pages
+                        FROM Pages
+                        WHERE FolioID = "${folioId}" AND PageID = "${pageId}"`,async function(err, result){
+            if (err) {
+                console.log("---Delete Page ERROR---");
+                console.log(err);
+                return;
+            }
+
+            res.message('Delete Page success');
+
+        });
+    }
+    catch(err){
+        console.log("---Delete Page ERROR---");
+        console.log(err);
+        return;
+    }
+
+    return;
+}
 
 
 

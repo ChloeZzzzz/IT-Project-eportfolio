@@ -1,6 +1,8 @@
 const db = require('../config/database.js');
 const DATE_FORMATER = require('dateformat');
 
+
+
 const createEPortfolio = async (req, res) => {
     console.log(req.body)
     let {email, folioName, visibility, layout} = req.body
@@ -35,22 +37,39 @@ const createEPortfolio = async (req, res) => {
 
 const getEPortfolio = async (req, res) => {
     console.log(req.body)
-    let {email, folioId} = req.body
+    let {folioId} = req.body
     try{
-        console.log(email);
+        
         console.log(folioId);
+<<<<<<< HEAD
+        await db.query(`SELECT * FROM Contents
+        WHERE FolioID="${folioId}" ORDER BY PageID ASC ;`, async function(err, result) {
+        if (err) {
+            console.log("---get EP ERROR---");
+            console.log(err);
+            return;
+        }
+        var string=JSON.stringify(result); 
+        var data = JSON.parse(string)
+        console.log(data);
+        //res.send(result);
+        res.send(data);
+=======
 
         await db.query(`SELECT *
             FROM Contents
-            LEFT JOIN SourceText ON Contents.SourceID=SourceText.TextID
-            LEFT JOIN SourceImage ON Contents.SourceID=SourceImage.ImageID
-            WHERE FolioID="${folioId}" ORDER BY PageID ASC;`, async function(err, result) {
+            WHERE FolioID="${folioId}" ORDER BY PageID ASC ;`, async function(err, result) {
             if (err) {
                 console.log("---get EP ERROR---");
                 console.log(err);
                 return;
             }
-
+            var string=JSON.stringify(result); 
+            var data = JSON.parse(string)
+            console.log(string);
+            res.send(string);
+            res.send(data);
+>>>>>>> 427f7e6696fe719e3048e5605a763ecbe439e4fd
         });
 
     }
@@ -117,10 +136,42 @@ const hackep = async (req, res) => {
     })
 }
 
+const deleteEPortfolio = async (req,res) => {
+    console.log(req.body)
+    let {email,folioId} = req.body
+    try{
+        console.log(email);
+        console.log(folioId);
+        await db.query(`DELETE Eportfolios,pages,SourceText, SourceImage, Contents
+                        FROM Eportfolios
+                        LEFT JOIN Pages on Eportfolios.FolioID = Pages.FolioID
+                        LEFT JOIN Contents on Pages.FolioID = Contents.FolioID AND Pages.PageID = Contents.PageID
+                        LEFT JOIN SourceText ON Contents.SourceID = SourceText.TextID
+                        LEFT JOIN SourceImage ON Contents.SourceID = SourceImage.ImageID
+                        WHERE FolioID = "${folioId}"`,async function(err, result){
+                        if (err) {
+                            console.log("---Delete EP ERROR---");
+                            console.log(err);
+                            return;
+                        }
+
+        });
+
+
+    }
+    catch(err){
+        console.log("---Delete EP ERROR---");
+        console.log(err);
+        return;
+    }
+    return;
+}
 
 module.exports = {
     createEPortfolio,
     getEPortfolio,
     renameEportfolio,
+    deleteEPortfolio,
     hackep,
+    deleteEPortfolio,
 }
