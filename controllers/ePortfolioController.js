@@ -41,7 +41,7 @@ const getEPortfolio = async (req, res) => {
     try{
         
         console.log(folioId);
-<<<<<<< HEAD
+
         await db.query(`SELECT * FROM Contents
         WHERE FolioID="${folioId}" ORDER BY PageID ASC ;`, async function(err, result) {
         if (err) {
@@ -54,22 +54,7 @@ const getEPortfolio = async (req, res) => {
         console.log(data);
         //res.send(result);
         res.send(data);
-=======
 
-        await db.query(`SELECT *
-            FROM Contents
-            WHERE FolioID="${folioId}" ORDER BY PageID ASC ;`, async function(err, result) {
-            if (err) {
-                console.log("---get EP ERROR---");
-                console.log(err);
-                return;
-            }
-            var string=JSON.stringify(result); 
-            var data = JSON.parse(string)
-            console.log(string);
-            res.send(string);
-            res.send(data);
->>>>>>> 427f7e6696fe719e3048e5605a763ecbe439e4fd
         });
 
     }
