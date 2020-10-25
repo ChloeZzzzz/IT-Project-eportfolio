@@ -584,7 +584,14 @@ export const AboutProductText = styled.div
     margin-right: 20px;
     margin-left:20px;
 `;
-
+export const TandCContainer = CanvasFormat.extend
+`
+    
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 10%;
+    height: 100%;
+`;
 export const ContactUsContainer = CanvasFormat.extend
 `
     display: grid;
