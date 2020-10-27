@@ -160,7 +160,7 @@ const savePage = async (req, res) => {
 const getEportfolios = async (req, res) => {
   var email = req.params.email;
   await db.query(
-    `SELECT FolioName, Visibility, Layout, LastModified FROM Eportfolios WHERE Email = "${email}"`,
+    `SELECT FolioID, FolioName, Visibility, Layout, LastModified FROM Eportfolios WHERE Email = "${email}"`,
     async function(err, result) {
       if (err) {
         console.log("---db ERROR---");
