@@ -69,9 +69,9 @@ class UserHomepage extends React.Component {
         return <Redirect to={this.state.toPath} />;
       } else {
         const items = this.state.eportfolio.map(e => (
-          <Item onClick={() => this.redirectTo(e.FolioID)}>
+          <Item>
             <ItemDescription>
-              <ItemTitle>{e.FolioName}</ItemTitle>
+              <ItemTitle onClick={() => this.redirectTo(e.FolioID)}>{e.FolioName}</ItemTitle>
               <ItemDate>
                 <Tooltip title="public">
                   <VisibilityIcon fontSize="small" />
