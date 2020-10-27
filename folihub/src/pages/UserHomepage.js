@@ -16,14 +16,27 @@ import NewFolioMenu from "../components/NewFolioMenu";
 import Welcome from "react-welcome-page";
 import Logo_Dark from "../img/folihub_dark.png";
 import { colorPlan } from "../components/Style";
-
+import { Redirect } from "react-router-dom";
 class UserHomepage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       loading: false, // the loading animation
-      eportfolio: []
+      eportfolio: [],
+      redirect: false,
+      toPath: ""
     };
+    this.redirectTo = this.redirectTo.bind(this);
+  }
+
+  redirectTo(id) {
+      console.log(id);
+      let path = `/EditFolio/${id}`;
+      console.log(path);
+    this.setState({
+      redirect: true,
+      toPath: path
+    });
   }
 
   async componentDidMount() {
@@ -33,6 +46,7 @@ class UserHomepage extends React.Component {
         eportfolio: response,
         loading: false
       });
+      console.log(response);
     });
   }
 
@@ -52,30 +66,34 @@ class UserHomepage extends React.Component {
         />
       );
     } else {
-      const items = this.state.eportfolio.map(e => (
-        <Item>
-          <ItemDescription>
-            <ItemTitle>{e.FolioName}</ItemTitle>
-            <ItemDate>
-              <Tooltip title="public">
-                <VisibilityIcon fontSize="small" />
-              </Tooltip>
-              {e.LastModified.slice(0, 10)}
-              <FolioMenu />
-            </ItemDate>
-          </ItemDescription>
-        </Item>
-      ));
-      return (
-        <CollectionCanvas>
-          <ItemContainer>
-            {items}
-            <Item>
-              <NewFolioMenu />
-            </Item>
-          </ItemContainer>
-        </CollectionCanvas>
-      );
+      if (this.state.redirect) {
+        return <Redirect to={this.state.toPath} />;
+      } else {
+        const items = this.state.eportfolio.map(e => (
+          <Item onClick={() => this.redirectTo(e.FolioID)}>
+            <ItemDescription>
+              <ItemTitle>{e.FolioName}</ItemTitle>
+              <ItemDate>
+                <Tooltip title="public">
+                  <VisibilityIcon fontSize="small" />
+                </Tooltip>
+                {e.LastModified.slice(0, 10)}
+                <FolioMenu />
+              </ItemDate>
+            </ItemDescription>
+          </Item>
+        ));
+        return (
+          <CollectionCanvas>
+            <ItemContainer>
+              {items}
+              <Item>
+                <NewFolioMenu />
+              </Item>
+            </ItemContainer>
+          </CollectionCanvas>
+        );
+      }
     }
   }
 }
