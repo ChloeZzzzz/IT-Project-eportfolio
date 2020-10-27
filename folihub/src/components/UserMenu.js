@@ -87,7 +87,7 @@ export default function UserMenu(e) {
               <ListItemIcon>
                   <ExitToAppIcon fontSize="small" />
               </ListItemIcon>
-              <ListItemText primary="Logout" />
+              <ListItemText primary="Logout" onClick = {() => window.location.href = "/"}/>
             </StyledMenuItem>
         </StyledMenu>
     </div>
