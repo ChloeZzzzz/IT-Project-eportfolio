@@ -36,14 +36,14 @@ class Footer extends React.Component{
                         </div>
                         <div style = {{gridArea:"right"}}>
                             <p style = {{fontWeight: "bold"}}>Resources</p>
-                            <FooterLink href = "">Frequently Asked Questions</FooterLink><br/>
+                            <FooterLink href = '/FAQ'>Frequently Asked Questions</FooterLink><br/>
                             <FooterLink href = "">Help Center</FooterLink>
                         </div>
                     </CopyrightMid>
                     <CopyrightBtm>
                         <p style = {{gridArea : "copyrightText"}}>Copyright &#169; Folihub 2020</p>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <Link style = {{gridArea : "tnc"}} href=''>Terms and Conditions</Link>
+                        <Link style = {{gridArea : "tnc"}} href='/TandC'>Terms and Conditions</Link>
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <Link style = {{gridArea : "contact"}} href='/ContactUs'>Contact Us</Link>
                     </CopyrightBtm>

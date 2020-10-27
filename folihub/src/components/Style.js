@@ -603,7 +603,14 @@ export const AboutProductText = styled.div
     margin-right: 20px;
     margin-left:20px;
 `;
-
+export const TandCContainer = CanvasFormat.extend
+`
+    
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 10%;
+    height: 100%;
+`;
 export const ContactUsContainer = CanvasFormat.extend
 `
     display: grid;
@@ -624,9 +631,21 @@ export const ContactUsText = FontFormat.extend
     text-align: left;
 `;
 
+
 export const AboutUsContainer = styled.div
 `
     margin-left: 10%;
+    margin-right: 5%;
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 3%;
+    font-size: 20px;
+    text-align: center;
+    font-family: "Georgia";
+`;
+export const FaqContainer = styled.div
+`
+    margin-left: 60%;
     margin-right: 5%;
     width: 90%;
     background-color: rgba(255, 255, 255, 0.4);

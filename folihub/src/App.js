@@ -9,6 +9,9 @@ import UserHomepage from './pages/UserHomepage';
 import Footer from "./components/Footer";
 import EditFolio from "./pages/EditFolio";
 import ContactUs from "./pages/ContactUs";
+import ExportFolio from './pages/ExportFolio';
+import Faq from "./pages/Faq";
+import TandC from "./pages/TandC";
 
 import "./App.css";
 
@@ -26,6 +29,9 @@ import "./App.css";
           <Route exact path="/userHomepage/:email" render={props => <UserHomepage {...{email, loggedIn, props}} />} />
           <Route exact path="/EditFolio/:id" render={props => <EditFolio {...{email, props}} />} />
           <Route exact path="/ContactUs" render={props => <ContactUs {...props} />} />
+          <Route exact path="/FAQ" render={props => <Faq {...props} />} />
+          <Route exact path="/ExportFolio/:id" render={props => <ExportFolio {...props} />} />
+          <Route exact path="/TandC" render={props => <TandC {...props} />} />
         </Switch>
         <Footer />
 

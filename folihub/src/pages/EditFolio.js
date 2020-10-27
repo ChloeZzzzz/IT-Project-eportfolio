@@ -110,7 +110,7 @@ class EditFolio extends React.Component {
                         <BookDiv>
                           <ImportContactsIcon />
                         </BookDiv>
-                        <PDFDiv>
+                        <PDFDiv onClick = {() => window.location.href = `/ExportFolio/${this.props.match.params.id}`}>
                           <GetAppIcon />
                         </PDFDiv>
                       </EditFolioToolbar>
