@@ -43,16 +43,15 @@ class EditFolio extends React.Component {
 
     handleClickAway() {
       this.setState({isEdit: false});
-      renameFolio({email: localStorage.getItem("email"), folioId: this.props.match.params.id, newName: this.state.name});
+      renameFolio({email: localStorage.getItem("email"), folioId: localStorage.getItem("folioId"), newName: this.state.name});
     }
 
     addPage(event) {
-      createPage({email: localStorage.getItem("email"), folioId: this.props.match.params.id, templateId: "1"});
+      createPage({email: localStorage.getItem("email"), folioId: localStorage.getItem("folioId"), templateId: "1"});
     }
 
     componentDidMount = async () => {
-      console.log(this.props.match.params.id);
-      var folioInfo = await getFolio({email: localStorage.getItem("email"), folioId: this.props.match.params.id});
+      var folioInfo = await getFolio({email: localStorage.getItem("email"), folioId: localStorage.getItem("folioId")});
       console.log(folioInfo);
       this.setState({
         name: folioInfo[0].FolioName,
@@ -123,7 +122,7 @@ class EditFolio extends React.Component {
                         </NewPage>
                     </EditFolioIndex>
                     <EditFolioEditor>
-                      <Template_1 data = {{"folioID": this.props.match.params.id, "pageID": this.state.pageIds[this.state.currPage].PageID}}/>
+                      <Template_1 data = {{"folioID": localStorage.getItem("folioId"), "pageID": this.state.pageIds[this.state.currPage].PageID}}/>
                     </EditFolioEditor>
                 </EditFolioContainer>
             )

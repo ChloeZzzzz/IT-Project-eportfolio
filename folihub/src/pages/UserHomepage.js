@@ -30,9 +30,8 @@ class UserHomepage extends React.Component {
   }
 
   redirectTo(id) {
-      console.log(id);
-      let path = `/EditFolio/${id}`;
-      console.log(path);
+    localStorage.setItem("folioId", id)
+    let path = `/EditFolio/${id}`;
     this.setState({
       redirect: true,
       toPath: path
