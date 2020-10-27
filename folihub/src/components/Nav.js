@@ -3,18 +3,24 @@ import Welcome from "react-welcome-page";
 import {colorPlan, NavContainer, NavIcon, NavLogo, NavName, UserIcon, UserContainer, NavText} from "./Style";
 import Avatar from '@material-ui/core/Avatar';
 import UserMenu from './UserMenu';
-
+import { Redirect } from "react-router-dom";
 class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
       loading: false, // the loading animation
+      redirect: false,
+      toPath: "",
     };
+    this.redirectTo = this.redirectTo.bind(this);
   }
   // there should have an api to check whether this visitor is logged in hence change the loggedIn state
 
-  componentDidMount() {
-    console.log(this.props.loggedIn)
+  redirectTo(path) {
+    this.setState({
+      redirect: true,
+      toPath: path,
+    })
   }
 
   render() {
@@ -41,9 +47,9 @@ class Nav extends Component {
               <NavLogo href="/"/>
               <NavName>Folihub</NavName>
             </NavIcon>
-            <div style = {{backgroundColor: "green"}}></div>
-            <div style = {{backgroundColor: "black"}}>Our Product</div>
-            <div style = {{backgroundColor: "yellow"}}>Contact Us</div>
+            <NavText>Our Product</NavText>
+            <NavText onclick = {() => this.redirectTo("ContactUs")}>Contact Us</NavText>
+            <NavText onclick = {() => this.redirectTo(`userhomepage/${this.props.email}`)}>My Hub</NavText>
             <UserIcon style = {{visibility : this.props.loggedIn ? "visible" : "hidden"}}>
               <UserContainer>
                 <UserMenu data = {this.props.email}/>
@@ -52,6 +58,11 @@ class Nav extends Component {
           </NavContainer>
         );
       } else {
+        if (this.state.redirect) {
+          return (
+            <Redirect to = {`/${this.state.toPath}`} />
+          )
+        }
         return (
           <NavContainer>
           <NavIcon>
@@ -59,8 +70,9 @@ class Nav extends Component {
             <NavName>Folihub</NavName>
           </NavIcon>
           <NavText>Our Product</NavText>
-          <div style = {{backgroundColor: "black"}}></div>
-          <div style = {{backgroundColor: "yellow"}}></div>
+          <NavText onclick = {() => this.redirectTo("ContactUs")}>Contact Us</NavText>
+          <NavText href = "/login">Log in</NavText>
+          <NavText href = "/signup">Sign up</NavText>
         </NavContainer>
         )
       }

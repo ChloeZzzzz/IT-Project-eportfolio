@@ -46,11 +46,23 @@ export const NavContainer = styled.div
     box-shadow: 0px 5px 10px ${colorPlan.Dark};
 `;
 
-export const NavText = styled.div
+export const NavText = styled.a
 `
-    background-color: blue;
+    font-family: Georgia;
+    text-decoration : overline;
+    color: ${colorPlan.Light};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
-    margin-top: 18px;
+    &:hover {
+        background-color: ${colorPlan.Medium};
+        cursor: pointer;
+    };
+    &:active {
+        background-color: ${colorPlan.Light};
+        color: ${colorPlan.Dark_Medium};
+    };
 `;
 
 export const NavIcon = styled.div
