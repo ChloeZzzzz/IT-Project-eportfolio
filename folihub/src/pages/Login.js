@@ -41,6 +41,7 @@ class Login extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    this.setState({loading:true});
     postUserLogin({
       email: this.state.email,
       password: this.state.password
@@ -48,7 +49,7 @@ class Login extends React.Component {
       if (response) {
         this.props.setLoggedIn(true);
         this.props.setEmail(this.state.email);
-        this.setState({redirect:true})
+        this.setState({redirect:true, loading: false})
       } else {
         this.setState({
           msg: "Wrong Email or Password"
@@ -69,7 +70,7 @@ class Login extends React.Component {
               backgroundColor: colorPlan.Light,
               textColor: colorPlan.Dark,
               text: "Loading...",
-              image: { Logo_Dark }
+              image: Logo_Dark
             }
           ]}
         />
@@ -77,7 +78,7 @@ class Login extends React.Component {
     } else {
       if (this.state.redirect) {
         return (
-            <Redirect to = {`/userHomepage/${this.state.email}`} />
+            <Redirect to = {`../userHomepage/${this.state.email}`} />
         )
       } else {
         return (

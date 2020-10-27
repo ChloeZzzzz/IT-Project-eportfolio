@@ -24,7 +24,6 @@ import "./App.css";
           <Route exact path="/Login" render={props => <Login {...{setEmail, setLoggedIn, props}} />} />
           <Route exact path="/signup" render={props => <Signup {...{setEmail, setLoggedIn, props}} />} />
           <Route exact path="/userHomepage/:email" render={props => <UserHomepage {...{email, loggedIn, props}} />} />
-
           <Route exact path="/EditFolio/:id" render={props => <EditFolio {...{email, props}} />} />
           <Route exact path="/ContactUs" render={props => <ContactUs {...props} />} />
         </Switch>
