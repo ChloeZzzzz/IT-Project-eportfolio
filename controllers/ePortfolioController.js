@@ -20,6 +20,13 @@ const createEPortfolio = async (req, res) => {
         console.log(result);
         console.log(result.insertId);
         res.status(200).send({ folioId: result.insertId });
+        await db.query(
+          `INSERT INTO Pages (FolioID, TemplateID) VALUES ("${result.insertId}", "1")`,
+          async function(err, result) {
+              console.log("---NEW FOLIO NEW PAGE RESULT---");
+              console.log(result);
+          }
+        );
         return res.end();
       }
     );
