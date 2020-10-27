@@ -51,9 +51,7 @@ class EditFolio extends React.Component {
     }
 
     componentDidMount = async () => {
-      console.log(this.props.match.params.id);
       var folioInfo = await getFolio({email: localStorage.getItem("email"), folioId: this.props.match.params.id});
-      console.log(folioInfo);
       this.setState({
         name: folioInfo[0].FolioName,
         pageIds: folioInfo,
