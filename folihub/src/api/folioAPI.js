@@ -65,5 +65,5 @@ export async function getPage(data) {
         console.log(response);
         return response.data;
     })
-    console.log(res);
+    return res;
 }
