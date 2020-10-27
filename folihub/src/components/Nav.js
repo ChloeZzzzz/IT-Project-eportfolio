@@ -9,10 +9,13 @@ class Nav extends Component {
     super(props);
     this.state = {
       loading: false, // the loading animation
-      loggedIn: true,
     };
   }
   // there should have an api to check whether this visitor is logged in hence change the loggedIn state
+
+  componentDidMount() {
+    console.log(this.props.loggedIn)
+  }
 
   render() {
     if (this.state.loading) {
@@ -40,9 +43,9 @@ class Nav extends Component {
           <div></div>
           <div></div>
           <div></div>
-          <UserIcon style = {{visibility : this.state.loggedIn ? "visible" : "hidden"}}>
+          <UserIcon style = {{visibility : this.props.loggedIn ? "visible" : "hidden"}}>
             <UserContainer>
-              <UserMenu data = "D"/>
+              <UserMenu data = {this.props.email}/>
             </UserContainer>
           </UserIcon>
         </NavContainer>
