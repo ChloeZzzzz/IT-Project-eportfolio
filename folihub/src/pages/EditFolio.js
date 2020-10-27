@@ -77,18 +77,17 @@ class EditFolio extends React.Component {
   }
 
   componentDidMount = async () => {
-    this.setState({loading: true});
-    var folioInfo = await getFolio({
+    await getFolio({
       email: localStorage.getItem("email"),
       folioId: localStorage.getItem("folioId")
-    });
-    console.log(folioInfo);
-    this.setState({
-      name: folioInfo[0].FolioName,
-      pageIds: folioInfo,
-      currPage: 0,
-      loading: false,
-    });
+    }).then((folioInfo) => {
+      console.log(folioInfo);
+      this.setState({
+        name: folioInfo[0].FolioName,
+        pageIds: folioInfo,
+        currPage: 0,
+      });
+    })
   };
 
   onNameChange(e) {
