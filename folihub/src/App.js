@@ -15,27 +15,19 @@ import TandC from "./pages/TandC";
 
 import "./App.css";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state={
-      loggIn : false,
-    }
-  }
+  function App()  {
+    const [loggedIn, setLoggedIn] = React.useState(false);
+    const [email, setEmail] = React.useState("");
 
-  // there should have an api to check whether this visitor is logged in hence change the loggedIn state
-
-  render()  {
     return (
       <Router>
-        <Nav />
+        <Nav {...{email, setEmail, setLoggedIn, loggedIn}}/>
         <Switch>
           <Route exact path="/" render={props => <Home {...props} />} />
-          <Route exact path="/Login" render={props => <Login {...props} />} />
-          <Route exact path="/signup" render={props => <Signup {...props} />} />
-          <Route exact path="/userHomepage/:email" render={props => <UserHomepage {...props} />} />
-
-          <Route exact path="/EditFolio/:id" render={props => <EditFolio {...props} />} />
+          <Route exact path="/Login" render={props => <Login {...{setEmail, setLoggedIn, props}} />} />
+          <Route exact path="/signup" render={props => <Signup {...{setEmail, setLoggedIn, props}} />} />
+          <Route exact path="/userHomepage/:email" render={props => <UserHomepage {...{email, loggedIn, props}} />} />
+          <Route exact path="/EditFolio/:id" render={props => <EditFolio {...{email, props}} />} />
           <Route exact path="/ContactUs" render={props => <ContactUs {...props} />} />
           <Route exact path="/FAQ" render={props => <Faq {...props} />} />
           <Route exact path="/ExportFolio/:id" render={props => <ExportFolio {...props} />} />
@@ -46,6 +38,6 @@ class App extends Component {
       </Router>
     )
   }
-}
+
 
 export default App;
