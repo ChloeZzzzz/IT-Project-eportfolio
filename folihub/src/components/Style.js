@@ -40,10 +40,17 @@ export const NavContainer = styled.div
     display: grid;
     grid-template-columns: 60% 10% 10% 10% 10%;
     justify-items: center | center | center | center | center;
-    grid-template-areas: 'NavIcon Save Export Preview UserIcon';
+    grid-template-areas: 'NavIcon OurProduct ContactUs FAQ UserIcon';
     height: 50px;
     background-color: ${colorPlan.Dark_Medium};
     box-shadow: 0px 5px 10px ${colorPlan.Dark};
+`;
+
+export const NavText = styled.div
+`
+    background-color: blue;
+    text-align: center;
+    margin-top: 18px;
 `;
 
 export const NavIcon = styled.div
