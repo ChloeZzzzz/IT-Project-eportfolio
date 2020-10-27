@@ -39,8 +39,8 @@ class Template_1 extends React.Component {
                 })
             } else {
                 this.setState({
-                    base64: '',
-                    text: '',
+                    base64: {"Content": "", "ContentID": -1},
+                    text: {"Content": "", "ContentID": -1},
                     pageID: this.props.data.pageID,
                 })
             }
