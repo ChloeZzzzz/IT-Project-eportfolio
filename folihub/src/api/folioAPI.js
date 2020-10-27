@@ -15,13 +15,13 @@ export async function createEportfolio(data) {
     var res = await axios.post(endpoint, data, {crossdomain: true}).then((response) => {
         return response.data;
     })
+    return res;
 }
 
 export async function savePage(data) {
     const endpoint = BASE_FOLIO + '/savePage';
     console.log(data);
     var res = await axios.post(endpoint, data, {crossdomain: true}).then((response) => {
-        console.log(response);
         return response;
     })
     return res;

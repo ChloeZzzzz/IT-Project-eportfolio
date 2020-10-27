@@ -70,7 +70,7 @@ class Nav extends Component {
             <NavName>Folihub</NavName>
           </NavIcon>
           <NavText>Our Product</NavText>
-          <NavText onclick = {() => this.redirectTo("ContactUs")}>Contact Us</NavText>
+          <NavText href = "/ContactUs">Contact Us</NavText>
           <NavText href = "/login">Log in</NavText>
           <NavText href = "/signup">Sign up</NavText>
         </NavContainer>
