@@ -211,6 +211,40 @@ const getEportfolio = async (req, res) => {
   return;
 };
 
+const deleteLastPage = async (req, res) => {
+  console.log(req.body);
+  let { email, folioId } = req.body;
+  try {
+    console.log(email);
+    console.log(folioId);
+
+    await db.query(
+      `SELECT FolioName, PageID
+            FROM Eportfolios
+            JOIN Pages ON Eportfolios.FolioID=Pages.FolioID
+            AND Pages.FolioID="${folioId}" ORDER BY PageID ASC`,
+      async function(err, result) {
+        if (err) {
+          console.log("---get EP ERROR---");
+          console.log(err);
+          return res.end();
+        }
+        console.log("==get folio result==");
+        console.log(result);
+        
+        res.status(200).send(result);
+        return res.end();
+      }
+    );
+  } catch (err) {
+    console.log("---get EP ERROR---");
+    console.log(err);
+    return res.end();
+  }
+
+  return;
+};
+
 const getPage = async(req, res) => {
   console.log(req.body);
   let { email, folioId, pageId } = req.body;
@@ -298,5 +332,6 @@ module.exports = {
   getEportfolio,
   getEportfolios,
   renameFolio,
-  hackep
+  hackep,
+  deleteLastPage
 };
