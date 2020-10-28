@@ -216,26 +216,25 @@ const deleteLastPage = async (req, res) => {
   let { email, folioId } = req.body;
   try {
     console.log(email);
-    console.log(folioId);
-
-    await db.query(
-      `SELECT FolioName, PageID
-            FROM Eportfolios
-            JOIN Pages ON Eportfolios.FolioID=Pages.FolioID
-            AND Pages.FolioID="${folioId}" ORDER BY PageID ASC`,
-      async function(err, result) {
-        if (err) {
-          console.log("---get EP ERROR---");
-          console.log(err);
-          return res.end();
-        }
-        console.log("==get folio result==");
-        console.log(result);
-        
-        res.status(200).send(result);
-        return res.end();
+    console.log(folioId);  
+    await db.query(`DELETE FROM Pages WHERE PageID = "30"`, (err, result) => {
+      if (err){
+        console.log("DELETE RESULT");
+        console.log(err)
       }
-    );
+      console.log("DELETE RESULT");
+      console.log(result);
+    });
+
+    await db.query(`DELETE FROM Contents WHERE ContentID = "31"`, (err, result) => {
+      if (err){
+        console.log("DELETE RESULT");
+        console.log(err)
+      }
+      console.log("DELETE RESULT");
+      console.log(result);
+      res.status(200).send(result);
+    });
   } catch (err) {
     console.log("---get EP ERROR---");
     console.log(err);
