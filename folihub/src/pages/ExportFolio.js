@@ -27,11 +27,12 @@ class ExportFolio extends React.Component {
     };
 
     componentDidMount = async() => {
-        var folioID = this.props.match.params.id;
-        var res_pageids = await getFolio({email: localStorage.getItem("email"), folioId: folioID})
+        this.setState({loading:true})
+        var folioID = localStorage.getItem("folioId");
+        var res_pageids = await getFolio({email: localStorage.getItem("email"), folioId: localStorage.getItem("folioId")})
         var contents = []
         for (var i = 0; i < res_pageids.length; i++) {
-            let pageContent = await getPage({email: localStorage.getItem("email"), folioId: folioID, pageId: res_pageids[i].PageID});
+            let pageContent = await getPage({email: localStorage.getItem("email"), folioId: localStorage.getItem("folioId"), pageId: res_pageids[i].PageID});
             contents.push(pageContent);
         }
         console.log(contents);
@@ -40,6 +41,7 @@ class ExportFolio extends React.Component {
             pageIDs: res_pageids,
             content: contents,
             folioName: res_pageids[0].FolioName,
+            loading:false,
         })
     }
 
@@ -80,7 +82,7 @@ class ExportFolio extends React.Component {
                         backgroundColor: colorPlan.Light,
                         textColor: colorPlan.Dark,
                         text: "Loading...",
-                        image: {Logo_Dark}
+                        image: Logo_Dark
                     }
                 ]}
                 />

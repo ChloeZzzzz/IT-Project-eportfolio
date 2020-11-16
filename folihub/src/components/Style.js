@@ -40,10 +40,29 @@ export const NavContainer = styled.div
     display: grid;
     grid-template-columns: 60% 10% 10% 10% 10%;
     justify-items: center | center | center | center | center;
-    grid-template-areas: 'NavIcon Save Export Preview UserIcon';
+    grid-template-areas: 'NavIcon OurProduct ContactUs FAQ UserIcon';
     height: 50px;
     background-color: ${colorPlan.Dark_Medium};
     box-shadow: 0px 5px 10px ${colorPlan.Dark};
+`;
+
+export const NavText = styled.a
+`
+    font-family: Georgia;
+    text-decoration : overline;
+    color: ${colorPlan.Light};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    &:hover {
+        background-color: ${colorPlan.Medium};
+        cursor: pointer;
+    };
+    &:active {
+        background-color: ${colorPlan.Light};
+        color: ${colorPlan.Dark_Medium};
+    };
 `;
 
 export const NavIcon = styled.div
@@ -584,7 +603,14 @@ export const AboutProductText = styled.div
     margin-right: 20px;
     margin-left:20px;
 `;
-
+export const TandCContainer = CanvasFormat.extend
+`
+    
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 10%;
+    height: 100%;
+`;
 export const ContactUsContainer = CanvasFormat.extend
 `
     display: grid;
