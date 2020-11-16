@@ -6,6 +6,7 @@ import Google_Icon from "../img/google-icon.png";
 import Lock from "../img/lock.jpg";
 import flexible from "../img/flexible.jpg";
 import inspiring from "../img/inspiring.jpg";
+import { Redirect } from "react-router-dom";
 
 class Home extends React.Component {
     constructor(props) {
@@ -13,7 +14,17 @@ class Home extends React.Component {
         this.state = {
             loading: false,
             loggedIn : false,
-        }
+            redirect: false,
+            toPath: "",
+        };
+        this.redirectTo = this.redirectTo.bind(this);
+    }
+
+    redirectTo(path) {
+        this.setState({
+            redirect: true,
+            toPath: path,
+        })
     }
 
     render() {
@@ -32,6 +43,11 @@ class Home extends React.Component {
                 />
             );
         } else {
+            if (this.state.redirect) {
+                return (
+                    <Redirect to = {`/${this.state.toPath}`} />
+                )
+            }
             return (
                 <HomePage>
                     <IntroImg>
@@ -44,17 +60,17 @@ class Home extends React.Component {
                                     </HomeComponents>
                                     <Slogan>— Create your e-portfolio at any time, share with everyone</Slogan>
                                     <HomeRedirect>
-                                        <SignUpRedirect href='signup'>
+                                        <SignUpRedirect onClick = {() => this.redirectTo("signup")}>
                                             <SignupText>Sign Up</SignupText>
                                         </SignUpRedirect>
-                                        <LoginRedirect href="/login">
+                                        <LoginRedirect onClick = {() => this.redirectTo("Login")}>
                                             <LoginText>Login</LoginText>
                                         </LoginRedirect>
                                     </HomeRedirect>
                                     <SignUpGoogleRedirect>
                                         or sign up with&nbsp; 
                                         <GoogleIcon src={Google_Icon} /> &nbsp;
-                                        <GoogleLink href="/signup">Google</GoogleLink>
+                                        <GoogleLink onClick = {() => this.redirectTo("Login")}>Google</GoogleLink>
                                     </SignUpGoogleRedirect>
                                 </IconComponent>
                             </FadeDiv>

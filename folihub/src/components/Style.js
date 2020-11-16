@@ -446,7 +446,7 @@ export const HomeRedirect = styled.div
         "SignUpRedirect" "LoginRedirect";
 `;
 
-export const SignUpRedirect = styled.a
+export const SignUpRedirect = styled.div
 `
     background-color: ${colorPlan.Warn};
     border-color: ${colorPlan.Dark};
@@ -484,7 +484,7 @@ export const LoginText = FontFormat.extend
     text-align: center;
 `;
 
-export const LoginRedirect = styled.a
+export const LoginRedirect = styled.div
 `
     background-color: ${colorPlan.Dark_Medium};
     border-color: ${colorPlan.Dark};
@@ -559,7 +559,7 @@ export const GoogleIcon = styled.img
     width: 15px;
 `;
 
-export const GoogleLink = styled.a
+export const GoogleLink = styled.div
 `
     color: ${colorPlan.Light};
     font-family: Georgia;
