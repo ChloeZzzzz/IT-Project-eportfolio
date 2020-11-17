@@ -1,7 +1,7 @@
 # Folihub
 A online e-portfolio storing and sharing tool. Folihub provides template for users to choose, receive user's input text and uploaded images, and makes it an elegant e-portfolio. Sharing as URL or download as a PDF options are avaliable. Let's do some e-portfolio today! :-)
 
-## How To Deploy
+## Installations
 **Sprint 1**  
 In sprint 1, frontend homepage, sign up, login and user homepage skeleton code are finished, and database is setted up for backend. However, the web app has not been deployed online, and could only be viewd locally. Hence, if you would like to access what we have done, you could:
 * Clone or download the frontend code from branch "dev-frontend",
@@ -44,7 +44,7 @@ To export an e-portfolio, a url or PDF can be generated based on user selection.
 
 URL Link:  
 
-## Documentations
+## Documentations Included
 **Included in "Diagrams_and_models" folder**  
 * Entity-relationship Model (v3)
 * Class Diagram
@@ -71,6 +71,11 @@ including:
 * API Documentation  
 * Testing Documentation  
 * Deployment Documentation  
+
+*These are also included in the documentation folder*
+
+## Test Cases, Changelogs and Detected Bugs
+> See testing documentation and user stories in the documentation folder
 
 ## Team Members  
 | Role | Name |
