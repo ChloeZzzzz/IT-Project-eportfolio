@@ -70,7 +70,7 @@ export const NavIcon = styled.div
     display: flex;
 `;
 
-export const NavLogo = styled.a
+export const NavLogo = styled.div
 `
     width: 50px;
     height: 50px;
