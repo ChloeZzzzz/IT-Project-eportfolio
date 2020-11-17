@@ -35,20 +35,20 @@ URL Link: http://folihub.herokuapp.com/login
 **User Homepage**  
 User homepage displays all the e-portfolios the user owns. It can be accessed only after logged in. User can create new e-portfolios, or select past e-portfolios to edit from this page.  
 <p align="center">
-  <img src="README_Assets/user_homepage.png"  width="300" >
+  <img src="README_Assets/user_homepage.png"  width="500" >
 </p>
   
 
 **Edit Folio**  
 Edit folio page is when user click existed e-portfolios or create new e-portfolios from user homepage. Previous work (or empty page) along with editing tools in tool bar are displayed to allow the user to design and update that page (the term "page" here refers to a "page" in the e-portfolio). User could add new pages to e-portfolio as well. To do this, a pop up window will appear and user cam choose a template to continue.  
 <p align="center">
-  <img src="README_Assets/edit_folio.png"  width="300" >
+  <img src="README_Assets/edit_folio.png"  width="600" >
 </p>    
 
 **Export Folio**  
 To export an e-portfolio, a url or PDF can be generated based on user selection. The url is a link to a web page presenting user's e-portfolio in a flipping book format. User could share this link to viewers, which could allow them to access without log in. A PDF of that eportfoilo could also be downloaded.  
 <p align="center">
-  <img src="README_Assets/export_folio.png"  width="300" >
+  <img src="README_Assets/export_folio.png"  width="600" >
 </p> 
 
 ## Documentations Included
