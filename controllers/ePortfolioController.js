@@ -87,7 +87,7 @@ const savePage = async (req, res) => {
         emptyPage(pageId, async (isEmpty) => {
           if (isEmpty) {
             await db.query(
-              `INSERT INTO Contents (PageID, FolioID, Content) VALUES ("${pageId}", "${folioId}", "${content[0]}")`, (err, result) => {
+              `INSERT INTO Contents (PageID, FolioID, Content) VALUES ("${pageId}", "${folioId}", "${content[0].Content}")`, (err, result) => {
                 if (err) {
                   console.log("---save EP page ERROR---");
                   console.log(err);
@@ -100,7 +100,7 @@ const savePage = async (req, res) => {
             );
     
             await db.query(
-              `INSERT INTO Contents (PageID, FolioID, Content) VALUES ("${pageId}", "${folioId}", "${content[1]}")`, (err, result) => {
+              `INSERT INTO Contents (PageID, FolioID, Content) VALUES ("${pageId}", "${folioId}", "${content[1].Content}")`, (err, result) => {
                 if (err) {
                   console.log("---save EP page ERROR---");
                   console.log(err);
@@ -116,6 +116,32 @@ const savePage = async (req, res) => {
             return res.end(); // should using promise here, fix it next time
           } else {
             console.log("not empty, should using update");
+
+            await db.query(
+              `UPDATE Contents SET Content = "${content[0].Content}" WHERE PageID  = "${pageId}" AND ContentID = "${content[0].ContentID}"`, (err, result) => {
+                if (err) {
+                  console.log("---update EP page ERROR---");
+                  console.log(err);
+                  return res.status(200).send({ message: "failed to update EP page" });
+                } else {
+                  console.log("---RESULT---");
+                  console.log(result);
+                }
+              }
+            );
+    
+            await db.query(
+              `UPDATE Contents SET Content = "${content[1].Content}" WHERE PageID  = "${pageId}" AND ContentID = "${content[1].ContentID}"`, (err, result) => {
+                if (err) {
+                  console.log("---update EP page ERROR---");
+                  console.log(err);
+                  return res.status(200).send({ message: "failed to update EP page" });
+                } else {
+                  console.log("---RESULT---");
+                  console.log(result);
+                }
+              }
+            )
             return res.end();
           }
         })
@@ -134,7 +160,7 @@ const savePage = async (req, res) => {
 const getEportfolios = async (req, res) => {
   var email = req.params.email;
   await db.query(
-    `SELECT FolioName, Visibility, Layout, LastModified FROM Eportfolios WHERE Email = "${email}"`,
+    `SELECT FolioID, FolioName, Visibility, Layout, LastModified FROM Eportfolios WHERE Email = "${email}"`,
     async function(err, result) {
       if (err) {
         console.log("---db ERROR---");
@@ -185,6 +211,39 @@ const getEportfolio = async (req, res) => {
   return;
 };
 
+const deleteLastPage = async (req, res) => {
+  console.log(req.body);
+  let { email, folioId } = req.body;
+  try {
+    console.log(email);
+    console.log(folioId);  
+    await db.query(`DELETE FROM Pages WHERE PageID = "30"`, (err, result) => {
+      if (err){
+        console.log("DELETE RESULT");
+        console.log(err)
+      }
+      console.log("DELETE RESULT");
+      console.log(result);
+    });
+
+    await db.query(`DELETE FROM Contents WHERE ContentID = "31"`, (err, result) => {
+      if (err){
+        console.log("DELETE RESULT");
+        console.log(err)
+      }
+      console.log("DELETE RESULT");
+      console.log(result);
+      res.status(200).send(result);
+    });
+  } catch (err) {
+    console.log("---get EP ERROR---");
+    console.log(err);
+    return res.end();
+  }
+
+  return;
+};
+
 const getPage = async(req, res) => {
   console.log(req.body);
   let { email, folioId, pageId } = req.body;
@@ -193,7 +252,7 @@ const getPage = async(req, res) => {
     console.log(folioId);
     console.log(pageId);
     await db.query(
-      `SELECT Content, TemplateID
+      `SELECT Content, ContentID, TemplateID
             FROM Pages
             JOIN Contents ON Pages.PageID=Contents.PageID
             AND Contents.PageID="${pageId}"`,
@@ -272,5 +331,6 @@ module.exports = {
   getEportfolio,
   getEportfolios,
   renameFolio,
-  hackep
+  hackep,
+  deleteLastPage
 };
