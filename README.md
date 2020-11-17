@@ -40,7 +40,7 @@ User homepage displays all the e-portfolios the user owns. It can be accessed on
   
 
 **Edit Folio**  
-Edit folio page is when user click existed e-portfolios or create new e-portfolios from user homepage. Previous work (or empty page) along with editing tools in tool bar are displayed to allow the user to design and update that page (the term "page" here refers to a "page" in the e-portfolio). User could add new pages to e-portfolio as well. To do this, a pop up window will appear and user cam choose a template to continue.  
+Edit folio page is when user click existed e-portfolios or create new e-portfolios from user homepage. Previous work (or empty page) along with editing tools in tool bar are displayed to allow the user to design and update that page (the term "page" here refers to a "page" in the e-portfolio). User could add new pages to e-portfolio by clicking the "+" button on the bottom of the left bar as well.
 <p align="center">
   <img src="README_Assets/edit_folio.png"  width="600" >
 </p>    
@@ -52,13 +52,31 @@ To export an e-portfolio, a url or PDF can be generated based on user selection.
 </p> 
 
 ## Documentations Included
-**Included in "Diagrams_and_models" folder**  
-* Entity-relationship Model (v3)
-* Class Diagram
-* Architecture Model
-* Motivation Model
-* Front-end Page-Page Logic
-* Sequence Diagram  
+**Included in "Documentations_and_Models" folder**  
+* Documentation Index (Index of all documentations and structures on Google Drive)
+* Agile Development Folder
+  * sprint backlog
+* Architecture Folder
+  * past models folder (old entity relationship models)
+  * class diagram
+  * architecture model
+  * entity relationship model
+  * page-to-page logic
+  * sequence diagram
+* Meeting Minutes Folder
+  * standup and group meeting minutes
+  * client interview notes
+  * sprint review slides
+* Product Folder
+  * Do/Be/Feel model
+  * motivation model
+  * user stories (as the product backlog)
+  * testing documentation
+  * deployment documentation
+  * product report
+* Presentation Folder
+  * product presentation slides (.pptx)
+
 
 **Axure Prototype**  
 https://zele5k.axshare.com/  
@@ -66,23 +84,19 @@ https://zele5k.axshare.com/
 **Trello board**  
 https://trello.com/b/YKcZYnsR/it-project-team-11   
 
+**API Documentation**  
+https://apizza.net/pro/#/project/7e84eca3c93d8bca570937c389018dbe/browse  
+
 **Google Drive**  
 https://drive.google.com/drive/folders/1lw9btbpFqWp7t7XuJI8qckoxfXTZ-9LF?usp=sharing  
 
-including:
-* Product Backlog / User Stories and acceptance criteria
-* Standup and Group Meeting Minutes
-* Do/Be/Feel Model
-* Sprint Backlog
-* Client Interview Notes
-* API Documentation  
-* Testing Documentation  
-* Deployment Documentation  
 
-*These are also included in the documentation folder*
 
 ## Test Cases, Changelogs and Detected Bugs
-> See testing documentation and user stories in the documentation folder
+<p align="center">
+  <img src="README_Assets/testing.png"  width="600" >
+</p>
+> For details, please see testing documentation and user stories in the documentation folder
 
 ## Team Members  
 | Role | Name |
