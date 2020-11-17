@@ -44,7 +44,7 @@ class Nav extends Component {
         return (
           <NavContainer>
             <NavIcon>
-              <NavLogo href="/"/>
+              <NavLogo onClick = {() => this.redirectTo("")} />
               <NavName>Folihub</NavName>
             </NavIcon>
             <NavText>Our Product</NavText>
@@ -66,13 +66,13 @@ class Nav extends Component {
         return (
           <NavContainer>
           <NavIcon>
-            <NavLogo href="/"/>
+            <NavLogo onClick = {() => this.redirectTo("")} />
             <NavName>Folihub</NavName>
           </NavIcon>
           <NavText>Our Product</NavText>
-          <NavText href = "/ContactUs">Contact Us</NavText>
-          <NavText href = "/login">Log in</NavText>
-          <NavText href = "/signup">Sign up</NavText>
+          <NavText onclick = {() => this.redirectTo("ContactUs")}>Contact Us</NavText>
+          <NavText onclick = {() => this.redirectTo("Login")}>Log in</NavText>
+          <NavText onclick = {() => this.redirectTo("signup")}>Sign up</NavText>
         </NavContainer>
         )
       }
