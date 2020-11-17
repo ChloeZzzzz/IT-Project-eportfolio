@@ -12,7 +12,7 @@ In sprint 1, frontend homepage, sign up, login and user homepage skeleton code a
 Both the front-end and back-end codes have been deployed to Heroku server at the start of Sprint 2, now it is accessible from the link provided below in the "features and functionalities" section. To see the history of deployment, you could visit https://docs.google.com/document/d/1M4zP-DF4FyNYlP_QAWfYQ7CGlk627KqAxRMRvr1pCNs/edit  
 The main feature that has been developed in sprint 2 is editing e-portfolio. For front-end, edit folio page has been implemented and Quill JS was decided to be used to assist rich text input. While for back-end, various APIs have been created for this functionality, such as creating new pages and new folios, renaming folios, saving folios and updating the contents. Testing has also been introduced and automated intergration tests using Mocha and Chai have executed over user authentication.  
 
-**Sprint 3**
+**Sprint 3**  
 Debug and testing are to main areas we worked during sprint 3. To see what features have been tested, you could access the testing documentations in document folder or directly visit the Google Sheet at https://docs.google.com/spreadsheets/d/1-wlu9MTsUhqct4dP7idWDdbHGg45FdmatDyInyoQG_c/edit?usp=sharing. We have noticed that there are some bugs on CORS policy between our back-end and front-end server due to not having a SSL certificate on Heroku (which requires payment to get). In result of that, we have to switch to http for all functionalities without SSL certificate (although this causes some security issue). As is usual, the links to access functionalities are provided below in the "features and functionalities" section.   
 
 
@@ -34,15 +34,22 @@ URL Link: http://folihub.herokuapp.com/login
 
 **User Homepage**  
 User homepage displays all the e-portfolios the user owns. It can be accessed only after logged in. User can create new e-portfolios, or select past e-portfolios to edit from this page.  
+<p align="center">
+  <img src="README_Assets/user_homepage.png"  width="300" >
+</p>
   
 
 **Edit Folio**  
 Edit folio page is when user click existed e-portfolios or create new e-portfolios from user homepage. Previous work (or empty page) along with editing tools in tool bar are displayed to allow the user to design and update that page (the term "page" here refers to a "page" in the e-portfolio). User could add new pages to e-portfolio as well. To do this, a pop up window will appear and user cam choose a template to continue.  
-    
+<p align="center">
+  <img src="README_Assets/edit_folio.png"  width="300" >
+</p>    
 
 **Export Folio**  
 To export an e-portfolio, a url or PDF can be generated based on user selection. The url is a link to a web page presenting user's e-portfolio in a flipping book format. User could share this link to viewers, which could allow them to access without log in. A PDF of that eportfoilo could also be downloaded.  
- 
+<p align="center">
+  <img src="README_Assets/export_folio.png"  width="300" >
+</p> 
 
 ## Documentations Included
 **Included in "Diagrams_and_models" folder**  
