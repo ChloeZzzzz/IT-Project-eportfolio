@@ -12,6 +12,7 @@ import ContactUs from "./pages/ContactUs";
 import ExportFolio from './pages/ExportFolio';
 import Faq from "./pages/Faq";
 import TandC from "./pages/TandC";
+import Tut from "./pages/Tut";
 
 import "./App.css";
 
@@ -32,6 +33,7 @@ import "./App.css";
           <Route exact path="/FAQ" render={props => <Faq {...props} />} />
           <Route exact path="/ExportFolio/:id" render={props => <ExportFolio {...props} />} />
           <Route exact path="/TandC" render={props => <TandC {...props} />} />
+          <Route exact path="/Tut" render={props => <Tut {...props} />} />
         </Switch>
         <Footer />
 
