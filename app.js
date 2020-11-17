@@ -9,9 +9,15 @@ require('./config/passport')(passport);
 const flash = require('connect-flash-plus');
 app.use(flash());
 const session = require("express-session");
-app.use(session({secret:"folihub_ichiban",
-                resave:true,
-                saveUninitialized: true}));
+app.use(session({
+    cookie:{
+        secure: false,
+        maxAge: 60000
+    },
+    secret:"folihub_ichiban",
+                resave:false,
+                saveUninitialized: false
+    }));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -23,8 +29,13 @@ app.use(cors({origin:["http://folihub.herokuapp\.com$/","http://localhost:3000",
             methods:['GET','PUT','POST','DELETE','OPTIONS'],
             preflightContinue:true}));
 const bodyParser = require('body-parser');
+<<<<<<< HEAD
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+=======
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+>>>>>>> dev
 
 const PORT = process.env.PORT || 3000;
 

@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2020-10-03 19:34:38
- * @LastEditTime: 2020-10-24 22:52:01
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \IT-Project-eportfolio\routes\ePortfolioRouter.js
- */
 const express = require('express');
 const ePortfolioRouter = express.Router();
 const ePortfolioController = require('../controllers/ePortfolioController');
@@ -14,26 +6,32 @@ const ePortfolioController = require('../controllers/ePortfolioController');
 //create a ePortfolio
 ePortfolioRouter.post('/createEPortfolio', ePortfolioController.createEPortfolio);
 
+// create a new page given an eportfolio id
+ePortfolioRouter.post('/createPage', ePortfolioController.createPage);
+
+// save an eportfolio page (img and content)
+ePortfolioRouter.post('/savePage', ePortfolioController.savePage);
+
+// get an eportfolio page given the page id
+ePortfolioRouter.post('/getPage', ePortfolioController.getPage);
+
 //get a ePortfolio
-ePortfolioRouter.post('/getEPortfolio', (req, res) => {
-    ePortfolioController.getEPortfolio(req, res)
-});
+ePortfolioRouter.post('/getEportfolio', ePortfolioController.getEportfolio);
+
+// get all eportfolios of current user
+ePortfolioRouter.get('/getEportfolios/:email', ePortfolioController.getEportfolios);
 
 //rename a ePortfolio
-ePortfolioRouter.post('/renameEportfolio', (req, res) => {
-    ePortfolioController.renameEportfolio(req, res)
-});
+ePortfolioRouter.post('/renameFolio', ePortfolioController.renameFolio);
 
-//delete ePortfolio
-ePortfolioRouter.post('/deleteEportfolio', (req, res) => {
-    ePortfolioController.deleteEportfolio(req, res)
-});
-
+// delete the last page of a given eportfolio
+ePortfolioRouter.post('/deleteLastPage', ePortfolioController.deleteLastPage);
 
 ePortfolioRouter.get('/hackep', ePortfolioController.hackep);
 
-ePortfolioRouter.post('/deleteEPortfolio', (req, res) => {
-    ePortfolioController.deleteEPortfolio()
-});
+ePortfolioRouter.post('/deleteEportfolio', ePortfolioController.deleteEportfolio);
+
+ePortfolioRouter.post('/deleteEPortfolio', ePortfolioController.deleteEPortfolio);
 
 module.exports = ePortfolioRouter;
+
