@@ -35,7 +35,7 @@ URL Link: http://folihub.herokuapp.com/login
 **User Homepage**  
 User homepage displays all the e-portfolios the user owns. It can be accessed only after logged in. User can create new e-portfolios, or select past e-portfolios to edit from this page.  
 <p align="center">
-  <img src="README_Assets/user_homepage.png"  width="500" >
+  <img src="README_Assets/user_homepage.png"  width="600" >
 </p>
   
 
