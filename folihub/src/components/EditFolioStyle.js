@@ -123,6 +123,14 @@ export const NewPage = styled.div
     };
 `;
 
+export const SaveDiv = styled.button
+`
+    position: relative;
+    margin-top: 21%;
+    width: 50%;
+    height: 58%;
+`;
+
 export const BookDiv = styled.button
 `
     position: relative;

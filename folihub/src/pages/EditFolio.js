@@ -1,13 +1,15 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
 import Logo_Dark from "../img/folihub_dark.png";
-import {colorPlan, EditFolioContainer, EditFolioTitle, EditFolioManage, EditFolioIndex, EditFolioEditor, MyPageTitle, IndexCard, SelectedIndexCard, NewPage, EditFolioToolbar, BookDiv, PDFDiv, EditForm} from '../components/EditFolioStyle';
+import {colorPlan, EditFolioContainer, EditFolioTitle, EditFolioManage, EditFolioIndex, EditFolioEditor, MyPageTitle, IndexCard, SelectedIndexCard, NewPage, EditFolioToolbar, SaveDiv, BookDiv, PDFDiv, EditForm} from '../components/EditFolioStyle';
 import 'react-quill/dist/quill.snow.css';
 import ReactQuill from 'react-quill';
 import Template_1 from '../components/template_1';
 import AddIcon from '@material-ui/icons/Add';
 import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 import GetAppIcon from '@material-ui/icons/GetApp';
+import SaveIcon from '@material-ui/icons/Save';
+import {savePage} from '../api/folioAPI';
 
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 
@@ -25,6 +27,7 @@ class EditFolio extends React.Component {
             pageIds: [{FolioName: '', PageID: 0}],
             currPage: 0,
         };
+        this.submitPage = this.submitPage.bind(this);
         this.changeEdit = this.changeEdit.bind(this);
         this.changeIndexCard = this.changeIndexCard.bind(this);
         this.addPage = this.addPage.bind(this);
@@ -57,6 +60,11 @@ class EditFolio extends React.Component {
         pageIds: folioInfo,
         currPage: 0
       });
+    }
+
+    submitPage = event => {
+      var res = savePage({email: localStorage.getItem("email"), folioId: this.props.data.folioID, pageId: this.props.data.pageID, templateId: "1", content: [this.state.base64, this.state.text]});
+      console.log(res);
     }
 
     onNameChange(e) {
@@ -105,7 +113,9 @@ class EditFolio extends React.Component {
                     <EditFolioManage>
                       <EditFolioToolbar>
                         <div></div>
-                        <div></div>
+                        <SaveDiv>
+                          <SaveIcon onClick={this.submitPage}/>
+                        </SaveDiv>
                         <BookDiv>
                           <ImportContactsIcon />
                         </BookDiv>

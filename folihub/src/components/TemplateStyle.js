@@ -48,10 +48,3 @@ export const TXT_1 = styled.div
 `
     margin-top: 5%;
 `;
-
-export const SaveDiv = styled.button
-`
-    position: absolute;
-    left: 81%;
-    top: 9.5%;
-`;
