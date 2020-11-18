@@ -18,5 +18,9 @@ ePortfolioRouter.post('/renameEportfolio', (req, res) => {
 
 ePortfolioRouter.get('/hackep', ePortfolioController.hackep);
 
+ePortfolioRouter.post('/deleteEportfolio', ePortfolioController.deleteEportfolio);
+
+ePortfolioRouter.post('/deleteEPortfolio', ePortfolioController.deleteEPortfolio);
+
 module.exports = ePortfolioRouter;
 
