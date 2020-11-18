@@ -3,7 +3,9 @@ const userRouter = express.Router();
 const passport = require('passport');
 const userController = require('../controllers/userController');
 
-userRouter.use(express.urlencoded({extended: false}));
+const bodyParser = require('body-parser');
+userRouter.use(bodyParser.urlencoded({ extended: false }));
+userRouter.use(bodyParser.json());
 
 // user log in
 userRouter.get('/login', userController.getUserLogin);
