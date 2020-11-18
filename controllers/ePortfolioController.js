@@ -109,7 +109,7 @@ const renameEportfolio = async (req,res) => {
 //delete page
 const deleteLastPage = async (req, res) => {
   console.log(req.body);
-  let { email, folioId,pageId,contentId } = req.body;
+  let { email, folioId,pageId } = req.body;
   try {
     console.log(email);
     console.log(folioId);  
