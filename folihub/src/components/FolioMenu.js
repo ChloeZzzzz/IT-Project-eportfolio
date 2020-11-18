@@ -65,6 +65,7 @@ export default function FolioMenu(id) {
     setAnchorEl(null);
   };
   const redirectTo = (path) => {
+    localStorage.setItem("folioId", id.children);
     setRedirect(path);
   };
 
