@@ -48,10 +48,11 @@ class ExportFolio extends React.Component {
 
     async printDocument() {
         const divs = document.getElementsByClassName('print');
+        console.log(divs);
         const newList = [].slice.call(divs);
         var contentArray = [];
         var docDefinition = {
-            content:  []
+            content: []
         }
         /*
         for (let i = 0; i < newList.length; i++) {
@@ -74,16 +75,14 @@ class ExportFolio extends React.Component {
                 .then(function(dataURL) {
                     //var img = new Image();
                     //img.src = dataURL;
-                    contentArray[`${index}`] = [{ image: dataURL, width: 900, height: 650 }];
+                    //contentArray[index] = [{ image: dataURL, width: 900, height: 650 }];
+                    docDefinition.content.push({ image: dataURL, width: 900, height: 650 });
                 });
         }).then(
-            () => ( docDefinition.content.push(contentArray))
-        ).then(
             () => {
                 console.log(docDefinition.content);
-                    
                 console.log("... starting download ...")
-                pdfMake.createPdf(docDefinition).download(this.state.folioName + '.pdf');
+                setTimeout(() => {pdfMake.createPdf(docDefinition).download(this.state.folioName + '.pdf')}, 1500);
             }
         )
     }
