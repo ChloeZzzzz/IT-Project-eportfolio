@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import {Container_1, IMG_1, IMG_1_Container, Input, TXT_1} from './TemplateStyle';
+import {Container_1, IMG_1, IMG_1_Container, Input, TXT_1, SaveDiv} from './TemplateStyle';
 import 'react-quill/dist/quill.snow.css';
 import ReactQuill from 'react-quill';
 import {savePage, getPage} from '../api/folioAPI';
+import SaveIcon from '@material-ui/icons/Save';
 
 import {Button} from './Style';
 
@@ -16,8 +17,14 @@ class Template_1 extends React.Component {
             text: {"Content": "", "ContentID": -1},
             pageID: -1,
         }
+        this.submitPage = this.submitPage.bind(this);
         this.onImageChange = this.onImageChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
+    }
+
+    submitPage = event => {
+        var res = savePage({email: localStorage.getItem("email"), folioId: this.props.data.folioID, pageId: this.props.data.pageID, templateId: "1", content: [this.state.base64, this.state.text]});
+        console.log(res);
     }
 
     componentDidUpdate = async () => {
@@ -71,6 +78,9 @@ class Template_1 extends React.Component {
     render() {
         return (
             <div>
+                <SaveDiv>
+                  <SaveIcon onClick={this.submitPage}/>
+                </SaveDiv>
                 <Container_1>
                     <IMG_1_Container>
                         <IMG_1 src={this.state.base64.Content} />
