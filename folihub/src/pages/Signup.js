@@ -33,7 +33,7 @@ class Signup extends React.Component {
   // again, the fetching api to check the authentication states
 
   handleChange(e) {
-    this.setState({ errorMsg: "" });
+    this.setState({ errorMsg: "", errorConfiromMsg: "" });
     this.setState({
       [e.target.name]: e.target.value
     });
@@ -45,6 +45,26 @@ class Signup extends React.Component {
       this.setState({
         errorConfiromMsg:
           "Ooops, the confirm password and password are different!"
+      });
+    } else if (this.state.password.length < 7) {
+      this.setState({
+        errorConfiromMsg:
+          "Password must contain at least 7 characters!"
+      });
+    } else if (!/[0-9]/.test(this.state.password)) {
+      this.setState({
+        errorConfiromMsg:
+          "Password must contain at least one number!"
+      });
+    } else if (!/[a-z]/.test(this.state.password)) {
+      this.setState({
+        errorConfiromMsg:
+          "Password must contain at least one lowercase letter!"
+      });
+    } else if (!/[A-Z]/.test(this.state.password)) {
+      this.setState({
+        errorConfiromMsg:
+          "Password must contain at least one uppercase letter!"
       });
     } else {
       // the signup api here
