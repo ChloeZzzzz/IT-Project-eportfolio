@@ -25,22 +25,39 @@ class UserHomepage extends React.Component{
         this.setState({eportfolio: data});
     }
 
-    render(){
-        const items = this.state.eportfolio.map((e) => 
-            <Item>
-                <ItemDescription>
-                    <ItemTitle>
-                        {e.FolioName}
-                    </ItemTitle>
-                    <ItemDate>
-                        <Tooltip title="public">
-                            <VisibilityIcon fontSize = "small"/>
-                        </Tooltip>
-                        {e.LastModified.slice(0,10)}
-                        <FolioMenu/>
-                    </ItemDate>
-                </ItemDescription>
-            </Item>)
+  render() {
+    if (this.state.loading) {
+      return (
+        <Welcome
+          loopDuration={1000}
+          data={[
+            {
+              backgroundColor: colorPlan.Light,
+              textColor: colorPlan.Dark,
+              text: "Loading...",
+              image: Logo_Dark
+            }
+          ]}
+        />
+      );
+    } else {
+      if (this.state.redirect) {
+        return <Redirect to={this.state.toPath} />;
+      } else {
+        const items = this.state.eportfolio.map(e => (
+          <Item>
+            <ItemDescription>
+              <ItemTitle onClick={() => this.redirectTo(e.FolioID)}>{e.FolioName}</ItemTitle>
+              <ItemDate>
+                <Tooltip title="public">
+                  <VisibilityIcon fontSize="small" />
+                </Tooltip>
+                {e.LastModified.slice(0, 10)}
+                <FolioMenu>{e.FolioID}</FolioMenu>
+              </ItemDate>
+            </ItemDescription>
+          </Item>
+        ));
         return (
             <CollectionCanvas>
                 <ItemContainer>
