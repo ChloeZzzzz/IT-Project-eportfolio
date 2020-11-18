@@ -15,6 +15,8 @@ import FormLabel from '@material-ui/core/FormLabel';
 
 import {createEportfolio} from '../api/folioAPI';
 
+import { useHistory } from 'react-router'
+
 export default function NewFolioMenu() {
     const [open, setOpen] = React.useState(false);
     const [visibility, setVisibility] = React.useState('private');
@@ -41,6 +43,8 @@ export default function NewFolioMenu() {
     const handleLayoutChange = (event) => {
         setLayout(event.target.value);
     };
+    
+    const history = useHistory();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -50,10 +54,8 @@ export default function NewFolioMenu() {
         console.log(layout);
         var response = await createEportfolio({"email": localStorage.getItem("email"),  "folioName": name, "visibility": visibility, "layout": layout});
         console.log(response)
-        var id = "00001";
-        if (true) {
-            window.location.href = `/userhomepage/${localStorage.getItem("email")}`;
-        }
+        history.go(0);
+
     }
 
     return (

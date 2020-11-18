@@ -17,6 +17,8 @@ import { renameSync } from 'fs';
 
 import {deleteEP} from '../api/folioAPI';
 
+import { useHistory } from 'react-router'
+
 const StyledMenu = withStyles({
   paper: {
     width: '180px',
@@ -66,9 +68,10 @@ export default function FolioMenu(id) {
     setRedirect(path);
   };
 
+  const history = useHistory();
   const deleteThis = async (data) => {
     deleteEP(data).then(() => {
-      window.location.reload(false);
+      history.go(0)
     });
   }
 
