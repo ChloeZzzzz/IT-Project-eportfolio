@@ -104,30 +104,19 @@ const renameEportfolio = async (req,res) => {
     return;
 }
 
-// back door
-const hackep = async (req, res) => {
-    await db.query(`SELECT FolioName, Visibility, Layout, LastModified FROM Eportfolios`, (err, result) => {
-        if (err) {
-            console.log("===err===");
-            console.log(err);
-        }
-        console.log(result);
-        res.send(result);
-        return res.end();
-    })
-}
-
 
 
 //delete page
 const deleteLastPage = async (req, res) => {
   console.log(req.body);
-  let { email, folioId,pageId } = req.body;
+  let { email, folioId,pageId,contentId } = req.body;
   try {
     console.log(email);
     console.log(folioId);  
     console.log(pageId);  
-    await db.query(`DELETE FROM Pages WHERE PageID = "folioId"`, (err, result) => {
+   
+      
+    await db.query(`DELETE FROM Pages WHERE PageID = "pageId"`, (err, result) => {
       if (err){
         console.log("DELETE RESULT");
         console.log(err)
@@ -136,7 +125,7 @@ const deleteLastPage = async (req, res) => {
       console.log(result);
     });
 
-    await db.query(`DELETE FROM Contents WHERE ContentID = "pageId"`, (err, result) => {
+    await db.query(`DELETE FROM Contents WHERE PageID = "pageId"`, (err, result) => {
       if (err){
         console.log("DELETE RESULT");
         console.log(err)
