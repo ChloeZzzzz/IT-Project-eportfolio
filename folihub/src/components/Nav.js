@@ -47,7 +47,7 @@ class Nav extends Component {
               <NavLogo onClick = {() => this.redirectTo("")} />
               <NavName>Folihub</NavName>
             </NavIcon>
-            <NavText>Our Product</NavText>
+            <NavText onclick = {() => this.redirectTo("Tut")}> Tutorial</NavText>
             <NavText onclick = {() => this.redirectTo("ContactUs")}>Contact Us</NavText>
             <NavText onclick = {() => this.redirectTo(`userhomepage/${this.props.email}`)}>My Hub</NavText>
             <UserIcon style = {{visibility : this.props.loggedIn ? "visible" : "hidden"}}>
@@ -69,10 +69,10 @@ class Nav extends Component {
             <NavLogo onClick = {() => this.redirectTo("")} />
             <NavName>Folihub</NavName>
           </NavIcon>
-          <NavText>Our Product</NavText>
-          <NavText onclick = {() => this.redirectTo("ContactUs")}>Contact Us</NavText>
-          <NavText onclick = {() => this.redirectTo("Login")}>Log in</NavText>
-          <NavText onclick = {() => this.redirectTo("signup")}>Sign up</NavText>
+          <NavText href = "/tut">Tutorial</NavText>
+          <NavText href = "/ContactUs">Contact Us</NavText>
+          <NavText href = "/login">Log in</NavText>
+          <NavText href = "/signup">Sign up</NavText>
         </NavContainer>
         )
       }

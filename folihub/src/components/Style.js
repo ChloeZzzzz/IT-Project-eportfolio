@@ -611,6 +611,15 @@ export const TandCContainer = CanvasFormat.extend
     margin-bottom: 10%;
     height: 100%;
 `;
+export const TutContainer = CanvasFormat.extend
+`
+    
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 0%;
+    height: 100%;
+`;
+
 export const ContactUsContainer = CanvasFormat.extend
 `
     display: grid;
