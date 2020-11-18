@@ -4,6 +4,7 @@ import {colorPlan, NavContainer, NavIcon, NavLogo, NavName, UserIcon, UserContai
 import Avatar from '@material-ui/core/Avatar';
 import UserMenu from './UserMenu';
 import { Redirect } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 class Nav extends Component {
   constructor(props) {
     super(props);
@@ -17,6 +18,7 @@ class Nav extends Component {
   // there should have an api to check whether this visitor is logged in hence change the loggedIn state
 
   redirectTo(path) {
+    console.log(path);
     this.setState({
       redirect: true,
       toPath: path,
@@ -41,15 +43,20 @@ class Nav extends Component {
       );
     } else {
       if (this.props.loggedIn) {
+        if (this.state.redirect) {
+          return (
+            <Redirect to = {`/${this.state.toPath}`} />
+          )
+        }
         return (
           <NavContainer>
             <NavIcon>
-              <NavLogo onClick = {() => this.redirectTo("")} />
+              <NavLogo onClick = {() => this.props.history.push("../")} />
               <NavName>Folihub</NavName>
             </NavIcon>
-            <NavText onclick = {() => this.redirectTo("Tut")}> Tutorial</NavText>
-            <NavText onclick = {() => this.redirectTo("ContactUs")}>Contact Us</NavText>
-            <NavText onclick = {() => this.redirectTo(`userhomepage/${this.props.email}`)}>My Hub</NavText>
+            <NavText onClick = {() => this.props.history.push("../Tut")}> Tutorial</NavText>
+            <NavText onClick = {() => this.props.history.push("../ContactUs")}>Contact Us</NavText>
+            <NavText onClick = {() => this.props.history.push(`../userhomepage/${this.props.email}`)}>My Hub</NavText>
             <UserIcon style = {{visibility : this.props.loggedIn ? "visible" : "hidden"}}>
               <UserContainer>
                 <UserMenu data = {this.props.email}/>
@@ -80,4 +87,4 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+export default withRouter(Nav);
