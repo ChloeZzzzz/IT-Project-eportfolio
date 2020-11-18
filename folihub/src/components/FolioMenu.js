@@ -10,10 +10,8 @@ import EditIcon from '@material-ui/icons/Edit';
 import CollectionsIcon from '@material-ui/icons/Collections';
 import ReplyIcon from '@material-ui/icons/Reply';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import { Redirect } from "react-router-dom";
 
 import {colorPlan} from './Style';
-import { renameSync } from 'fs';
 
 const StyledMenu = withStyles({
   paper: {
@@ -49,9 +47,8 @@ const StyledMenuItem = withStyles((theme) => ({
   },
 }))(MenuItem);
 
-export default function FolioMenu(id) {
+export default function FolioMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [redirect, setRedirect] = React.useState(null);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -60,40 +57,46 @@ export default function FolioMenu(id) {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const redirectTo = (path) => {
-    setRedirect(path);
-  }
-  if (redirect != null) {
-    return (<Redirect to = {`/${redirect}`}/>);
-  } else {
-    return (
-      <div>
-        <MoreVertIcon
-          fontSize="small"
-          aria-haspopup="true"
-          onClick={handleClick}
-        />
-        <StyledMenu
-          id="customized-menu"
-          anchorEl={anchorEl}
-          keepMounted
-          open={Boolean(anchorEl)}
-          onClose={handleClose}
-        >
-          <StyledMenuItem dense="true" onClick = {() => redirectTo(`ExportFolio/${id.children}`)}>
-            <ListItemIcon>
-              <CollectionsIcon fontSize="small" />
-            </ListItemIcon>
-            <ListItemText primary="Preview" />
-          </StyledMenuItem>
-          <StyledMenuItem dense="true">
-            <ListItemIcon>
-              <DeleteForeverIcon fontSize="small" />
-            </ListItemIcon>
-            <ListItemText primary="Delete" />
-          </StyledMenuItem>
-        </StyledMenu>
-      </div>
-    );
-  }
+
+  return (
+    <div>
+      <MoreVertIcon
+        fontSize="small"
+        aria-haspopup="true"
+        onClick={handleClick}
+      />
+      <StyledMenu
+        id="customized-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+        <StyledMenuItem dense="true">
+          <ListItemIcon>
+            <EditIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText primary="Rename" />
+        </StyledMenuItem>
+        <StyledMenuItem dense="true">
+          <ListItemIcon>
+            <CollectionsIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText primary="Preview" />
+        </StyledMenuItem>
+        <StyledMenuItem dense="true">
+          <ListItemIcon>
+            <ReplyIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText primary="Export" />
+        </StyledMenuItem>
+        <StyledMenuItem dense="true">
+          <ListItemIcon>
+            <DeleteForeverIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText primary="Delete" />
+        </StyledMenuItem>
+      </StyledMenu>
+    </div>
+  );
 }
