@@ -46,14 +46,14 @@ class ExportFolio extends React.Component {
         })
     }
 
-    printDocument() {
+    async printDocument() {
         const divs = document.getElementsByClassName('print');
         const newList = [].slice.call(divs);
         var contentArray = [];
         var docDefinition = {
             content:  []
         }
-        
+        /*
         for (let i = 0; i < newList.length; i++) {
             domtoimage.toPng(newList[i])
                 .then(function(dataURL) {
@@ -68,26 +68,24 @@ class ExportFolio extends React.Component {
         console.log(docDefinition.content);
         console.log("... starting download ...");
         pdfMake.createPdf(docDefinition).download(this.state.folioName + '.pdf');
-        /*
+        */
         Promise.map(newList, async (element, index) => {
             domtoimage.toPng(element)
                 .then(function(dataURL) {
-                    var img = new Image();
-                    img.src = dataURL;
-                    contentArray[`${index}`] = [{ image: dataURL, width: 900, height: 650, margin: [0, 0] }, {
-                        text: ` ${index} `
-                    }];
+                    //var img = new Image();
+                    //img.src = dataURL;
+                    contentArray[`${index}`] = [{ image: dataURL, width: 900, height: 650 }];
                 });
         }).then(
             () => ( docDefinition.content.push(contentArray))
         ).then(
             () => {
-                console.log(docDefinition);
+                console.log(docDefinition.content);
                     
                 console.log("... starting download ...")
                 pdfMake.createPdf(docDefinition).download(this.state.folioName + '.pdf');
             }
-        )*/
+        )
     }
 
 
@@ -134,7 +132,7 @@ class ExportFolio extends React.Component {
                     <PageContainer>
                         {pages}
                     </PageContainer>
-                    <button onClick={() => this.printDocument}> print using PDFMake  </button>
+                    <button onClick={() => this.printDocument()}> print using PDFMake  </button>
                 </FolioContainer>
             )
         }
