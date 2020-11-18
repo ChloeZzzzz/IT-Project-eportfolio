@@ -122,11 +122,12 @@ const hackep = async (req, res) => {
 //delete page
 const deleteLastPage = async (req, res) => {
   console.log(req.body);
-  let { email, folioId } = req.body;
+  let { email, folioId,pageId } = req.body;
   try {
     console.log(email);
     console.log(folioId);  
-    await db.query(`DELETE FROM Pages WHERE PageID = "30"`, (err, result) => {
+    console.log(pageId);  
+    await db.query(`DELETE FROM Pages WHERE PageID = "folioId"`, (err, result) => {
       if (err){
         console.log("DELETE RESULT");
         console.log(err)
@@ -135,7 +136,7 @@ const deleteLastPage = async (req, res) => {
       console.log(result);
     });
 
-    await db.query(`DELETE FROM Contents WHERE ContentID = "31"`, (err, result) => {
+    await db.query(`DELETE FROM Contents WHERE ContentID = "pageId"`, (err, result) => {
       if (err){
         console.log("DELETE RESULT");
         console.log(err)
