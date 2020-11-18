@@ -29,7 +29,7 @@ ePortfolioRouter.post('/deleteLastPage', ePortfolioController.deleteLastPage);
 
 ePortfolioRouter.get('/hackep', ePortfolioController.hackep);
 
-ePortfolioRouter.get('/deleteEPortfolio', ePortfolioController.deleteEPortfolio);
+ePortfolioRouter.post('/deleteEPortfolio', ePortfolioController.deleteEPortfolio);
 
 module.exports = ePortfolioRouter;
 
