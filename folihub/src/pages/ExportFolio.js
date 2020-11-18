@@ -9,6 +9,7 @@ import Promise from 'bluebird';
 import html2canvas from 'html2canvas';
 import pdfMake from 'pdfmake/build/pdfmake.js';
 import pdfFonts from "pdfmake/build/vfs_fonts.js";
+import domtoimage from "dom-to-image";
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -50,25 +51,43 @@ class ExportFolio extends React.Component {
         const newList = [].slice.call(divs);
         var contentArray = [];
         var docDefinition = {
-            pageSize: {width: 1600, height: 800},
-            content:  [{}]
+            content:  []
         }
-        Promise.map(newList, async (element, index) => {
-            let canvas = await html2canvas(element);
-            const imgData = await canvas.toDataURL('image/png');
-            console.log("imgData URL => ", imgData)
-            return contentArray[`${index}`] = [{ image: imgData, width: canvas.width, height: canvas.height, margin: [0, 0] }, {
-                text: ` ${index} `
-            }];
+        
+        for (let i = 0; i < newList.length; i++) {
+            domtoimage.toPng(newList[i])
+                .then(function(dataURL) {
+                    var img = new Image();
+                    img.src = dataURL;
+                    docDefinition.content[i] = [{ image: dataURL, height:  650, width: 900}];
+                    //console.log(i + ": " + dataURL);
+                });
+        }
 
+        //docDefinition.content = contentArray;
+        console.log(docDefinition.content);
+        console.log("... starting download ...");
+        pdfMake.createPdf(docDefinition).download(this.state.folioName + '.pdf');
+        /*
+        Promise.map(newList, async (element, index) => {
+            domtoimage.toPng(element)
+                .then(function(dataURL) {
+                    var img = new Image();
+                    img.src = dataURL;
+                    contentArray[`${index}`] = [{ image: dataURL, width: 900, height: 650, margin: [0, 0] }, {
+                        text: ` ${index} `
+                    }];
+                });
         }).then(
             () => ( docDefinition.content.push(contentArray))
         ).then(
             () => {
+                console.log(docDefinition);
+                    
                 console.log("... starting download ...")
                 pdfMake.createPdf(docDefinition).download(this.state.folioName + '.pdf');
             }
-        )
+        )*/
     }
 
 
@@ -115,7 +134,7 @@ class ExportFolio extends React.Component {
                     <PageContainer>
                         {pages}
                     </PageContainer>
-                    <button onClick={this.printDocument}> print using PDFMake  </button>
+                    <button onClick={() => this.printDocument}> print using PDFMake  </button>
                 </FolioContainer>
             )
         }
