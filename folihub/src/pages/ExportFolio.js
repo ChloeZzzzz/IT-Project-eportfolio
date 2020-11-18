@@ -52,6 +52,7 @@ class ExportFolio extends React.Component {
         const newList = [].slice.call(divs);
         var contentArray = [];
         var docDefinition = {
+            pageSize: {width: 980, height: 720},
             content: []
         }
         /*
@@ -75,10 +76,11 @@ class ExportFolio extends React.Component {
                 .then(function(dataURL) {
                     //var img = new Image();
                     //img.src = dataURL;
-                    //contentArray[index] = [{ image: dataURL, width: 900, height: 650 }];
-                    docDefinition.content.push({ image: dataURL, width: 900, height: 650 });
+                    contentArray[index] = [{ image: dataURL, width: 900, height: 650 }];
                 });
         }).then(
+            () => ( docDefinition.content.push(contentArray))
+        ).then(
             () => {
                 console.log(docDefinition.content);
                 console.log("... starting download ...")
