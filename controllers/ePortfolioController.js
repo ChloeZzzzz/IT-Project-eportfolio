@@ -19,7 +19,33 @@ const createEPortfolio = async (req, res) => {
         console.log("---RESULT---");
         console.log(result);
         console.log(result.insertId);
-        res.status(200).send({ folioId: result.insertId });
+        var folioId = result.insertId;
+        res.status(200).send({ folioId: folioId });
+        await db.query(
+          `INSERT INTO Pages (FolioID, TemplateID) VALUES ("${folioId}", "${1}")`, async (err, result) => {
+            var pageId = result.insertId;
+            await db.query(
+              `INSERT INTO Contents (PageID, FolioID, Content) VALUES ("${pageId}", "${folioId}", "")`
+            );
+            await db.query(
+              `INSERT INTO Contents (PageID, FolioID, Content) VALUES ("${pageId}", "${folioId}", "<p>Type in text here...</p>")`
+            );
+          }
+        );
+        /*
+        await db.query(
+          `INSERT INTO Contents (PageID, FolioID, Content) VALUES ("${pageId}", "${folioId}", "${content[0].Content}")`, (err, result) => {
+            if (err) {
+              console.log("---save EP page ERROR---");
+              console.log(err);
+              return res.status(200).send({ message: "failed to save EP page" });
+            } else {
+              console.log("---RESULT---");
+              console.log(result);
+            }
+          }
+        );
+        */
         return res.end();
       }
     );
