@@ -61,3 +61,11 @@ export async function getPage(data) {
         return res;
     }
 }
+
+export async function deleteEP(data) {
+    const endpoint = BASE_FOLIO + '/deleteEPortfolio';
+    var res = await axios.post(endpoint, data, {crossdomain: true}).then((response) => {
+        return response.data
+    })
+    return res;
+}
