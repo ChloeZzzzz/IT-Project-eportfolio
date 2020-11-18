@@ -27,7 +27,11 @@ ePortfolioRouter.post('/renameFolio', ePortfolioController.renameFolio);
 // delete the last page of a given eportfolio
 ePortfolioRouter.post('/deleteLastPage', ePortfolioController.deleteLastPage);
 
-ePortfolioRouter.get('/hackep', ePortfolioController.hackep);
+
+ePortfolioRouter.post('/deleteEportfolio', ePortfolioController.deleteEportfolio);
+
+// delete the last page of a given eportfolio
+ePortfolioRouter.post('/deleteLastPage', ePortfolioController.deleteLastPage);
 
 module.exports = ePortfolioRouter;
 

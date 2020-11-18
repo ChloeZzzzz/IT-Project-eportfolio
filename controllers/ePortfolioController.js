@@ -303,6 +303,76 @@ const getPage = async(req, res) => {
   return;
 }
 
+
+//delete page
+const deleteLastPage = async (req, res) => {
+  console.log(req.body);
+  let { email, folioId,pageId } = req.body;
+  try {
+    console.log(email);
+    console.log(folioId);  
+    console.log(pageId);  
+   
+      
+    await db.query(`DELETE FROM Pages WHERE PageID = "pageId"`, (err, result) => {
+      if (err){
+        console.log("DELETE RESULT");
+        console.log(err)
+      }
+      console.log("DELETE RESULT");
+      console.log(result);
+    });
+
+    await db.query(`DELETE FROM Contents WHERE PageID = "pageId"`, (err, result) => {
+      if (err){
+        console.log("DELETE RESULT");
+        console.log(err)
+      }
+      console.log("DELETE RESULT");
+      console.log(result);
+      res.status(200).send(result);
+    });
+  } catch (err) {
+    console.log("---get EP ERROR---");
+    console.log(err);
+    return res.end();
+  }
+
+  return;
+};
+
+
+
+//delete ep
+const deleteEPortfolio = async (req,res) => {
+  console.log(req.body)
+  let {email,folioId} = req.body
+  try{
+      console.log(email);
+      console.log(folioId);
+      await db.query(`DELETE Eportfolios,pages,Contents
+                      FROM Eportfolios
+                      LEFT JOIN Pages on Eportfolios.FolioID = Pages.FolioID
+                      LEFT JOIN Contents on Pages.FolioID = Contents.FolioID AND Pages.PageID = Contents.PageID
+                      WHERE FolioID = "${folioId}"`,async function(err, result){
+                      if (err) {
+                          console.log("---Delete EP ERROR---");
+                          console.log(err);
+                          return;
+                      }
+
+      });
+
+
+  }
+  catch(err){
+      console.log("---Delete EP ERROR---");
+      console.log(err);
+      return;
+  }
+  return;
+}
+
 //26/09/2020 Column Name need to add to database and new req variable need to add
 const renameFolio = async (req, res) => {
   let { email, folioId, newName } = req.body;
@@ -333,21 +403,7 @@ const renameFolio = async (req, res) => {
   return res.end();
 };
 
-// back door
-const hackep = async (req, res) => {
-  await db.query(
-    `SELECT FolioId, FolioName, Visibility, Layout, LastModified FROM Eportfolios`,
-    (err, result) => {
-      if (err) {
-        console.log("===err===");
-        console.log(err);
-      }
-      console.log(result);
-      res.send(result);
-      return res.end();
-    }
-  );
-};
+
 
 module.exports = {
   createEPortfolio,
@@ -357,6 +413,6 @@ module.exports = {
   getEportfolio,
   getEportfolios,
   renameFolio,
-  hackep,
-  deleteLastPage
+  deleteLastPage,
+  deleteEPortfolio,
 };
