@@ -355,18 +355,9 @@ const deleteEPortfolio = async (req,res) => {
   try{
       console.log(email);
       console.log(folioId);
-      await db.query(`DELETE Eportfolios,Pages,Contents
-                      FROM Eportfolios
-                      LEFT JOIN Pages on Eportfolios.FolioID = Pages.FolioID AND Pages.FolioID = "${folioId}"
-                      LEFT JOIN Contents on Pages.FolioID = Contents.FolioID AND Pages.PageID = Contents.PageID`,async function(err, result){
-                      if (err) {
-                          console.log("---Delete EP ERROR---");
-                          console.log(err);
-                          return;
-                      }
-
-      });
-
+      await db.query(`DELETE FROM Contents WHERE FolioID = "${folioId}"`);
+      await db.query(`DELETE FROM Pages WHERE FolioID = "${folioId}"`);
+      await db.query(`DELETE FROM Eportfolios WHERE FolioID = "${folioId}"`);
 
   }
   catch(err){
