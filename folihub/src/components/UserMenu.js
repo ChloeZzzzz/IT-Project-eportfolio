@@ -62,7 +62,7 @@ export default function UserMenu(e) {
         <Avatar
         fontSize="medium"
         aria-haspopup="true"
-        onMouseOver={handleClick}>{e.data}</Avatar>
+        onMouseOver={handleClick}>{e.data.slice(0,1).toUpperCase()}</Avatar>
         <StyledMenu
             id="customized-menu"
             anchorEl={anchorEl}
@@ -87,7 +87,7 @@ export default function UserMenu(e) {
               <ListItemIcon>
                   <ExitToAppIcon fontSize="small" />
               </ListItemIcon>
-              <ListItemText primary="Logout" />
+              <ListItemText primary="Logout" onClick = {() => window.location.href = "/"}/>
             </StyledMenuItem>
         </StyledMenu>
     </div>

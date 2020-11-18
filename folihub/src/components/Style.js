@@ -40,10 +40,29 @@ export const NavContainer = styled.div
     display: grid;
     grid-template-columns: 60% 10% 10% 10% 10%;
     justify-items: center | center | center | center | center;
-    grid-template-areas: 'NavIcon Save Export Preview UserIcon';
+    grid-template-areas: 'NavIcon OurProduct ContactUs FAQ UserIcon';
     height: 50px;
     background-color: ${colorPlan.Dark_Medium};
     box-shadow: 0px 5px 10px ${colorPlan.Dark};
+`;
+
+export const NavText = styled.a
+`
+    font-family: Georgia;
+    text-decoration : overline;
+    color: ${colorPlan.Light};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    &:hover {
+        background-color: ${colorPlan.Medium};
+        cursor: pointer;
+    };
+    &:active {
+        background-color: ${colorPlan.Light};
+        color: ${colorPlan.Dark_Medium};
+    };
 `;
 
 export const NavIcon = styled.div
@@ -51,7 +70,7 @@ export const NavIcon = styled.div
     display: flex;
 `;
 
-export const NavLogo = styled.a
+export const NavLogo = styled.div
 `
     width: 50px;
     height: 50px;
@@ -427,7 +446,7 @@ export const HomeRedirect = styled.div
         "SignUpRedirect" "LoginRedirect";
 `;
 
-export const SignUpRedirect = styled.a
+export const SignUpRedirect = styled.div
 `
     background-color: ${colorPlan.Warn};
     border-color: ${colorPlan.Dark};
@@ -465,7 +484,7 @@ export const LoginText = FontFormat.extend
     text-align: center;
 `;
 
-export const LoginRedirect = styled.a
+export const LoginRedirect = styled.div
 `
     background-color: ${colorPlan.Dark_Medium};
     border-color: ${colorPlan.Dark};
@@ -540,7 +559,7 @@ export const GoogleIcon = styled.img
     width: 15px;
 `;
 
-export const GoogleLink = styled.a
+export const GoogleLink = styled.div
 `
     color: ${colorPlan.Light};
     font-family: Georgia;
@@ -583,6 +602,22 @@ export const AboutProductText = styled.div
     margin-top: 1%;
     margin-right: 20px;
     margin-left:20px;
+`;
+export const TandCContainer = CanvasFormat.extend
+`
+    
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 10%;
+    height: 100%;
+`;
+export const TutContainer = CanvasFormat.extend
+`
+    
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 0%;
+    height: 100%;
 `;
 
 export const ContactUsContainer = CanvasFormat.extend

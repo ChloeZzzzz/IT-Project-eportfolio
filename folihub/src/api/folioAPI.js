@@ -1,7 +1,7 @@
 const BASE_FOLIO = "https://folihub-api.herokuapp.com/eportfolio";
 const axios = require('axios');
 
-export async function getEportfolios() {
+export async function getEportfolios(data) {
     const endpoint = BASE_FOLIO + `/getEportfolios/${localStorage.getItem("email")}`;
     var data = {"email": localStorage.getItem("email")};
     var res = await axios.get(endpoint, data, {crossdomain: true}).then((response) => {
@@ -15,13 +15,13 @@ export async function createEportfolio(data) {
     var res = await axios.post(endpoint, data, {crossdomain: true}).then((response) => {
         return response.data;
     })
+    return res;
 }
 
 export async function savePage(data) {
     const endpoint = BASE_FOLIO + '/savePage';
     console.log(data);
     var res = await axios.post(endpoint, data, {crossdomain: true}).then((response) => {
-        console.log(response);
         return response;
     })
     return res;

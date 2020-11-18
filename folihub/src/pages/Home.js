@@ -4,6 +4,9 @@ import Logo_Light from "../img/folihub_light.png";
 import { FadeDiv, colorPlan, HomePage, IntroImg, HomeRedirect, FirstIntro, IconComponent, Poster, Poster1, Poster2, Poster3, SecondIntro, AboutProduct, HomepageLogo, HomeTitle, Slogan, HomeComponents, LoginRedirect, SignUpRedirect, SignupText, LoginText, SignUpGoogleRedirect, GoogleIcon, GoogleLink, AboutProductBlock1, AboutProductBlock2, AboutProductImg, AboutProductText  } from "../components/Style";
 import Google_Icon from "../img/google-icon.png";
 import Lock from "../img/lock.jpg";
+import flexible from "../img/flexible.jpg";
+import inspiring from "../img/inspiring.jpg";
+import { Redirect } from "react-router-dom";
 
 class Home extends React.Component {
     constructor(props) {
@@ -11,7 +14,17 @@ class Home extends React.Component {
         this.state = {
             loading: false,
             loggedIn : false,
-        }
+            redirect: false,
+            toPath: "",
+        };
+        this.redirectTo = this.redirectTo.bind(this);
+    }
+
+    redirectTo(path) {
+        this.setState({
+            redirect: true,
+            toPath: path,
+        })
     }
 
     render() {
@@ -30,6 +43,11 @@ class Home extends React.Component {
                 />
             );
         } else {
+            if (this.state.redirect) {
+                return (
+                    <Redirect to = {`/${this.state.toPath}`} />
+                )
+            }
             return (
                 <HomePage>
                     <IntroImg>
@@ -42,17 +60,17 @@ class Home extends React.Component {
                                     </HomeComponents>
                                     <Slogan>— Create your e-portfolio at any time, share with everyone</Slogan>
                                     <HomeRedirect>
-                                        <SignUpRedirect href='signup'>
+                                        <SignUpRedirect onClick = {() => this.redirectTo("signup")}>
                                             <SignupText>Sign Up</SignupText>
                                         </SignUpRedirect>
-                                        <LoginRedirect href="/login">
+                                        <LoginRedirect onClick = {() => this.redirectTo("Login")}>
                                             <LoginText>Login</LoginText>
                                         </LoginRedirect>
                                     </HomeRedirect>
                                     <SignUpGoogleRedirect>
                                         or sign up with&nbsp; 
                                         <GoogleIcon src={Google_Icon} /> &nbsp;
-                                        <GoogleLink href="/signup">Google</GoogleLink>
+                                        <GoogleLink onClick = {() => this.redirectTo("Login")}>Google</GoogleLink>
                                     </SignUpGoogleRedirect>
                                 </IconComponent>
                             </FadeDiv>
@@ -83,10 +101,10 @@ class Home extends React.Component {
                                 <h3>Flexible</h3>
                                 By using Folihub, your work can be accessed at any time, anywhere. We provide several options for you to present your e-portfolio. You can either download them and share the local files, or generate a web page with real-book flipping page style and share the link. Feel free to choose any method you preferred to share and access!
                             </AboutProductText>
-                            <AboutProductImg src={Lock} />
+                            <AboutProductImg src={flexible} />
                         </AboutProductBlock2>
                         <AboutProductBlock1>
-                            <AboutProductImg src={Lock} />
+                            <AboutProductImg src={inspiring} />
                             <AboutProductText>
                                 <h3>Inspiring</h3>
                                 Couldn’t think of any idea to write your e-portfolio? Folihub provides several fantastic portfolio templates for you to start. Both portrait and landscape are available. Just fill in with texts and photos you like to create a nice and customized e-portfolio.
