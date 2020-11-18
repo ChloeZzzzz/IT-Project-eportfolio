@@ -358,7 +358,7 @@ const deleteEPortfolio = async (req,res) => {
       await db.query(`DELETE FROM Contents WHERE FolioID = "${folioId}"`);
       await db.query(`DELETE FROM Pages WHERE FolioID = "${folioId}"`);
       await db.query(`DELETE FROM Eportfolios WHERE FolioID = "${folioId}"`);
-
+      return res.send(`Delete folioId: ${folioId} successed`);
   }
   catch(err){
       console.log("---Delete EP ERROR---");
