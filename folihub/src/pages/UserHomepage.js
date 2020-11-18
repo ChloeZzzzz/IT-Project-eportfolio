@@ -77,7 +77,7 @@ class UserHomepage extends React.Component {
                   <VisibilityIcon fontSize="small" />
                 </Tooltip>
                 {e.LastModified.slice(0, 10)}
-                <FolioMenu />
+                <FolioMenu>{e.FolioID}</FolioMenu>
               </ItemDate>
             </ItemDescription>
           </Item>
