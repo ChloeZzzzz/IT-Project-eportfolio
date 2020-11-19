@@ -15,6 +15,10 @@ import { Redirect } from "react-router-dom";
 import {colorPlan} from './Style';
 import { renameSync } from 'fs';
 
+import {deleteEP} from '../api/folioAPI';
+
+import { useHistory } from 'react-router'
+
 const StyledMenu = withStyles({
   paper: {
     width: '180px',
@@ -61,8 +65,17 @@ export default function FolioMenu(id) {
     setAnchorEl(null);
   };
   const redirectTo = (path) => {
+    localStorage.setItem("folioId", id.children);
     setRedirect(path);
+  };
+
+  const history = useHistory();
+  const deleteThis = async (data) => {
+    deleteEP(data).then(() => {
+      history.go(0)
+    });
   }
+
   if (redirect != null) {
     return (<Redirect to = {`/${redirect}`}/>);
   } else {
@@ -86,7 +99,7 @@ export default function FolioMenu(id) {
             </ListItemIcon>
             <ListItemText primary="Preview" />
           </StyledMenuItem>
-          <StyledMenuItem dense="true">
+          <StyledMenuItem dense="true" onClick = {() => deleteThis({email: localStorage.getItem("email"), folioId: id.children})}>
             <ListItemIcon>
               <DeleteForeverIcon fontSize="small" />
             </ListItemIcon>
