@@ -71,12 +71,6 @@ export default function UserMenu(e) {
             onClick={handleClose}
             MenuListProps={{onMouseLeave: handleClose}}
         >
-            <StyledMenuItem dense="true">
-              <ListItemIcon>
-                  <AccountCircleIcon fontSize="small" />
-              </ListItemIcon>
-              <ListItemText primary="Profile" />
-            </StyledMenuItem>
             <StyledMenuItem dense="true" component = "a" href = "./userHomepage">
               <ListItemIcon>
                   <PermMediaIcon fontSize="small" />
