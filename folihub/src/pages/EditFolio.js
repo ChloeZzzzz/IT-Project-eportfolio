@@ -28,6 +28,7 @@ import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 
 import { renameFolio, getFolio, createPage } from "../api/folioAPI";
 import { Redirect } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class EditFolio extends React.Component {
   constructor(props) {
@@ -68,11 +69,23 @@ class EditFolio extends React.Component {
     });
   }
 
-  addPage(event) {
+  addPage = async () => {
     createPage({
       email: localStorage.getItem("email"),
       folioId: localStorage.getItem("folioId"),
       templateId: "1"
+    }).then(async () => {
+      await getFolio({
+        email: localStorage.getItem("email"),
+        folioId: localStorage.getItem("folioId")
+      }).then((folioInfo) => {
+        console.log(folioInfo);
+        this.setState({
+          name: folioInfo[0].FolioName,
+          pageIds: folioInfo,
+          currPage: 0,
+        });
+      })
     });
   }
 
@@ -185,4 +198,4 @@ class EditFolio extends React.Component {
   }
 }
 
-export default EditFolio;
+export default withRouter(EditFolio);

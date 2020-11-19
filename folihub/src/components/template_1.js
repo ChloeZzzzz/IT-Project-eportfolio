@@ -98,7 +98,6 @@ class Template_1 extends React.Component {
                     />
                     </TXT_1>
                 </Container_1>
-                <Button onClick = {this.submitPage}>Save Page</Button>
             </div>
         );
     }
