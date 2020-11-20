@@ -4,6 +4,10 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 
+/***
+ * Idea about designing this footer is adapted from Unity Homepage: https://unity.com/ 
+ */
+
 class Footer extends React.Component{
     render(){
         return (
