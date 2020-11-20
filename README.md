@@ -1,5 +1,5 @@
 # Folihub
-A online e-portfolio storing and sharing tool. Folihub provides template for users to choose, receive user's input text and uploaded images, and makes it an elegant e-portfolio. Sharing as URL or download as a PDF options are avaliable. Let's do some e-portfolio today! :-)
+A online e-portfolio storing and sharing tool. Folihub provides template for users to choose, receive user's input text and uploaded images, and makes it an elegant e-portfolio. You could downloading it as a PDF and freely share with your friends. Let's do some e-portfolio today! :-)
 
 ## Installations
 **Sprint 1**  
@@ -13,7 +13,7 @@ Both the front-end and back-end codes have been deployed to Heroku server at the
 The main feature that has been developed in sprint 2 is editing e-portfolio. For front-end, edit folio page has been implemented and Quill JS was decided to be used to assist rich text input. While for back-end, various APIs have been created for this functionality, such as creating new pages and new folios, renaming folios, saving folios and updating the contents. Testing has also been introduced and automated intergration tests using Mocha and Chai have executed over user authentication.  
 
 **Sprint 3**  
-Debug and testing are to main areas we worked during sprint 3. To see what features have been tested, you could access the testing documentations in document folder or directly visit the Google Sheet at https://docs.google.com/spreadsheets/d/1-wlu9MTsUhqct4dP7idWDdbHGg45FdmatDyInyoQG_c/edit?usp=sharing. We have noticed that there are some bugs on CORS policy between our back-end and front-end server due to not having a SSL certificate on Heroku (which requires payment to get). In result of that, we have to switch to http for all functionalities without SSL certificate (although this causes some security issue). As is usual, the links to access functionalities are provided below in the "features and functionalities" section.   
+Debug and testing are two main areas we worked during sprint 3. To see what features have been tested, you could access the testing documentations in document folder or directly visit the Google Sheet at https://docs.google.com/spreadsheets/d/1-wlu9MTsUhqct4dP7idWDdbHGg45FdmatDyInyoQG_c/edit?usp=sharing. We have noticed that there are some bugs on CORS policy between our back-end and front-end server due to not having a SSL certificate on Heroku (which requires payment to get). In result of that, we have to switch to http for all functionalities without SSL certificate (although this causes some security issue). As is usual, the links to access functionalities are provided below in the "features and functionalities" section.   
 
 
 ## Features and Functionalities
@@ -46,7 +46,7 @@ Edit folio page is when user click existed e-portfolios or create new e-portfoli
 </p>    
 
 **Export Folio**  
-To export an e-portfolio, a url or PDF can be generated based on user selection. The url is a link to a web page presenting user's e-portfolio in a flipping book format. User could share this link to viewers, which could allow them to access without log in. A PDF of that eportfoilo could also be downloaded.  
+To export an e-portfolio, a url and PDF can be generated based on user selection. The url is a link to a web page presenting user's e-portfolio. User could share this link to viewers if the e-portfolios are set to be public. A PDF of that eportfoilo could also be downloaded.  
 <p align="center">
   <img src="README_Assets/export_folio.png"  width="600" >
 </p> 
@@ -96,7 +96,8 @@ https://drive.google.com/drive/folders/1lw9btbpFqWp7t7XuJI8qckoxfXTZ-9LF?usp=sha
 <p align="center">
   <img src="README_Assets/testing.png"  width="600" >
 </p>
-> For details, please see testing documentation and user stories in the documentation folder
+
+> For details, please see testing documentation and user stories in /Documentations_and_Models/Product/
 
 ## Team Members  
 | Role | Name |
@@ -110,10 +111,4 @@ https://drive.google.com/drive/folders/1lw9btbpFqWp7t7XuJI8qckoxfXTZ-9LF?usp=sha
 
 ##  MIT License
 
-Copyright 2020 Folihub
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+This repository is under MIT license, which is chosen because of its liscence compatibility. Please refer to License.md for detail information.
