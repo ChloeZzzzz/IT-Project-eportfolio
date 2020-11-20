@@ -111,4 +111,4 @@ https://drive.google.com/drive/folders/1lw9btbpFqWp7t7XuJI8qckoxfXTZ-9LF?usp=sha
 
 ##  MIT License
 
-This repository is under MIT license, which is chosen because of its liscence compatibility. Please refer to License.md for detail information.
+This repository is under MIT license, which is chosen because of its liscence compatibility. Please refer to LICENSE file for more detailed information.
