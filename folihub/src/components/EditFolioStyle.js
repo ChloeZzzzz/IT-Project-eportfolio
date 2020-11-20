@@ -60,6 +60,7 @@ export const EditFolioIndex = styled.div
 `
     background-color: ${colorPlan1.Light};
     border-right: 1px solid ${colorPlan.Dark_Medium};
+    overflow-y: scroll; 
 `;
 
 export const EditFolioEditor = styled.div
@@ -108,7 +109,7 @@ export const SelectedIndexCard = styled.div
 
 export const NewPage = styled.div
 `
-    margin-top: 5%;
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -121,6 +122,11 @@ export const NewPage = styled.div
     &:hover {
         border: 1px solid #5F696D;
     };
+`;
+
+export const RemovePage = NewPage.extend
+`
+    margin-bottom: 10px;
 `;
 
 export const BookDiv = styled.button

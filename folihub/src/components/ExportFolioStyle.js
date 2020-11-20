@@ -59,3 +59,23 @@ export const PageContainer = styled.div
     margin-left: auto;
     margin-right: auto;
 `;
+
+export const ExportButtonContainer = styled.div
+`
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    font-family: "Georgia";
+`;
+
+export const DownloadButton = styled.button
+`
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    &:hover {
+        background-color: ${colorPlan.Medium_Light};
+        cursor: pointer;
+    };
+    font-family: "Georgia";
+`;

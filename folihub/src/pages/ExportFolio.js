@@ -1,7 +1,7 @@
 import React from 'react';
 import Welcome from "react-welcome-page";
 import Logo_Dark from "../img/folihub_dark.png";
-import {colorPlan, FolioContainer, FolioHeader, FolioTitle, FolioOwner, Container_1_Export, PageContainer} from '../components/ExportFolioStyle';
+import {colorPlan, FolioContainer, FolioHeader, FolioTitle, FolioOwner, Container_1_Export, PageContainer, ExportButtonContainer, DownloadButton} from '../components/ExportFolioStyle';
 import {IMG_1_Container, IMG_1, TXT_1} from '../components/TemplateStyle';
 
 import {getFolio, getPage} from '../api/folioAPI';
@@ -133,7 +133,9 @@ class ExportFolio extends React.Component {
                     <PageContainer>
                         {pages}
                     </PageContainer>
-                    <button onClick={() => this.printDocument()}> print using PDFMake  </button>
+                    <ExportButtonContainer>
+                        <DownloadButton onClick={() => this.printDocument()}> Download  </DownloadButton>
+                    </ExportButtonContainer>
                 </FolioContainer>
             )
         }

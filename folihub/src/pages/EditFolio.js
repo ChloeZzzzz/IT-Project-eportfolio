@@ -12,6 +12,7 @@ import {
   IndexCard,
   SelectedIndexCard,
   NewPage,
+  RemovePage,
   EditFolioToolbar,
   BookDiv,
   PDFDiv,
@@ -21,6 +22,8 @@ import "react-quill/dist/quill.snow.css";
 import ReactQuill from "react-quill";
 import Template_1 from "../components/template_1";
 import AddIcon from "@material-ui/icons/Add";
+import RemoveIcon from '@material-ui/icons/Remove';
+import StarIcon from '@material-ui/icons/Star';
 import ImportContactsIcon from "@material-ui/icons/ImportContacts";
 import GetAppIcon from "@material-ui/icons/GetApp";
 
@@ -46,6 +49,7 @@ class EditFolio extends React.Component {
     this.changeEdit = this.changeEdit.bind(this);
     this.changeIndexCard = this.changeIndexCard.bind(this);
     this.addPage = this.addPage.bind(this);
+    this.removePage = this.removePage.bind(this);
     this.handleClickAway = this.handleClickAway.bind(this);
     this.onNameChange = this.onNameChange.bind(this);
     this.export = this.export.bind(this);
@@ -83,10 +87,13 @@ class EditFolio extends React.Component {
         this.setState({
           name: folioInfo[0].FolioName,
           pageIds: folioInfo,
-          currPage: 0,
         });
       })
     });
+  }
+
+  removePage = async () => {
+
   }
 
   componentDidMount = async () => {
@@ -135,10 +142,10 @@ class EditFolio extends React.Component {
           if (i === this.state.currPage) {
             //change when having multiple templates
             //change to a window for selecting templates
-            cards.push(<SelectedIndexCard />);
+            cards.push(<SelectedIndexCard> <StarIcon /> </SelectedIndexCard>);
           } else {
             cards.push(
-              <IndexCard onClick={() => this.changeIndexCard({ i })} />
+              <IndexCard onClick={() => this.changeIndexCard({ i })}> {i+1} </IndexCard>
             );
           }
         }
@@ -182,6 +189,9 @@ class EditFolio extends React.Component {
               <NewPage onClick={this.addPage}>
                 <AddIcon />
               </NewPage>
+              <RemovePage onClick={this.removePage}>
+                <RemoveIcon/>
+              </RemovePage>
             </EditFolioIndex>
             <EditFolioEditor>
               <Template_1
