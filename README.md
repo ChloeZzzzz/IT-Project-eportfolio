@@ -51,6 +51,25 @@ To export an e-portfolio, a url and PDF can be generated based on user selection
   <img src="README_Assets/export_folio.png"  width="600" >
 </p> 
 
+## In Case of Error Happens
+Due to the timing issues, there are limitations on the code, which might cause bugs at some time. In case something wrong happens, the development team comes up the following list:
+**User Authentication:**  
+* Check whether it is using http or https; the website only runs on http, or it will cause CORS policy issues.
+* If failure to load content after login, check whether the email has been signed up. Only signed up emails could login.
+* If not wanting to sign up, a testing account could be used, which is as follows, with “JapanTrip” e-portfolio as the example e-portfolio for testing:
+> Email: test@folihub.com  
+> Password: aa  
+
+**User Homepage**  
+* Only clicking on the e-portfolio name could open the e-portfolio, clicking on the card container causes the change of color but does not trigger any action.  
+
+**Edit E-portfolio**  
+* It is possible that the image fails to be uploaded, in most situations it is because “payload is too large”. Please try uploading some other image instead.  
+* Deleting page functionality is not implemented as it is not labeled as a “high priority” task, however the icon (button) has been created. Clicking the delete page button triggers nothing.  
+* After uploading images and text, the “save button” (the first button on the top navigation button) should be clicked before moving to the next page, or the data will not be uploaded to the database.  
+
+**If you have an concerns, please do not hesitate to contact us with email.**
+
 ## Documentations Included
 **Included in "Documentations_and_Models" folder**  
 * Documentation Index (Index of all documentations and structures on Google Drive)
