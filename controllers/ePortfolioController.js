@@ -237,36 +237,23 @@ const getEportfolio = async (req, res) => {
   return;
 };
 
-const deleteLastPage = async (req, res) => {
+const deletePage = async (req, res) => {
   console.log(req.body);
-  let { email, folioId } = req.body;
+  let { email, folioId, pageId } = req.body;
   try {
-    console.log(email);
-    console.log(folioId);  
-    await db.query(`DELETE FROM Pages WHERE PageID = "30"`, (err, result) => {
+    await db.query(`DELETE FROM Pages WHERE PageID = ${pageId}`, (err, result) => {
       if (err){
         console.log("DELETE RESULT");
         console.log(err)
       }
       console.log("DELETE RESULT");
       console.log(result);
-    });
-
-    await db.query(`DELETE FROM Contents WHERE ContentID = "31"`, (err, result) => {
-      if (err){
-        console.log("DELETE RESULT");
-        console.log(err)
-      }
-      console.log("DELETE RESULT");
-      console.log(result);
-      res.status(200).send(result);
     });
   } catch (err) {
     console.log("---get EP ERROR---");
     console.log(err);
     return res.end();
   }
-
   return;
 };
 
@@ -377,6 +364,6 @@ module.exports = {
   getEportfolios,
   renameFolio,
   hackep,
-  deleteLastPage,
+  deletePage,
   deleteEPortfolio,
 };
