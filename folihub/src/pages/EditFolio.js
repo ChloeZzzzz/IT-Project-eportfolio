@@ -23,6 +23,7 @@ import ReactQuill from "react-quill";
 import Template_1 from "../components/template_1";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from '@material-ui/icons/Remove';
+import StarIcon from '@material-ui/icons/Star';
 import ImportContactsIcon from "@material-ui/icons/ImportContacts";
 import GetAppIcon from "@material-ui/icons/GetApp";
 
@@ -141,10 +142,10 @@ class EditFolio extends React.Component {
           if (i === this.state.currPage) {
             //change when having multiple templates
             //change to a window for selecting templates
-            cards.push(<SelectedIndexCard />);
+            cards.push(<SelectedIndexCard> <StarIcon /> </SelectedIndexCard>);
           } else {
             cards.push(
-              <IndexCard onClick={() => this.changeIndexCard({ i })} />
+              <IndexCard onClick={() => this.changeIndexCard({ i })}> {i+1} </IndexCard>
             );
           }
         }
