@@ -52,7 +52,7 @@ To export an e-portfolio, a url and PDF can be generated based on user selection
 </p> 
 
 ## In Case of Error Happens
-Due to the timing issues, there are limitations on the code, which might cause bugs at some time. In case something wrong happens, the development team comes up the following list:
+Due to the timing issues, there are limitations on the code, which might cause bugs at some time. In case something wrong happens, the development team comes up the following list:  
 **User Authentication:**  
 * Check whether it is using http or https; the website only runs on http, or it will cause CORS policy issues.
 * If failure to load content after login, check whether the email has been signed up. Only signed up emails could login.
